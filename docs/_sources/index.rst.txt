@@ -1,0 +1,27 @@
+.. SimFin documentation master file, created by
+   sphinx-quickstart on Fri Apr 17 11:43:11 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Documentation SimFin
+====================
+
+Bienvenue sur le site de documentation du simulateur des finances publiques du Québec produit par la chaire `CREEi  <https://www.creei.ca>`_, une initiative conjointe de HEC Montréal et l'ESG UQAM. 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Menu:
+
+   overview.rst
+   methodologie.rst
+   revenue.rst
+   depense.rst
+   generations.rst 
+   dette.rst
+
+Index et Tables
+===============
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
