@@ -1,0 +1,11 @@
+Simulateur
+----------
+
+Le simulateur est l'organe principal du module SimFin. Il initialise et contrôle la simulation. 
+
+.. automodule:: simfin
+
+.. currentmodule:: simfin
+
+.. autoclass:: simulator
+   :members: load_accounts, load_params, init_revenue, init_transfers, init_missions, init_debt, init_gfund, init_reserve, init_debt, collect_revenue, collect_spending, next, simulate

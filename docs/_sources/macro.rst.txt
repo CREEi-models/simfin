@@ -1,0 +1,39 @@
+Environnement macroéconomique
+-----------------------------
+
+SimFin prend en compte l'environnement macroéconomique avec des hypothèses sur la: 
+
+- croissance réelle du PIB potentiel
+- inflation
+
+PIB potentiel
+^^^^^^^^^^^^^
+
+Nous adoptons une modélisation du PIB potentielle qui ressemble à celle adoptée par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_. On suppose une fonction de production de type: 
+
+.. math::
+
+   Y_t = A_t K_t^{\alpha_K} + L_t^{\alpha_L}
+
+A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constant et dépréciation géométrique) et L les heures traCes vaillées. En prenant le log et première différence, et en imposant des rendements constant à l'échelle, on obtient
+
+.. math::
+
+   \Delta y_t = \Delta a + (1-\alpha_L) \Delta k_t + \alpha_L \Delta l_t
+
+On utilise les données des comptes publics sur la période 1981-2018 pour estimer cette équation (en dollars constants). On obtient les estimés suivant: 
+
+.. math::
+
+   \Delta y_t = 0.0059 + 0.323 \Delta k_t + 0.676 \Delta l_t
+
+La productivité croit au rythme de 0.59% par année. La part du capital est d'environ 1/3 alors que celle du travail est de 2/3. Dans les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le travail a augmenté au rythme de 1% par année. Ceci donne sur les 10 dernières années, une croissance du potentiel de 1.9%. Sans la contribution du travail (ce qui survient grosso modo entre 2020 et 2030), la croissance du PIB potentiel projeté est de 1.24\%. Ces estimés sont très similaires à ceux obtenue par Desjadins Études Économiques. 
+
+Dans SimFin, le taux de croissance du PIB potentiel prend en compte la croissance des heures travaillées qui provient de SimGen et de distribution par âge de l'emploi et des heures travaillées (BDSPSM). 
+
+Inflation
+^^^^^^^^^
+
+En utilisant l'indice des prix à la consommation, le taux d'inflation des 5 dernières années est de 1.39%. Nous utilisons ce chiffre dans nos projections. 
+
+

@@ -13,10 +13,15 @@ Bienvenue sur le site de documentation du simulateur des finances publiques du Q
    :caption: Menu:
 
    overview.rst
-   methodologie.rst
+   comptes.rst
+   macro.rst
+   demo.rst
+   eco.rst
+   simulateur.rst
    revenue.rst
    depense.rst
    generations.rst 
+   reserve.rst
    dette.rst
 
 Index et Tables

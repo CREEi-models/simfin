@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Environnement macroéconomique &mdash; Documentation SimFin </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Projections démographiques" href="demo.html" />
+    <link rel="prev" title="Comptes publics" href="comptes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SimFin
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Menu:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Environnement macroéconomique</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pib-potentiel">PIB potentiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inflation">Inflation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SimFin</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Environnement macroéconomique</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/macro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environnement-macroeconomique">
+<h1>Environnement macroéconomique<a class="headerlink" href="#environnement-macroeconomique" title="Lien permanent vers ce titre">¶</a></h1>
+<p>SimFin prend en compte l’environnement macroéconomique avec des hypothèses sur la:</p>
+<ul class="simple">
+<li><p>croissance réelle du PIB potentiel</p></li>
+<li><p>inflation</p></li>
+</ul>
+<div class="section" id="pib-potentiel">
+<h2>PIB potentiel<a class="headerlink" href="#pib-potentiel" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous adoptons une modélisation du PIB potentielle qui ressemble à celle adoptée par <a class="reference external" href="https://www.desjardins.com/ressources/pdf/pv200309-f.pdf">Desjardins Études Économiques</a>. On suppose une fonction de production de type:</p>
+<div class="math notranslate nohighlight">
+\[Y_t = A_t K_t^{\alpha_K} + L_t^{\alpha_L}\]</div>
+<p>A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constant et dépréciation géométrique) et L les heures traCes vaillées. En prenant le log et première différence, et en imposant des rendements constant à l’échelle, on obtient</p>
+<div class="math notranslate nohighlight">
+\[\Delta y_t = \Delta a + (1-\alpha_L) \Delta k_t + \alpha_L \Delta l_t\]</div>
+<p>On utilise les données des comptes publics sur la période 1981-2018 pour estimer cette équation (en dollars constants). On obtient les estimés suivant:</p>
+<div class="math notranslate nohighlight">
+\[\Delta y_t = 0.0059 + 0.323 \Delta k_t + 0.676 \Delta l_t\]</div>
+<p>La productivité croit au rythme de 0.59% par année. La part du capital est d’environ 1/3 alors que celle du travail est de 2/3. Dans les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le travail a augmenté au rythme de 1% par année. Ceci donne sur les 10 dernières années, une croissance du potentiel de 1.9%. Sans la contribution du travail (ce qui survient grosso modo entre 2020 et 2030), la croissance du PIB potentiel projeté est de 1.24%. Ces estimés sont très similaires à ceux obtenue par Desjadins Études Économiques.</p>
+<p>Dans SimFin, le taux de croissance du PIB potentiel prend en compte la croissance des heures travaillées qui provient de SimGen et de distribution par âge de l’emploi et des heures travaillées (BDSPSM).</p>
+</div>
+<div class="section" id="inflation">
+<h2>Inflation<a class="headerlink" href="#inflation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En utilisant l’indice des prix à la consommation, le taux d’inflation des 5 dernières années est de 1.39%. Nous utilisons ce chiffre dans nos projections.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="demo.html" class="btn btn-neutral float-right" title="Projections démographiques" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="comptes.html" class="btn btn-neutral float-left" title="Comptes publics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Équipe CREEi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

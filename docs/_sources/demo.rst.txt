@@ -1,0 +1,8 @@
+Projections démographiques
+--------------------------
+
+Nous utilisons par défaut le scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Ce scénario est lui-même concordant avec le scénario de référence de l'Institut de la Statistique du Québec. Les projections sont faites en terme d'âge, de sexe, de statut matrimonial, du nombre d'enfants, de la présence à l'école et du plus haut diplôme obtenue. 
+
+L'utilisateur peut utiliser un scénario alternatif en utilisant SimGen et en faisant référence au fichier de sortie dans la fonction load_params() de SimFin. 
+
+

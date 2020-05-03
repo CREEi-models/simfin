@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; Documentation SimFin </title>
+  <title>En un clin d’oeil &mdash; Documentation SimFin </title>
   
 
   
@@ -21,11 +21,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Méthodologie de recherche" href="methodologie.html" />
+    <link rel="next" title="Comptes publics" href="comptes.html" />
     <link rel="prev" title="Documentation SimFin" href="index.html" /> 
 </head>
 
@@ -83,8 +83,13 @@
             
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methodologie.html">Méthodologie de recherche</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">En un clin d’oeil</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation">Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
@@ -134,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Installation</li>
+      <li>En un clin d’oeil</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,8 +158,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h1>
+  <div class="section" id="en-un-clin-d-oeil">
+<h1>En un clin d’oeil<a class="headerlink" href="#en-un-clin-d-oeil" title="Lien permanent vers ce titre">¶</a></h1>
+<p>SimFin permet de faire des projections des finances publiques québécoises. Le calculateur utilise les projections démographiques provenant du simulateur démographique <a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a>. De plus, il utilise des données de la BDSPSM de Statistiques Canada, de l’Institut Canadien d’information en santé et des comptes économiques produits par l’Institut de la Statistique du Québec comme inputs. SimFin est basé sur la classification des revenus et dépenses contenu dans les rapports des Comptes publics du gouvernement du Québec.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>SimFin est écrit en python. Nous utilisons la distribution <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> de Python pour nos calculs. Le code source réside sur <a class="reference external" href="https://github.com/creei-models/simfin">github</a>. On peut installer directement en utilisant l’installateur pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">creei</span><span class="o">-</span><span class="n">models</span><span class="o">/</span><span class="n">simfin</span>
+</pre></div>
+</div>
+<p>SimFin contient les données démographiques du scénario de référence de SimGen. Pour inclure des
+données alternatives, voir la documentation de la fonction load_demo.</p>
+</div>
+<div class="section" id="utilisation">
+<h2>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>SimFin peut être lancé de la façon suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simfin</span>
+<span class="n">mysim</span> <span class="o">=</span> <span class="n">simfin</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2060</span><span class="p">)</span>
+<span class="n">mysim</span><span class="o">.</span><span class="n">simulate</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mysim</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>L’objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation.</p>
+</div>
 </div>
 
 
@@ -165,7 +191,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="methodologie.html" class="btn btn-neutral float-right" title="Méthodologie de recherche" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="comptes.html" class="btn btn-neutral float-right" title="Comptes publics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Documentation SimFin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

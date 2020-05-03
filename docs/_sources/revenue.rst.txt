@@ -1,2 +1,153 @@
-Revenues
---------
+Revenus
+-------
+
+[Il reste à remplir les docstrings des fonctions et mettre les taux historiques ici-bas]
+
+SimFin fait la modélisation des revenus autonomes et des transfers fédéraux. En terme de modélisation des revenus autonomes, nous prenons en compte les impôts et crédits remboursables des particuliers, des sociétés, les entreprises du gouvernement, les taxes à la consommation, le fonds de la santé et des services sociaux (FSS), l'impôt foncier scolaire, les droits et permis et les autres taxes. 
+
+.. currentmodule:: simfin.revenue
+
+Revenus autonomes
+^^^^^^^^^^^^^^^^^
+
+La fonction suivante permet de colliger différents revenus autonomes.
+
+.. autoclass:: collector
+
+Impôt des particuliers
+^^^^^^^^^^^^^^^^^^^^^^
+
+impôt
+=====
+
+L'impôt des particuliers est modélisé à l'aide de la structure démographique de la population et des équations estimées sur la BDSPS. Par la suite, il est calibré, à l'année de départ afin d'être aligné sur le montant indiqué aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croit par année en fonction de la croissance du PIB potentiel (dollars courants).
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: personal_taxes
+ 
+crédits
+=======
+
+La comptabilisation des comptes publics imputent au revenus la dépense fiscale associée aux crédits d'impôt remboursables car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Nous modélisation l'utilisation de ces crédits à l'aide de la structure de population par âge ainsi que des équations estimés sur la BDSPSM. 
+
+Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.
+
+.. autoclass:: personal_credits
+
+Impôt des sociétés
+^^^^^^^^^^^^^^^^^^
+
+impôt
+=====
+
+
+L'impôt des sociétés est croit au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: corporate_taxes
+
+crédits
+=======
+
+
+Les crédits d'impôt remboursables des sociétés croient au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.
+
+.. autoclass:: corporate_credits
+
+Cotisations au FSS
+^^^^^^^^^^^^^^^^^^
+
+
+Les cotisations au FSS, provenant largement des entreprises, croit au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: fss
+
+Taxes à la consommation
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Les revenus provenant des taxes à la consommation sont affectées par la structure démographique et des équations modélisant les taxes à la consommation par âge et autres caractéristiques. Ces équations sont estimées sur la BDSPSM. Les revenus par âge croient au rythme du PIB potentiel per capita. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: consumption
+
+Droits et permis
+^^^^^^^^^^^^^^^^
+
+Les revenus de droits et permis croient au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: permits
+
+Entreprises du gouvernement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les revenus provenant des entreprises du gouvernement au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: gov_enterprises
+
+Impôt foncier scolaire
+^^^^^^^^^^^^^^^^^^^^^^
+
+Les revenus provenant des taxes scolaires croient au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: gov_enterprises
+
+Autres taxes
+^^^^^^^^^^^^
+
+Les revenus provenant des autres taxes croient au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+
+.. autoclass:: other_taxes
+
+Transfers fédéraux
+------------------
+
+.. currentmodule:: simfin.federal
+
+Trois transfers fédéraux sont modélisés: les paiements de péréquation, du transfert en santé et la somme des autres transfers (en éducation, etc). 
+
+La fonction collector permet de colliger ces revenus 
+
+.. autoclass:: collector
+
+Péréquation
+^^^^^^^^^^^
+
+Ces transferts sont supposés croître au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+
+.. autoclass:: equalization
+
+Transfers en santé
+^^^^^^^^^^^^^^^^^^
+
+Ces transferts sont supposés croître au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+
+.. autoclass:: health_transfer
+
+Autres transfers
+^^^^^^^^^^^^^^^^
+
+Ces transferts sont supposés croître au rythme du PIB potentiel. 
+
+Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+
+.. autoclass:: other_transfers

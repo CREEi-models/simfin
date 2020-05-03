@@ -1,0 +1,26 @@
+Profils économiques par âge
+---------------------------
+
+Nous utilisons la BDSPSM de Statistiques Canada (2017) afin de modéliser le profil de l'emploi, des heures travaillées, revenue de travail et les dépenses de consommation.
+
+Emploi
+^^^^^^
+
+À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+
+Heures travaillées
+^^^^^^^^^^^^^^^^^^
+
+À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+
+Revenu de travail
+^^^^^^^^^^^^^^^^^
+
+À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+
+Dépenses de consommation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+
+

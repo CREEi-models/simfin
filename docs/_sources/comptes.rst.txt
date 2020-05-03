@@ -1,0 +1,55 @@
+Comptes publics
+---------------
+
+Nomenclature
+^^^^^^^^^^^^
+
+Nous avons colligé pour les années 2006-2019, les données des comptes publics pour les éléments suivants:
+
+Revenus provenant de:
+
+- impôt et crédits remboursables des particulier
+- impôt et crédits remboursavles des entreprises
+- taxes à la consommation
+- FSS
+- entreprises du gouvernement
+- droits et permis 
+- taxes scolaires
+- autres taxes
+- transfers fédéraux (péréquation, transferts en santé et autres transferts)
+
+Dépenses provenant de:
+
+- mission santé
+- mission éducation et culture
+- mission famille
+- mission économie et innovation 
+- mission gouverne et justice 
+- service de la dette 
+
+Par ailleurs, nous modélisons le fonds des générations (prévu jusqu'en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette, nous modélisons les comptes additionels qui permettent de regarder la dette brutte (e.g. régimes de retraites). 
+
+Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification: 
+
+.. csv-table:: Classification des comptes publics 2016-2019
+   :widths: 10, 5, 5, 5, 5
+   :header: "Comptes (en millions)", "2016", "2017", "2018", "2019"
+   :file: historical_accounts.csv
+
+Outils
+^^^^^^
+
+Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit. 
+
+.. currentmodule:: simfin.tools
+
+.. autoclass:: account
+   :members: grow, reset
+
+
+.. autoclass:: accounts
+   :members: sum, grow, reset
+
+
+
+

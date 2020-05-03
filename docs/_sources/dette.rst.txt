@@ -1,2 +1,13 @@
 Dette publique
 --------------
+
+La dette publique du gouvernement du Québec consiste en majorité d'emprunt sous forme d'obligations émises sur les marchés internationaux. Les comptes publics font état de l'évolution de la dette publique québécoise. D'une année à l'autre, la dette publique évolue pour différentes raisons. D'abord, la dette fluctue de par la valeur des obligations (en particulier risque de change) et l'échéance et ré-émission de nouvelles obligations. Elle augmente à cause de nouveaux besoins d'emprunts, par exemple pour financer des investissement en infrastructures et la dette des investissements par partenariat public-privé (PPP). Elle diminue dû à un fonds d'amortissement. Ce module de dette publique prend en compte ces différents éléments. Cependant, certains éléments sont supposés croître à un rythme égal à celui du PIB, comme les nouveaux emprunts, le fonds d'amortissement et la dette PPP. Ainsi, seul les nouveaux emprunts et le remboursement de la dette (soit provenant du Fonds des générations ou du solde budgétaire) font varier le ratio dette PIB. 
+
+La dette brutte ajoute à la dette, la dette liée aux obligations non-financées des régimes de retraite du gouvernement. Elle diminue du montant du solde du Fonds des générations. Finalement, elle diminue des emprunts par anticipation. 
+
+Le service de la dette est modélisé en utilisant le coût effectif de la dette rapporté dans les comptes publics. Nous prennons la moyenne 2008-2019, soit 3.9% (nominal). 
+
+.. currentmodule:: simfin.debt
+
+.. autoclass:: collector
+   :members: service, borrowing, repaying, grow, reset

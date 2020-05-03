@@ -1,2 +1,13 @@
 Fonds des générations
 ---------------------
+
+[Faire les docstrings de collector]
+
+Le fonds des générations établie des cotisations provenant de revenus autonomes et de placement. Ces cotisations sont enregistré au fonds, et déduite du solde budgétaire. Par ailleurs, le solde du fonds des générations est déduit de la dette publique afin de calculer la dette brutte. Les revenus autonomes du Fonds sont prescrits par la loi et annoncés pour les années 2021 à 2025 au budget de 2020-2021. Ces revenus proviennent en majorité de la taxe sur les boissons alcoholisées, les revenus provenant de l'exploitation des ressources hydrauliques et minières. Les revenus de placements sont par ailleurs modélisé en utilisant la moyenne du taux de rendement effectifs au Fonds depuis 2017, soit 4.5% (nominal). Ce même taux est supposé pour le futur. Par ailleurs, nous ne prenons pas l'incertitude sur ce taux de rendements dû aux fluctuations du marché. 
+
+À l'échéance en 2025 de la loi sur l'équilibre budgétaire, nous faisons l'hypothèse que le solde du fonds est appliquée à la dette et maintenue à zéro par la suite. Il est possible, dans le cadre de scénarios, de modifier cette hypothèse. 
+
+.. currentmodule:: simfin.genfund
+
+.. autoclass:: collector
+   :members: returns, make_contrib, grow, reset

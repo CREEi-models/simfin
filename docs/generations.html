@@ -21,11 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -83,9 +84,14 @@
             
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methodologie.html">Méthodologie de recherche</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Fonds des générations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
@@ -155,6 +161,14 @@
             
   <div class="section" id="fonds-des-generations">
 <h1>Fonds des générations<a class="headerlink" href="#fonds-des-generations" title="Lien permanent vers ce titre">¶</a></h1>
+<p>[Faire les docstrings de collector]</p>
+<p>Le fonds des générations établie des cotisations provenant de revenus autonomes et de placement. Ces cotisations sont enregistré au fonds, et déduite du solde budgétaire. Par ailleurs, le solde du fonds des générations est déduit de la dette publique afin de calculer la dette brutte. Les revenus autonomes du Fonds sont prescrits par la loi et annoncés pour les années 2021 à 2025 au budget de 2020-2021. Ces revenus proviennent en majorité de la taxe sur les boissons alcoholisées, les revenus provenant de l’exploitation des ressources hydrauliques et minières. Les revenus de placements sont par ailleurs modélisé en utilisant la moyenne du taux de rendement effectifs au Fonds depuis 2017, soit 4.5% (nominal). Ce même taux est supposé pour le futur. Par ailleurs, nous ne prenons pas l’incertitude sur ce taux de rendements dû aux fluctuations du marché.</p>
+<p>À l’échéance en 2025 de la loi sur l’équilibre budgétaire, nous faisons l’hypothèse que le solde du fonds est appliquée à la dette et maintenue à zéro par la suite. Il est possible, dans le cadre de scénarios, de modifier cette hypothèse.</p>
+<dl class="class">
+<dt id="simfin.genfund.collector">
+<em class="property">class </em><code class="sig-prename descclassname">simfin.genfund.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">init_balance</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.genfund.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 

@@ -21,11 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,7 +37,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Installation" href="overview.html" /> 
+    <link rel="next" title="En un clin d’oeil" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,11 +83,17 @@
             
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methodologie.html">Méthodologie de recherche</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
 </ul>
 
@@ -158,11 +165,58 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methodologie.html">Méthodologie de recherche</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#utilisation">Utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="comptes.html#nomenclature">Nomenclature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comptes.html#outils">Outils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#pib-potentiel">PIB potentiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#inflation">Inflation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eco.html#emploi">Emploi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eco.html#heures-travaillees">Heures travaillées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eco.html#revenu-de-travail">Revenu de travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eco.html#depenses-de-consommation">Dépenses de consommation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#revenus-autonomes">Revenus autonomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#impot-des-particuliers">Impôt des particuliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#impot-des-societes">Impôt des sociétés</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#cotisations-au-fss">Cotisations au FSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#taxes-a-la-consommation">Taxes à la consommation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#droits-et-permis">Droits et permis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#entreprises-du-gouvernement">Entreprises du gouvernement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#impot-foncier-scolaire">Impôt foncier scolaire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#autres-taxes">Autres taxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#perequation">Péréquation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#transfers-en-sante">Transfers en santé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revenue.html#autres-transfers">Autres transfers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="depense.html#sante-et-services-sociaux">Santé et services sociaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="depense.html#education-et-culture">Éducation et culture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="depense.html#economie-et-innovation">Économie et innovation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="depense.html#gouverne-et-justice">Gouverne et Justice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="depense.html#soutien-aux-familles">Soutien aux familles</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
 </ul>
 </div>
@@ -184,7 +238,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="overview.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="En un clin d’oeil" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

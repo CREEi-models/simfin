@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Simulateur &mdash; Documentation SimFin </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Revenues" href="revenue.html" />
+    <link rel="prev" title="Comptes publics" href="comptes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SimFin
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Menu:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#utilisation">Utilisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SimFin</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Simulateur</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/simulateur.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simulateur">
+<h1>Simulateur<a class="headerlink" href="#simulateur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le simulateur est l’organe principal du module SimFin. Il initialise et contrôle la simulation.</p>
+<span class="target" id="module-simfin"></span><dl class="class">
+<dt id="simfin.simulator">
+<em class="property">class </em><code class="sig-prename descclassname">simfin.</code><code class="sig-name descname">simulator</code><span class="sig-paren">(</span><em class="sig-param">start_yr</em>, <em class="sig-param">stop_yr</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe principale pour contrôler le simulateur.</p>
+<p>Cette classe permet d’initialiser les paramètres et réaliser des simulations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_yr</strong> (<em>int</em>) – année de départ de la projection</p></li>
+<li><p><strong>stop_yr</strong> (<em>int</em>) – année de fin de la projection</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="simfin.simulator.collect_revenue">
+<code class="sig-name descname">collect_revenue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_revenue" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction qui comptabilise les comptes de revenues</p>
+<p>Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.collect_spending">
+<code class="sig-name descname">collect_spending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_spending" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction qui comptabilise les comptes de dépenses</p>
+<p>Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_debt">
+<code class="sig-name descname">init_debt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_debt" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation des comptes de la dette publique.</p>
+<p>Fonction qui crée les comptes de dettes et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">init_debt</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Fonction initialisation des comptes de la dette publique.</p>
+<p>Fonction qui crée les comptes de dettes et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_gfund">
+<code class="sig-name descname">init_gfund</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_gfund" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation du fonds des générations.</p>
+<p>Fonction qui crée les comptes du fonds des générations et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_missions">
+<code class="sig-name descname">init_missions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_missions" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation des dépenses de missions</p>
+<p>Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_reserve">
+<code class="sig-name descname">init_reserve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_reserve" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation de la réserve de stabilisation.</p>
+<p>Fonction qui crée les comptes de la réserve de stabilisation et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_revenue">
+<code class="sig-name descname">init_revenue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_revenue" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation des revenues</p>
+<p>Fonction qui crée les comptes de revenus et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.init_transfers">
+<code class="sig-name descname">init_transfers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_transfers" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction initialisation des transfers fédéraux</p>
+<p>Fonction qui crée les comptes de transfers fédéraux et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.load_accounts">
+<code class="sig-name descname">load_accounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_accounts" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction permettant de charger l’historique des comptes publics.</p>
+<p>L’historique des comptes publics a été comptabilisé pour la période 2006-2019. Cette fonction charge les valeurs des comptes publics et prépare le rapport sommaire (summary report) pour les résultats.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.load_params">
+<code class="sig-name descname">load_params</code><span class="sig-paren">(</span><em class="sig-param">file_pop='/simfin/params/simpop.pkl'</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_params" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction qui charge différents paramètres</p>
+<p>Fonction qui charge: a) la projection démographique, b) les statuts économiques par âge et c) les paramètres macroéconomiques.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments de mots-clés</dt>
+<dd class="field-odd"><p><strong>{str} --</strong><strong> [</strong><strong>fichier SimGen</strong><strong>] </strong><strong>(</strong><strong>défaut</strong> (<em>file_pop</em>) – {“module_dir+/simfin/params/simpop.pkl”})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.next">
+<code class="sig-name descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.next" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction de transition.</p>
+<p>Fonction qui permet de faire une transition, croissance économique et des comptes et fait la comptabilisation des comptes publics, mise-à-jour de la dette.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="simfin.simulator.simulate">
+<code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param">nyears=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.simulate" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction qui exécute la projection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments de mots-clés</dt>
+<dd class="field-odd"><p><strong>{int} -- nombre d'année à exécuter</strong><strong> (</strong><strong>défaut</strong> (<em>nyears</em>) – toutes les années jusqu’à stop_yr)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="revenue.html" class="btn btn-neutral float-right" title="Revenues" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="comptes.html" class="btn btn-neutral float-left" title="Comptes publics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Équipe CREEi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
