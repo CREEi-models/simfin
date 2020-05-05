@@ -39,4 +39,7 @@ class collector:
             acc = getattr(self,acc_name)
             acc.reset()
             setattr(self,acc_name,acc)
+        self.new_borrow = 0.0 
+        self.repay = 0.0
+        self.balance = self.init_balance
         return  

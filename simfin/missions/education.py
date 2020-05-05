@@ -10,8 +10,8 @@ class education(account):
         self.igdp = igdp
         self.iprice = iprice 
         self.ipop = ipop 
-        self.pcap = pd.read_pickle(module_dir+'/params/educ_costs.pkl')
-        self.pcap = self.pcap['pcap'].astype('float')
+        self.pcap_start = pd.read_pickle(module_dir+'/params/educ_costs.pkl')
+        self.pcap = self.pcap_start['pcap'].astype('float')
         if self.iprice:
             self.price_college = 0.005 
             self.price_hs = 0.005
@@ -45,4 +45,5 @@ class education(account):
         return        
     def reset(self):
         self.value = self.start_value
+        self.pcap = self.pcap_start['pcap'].astype('float')
         return 

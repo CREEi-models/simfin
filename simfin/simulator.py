@@ -3,6 +3,7 @@ import numpy as np
 from simfin import revenue, macro, federal, missions, debt, genfund, reserve
 import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
+import functools
 
 
 class simulator:
@@ -245,5 +246,22 @@ class simulator:
         self.macro.reset(self.pop[self.start_yr],self.eco_first)
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_yr,self.stop_yr)])
         self.year = self.start_yr
-
+    def replication(self,rep=1):
+        """Fonction qui exécute des réplicatoins de simulation
+        Keyword Arguments:
+            nyears {int} -- nombre d'année à exécuter (défaut: toutes les années jusqu'à stop_yr)
+        """
+        def decorator_replication(func):
+            @functools.wraps(func)
+            def wrapper(*args, **kwargs):
+                self.all_summary = []
+                for _ in range(rep):
+                    #if param != None :
+                    #    for key in a param:
+                     #       key(param[key])
+                    func(*args, **kwargs)
+                    self.all_summary.append(self.summary)
+                    self.reset()
+            return wrapper
+        return decorator_replication
 

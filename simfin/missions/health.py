@@ -10,7 +10,8 @@ class health(account):
         self.igdp = igdp
         self.iprice = iprice 
         self.ipop = ipop 
-        self.pcap = pd.read_pickle(module_dir+'/params/health_cihi_pcap.pkl')
+        self.pcap_start = pd.read_pickle(module_dir+'/params/health_cihi_pcap.pkl')
+        self.pcap = self.pcap_start.copy()
         self.tcam = pd.read_pickle(module_dir+'/params/health_cihi_growth.pkl')
         self.categories = ['Drugs','Hospitals','Other Institutions','Other Professionals','Physicians']
         self.align = 1.0
@@ -44,6 +45,7 @@ class health(account):
         return             
     def reset(self):
         self.value = self.start_value
+        self.pcap = self.pcap_start.copy()
         return 
 
 
