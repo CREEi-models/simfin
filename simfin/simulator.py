@@ -42,12 +42,10 @@ class simulator:
         """
         self.history = pd.read_excel(module_dir+'/simfin/params/historical_accounts.xlsx',sheet_name='Inputs')
         self.history = self.history.set_index('account')
-        self.report = self.history.copy()
-        self.report = self.report[[t for t in range(2006,self.start_yr)]]
-        names = ['personal','corporate','consumption','other taxes','autonomous','federal transfers','total revenue','mission health','mission education','other missions','mission spending',
+        self.names = ['personal','corporate','consumption','other taxes','autonomous','federal transfers','total revenue','mission health','mission education','other missions','mission spending',
             'debt service','total spending','surplus','generation fund','fund contribution','net surplus',
             'reserve','debt','gross debt','gdp','debt-to-gdp','gdp growth','pop growth','emp growth']
-        self.summary = pd.DataFrame(index=names,columns=[t for t in range(self.start_yr,self.stop_yr)])
+        self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_yr,self.stop_yr)])
         return
     def load_params(self,file_pop='/simfin/params/simpop.pkl'):
         """ Fonction qui charge différents paramètres
@@ -61,7 +59,8 @@ class simulator:
             self.pop = pd.read_pickle(file_pop)
         else :
             self.pop = pd.read_pickle(module_dir+file_pop)
-        self.eco = pd.read_pickle(module_dir+'/simfin/params/economic_outcomes.pkl')
+        self.eco_first = pd.read_pickle(module_dir+'/simfin/params/economic_outcomes.pkl')
+        self.eco = self.eco_first
         self.macro.set_align_emp(self.pop[self.start_yr],self.eco)
         return       
     def init_revenue(self):
@@ -189,13 +188,13 @@ class simulator:
                 self.history.loc['corporate_credits',self.year])
             self.summary.loc['consumption',self.year] = self.history.loc['consumption',self.year]
             self.summary.loc['other taxes',self.year] = (self.history.loc['other_taxes',self.year] +\
-                self.summary.loc['permits',self.year] + self.summary.loc['fss',self.year] +\
-                self.summary.loc['gov_enterprises',self.year] + self.summary.loc['property_taxes',self.year])
+                self.history.loc['permits',self.year] + self.history.loc['fss',self.year] +\
+                self.history.loc['gov_enterprises',self.year] + self.history.loc['property_taxes',self.year])
             self.summary.loc['autonomous',self.year] = (self.summary.loc['personal',self.year] +\
                 self.summary.loc['corporate',self.year] + self.summary.loc['consumption',self.year] +\
-                self.summary.loc['other_taxes',self.year])
+                self.history.loc['other_taxes',self.year])
             self.summary.loc['federal transfers',self.year] = (self.history.loc['equalization',self.year] +\
-                self.history.loc['health transfer',self.year] + self.history.loc['other transfers',self.year])
+                self.history.loc['health_transfer',self.year] + self.history.loc['other_transfers',self.year])
             self.summary.loc['total revenue',self.year] = self.summary.loc['autonomous',self.year] +\
                 self.summary.loc['federal transfers',self.year]      
         return 
@@ -234,5 +233,17 @@ class simulator:
         for t in range(self.year,min(self.year+nyears,self.stop_yr)):
             self.next()
         return 
+    def reset(self):
+        """Fonction qui reset le simulateur
+        """
+        self.reserve.reset()
+        self.revenue.reset()
+        self.transfers.reset()
+        self.missions.reset()
+        self.debt.reset()
+        self.genfund.reset()
+        self.macro.reset(self.pop[self.start_yr],self.eco_first)
+        self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_yr,self.stop_yr)])
+        self.year = self.start_yr
 
 

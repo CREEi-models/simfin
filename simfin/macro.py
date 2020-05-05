@@ -6,8 +6,8 @@ module_dir = os.path.dirname(os.path.dirname(__file__))
 
 class macro: 
     def __init__(self,start_yr):
-        rates = pd.read_pickle(module_dir+'/simfin/params/rates.pkl')
-        self.infl = rates.loc['inflation','tcam_last5']
+        self.rates = pd.read_pickle(module_dir+'/simfin/params/rates.pkl')
+        self.infl = self.rates.loc['inflation','tcam_last5']
         self.g_pars = pd.read_pickle(module_dir+'/simfin/params/growth_params.pkl')
         self.data = pd.read_pickle(module_dir+'/simfin/params/base_aggregates.pkl')
         self.start_yr = start_yr
@@ -21,6 +21,19 @@ class macro:
         self.gr_Y = 0.0
         self.year = start_yr
         return 
+    def reset(self,pop,eco):
+        self.infl = self.rates.loc['inflation','tcam_last5']
+        self.Y = self.data['nom_Y']
+        self.L = self.data['L']*1e3
+        self.N = self.data['N']
+        self.gr_K = self.g_pars['g_real_K']
+        self.gr_A = self.g_pars['A']
+        self.gr_L = 0.0
+        self.gr_N = 0.0
+        self.gr_Y = 0.0
+        self.year = self.start_yr
+        self.set_align_emp(pop,eco)
+
     def set_rate_real_K(self,rate=None):
         if rate!=None:
             self.gr_K = rate 
