@@ -21,11 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -89,10 +90,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
 </ul>
 
@@ -176,7 +182,7 @@ données alternatives, voir la documentation de la fonction load_demo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simfin</span>
 <span class="n">mysim</span> <span class="o">=</span> <span class="n">simfin</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">2060</span><span class="p">)</span>
 <span class="n">mysim</span><span class="o">.</span><span class="n">simulate</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mysim</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mysim</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>L’objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation.</p>

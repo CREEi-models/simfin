@@ -11,7 +11,7 @@ Les dépenses sont organisées par mission. Cinq missions sont prises en comptes
 - économie et innovation 
 - soutien aux familles 
 
-De plus le service de la dette est modélisé mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions. 
+De plus le service de la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions. 
 
 .. currentmodule:: simfin.missions
 
