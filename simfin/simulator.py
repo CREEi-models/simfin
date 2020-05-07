@@ -11,7 +11,7 @@ class simulator:
     Classe principale pour contrôler le simulateur. 
     
     Cette classe permet d'initialiser les paramètres et réaliser des simulations. 
-    
+     
     Parameters
     ----------
     start_yr: int 
@@ -246,7 +246,7 @@ class simulator:
         self.macro.reset(self.pop[self.start_yr],self.eco_first)
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_yr,self.stop_yr)])
         self.year = self.start_yr
-    def replication(self,rep=1):
+    def replication(self,rep=1,param=None):
         """Fonction qui exécute des réplicatoins de simulation
         Keyword Arguments:
             nyears {int} -- nombre d'année à exécuter (défaut: toutes les années jusqu'à stop_yr)
@@ -255,11 +255,13 @@ class simulator:
             @functools.wraps(func)
             def wrapper(*args, **kwargs):
                 self.all_summary = []
-                for _ in range(rep):
-                    #if param != None :
-                    #    for key in a param:
-                     #       key(param[key])
-                    func(*args, **kwargs)
+                for i in range(rep):
+                    if param != None :
+                        for key in param:
+                            draw = np.random.random_sample()
+                            index = np.searchsorted(param[key][1],draw)
+                            key(self,param[key][0][index])
+                    func(self,*args, **kwargs)
                     self.all_summary.append(self.summary)
                     self.reset()
             return wrapper
