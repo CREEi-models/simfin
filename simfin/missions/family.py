@@ -21,7 +21,7 @@ class family(account):
         self.ipop = ipop
         return
     def set_sub_account(self,macro,pop,eco):
-        self.value_credit_family = (pop.multiply(eco['credit_famille']*(eco['emp']*eco['earn_c']+eco['taxinc']),fill_value=0.0).sum()) # modif Bertrand 
+        self.value_credit_family = (pop.multiply(eco['credit_famille']*(eco['emp']*eco['earn_c']+eco['taxinc']),fill_value=0.0).sum()) # modif Bertrand
         self.value_kg = macro.data['family_kg']
         self.value_other = self.value-self.value_credit_family-self.value_kg
 
@@ -31,12 +31,12 @@ class family(account):
 
         self.pop_04 = pop.loc[0:4].sum()
         self.start_pop_04 = self.pop_04
-    def grow(self,macro,pop,eco):    
+    def grow(self,macro,pop,eco):
         """
         Fait croître la consommation par personne au rythme de l'inflation +
         1/alpha_L * la croissance de la TFP (A) (croissance des salaires).
         """
-        igra = True 
+        igra = True
 
         #credit
         rate = 1.0+macro.infl
@@ -44,7 +44,7 @@ class family(account):
         #    rate += 1/macro.g_pars['alpha_L']*macro.gr_A
         eco['credit_famille'] *= rate
         
-        self.value_credit_family = (pop.multiply(eco['credit_famille']*(eco['emp']*eco['earn_c']+eco['taxinc']),fill_value=0.0).sum()) # modif Bertrand 
+        self.value_credit_family = (pop.multiply(eco['credit_famille']*(eco['emp']*eco['earn_c']+eco['taxinc']),fill_value=0.0).sum()) # modif Bertrand
 
         #kindergarden
         pop_04 = pop.loc[0:4].sum()
@@ -52,7 +52,7 @@ class family(account):
         rate += (pop_04-self.pop_04)/self.pop_04
 
         if igra == True:
-            rate += 1/macro.g_pars['alpha_L']*macro.gr_A     
+            rate += 1/macro.g_pars['alpha_L']*macro.gr_A
         self.value_kg *= rate
         self.pop_04 = pop_04
 
