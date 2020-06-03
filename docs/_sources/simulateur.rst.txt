@@ -1,7 +1,7 @@
 Simulateur
 ----------
 
-Le simulateur est l'organe principal du module SimFin. Il initialise et contrôle la simulation. 
+Le simulateur est l'organe principal du module SimFin. Il initialise et contrôle la simulation.
 
 .. automodule:: simfin
 

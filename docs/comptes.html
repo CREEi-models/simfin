@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Environnement macroéconomique" href="macro.html" />
-    <link rel="prev" title="En un clin d’oeil" href="overview.html" /> 
+    <link rel="prev" title="Synthèse des résultats" href="results.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,6 +85,7 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Comptes publics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#nomenclature">Nomenclature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#outils">Outils</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
@@ -168,41 +169,48 @@
 <h1>Comptes publics<a class="headerlink" href="#comptes-publics" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="nomenclature">
 <h2>Nomenclature<a class="headerlink" href="#nomenclature" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Nous avons colligé pour les années 2006-2019, les données des comptes publics pour les éléments suivants:</p>
-<p>Revenus provenant de:</p>
+<p>Pour toutes les années de 2006 à 2019, nous avons colligé les données des comptes publics pour les éléments suivants:</p>
+<p>Revenus provenant :</p>
 <ul class="simple">
-<li><p>impôt et crédits remboursables des particuliers</p></li>
-<li><p>impôt et crédits remboursables des entreprises</p></li>
-<li><p>taxes à la consommation</p></li>
-<li><p>FSS</p></li>
-<li><p>entreprises du gouvernement</p></li>
-<li><p>droits et permis</p></li>
-<li><p>taxes scolaires</p></li>
-<li><p>autres taxes</p></li>
-<li><p>transfers fédéraux (péréquation, transferts en santé et autres transferts)</p></li>
+<li><p>des impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#id1">comptes publics</a> présentés en bas de page);</p></li>
+<li><p>des impôts et crédits remboursables des entreprises (10%);</p></li>
+<li><p>des taxes à la consommation (22,9%);</p></li>
+<li><p>des cotisations au fonds des services de santé (FSS; 6,9%);</p></li>
+<li><p>des entreprises du gouvernement (6,1%);</p></li>
+<li><p>des droits et permis (4,8%);</p></li>
+<li><p>de l’impôt foncier scolaire (2%);</p></li>
+<li><p>des autres taxes (12,6%).</p></li>
 </ul>
-<p>Dépenses provenant de:</p>
+<p>Revenus provenant des transfers fédéraux :</p>
 <ul class="simple">
-<li><p>mission santé</p></li>
-<li><p>mission éducation et culture</p></li>
-<li><p>mission famille</p></li>
-<li><p>mission économie et innovation</p></li>
-<li><p>mission gouverne et justice</p></li>
-<li><p>service de la dette</p></li>
+<li><p>péréquation (50,7% de l’ensemble des transferts fédéraux en 2019);</p></li>
+<li><p>transferts en santé (27,3%);</p></li>
+<li><p>autres transferts (22%).</p></li>
 </ul>
-<p>Par ailleurs, nous modélisons le fonds des générations (prévu jusqu’en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette, nous modélisons les comptes additionels qui permettent de regarder la dette brutte (e.g. régimes de retraites).</p>
-<p>Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification:</p>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text">Classification des comptes publics 2016-2019</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<p>Dépenses provenant des missions :</p>
+<ul class="simple">
+<li><p>santé et services sociaux (42,5% de l’ensemble des dépenses des missions en 2019);</p></li>
+<li><p>éducation et culture (24,4%);</p></li>
+<li><p>soutien aux familles (10,3%);</p></li>
+<li><p>économie et environnement (15,1%);</p></li>
+<li><p>gouverne et justice (7,7%);</p></li>
+</ul>
+<p>Les comptes publics intègrent également les dépenses provenant du service de la dette.</p>
+<p>Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.</p>
+<p>Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification (la barre déroulante en bas du tableau permet de naviguer entre les années):</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Classification des comptes publics 2015-2019</span><a class="headerlink" href="#id2" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 35%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
+<th class="head"><p>2015</p></th>
 <th class="head"><p>2016</p></th>
 <th class="head"><p>2017</p></th>
 <th class="head"><p>2018</p></th>
@@ -215,8 +223,10 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Revenus autonomes</p></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -227,14 +237,17 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Impôt net</p></td>
+<td><p>23460</p></td>
 <td><p>24726</p></td>
 <td><p>25290</p></td>
 <td><p>25349</p></td>
 <td><p>27206</p></td>
 </tr>
 <tr class="row-even"><td><p>Dépenses fiscales</p></td>
+<td><p>4087</p></td>
 <td><p>4027</p></td>
 <td><p>3941</p></td>
 <td><p>4179</p></td>
@@ -245,92 +258,108 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Impôt net</p></td>
+<td><p>3957</p></td>
 <td><p>5040</p></td>
 <td><p>5574</p></td>
 <td><p>6358</p></td>
 <td><p>7457</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dépenses fiscales</p></td>
+<td><p>1880</p></td>
 <td><p>1976</p></td>
 <td><p>1906</p></td>
 <td><p>1784</p></td>
 <td><p>1726</p></td>
 </tr>
 <tr class="row-even"><td><p>Cotisation FSS</p></td>
+<td><p>6397</p></td>
 <td><p>6614</p></td>
 <td><p>5969</p></td>
 <td><p>6221</p></td>
 <td><p>6359</p></td>
 </tr>
 <tr class="row-odd"><td><p>Impôt foncier scolaire</p></td>
+<td><p>1954</p></td>
 <td><p>2090</p></td>
 <td><p>2169</p></td>
 <td><p>2243</p></td>
 <td><p>1853</p></td>
 </tr>
 <tr class="row-even"><td><p>Taxes à la consommation</p></td>
+<td><p>17657</p></td>
 <td><p>18517</p></td>
 <td><p>19269</p></td>
 <td><p>20329</p></td>
 <td><p>21001</p></td>
 </tr>
 <tr class="row-odd"><td><p>Droits et permis</p></td>
+<td><p>2521</p></td>
 <td><p>3828</p></td>
 <td><p>3297</p></td>
 <td><p>3965</p></td>
 <td><p>4361</p></td>
 </tr>
-<tr class="row-even"><td><p>entreprises gouvernement</p></td>
+<tr class="row-even"><td><p>Entreprises gouvernement</p></td>
+<td><p>6168</p></td>
 <td><p>5013</p></td>
 <td><p>4899</p></td>
 <td><p>5093</p></td>
 <td><p>5548</p></td>
 </tr>
 <tr class="row-odd"><td><p>Revenus divers</p></td>
+<td><p>9317</p></td>
 <td><p>9391</p></td>
 <td><p>10391</p></td>
 <td><p>10398</p></td>
 <td><p>11548</p></td>
 </tr>
 <tr class="row-even"><td><p>Total revenus autonomes</p></td>
+<td><p>77398</p></td>
 <td><p>81222</p></td>
 <td><p>82705</p></td>
 <td><p>85919</p></td>
 <td><p>91626</p></td>
 </tr>
-<tr class="row-odd"><td><p>Transfert fédéraux</p></td>
+<tr class="row-odd"><td><p>Transferts fédéraux</p></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Péréquation</p></td>
+<td><p>9286</p></td>
 <td><p>9521</p></td>
 <td><p>10030</p></td>
 <td><p>11081</p></td>
 <td><p>11732</p></td>
 </tr>
 <tr class="row-odd"><td><p>Transfert santé</p></td>
+<td><p>5282</p></td>
 <td><p>5487</p></td>
 <td><p>5946</p></td>
 <td><p>6096</p></td>
 <td><p>6306</p></td>
 </tr>
 <tr class="row-even"><td><p>Autres</p></td>
+<td><p>3971</p></td>
 <td><p>3893</p></td>
 <td><p>4203</p></td>
 <td><p>5308</p></td>
 <td><p>5082</p></td>
 </tr>
 <tr class="row-odd"><td><p>Total transferts fédéraux</p></td>
+<td><p>18539</p></td>
 <td><p>18901</p></td>
 <td><p>20179</p></td>
 <td><p>22485</p></td>
 <td><p>23120</p></td>
 </tr>
 <tr class="row-even"><td><p>Total des revenus</p></td>
+<td><p>95937</p></td>
 <td><p>100123</p></td>
 <td><p>102884</p></td>
 <td><p>108404</p></td>
@@ -341,62 +370,73 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Santé services sociaux</p></td>
+<td><p>36793</p></td>
 <td><p>37501</p></td>
 <td><p>38735</p></td>
 <td><p>40176</p></td>
 <td><p>41522</p></td>
 </tr>
 <tr class="row-odd"><td><p>Éducation et culture</p></td>
+<td><p>20905</p></td>
 <td><p>20997</p></td>
 <td><p>21646</p></td>
 <td><p>22780</p></td>
 <td><p>23887</p></td>
 </tr>
 <tr class="row-even"><td><p>Économie et environnement</p></td>
+<td><p>11458</p></td>
 <td><p>11697</p></td>
 <td><p>12315</p></td>
 <td><p>14438</p></td>
 <td><p>14730</p></td>
 </tr>
 <tr class="row-odd"><td><p>Soutien familles</p></td>
+<td><p>9647</p></td>
 <td><p>9589</p></td>
 <td><p>9562</p></td>
 <td><p>9816</p></td>
 <td><p>10095</p></td>
 </tr>
 <tr class="row-even"><td><p>Gouverne et justice</p></td>
+<td><p>6728</p></td>
 <td><p>6686</p></td>
 <td><p>6737</p></td>
 <td><p>7039</p></td>
 <td><p>7510</p></td>
 </tr>
 <tr class="row-odd"><td><p>Total dépenses des missions</p></td>
+<td><p>85531</p></td>
 <td><p>86470</p></td>
 <td><p>88995</p></td>
 <td><p>94249</p></td>
 <td><p>97744</p></td>
 </tr>
 <tr class="row-even"><td><p>Service de la dette</p></td>
+<td><p>10270</p></td>
 <td><p>10009</p></td>
 <td><p>9527</p></td>
 <td><p>9240</p></td>
 <td><p>8722</p></td>
 </tr>
 <tr class="row-odd"><td><p>Taux effectifs sur dette</p></td>
+<td><p>0.0373</p></td>
 <td><p>0.0363</p></td>
 <td><p>0.0353</p></td>
 <td><p>0.0354</p></td>
 <td><p>0.0358</p></td>
 </tr>
 <tr class="row-even"><td><p>Total des dépenses</p></td>
+<td><p>95801</p></td>
 <td><p>96479</p></td>
 <td><p>98522</p></td>
 <td><p>103489</p></td>
 <td><p>106466</p></td>
 </tr>
 <tr class="row-odd"><td><p>Surplus Annuel</p></td>
+<td><p>136</p></td>
 <td><p>3644</p></td>
 <td><p>4362</p></td>
 <td><p>4915</p></td>
@@ -407,8 +447,10 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Solde au début</p></td>
+<td><p>5659</p></td>
 <td><p>6938</p></td>
 <td><p>8522</p></td>
 <td><p>10523</p></td>
@@ -419,26 +461,31 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Revenus général</p></td>
+<td><p>964</p></td>
 <td><p>1155</p></td>
 <td><p>1579</p></td>
 <td><p>1881</p></td>
 <td><p>2083</p></td>
 </tr>
 <tr class="row-even"><td><p>Revenus placement</p></td>
+<td><p>315</p></td>
 <td><p>298</p></td>
 <td><p>422</p></td>
 <td><p>412</p></td>
 <td><p>1394</p></td>
 </tr>
 <tr class="row-odd"><td><p>Total revenus autonomes</p></td>
+<td><p>1279</p></td>
 <td><p>1453</p></td>
 <td><p>2001</p></td>
 <td><p>2293</p></td>
 <td><p>3477</p></td>
 </tr>
 <tr class="row-even"><td><p>Solde avant reboursement</p></td>
+<td><p>6938</p></td>
 <td><p>8391</p></td>
 <td><p>10523</p></td>
 <td><p>12816</p></td>
@@ -448,10 +495,12 @@
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
+<td><p>0</p></td>
 <td><p>8000</p></td>
 </tr>
 <tr class="row-even"><td><p>Solde à la fin</p></td>
-<td><p>8391</p></td>
+<td><p>6938</p></td>
+<td><p>8522</p></td>
 <td><p>10523</p></td>
 <td><p>12816</p></td>
 <td><p>8293</p></td>
@@ -461,8 +510,10 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Réserve en début</p></td>
+<td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>2191</p></td>
 <td><p>4552</p></td>
@@ -473,20 +524,24 @@
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>Solde budgétaire</p></td>
+<td><p>-1143</p></td>
 <td><p>2191</p></td>
 <td><p>2361</p></td>
 <td><p>2622</p></td>
 <td><p>4803</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ajout à la réserve</p></td>
+<td><p>0</p></td>
 <td><p>2191</p></td>
 <td><p>2361</p></td>
 <td><p>2622</p></td>
 <td><p>4803</p></td>
 </tr>
 <tr class="row-even"><td><p>Réserve en fin de période</p></td>
+<td><p>0</p></td>
 <td><p>2191</p></td>
 <td><p>4552</p></td>
 <td><p>7174</p></td>
@@ -497,14 +552,17 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Dette année précédente</p></td>
+<td><p>181032</p></td>
 <td><p>192750</p></td>
 <td><p>193945</p></td>
 <td><p>197556</p></td>
 <td><p>201949</p></td>
 </tr>
-<tr class="row-odd"><td><p>nouveaux emprunts</p></td>
+<tr class="row-odd"><td><p>Nouveaux emprunts</p></td>
+<td><p>23894</p></td>
 <td><p>16820</p></td>
 <td><p>21277</p></td>
 <td><p>24662</p></td>
@@ -514,27 +572,32 @@
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
+<td><p>0</p></td>
 <td><p>8000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dette après incidence instruments</p></td>
+<td><p>204926</p></td>
 <td><p>209570</p></td>
 <td><p>215222</p></td>
 <td><p>222218</p></td>
 <td><p>216920</p></td>
 </tr>
 <tr class="row-even"><td><p>moins Fonds amortissement</p></td>
+<td><p>15980</p></td>
 <td><p>19852</p></td>
 <td><p>22019</p></td>
 <td><p>24428</p></td>
 <td><p>25831</p></td>
 </tr>
 <tr class="row-odd"><td><p>plus Dette PPP</p></td>
+<td><p>3804</p></td>
 <td><p>4227</p></td>
 <td><p>4353</p></td>
 <td><p>4159</p></td>
 <td><p>4099</p></td>
 </tr>
 <tr class="row-even"><td><p>Total dette</p></td>
+<td><p>192750</p></td>
 <td><p>193945</p></td>
 <td><p>197556</p></td>
 <td><p>201949</p></td>
@@ -545,14 +608,17 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>Dette brutte</p></td>
+<tr class="row-even"><td><p>Dette brute</p></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Dette avant gain de change reportés</p></td>
+<td><p>192750</p></td>
 <td><p>193945</p></td>
 <td><p>197556</p></td>
 <td><p>201949</p></td>
@@ -563,8 +629,10 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Régime de retraite</p></td>
+<td><p>28172</p></td>
 <td><p>26745</p></td>
 <td><p>24647</p></td>
 <td><p>21903</p></td>
@@ -575,21 +643,25 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Fonds génération</p></td>
-<td><p>8391</p></td>
+<td><p>6938</p></td>
+<td><p>8522</p></td>
 <td><p>10523</p></td>
 <td><p>12816</p></td>
 <td><p>8293</p></td>
 </tr>
 <tr class="row-even"><td><p>Autres</p></td>
+<td><p>10027</p></td>
 <td><p>8821</p></td>
 <td><p>8190</p></td>
 <td><p>9965</p></td>
 <td><p>6159</p></td>
 </tr>
-<tr class="row-odd"><td><p>Dette brutte en fin de période</p></td>
-<td><p>203478</p></td>
+<tr class="row-odd"><td><p>Dette brute en fin de période</p></td>
+<td><p>203 957</p></td>
+<td><p>203 347</p></td>
 <td><p>203 490</p></td>
 <td><p>201 071</p></td>
 <td><p>199 098</p></td>
@@ -602,13 +674,24 @@
 <p>Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit.</p>
 <dl class="class">
 <dt id="simfin.tools.account">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.tools.</code><code class="sig-name descname">account</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.tools.account" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.tools.</code><code class="sig-name descname">account</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.tools.account" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Fonction permettant d’intégrer chaque composante des comptes publics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="class">
 <dt id="simfin.tools.accounts">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.tools.</code><code class="sig-name descname">accounts</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.tools.accounts" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction permettant de colliger les comptes publics.</p>
+</dd></dl>
 
 </div>
 </div>
@@ -624,7 +707,7 @@
         <a href="macro.html" class="btn btn-neutral float-right" title="Environnement macroéconomique" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="overview.html" class="btn btn-neutral float-left" title="En un clin d’oeil" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="results.html" class="btn btn-neutral float-left" title="Synthèse des résultats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

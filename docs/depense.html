@@ -85,17 +85,18 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Dépenses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#sante-et-services-sociaux">Santé et services sociaux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#education-et-culture">Éducation et culture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#economie-et-innovation">Économie et innovation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#economie-et-environnement">Économie et environnement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gouverne-et-justice">Gouverne et Justice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#soutien-aux-familles">Soutien aux familles</a></li>
 </ul>
@@ -169,70 +170,121 @@
             
   <div class="section" id="depenses">
 <h1>Dépenses<a class="headerlink" href="#depenses" title="Lien permanent vers ce titre">¶</a></h1>
-<p>[Il reste à remplir les docstrings des fonctions et mettre les taux historiques ici-bas, il faut aussi voir la modélisation qui dépend de la BDSPSM et de SimGen]</p>
+<p>[Il reste à voir la modélisation qui dépend de la BDSPSM et de SimGen]</p>
 <p>Les dépenses sont organisées par mission. Cinq missions sont prises en comptes:</p>
 <ul class="simple">
-<li><p>santé et services sociaux</p></li>
-<li><p>éducation et culture</p></li>
-<li><p>gouverne et justice</p></li>
-<li><p>économie et innovation</p></li>
-<li><p>soutien aux familles</p></li>
+<li><p>santé et services sociaux  (42,5% de l’ensemble des dépenses des missions en 2019 selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html">comptes publics</a>);</p></li>
+<li><p>éducation et culture (24,4%);</p></li>
+<li><p>gouverne et justice (7,7%);</p></li>
+<li><p>économie et environnement (15,1%);</p></li>
+<li><p>soutien aux familles (10,3%).</p></li>
 </ul>
-<p>De plus le service de la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions.</p>
+<p>De plus la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions.</p>
 <dl class="class">
 <dt id="simfin.missions.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.collector" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui permet de colliger différentes dépenses publiques provinciales.</p>
+</dd></dl>
 
 <div class="section" id="sante-et-services-sociaux">
 <h2>Santé et services sociaux<a class="headerlink" href="#sante-et-services-sociaux" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données des l’Institut Canadien d’information en santé sur les dépenses per capita pour les médecins, hospitalisations, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et sexe sont calculées à partir de ces données ainsi que les taux de croissances, en dollars réels par âge et sexe pour chacune des catégories mais aussi pour le total. Dans SimFin, la croissance en dollar réel des dépenses per capita suit les taux observés par âge, sexe pour chacune des catégories pour converger à l’horizon 2025 sur les taux par âge et sexe observés pour le total des dépenses per capita. Ceci garantie une certaine stabilité des dépenses per capita pour chacun des postes de l’ICIS à l’horizon 2025.</p>
-<p>Une calibration est faite pour l’année de départ afin que le total des dépenses provenant des données de l’ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d’alignement est maintenue fixe pour la projection.</p>
-<p>Les dépenses totales en santé ont augmenté au rythme de X% par année au cours des 5 dernières années.</p>
+<p>Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données de <a class="reference external" href="https://www.cihi.ca/fr">l’Institut canadien d’information en santé</a> (fichier <a class="reference external" href="http://www.cihi.ca/sites/default/files/document/open_data-2019-en.xlsx">« Open Data 2019 »</a>) sur les dépenses per capita pour les médecins, hospitalisations, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et sexe sont calculées à partir de ces données ainsi que les taux de croissance, en dollars réels par âge et sexe pour chacune des catégories, mais aussi pour l’ensemble des catégories (dépenses totales de santé). Dans SimFin, la croissance en dollar réel des dépenses per capita suit les taux observés par âge, sexe pour chacune des catégories pour converger à l’horizon 2025 sur les taux par âge et sexe observés pour le total des dépenses per capita. Ceci garantit une certaine stabilité des dépenses per capita pour chacun des postes de l’ICIS à l’horizon 2025.</p>
+<p>Une calibration est faite pour l’année de départ afin que le total des dépenses provenant des données de l’ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d’alignement est maintenu fixe pour la projection.</p>
+<p>L’historique des dépenses de la mission « Santé et services sociaux » présente une augmentation au rythme de 3,07% par année au cours des 5 dernières années (en valeur nominale. L’ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#">Comptes publics</a>).</p>
 <dl class="class">
 <dt id="simfin.missions.health">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">health</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.health" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Classe permettant d’intégrer les dépenses de la mission Santé et services sociaux.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="education-et-culture">
 <h2>Éducation et culture<a class="headerlink" href="#education-et-culture" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les dépenses d’éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l’éducation. La part des dépenses de la culture est maintenue constante à l’intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d’abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d’obtenir le montant réalisé aux comptes publics. Le facteur d’alignement est maintenue fixe par la suite. La croissance des dépenses par élève est modélisé en utilisant les estimations du Ministère des finances dans ses projections (Budget de 2016-2017), soit 1.8% en dollars courants tant au niveau primaire, secondaire, collégial et universitaire (0.4% en dollars constants sous notre hypothèse d’inflation).</p>
-<p>Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années.</p>
+<p>Les dépenses d’éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l’Éducation. La part des dépenses de la culture est maintenue constante à l’intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d’abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d’obtenir le montant réalisé aux comptes publics. Le facteur d’alignement est maintenu fixe par la suite. La croissance des dépenses par élève est modélisée suivant les hypothèses de <a class="reference external" href="https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf">St-Maurice al. (2018)</a>, soit une croissance réelle par tête égale à 1%.</p>
+<p>L’historique des dépenses de la mission « Éducation et culture » présente une augmentation au rythme de 3,39% par année au cours des 5 dernières années (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.education">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">education</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.education" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Classe permettant d’intégrer les dépenses de la mission Éducation et culture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
-<div class="section" id="economie-et-innovation">
-<h2>Économie et innovation<a class="headerlink" href="#economie-et-innovation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="economie-et-environnement">
+<h2>Économie et environnement<a class="headerlink" href="#economie-et-environnement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.</p>
-<p>Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années.</p>
+<p>L’historique des dépenses de la mission « Économie et environnement » présente une augmentation au rythme de 6,48% par année au cours des 5 dernières années (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.economy">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">economy</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.economy" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Classe permettant d’intégrer les dépenses de la mission Économie et environnement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="gouverne-et-justice">
 <h2>Gouverne et Justice<a class="headerlink" href="#gouverne-et-justice" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.</p>
-<p>Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années.</p>
+<p>L’historique des dépenses de la mission « Gouverne et Justice » présente une augmentation au rythme de 2,79% par année au cours des 5 dernières années (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.justice">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">justice</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.justice" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Classe permettant d’intégrer les dépenses de la mission Gouverne et Justice.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="soutien-aux-familles">
 <h2>Soutien aux familles<a class="headerlink" href="#soutien-aux-familles" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ces dépenses sont fonctions de la structure démographique et d’équations provenant d’estimation de la BDSPSM pour les garderies et certains crédits remboursables (imputés aux portefeuille de la mission soutien aux familles).</p>
-<p>Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années.</p>
+<p>Ces dépenses sont fonction de la structure démographique et des équations provenant d’estimation de la BDSPSM (voir les <a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>) pour les garderies et pour certains crédits remboursables (imputés aux portefeuilles de la mission soutien aux familles).</p>
+<p>L’historique des dépenses de la mission « Soutien aux familles » présente une augmentation au rythme de 1,14% par année au cours des 5 dernières années (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.family">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">family</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.family" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Classe permettant d’intégrer les dépenses de la mission de Soutien aux familles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

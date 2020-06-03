@@ -1,68 +1,66 @@
 Dépenses
 --------
 
-[Il reste à remplir les docstrings des fonctions et mettre les taux historiques ici-bas, il faut aussi voir la modélisation qui dépend de la BDSPSM et de SimGen]
+[Il reste à voir la modélisation qui dépend de la BDSPSM et de SimGen]
 
-Les dépenses sont organisées par mission. Cinq missions sont prises en comptes: 
+Les dépenses sont organisées par mission. Cinq missions sont prises en comptes:
 
-- santé et services sociaux
-- éducation et culture 
-- gouverne et justice
-- économie et innovation 
-- soutien aux familles 
+- santé et services sociaux  (42,5% de l'ensemble des dépenses des missions en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_);
+- éducation et culture (24,4%);
+- gouverne et justice (7,7%);
+- économie et environnement (15,1%);
+- soutien aux familles (10,3%).
 
-De plus le service de la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions. 
+De plus la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions.
 
 .. currentmodule:: simfin.missions
 
 .. autoclass:: collector
 
-Santé et services sociaux 
+Santé et services sociaux
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données des l'Institut Canadien d'information en santé sur les dépenses per capita pour les médecins, hospitalisations, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et sexe sont calculées à partir de ces données ainsi que les taux de croissances, en dollars réels par âge et sexe pour chacune des catégories mais aussi pour le total. Dans SimFin, la croissance en dollar réel des dépenses per capita suit les taux observés par âge, sexe pour chacune des catégories pour converger à l'horizon 2025 sur les taux par âge et sexe observés pour le total des dépenses per capita. Ceci garantie une certaine stabilité des dépenses per capita pour chacun des postes de l'ICIS à l'horizon 2025. 
+Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données de `l'Institut canadien d'information en santé <https://www.cihi.ca/fr>`_ (fichier `"Open Data 2019" <http://www.cihi.ca/sites/default/files/document/open_data-2019-en.xlsx>`_) sur les dépenses per capita pour les médecins, hospitalisations, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et sexe sont calculées à partir de ces données ainsi que les taux de croissance, en dollars réels par âge et sexe pour chacune des catégories, mais aussi pour l'ensemble des catégories (dépenses totales de santé). Dans SimFin, la croissance en dollar réel des dépenses per capita suit les taux observés par âge, sexe pour chacune des catégories pour converger à l'horizon 2025 sur les taux par âge et sexe observés pour le total des dépenses per capita. Ceci garantit une certaine stabilité des dépenses per capita pour chacun des postes de l'ICIS à l'horizon 2025.
 
-Une calibration est faite pour l'année de départ afin que le total des dépenses provenant des données de l'ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d'alignement est maintenue fixe pour la projection. 
+Une calibration est faite pour l'année de départ afin que le total des dépenses provenant des données de l'ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d'alignement est maintenu fixe pour la projection.
 
-Les dépenses totales en santé ont augmenté au rythme de X% par année au cours des 5 dernières années. 
+L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année au cours des 5 dernières années (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 .. autoclass:: health
 
-Éducation et culture 
+Éducation et culture
 ^^^^^^^^^^^^^^^^^^^^
 
-Les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenue fixe par la suite. La croissance des dépenses par élève est modélisé en utilisant les estimations du Ministère des finances dans ses projections (Budget de 2016-2017), soit 1.8% en dollars courants tant au niveau primaire, secondaire, collégial et universitaire (0.4% en dollars constants sous notre hypothèse d'inflation).  
+Les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite. La croissance des dépenses par élève est modélisée suivant les hypothèses de `St-Maurice al. (2018) <https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf>`_, soit une croissance réelle par tête égale à 1%.
 
-Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années. 
+L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année au cours des 5 dernières années (en valeur nominale).
 
 .. autoclass:: education
 
+Économie et environnement
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Économie et innovation 
-^^^^^^^^^^^^^^^^^^^^^^
+Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
 
-Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel. 
-
-
-Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années. 
+L'historique des dépenses de la mission "Économie et environnement" présente une augmentation au rythme de 6,48% par année au cours des 5 dernières années (en valeur nominale).
 
 .. autoclass:: economy
 
 
-Gouverne et Justice  
+Gouverne et Justice
 ^^^^^^^^^^^^^^^^^^^
 
-Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel. 
+Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
 
-Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années. 
+L'historique des dépenses de la mission "Gouverne et Justice" présente une augmentation au rythme de 2,79% par année au cours des 5 dernières années (en valeur nominale).
 
 .. autoclass:: justice
 
-Soutien aux familles  
+Soutien aux familles
 ^^^^^^^^^^^^^^^^^^^^
 
-Ces dépenses sont fonctions de la structure démographique et d'équations provenant d'estimation de la BDSPSM pour les garderies et certains crédits remboursables (imputés aux portefeuille de la mission soutien aux familles). 
+Ces dépenses sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_) pour les garderies et pour certains crédits remboursables (imputés aux portefeuilles de la mission soutien aux familles).
 
-Ces dépenses ont augmenté au rythme de X% par année au cours des 5 dernières années. 
+L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année au cours des 5 dernières années (en valeur nominale).
 
 .. autoclass:: family

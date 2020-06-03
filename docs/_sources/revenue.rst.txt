@@ -1,16 +1,23 @@
 Revenus
 -------
 
-[Il reste à remplir les docstrings des fonctions et mettre les taux historiques ici-bas]
-
-SimFin fait la modélisation des revenus autonomes et des transfers fédéraux. En terme de modélisation des revenus autonomes, nous prenons en compte les impôts et crédits remboursables des particuliers, des sociétés, les entreprises du gouvernement, les taxes à la consommation, le fonds de la santé et des services sociaux (FSS), l'impôt foncier scolaire, les droits et permis et les autres taxes. 
+SimFin modélise les revenus autonomes et les transferts fédéraux.
 
 .. currentmodule:: simfin.revenue
 
 Revenus autonomes
 ^^^^^^^^^^^^^^^^^
 
-La fonction suivante permet de colliger différents revenus autonomes.
+Les revenus autonomes de la province du Québec sont constitués :
+
+- de l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- de l'impôt des sociétés (10%), également subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- des cotisations au fonds des services de santé (6,9%);
+- des taxes à la consommation (22,9%);
+- des droits et permis (4,8%);
+- des revenus issus des entreprises du gouvernement (6,1%);
+- de l'impôt foncier scolaire (2%);
+- des autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l'ensemble des revenus autonomes en 2019).
 
 .. autoclass:: collector
 
@@ -20,18 +27,20 @@ Impôt des particuliers
 impôt
 =====
 
-L'impôt des particuliers est modélisé à l'aide de la structure démographique de la population et des équations estimées sur la BDSPS. Par la suite, il est calibré, à l'année de départ afin d'être aligné sur le montant indiqué aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croit par année en fonction de la croissance du PIB potentiel (dollars courants).
+L'impôt des particuliers est modélisé à l'aide de la structure démographique de la population et des équations estimées sur la BDSPS sur le taux d'emploi et les revenus du travail annuels, auxquels on ajoute le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 .. autoclass:: personal_taxes
- 
+
 crédits
 =======
 
-La comptabilisation des comptes publics imputent au revenus la dépense fiscale associée aux crédits d'impôt remboursables car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Nous modélisation l'utilisation de ces crédits à l'aide de la structure de population par âge ainsi que des équations estimés sur la BDSPSM. 
+La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
 
-Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.
+Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l'inflation et de la croissance des salaires réels.
+
+Au cours des 5 dernières années, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).
 
 .. autoclass:: personal_credits
 
@@ -41,113 +50,109 @@ Impôt des sociétés
 impôt
 =====
 
+L'impôt des sociétés croît au rythme du PIB potentiel.
 
-L'impôt des sociétés est croit au rythme du PIB potentiel. 
-
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
 
 .. autoclass:: corporate_taxes
 
 crédits
 =======
 
+Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB potentiel.
 
-Les crédits d'impôt remboursables des sociétés croient au rythme du PIB potentiel. 
-
-Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
 
 .. autoclass:: corporate_credits
 
 Cotisations au FSS
 ^^^^^^^^^^^^^^^^^^
 
+Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB potentiel.
 
-Les cotisations au FSS, provenant largement des entreprises, croit au rythme du PIB potentiel. 
-
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).
 
 .. autoclass:: fss
 
 Taxes à la consommation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d'autres caractéristiques. Ces équations sont estimées sur la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
 
-Les revenus provenant des taxes à la consommation sont affectées par la structure démographique et des équations modélisant les taxes à la consommation par âge et autres caractéristiques. Ces équations sont estimées sur la BDSPSM. Les revenus par âge croient au rythme du PIB potentiel per capita. 
+Les taxes à la consommation croissent au rythme de l'inflation et de la croissance des salaires excluant l'amélioration liée au niveau d'éducation (on attribue à cette croissance seulement 44,7% de l'augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n'étant pas pris en compte).
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
 
 .. autoclass:: consumption
 
 Droits et permis
 ^^^^^^^^^^^^^^^^
 
-Les revenus de droits et permis croient au rythme du PIB potentiel. 
+Dans Simfin, les revenus de droits et permis croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).
 
 .. autoclass:: permits
 
 Entreprises du gouvernement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Les revenus provenant des entreprises du gouvernement au rythme du PIB potentiel. 
+Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).
 
 .. autoclass:: gov_enterprises
 
 Impôt foncier scolaire
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Les revenus provenant des taxes scolaires croient au rythme du PIB potentiel. 
+Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
 
 .. autoclass:: gov_enterprises
 
 Autres taxes
 ^^^^^^^^^^^^
 
-Les revenus provenant des autres taxes croient au rythme du PIB potentiel. 
+Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).
 
 .. autoclass:: other_taxes
 
-Transfers fédéraux
-------------------
+Transferts fédéraux
+-------------------
 
 .. currentmodule:: simfin.federal
 
-Trois transfers fédéraux sont modélisés: les paiements de péréquation, du transfert en santé et la somme des autres transfers (en éducation, etc). 
-
-La fonction collector permet de colliger ces revenus 
+Trois transferts fédéraux sont modélisés: les paiements de péréquation (50,7% de l'ensemble des transferts fédéraux en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), du transfert en santé (27,3% des transferts fédéraux) et la somme des autres transfers (22% des transferts fédéraux).
 
 .. autoclass:: collector
 
 Péréquation
 ^^^^^^^^^^^
 
-Ces transferts sont supposés croître au rythme du PIB potentiel. 
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).
 
 .. autoclass:: equalization
 
 Transfers en santé
 ^^^^^^^^^^^^^^^^^^
 
-Ces transferts sont supposés croître au rythme du PIB potentiel. 
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).
 
 .. autoclass:: health_transfer
 
-Autres transfers
-^^^^^^^^^^^^^^^^
+Autres transferts
+^^^^^^^^^^^^^^^^^
 
-Ces transferts sont supposés croître au rythme du PIB potentiel. 
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.
+Au cours des 5 dernières années, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).
 
 .. autoclass:: other_transfers

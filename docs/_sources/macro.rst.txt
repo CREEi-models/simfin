@@ -1,39 +1,121 @@
 Environnement macroéconomique
 -----------------------------
 
-SimFin prend en compte l'environnement macroéconomique avec des hypothèses sur la: 
+Les hypothèses de projections macroéconomiques de SimFin sont définies à partir de l'environnement macroéconomique passé. Les hypothèses macroéconomiques sont définies sur :
 
-- croissance réelle du PIB potentiel
-- inflation
+- la croissance réelle du PIB potentiel.
+- la croissance des variables macroéconomiques pour une petite économie ouverte (taux d'intérêt exogène).
+- l'inflation.
 
 PIB potentiel
-^^^^^^^^^^^^^
-
-Nous adoptons une modélisation du PIB potentielle qui ressemble à celle adoptée par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_. On suppose une fonction de production de type: 
-
-.. math::
-
-   Y_t = A_t K_t^{\alpha_K} + L_t^{\alpha_L}
-
-A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constant et dépréciation géométrique) et L les heures traCes vaillées. En prenant le log et première différence, et en imposant des rendements constant à l'échelle, on obtient
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Notre modélisation du PIB potentiel est similaire à celle adoptée par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_, c'est-à-dire que nous utilisons une fonction de production de type Cobb-Douglas:
 
 .. math::
 
-   \Delta y_t = \Delta a + (1-\alpha_L) \Delta k_t + \alpha_L \Delta l_t
+   Y_t = A_t K_t^{\alpha_K} L_t^{\alpha_L}
 
-On utilise les données des comptes publics sur la période 1981-2018 pour estimer cette équation (en dollars constants). On obtient les estimés suivant: 
+A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et L les heures travaillées. En prenant le log et première différence, et en imposant des rendements d'échelle constant, on obtient
 
 .. math::
 
-   \Delta y_t = 0.0059 + 0.323 \Delta k_t + 0.676 \Delta l_t
+   \Delta Y_t = \Delta a + (1-\alpha_L) \Delta K_t + \alpha_L \Delta L_t
 
-La productivité croit au rythme de 0.59% par année. La part du capital est d'environ 1/3 alors que celle du travail est de 2/3. Dans les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le travail a augmenté au rythme de 1% par année. Ceci donne sur les 10 dernières années, une croissance du potentiel de 1.9%. Sans la contribution du travail (ce qui survient grosso modo entre 2020 et 2030), la croissance du PIB potentiel projeté est de 1.24\%. Ces estimés sont très similaires à ceux obtenue par Desjadins Études Économiques. 
+Afin d'estimer cette équation, nous utilisons les données des comptes publics sur la période 1981-2018. Les estimations suivantes sont obtenues :
 
-Dans SimFin, le taux de croissance du PIB potentiel prend en compte la croissance des heures travaillées qui provient de SimGen et de distribution par âge de l'emploi et des heures travaillées (BDSPSM). 
+.. math::
+
+   \Delta Y_t = 0.0059 + 0.323 \Delta K_t + 0.676 \Delta L_t
+
+La productivité croît au rythme de 0,59% par année. La part du stock de capital dans le processus de production est d'environ 1/3 (32,3%) alors que celle du travail est légèrement supérieure à 2/3 (67,3%). Précisions que durant les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le facteur travail a augmenté à un rythme inférieur, de 1% par année. Sur les 10 dernières années, ceci aboutit à une croissance du PIB potentiel de 1,9%. Sans la contribution du travail (ce qui survient environ entre 2020 et 2030), la croissance du PIB potentiel projetée est de 1.24%. Ces estimations sont très similaires à ceux obtenus par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_.
+
+Dans SimFin, le taux de croissance du PIB potentiel prend en compte la combinaison de l’évolution de la population (taille, structure par âge, éducation…) qui provient de SimGen et de la distribution par âge de l’emploi et des heures travaillées que nous estimons (source `BD/MSPS <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_).
+
+Par ailleurs, la croissance de la productivité qui est utilisée pour simuler l'évolution des variables (salaires, consommation, revenus ne provenant pas du travail) qui sont déterminantes de l'évolution de certains postes des comptes (impôt des particuliers, taxes à la consommation etc.) est tranformée telle que 55,3% de cette croissance est attribuée à l'amélioration du niveau d'éducation et 44,7% est liée à la productivité "à structure de la population constante" (calculs suivant la méthode de `Dion 2007 <https://www.bankofcanada.ca/wp-content/uploads/2010/06/dion.pdf>`_ et selon les données de `Deslauriers et al. 2019 <https://cpp.hec.ca/wp-content/uploads/2019/03/PP-2018-01.pdf>`_ à partir des paramètres du graphique 12 de la page 18). Au final, on retient une croissance anuelle de la productivité égale à 0,26% (0,0059 * 0,4470), qui correspond à la croissance de la productivité excluant l'effet de composition lié à l'éducation.
+
+Croissance des variables macroéconomiques pour une petite économie ouverte
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+Capital
+########
+
+Avec un production Cobb-Douglas comme plus haut, le capital est rémunéré à sa productivité marginale et donc :
+
+.. math:: r_{t}+\delta=\left(1-\alpha\right)A_{t}L_{t}^{\alpha}K_{t}^{-\alpha}
+
+Pour une petite économie ouverte le taux d'intérêt est donné et donc le capital est une fonction du travail et du taux d'intérêt :
+
+.. math:: K_{t}=\left(\frac{\left(1-\alpha\right)A_{t}}{r_{t}+\delta}\right)^{1/\alpha}L_{t}
+
+Ou en déviation en pourcentage :
+
+.. math:: K_{t}=\frac{1}{\alpha}\Delta A_{t}-\frac{1}{\alpha}\Delta\left(r_{t}+\delta\right)+\Delta L_{t}
+
+Si on suppose par ailleurs que le taux d'intérêt est fixe, on a :
+
+.. math:: K_{t}=\frac{1}{\alpha}\Delta A_{t}+\Delta L_{t}
+
+Entre 1981 et 2019, la valeur prédite pour le delta de K basée sur cette formule est égale à 1,93%, ce qui est très proche de sa vraie valeur qui est égale à 2,05%.
+
+Salaires
+########
+
+De même, on a :
+
+.. math:: \Delta w_{t}=\frac{1}{\alpha}\Delta A_{t}-\frac{1-\alpha}{\alpha}\Delta\left(r_{t}+\delta\right)
+
+Ou sans croissance du taux d'intérêt :
+
+.. math:: \Delta w_{t}=\frac{1}{\alpha}\Delta A_{t}
+
+La valeur prédite pour la croissance des salaires en utilisant cette formule est également proche des valeurs osbervées. La croissance des salaires observée entre 1981 et 2019 est égale à 0,061%, alors que la valeur prédite est égale à 0,086%.
+
+PIB
+########
+
+On peut montrer qu'en économie ouverte :
+
+.. math:: Y_{t}=A_{t}^{1/\alpha}\left(\frac{\left(1-\alpha\right)}{r_{t}+\delta}\right)^{\left(1-\alpha\right)/\alpha}L_{t}
+
+Ce qui implique:
+
+.. math:: \Delta Y_{t}=\frac{1}{\alpha}\Delta A_{t}-\frac{1-\alpha}{\alpha}\Delta\left(r_{t}+\delta\right)+\Delta L_{t}=\Delta w+\Delta L
+
+Entre 1981 et 2019, la croissance observée du PIB est égale à 1,96%, ce qui est similaire à la valeur prédite qui est égale à 1,92%.
+
+Taux de croissance dans SimFin
+###############################
+
+En supposant que le taux d'intérêt est fixe et en se basant sur les résultats précédents, on a donc :
+
+- la croissance du capital:
+
+.. math:: g_K = 1/\alpha \times g_A + g_L
+
+- la croissance des salaires:
+
+.. math:: g_w = 1/\alpha \times g_A
+
+- la croissance du PIB :
+
+.. math:: g_Y = g_w + g_L
+
+À partir d'une hypothèse sur la croissance gA de la productivité totale des facteurs, nous pouvons donc inférer la croissance du capital, des salaires et du PIB.
+
+La croissance du travail gL est quant à elle calculée en utilisant nos profils par âge et les évolutions démographiques. Ici la croissance du travail n'est pas seulement le croissance des heures travaillées mais prend en compte aussi l'augmentation de la productivité des heures travaillées liée notamment à une amélioration du niveau d'éducation de la population active.
+
+Plus précisément gL correspond à la croissance de la variable suivante :
+
+.. math:: hat{L}=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{edu,age,mar,mal,nk}emp_{edu,age,mar,mal,nk}
+.. math:: hours \_c{}_{edu,age,mar,mal,nk}prod_{edu,age,mar,mal,nk}
+
+Où « prod » est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation « edu », d’âge « age », de statut marital « mar », de genre « mal » et ayant « nk » enfants. Pour une combinaison de ces cinq caractéristiques, « N » représente la taille de la population, « emp » la population en emploi et « hours_c » le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d'emploi en fonction de l'âge et du niveau d'éducation.
+
+Sauf exception, les variables calculées à partir de l'évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires gw. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.
 
 Inflation
 ^^^^^^^^^
 
-En utilisant l'indice des prix à la consommation, le taux d'inflation des 5 dernières années est de 1.39%. Nous utilisons ce chiffre dans nos projections. 
-
-
+Durant les cinq derniers années (2015-2019), le taux d'inflation annuel moyen a été de 1,31% (calculé avec l'indice des prix à la consommation). Nous établissons l'hypothèse que ce taux d'inflation de 1,31% sera le taux de croissance du niveau général des prix pour chaque année de projection.

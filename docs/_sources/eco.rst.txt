@@ -1,26 +1,244 @@
 Profils économiques par âge
 ---------------------------
 
-Nous utilisons la BDSPSM de Statistiques Canada (2017) afin de modéliser le profil de l'emploi, des heures travaillées, revenue de travail et les dépenses de consommation.
+Nous utilisons la `BDSPSM <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_ de Statistiques Canada (2017) afin de modéliser huit profils économiques listés ci-bas.
 
-Emploi
-^^^^^^
+Pour chaque profil économique, nous réalisons des régressions indépendantes pour chaque niveau d'éducation :
 
-À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+- *insch* : individu en études.
+- *none* : Niveau d'études inférieur à un diplôme d'études secondaires.
+- *des* : Niveau d'études égal à un diplôme d'études secondaires ou niveau d'études partielles à l'université ou au collège communautaire.
+- *dec* : Niveau d'études égal à un diplôme d'études d'un collège communautaire.
+- *uni* : Niveau d'études supérieur ou égal à un diplôme de baccalauréat.
+
+Les variables de contrôle différent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivantes :
+
+- *age1* : âge de l'individu.
+- *age2* : âge de l'individu au carré.
+- *age3* : âge de l'individu au cube.
+- *age4* : âge de l'individu à la puissance 4.
+- *male* : variable indicatrice égale à 1 si l'individu est un homme, 0 sinon.
+- *married* : variable indicatrice égale à 1 si l'individu est en couple, 0 s'il est célibataire.
+- *kid1* : variable indicatrice égale à 1 si l'individu a un enfant, 0 sinon.
+- *kid2* : variable indicatrice égale à 1 si l'individu a deux enfants, 0 sinon.
+- *kid3* : variable indicatrice égale à 1 si l'individu a au moins trois enfants, 0 sinon.
+- *nkids* : nombre d'enfants de l'individu de 0 à 3 au maximum (3 correspondant à 3 et plus).
+- *age55p* : égal à l'âge de l'individu si il (elle) est âgé(e) de plus de 55 ans et égal à zéro sinon.
+
+Taux d'emploi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+La probabilité d'être en emploi "emp" est estimée à l'aide d'un modèle probit.
+
+Le modèle probit pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 70 ans :
+
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}
+.. math:: + \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i}
+
+Le modèle probit pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans :
+
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i}
+
+La probabilité "emp" d'être en emploi est alors :
+
+.. math:: \Pr(emp_{i}=1) = \frac{\exp(y_{i})}{1+\exp(y_{i})}
+
+
+La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_emp" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "emp" dans la légende).
+
+.. figure:: figure/emp.png
+    :alt: test
+    :scale: 100%
+    :align: center
 
 Heures travaillées
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+Les heures travaillées (conditionnelles au fait de travailler) sont estimées à partir d'un modèle de niveau.
 
-Revenu de travail
-^^^^^^^^^^^^^^^^^
+Le modèle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 70 ans :
 
-À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i}
 
-Dépenses de consommation
-^^^^^^^^^^^^^^^^^^^^^^^^
+Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans :
 
-À venir, équation estimée, résultats et profil en graphique par âge et éducation. 
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i}
 
+La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_hours_c" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "hours_c" dans la légende).
 
+.. figure:: figure/hours.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Revenus de travail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les revenus du travail (conditionnels au fait de travailler) sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré.
+
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés entre 18 et 70 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + {1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés entre 18 et 35 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}
+
+Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+
+.. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
+
+En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+
+.. math:: E(y) = exp(\mu+(\sigma^2)/2)
+
+La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_earn_c" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "earn_c" dans la légende).
+
+.. figure:: figure/earn_c.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Dépenses de consommation des ménages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les dépenses de consommation sont estimées à partir d'une régression logarithmique et d'une régression logarithmique au carré.
+
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés entre 18 et 90 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}
+.. math:: + \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \beta_{9} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}
+.. math:: + \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \beta_{9} male_{i}
+
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés entre 18 et 35 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}
+
+Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+
+.. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
+
+En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+
+.. math:: E(y) = exp(\mu+(\sigma^2)/2)
+
+La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_cons" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "cons" dans la légende).
+
+.. figure:: figure/cons.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Revenu imposable résiduel, ne provenant pas du travail
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l'impôt sur le revenu auxquels sont déduits les revenus du travail. Ils sont estimés à partir d'une régression de niveau.
+
+Le modèle  pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 90 ans :
+
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} +
+.. math:: \beta_{5} married_{i} + \beta_{6} age55p_{i} + \beta_{7} (age55p_{i})^2
+
+Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans :
+
+.. math:: y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i}
+
+La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_taxinc" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "taxinc" dans la légende).
+
+.. figure:: figure/taxinc.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Impôt des particuliers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l'impôt des particuliers. Les impôts des particuliers sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré.
+
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés entre 18 et 90 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés entre 18 et 35 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} married_{i} + \beta_{2} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} married_{i} + \beta_{2} male_{i}
+
+Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+
+.. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
+
+En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+
+.. math:: E(y) = exp(\mu+(\sigma^2)/2)
+
+La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_personal_taxes" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "personal_taxes" dans la légende).
+
+.. figure:: figure/personal_taxes.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Taxes à la consommation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d'une régression logarithmique et d'une régression logarithmique au carré.
+
+Les modèles les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés entre 18 et 90 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}
+
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés entre 18 et 35 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} male_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i}
+
+Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+
+.. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
+
+En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+
+.. math:: E(y) = exp(\mu+(\sigma^2)/2)
+
+La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_cons_taxes" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPSM (indiqués "cons_taxes" dans la légende).
+
+.. figure:: figure/cons_taxes.png
+    :alt: test
+    :scale: 100%
+    :align: center
+
+Crédits remboursables : soutien aux enfants du Québec et frais de garde d'enfants pour le Québec
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Les crédits remboursables intègrent le crédit d'impôt remboursable pour le soutien aux enfants du Québec et le crédit d'impôt remboursable pour frais de garde d'enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d'éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d'éducation (*none*, *des*, *dec* et *uni*) et en fonction du genre (*femme* et *homme*).
+
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés entre 18 et 85 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i}
+
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés entre 18 et 35 ans :
+
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i}
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i}
+
+Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+
+.. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
+
+En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+
+.. math:: E(y) = exp(\mu+(\sigma^2)/2)
+
+La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués "p_credit_famille" dans la légende) aux profils moyens par âge et par catégorie (*insch* / *True* -hommes-, *none* / *True* -hommes-, *des* / *True* -hommes-, *dec* / *True* -hommes-, *uni* / *True* -hommes-, *insch* / *False* -femmes-, *none* / *False* -femmes-, *des* / *False* -femmes-, *dec* / *False* -femmes- et *uni* / *False* -femmes-) calculés directement avec la BDSPSM (indiqués "credit_famille" dans la légende).
+
+.. figure:: figure/credit_famille.png
+    :alt: test
+    :scale: 100%
+    :align: center

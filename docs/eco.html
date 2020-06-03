@@ -85,19 +85,24 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Profils économiques par âge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#emploi">Emploi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taux-d-emploi">Taux d’emploi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#heures-travaillees">Heures travaillées</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#revenu-de-travail">Revenu de travail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#depenses-de-consommation">Dépenses de consommation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#revenus-de-travail">Revenus de travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#depenses-de-consommation-des-menages">Dépenses de consommation des ménages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail">Revenu imposable résiduel, ne provenant pas du travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
@@ -168,22 +173,201 @@
             
   <div class="section" id="profils-economiques-par-age">
 <h1>Profils économiques par âge<a class="headerlink" href="#profils-economiques-par-age" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Nous utilisons la BDSPSM de Statistiques Canada (2017) afin de modéliser le profil de l’emploi, des heures travaillées, revenue de travail et les dépenses de consommation.</p>
-<div class="section" id="emploi">
-<h2>Emploi<a class="headerlink" href="#emploi" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À venir, équation estimée, résultats et profil en graphique par âge et éducation.</p>
+<p>Nous utilisons la <a class="reference external" href="https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps">BDSPSM</a> de Statistiques Canada (2017) afin de modéliser huit profils économiques listés ci-bas.</p>
+<p>Pour chaque profil économique, nous réalisons des régressions indépendantes pour chaque niveau d’éducation :</p>
+<ul class="simple">
+<li><p><em>insch</em> : individu en études.</p></li>
+<li><p><em>none</em> : Niveau d’études inférieur à un diplôme d’études secondaires.</p></li>
+<li><p><em>des</em> : Niveau d’études égal à un diplôme d’études secondaires ou niveau d’études partielles à l’université ou au collège communautaire.</p></li>
+<li><p><em>dec</em> : Niveau d’études égal à un diplôme d’études d’un collège communautaire.</p></li>
+<li><p><em>uni</em> : Niveau d’études supérieur ou égal à un diplôme de baccalauréat.</p></li>
+</ul>
+<p>Les variables de contrôle différent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivantes :</p>
+<ul class="simple">
+<li><p><em>age1</em> : âge de l’individu.</p></li>
+<li><p><em>age2</em> : âge de l’individu au carré.</p></li>
+<li><p><em>age3</em> : âge de l’individu au cube.</p></li>
+<li><p><em>age4</em> : âge de l’individu à la puissance 4.</p></li>
+<li><p><em>male</em> : variable indicatrice égale à 1 si l’individu est un homme, 0 sinon.</p></li>
+<li><p><em>married</em> : variable indicatrice égale à 1 si l’individu est en couple, 0 s’il est célibataire.</p></li>
+<li><p><em>kid1</em> : variable indicatrice égale à 1 si l’individu a un enfant, 0 sinon.</p></li>
+<li><p><em>kid2</em> : variable indicatrice égale à 1 si l’individu a deux enfants, 0 sinon.</p></li>
+<li><p><em>kid3</em> : variable indicatrice égale à 1 si l’individu a au moins trois enfants, 0 sinon.</p></li>
+<li><p><em>nkids</em> : nombre d’enfants de l’individu de 0 à 3 au maximum (3 correspondant à 3 et plus).</p></li>
+<li><p><em>age55p</em> : égal à l’âge de l’individu si il (elle) est âgé(e) de plus de 55 ans et égal à zéro sinon.</p></li>
+</ul>
+<div class="section" id="taux-d-emploi">
+<h2>Taux d’emploi<a class="headerlink" href="#taux-d-emploi" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La probabilité d’être en emploi « emp » est estimée à l’aide d’un modèle probit.</p>
+<p>Le modèle probit pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[+ \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i}\]</div>
+<p>Le modèle probit pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i}\]</div>
+<p>La probabilité « emp » d’être en emploi est alors :</p>
+<div class="math notranslate nohighlight">
+\[\Pr(emp_{i}=1) = \frac{\exp(y_{i})}{1+\exp(y_{i})}\]</div>
+<p>La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_emp » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « emp » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/emp.png"><img alt="test" src="_images/emp.png" style="width: 527.0px; height: 279.0px;" /></a>
+</div>
 </div>
 <div class="section" id="heures-travaillees">
 <h2>Heures travaillées<a class="headerlink" href="#heures-travaillees" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À venir, équation estimée, résultats et profil en graphique par âge et éducation.</p>
+<p>Les heures travaillées (conditionnelles au fait de travailler) sont estimées à partir d’un modèle de niveau.</p>
+<p>Le modèle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i}\]</div>
+<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i}\]</div>
+<p>La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_hours_c » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « hours_c » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/hours.png"><img alt="test" src="_images/hours.png" style="width: 544.0px; height: 279.0px;" /></a>
 </div>
-<div class="section" id="revenu-de-travail">
-<h2>Revenu de travail<a class="headerlink" href="#revenu-de-travail" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À venir, équation estimée, résultats et profil en graphique par âge et éducation.</p>
 </div>
-<div class="section" id="depenses-de-consommation">
-<h2>Dépenses de consommation<a class="headerlink" href="#depenses-de-consommation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>À venir, équation estimée, résultats et profil en graphique par âge et éducation.</p>
+<div class="section" id="revenus-de-travail">
+<h2>Revenus de travail<a class="headerlink" href="#revenus-de-travail" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les revenus du travail (conditionnels au fait de travailler) sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 70 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + {1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}\]</div>
+<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<div class="math notranslate nohighlight">
+\[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
+<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<div class="math notranslate nohighlight">
+\[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
+<p>La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_earn_c » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « earn_c » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/earn_c.png"><img alt="test" src="_images/earn_c.png" style="width: 539.0px; height: 279.0px;" /></a>
+</div>
+</div>
+<div class="section" id="depenses-de-consommation-des-menages">
+<h2>Dépenses de consommation des ménages<a class="headerlink" href="#depenses-de-consommation-des-menages" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les dépenses de consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 90 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[+ \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \beta_{9} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} age3_{i} + \beta_{4} age4_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[+ \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \beta_{9} male_{i}\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i}\]</div>
+<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<div class="math notranslate nohighlight">
+\[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
+<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<div class="math notranslate nohighlight">
+\[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
+<p>La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_cons » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « cons » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/cons.png"><img alt="test" src="_images/cons.png" style="width: 529.0px; height: 279.0px;" /></a>
+</div>
+</div>
+<div class="section" id="revenu-imposable-residuel-ne-provenant-pas-du-travail">
+<h2>Revenu imposable résiduel, ne provenant pas du travail<a class="headerlink" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l’impôt sur le revenu auxquels sont déduits les revenus du travail. Ils sont estimés à partir d’une régression de niveau.</p>
+<p>Le modèle  pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 90 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} +\]</div>
+<div class="math notranslate nohighlight">
+\[\beta_{5} married_{i} + \beta_{6} age55p_{i} + \beta_{7} (age55p_{i})^2\]</div>
+<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[y_{i} = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i}\]</div>
+<p>La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_taxinc » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « taxinc » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/taxinc.png"><img alt="test" src="_images/taxinc.png" style="width: 536.0px; height: 279.0px;" /></a>
+</div>
+</div>
+<div class="section" id="impot-des-particuliers">
+<h2>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l’impôt des particuliers. Les impôts des particuliers sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 90 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} married_{i} + \beta_{2} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} married_{i} + \beta_{2} male_{i}\]</div>
+<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<div class="math notranslate nohighlight">
+\[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
+<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<div class="math notranslate nohighlight">
+\[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
+<p>La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_personal_taxes » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « personal_taxes » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/personal_taxes.png"><img alt="test" src="_images/personal_taxes.png" style="width: 581.0px; height: 279.0px;" /></a>
+</div>
+</div>
+<div class="section" id="taxes-a-la-consommation">
+<h2>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
+<p>Les modèles les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 90 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i}\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} male_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i}\]</div>
+<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<div class="math notranslate nohighlight">
+\[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
+<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<div class="math notranslate nohighlight">
+\[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
+<p>La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_cons_taxes » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « cons_taxes » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/cons_taxes.png"><img alt="test" src="_images/cons_taxes.png" style="width: 561.0px; height: 279.0px;" /></a>
+</div>
+</div>
+<div class="section" id="credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">
+<h2>Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec<a class="headerlink" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les crédits remboursables intègrent le crédit d’impôt remboursable pour le soutien aux enfants du Québec et le crédit d’impôt remboursable pour frais de garde d’enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d’éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d’éducation (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) et en fonction du genre (<em>femme</em> et <em>homme</em>).</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés entre 18 et 85 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i}\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés entre 18 et 35 ans :</p>
+<div class="math notranslate nohighlight">
+\[log(y_{i}) = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i}\]</div>
+<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<div class="math notranslate nohighlight">
+\[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
+<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<div class="math notranslate nohighlight">
+\[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
+<p>La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_credit_famille » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em> / <em>True</em> -hommes-, <em>none</em> / <em>True</em> -hommes-, <em>des</em> / <em>True</em> -hommes-, <em>dec</em> / <em>True</em> -hommes-, <em>uni</em> / <em>True</em> -hommes-, <em>insch</em> / <em>False</em> -femmes-, <em>none</em> / <em>False</em> -femmes-, <em>des</em> / <em>False</em> -femmes-, <em>dec</em> / <em>False</em> -femmes- et <em>uni</em> / <em>False</em> -femmes-) calculés directement avec la BDSPSM (indiqués « credit_famille » dans la légende).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/credit_famille.png"><img alt="test" src="_images/credit_famille.png" style="width: 582.0px; height: 340.0px;" /></a>
+</div>
 </div>
 </div>
 

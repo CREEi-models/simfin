@@ -84,13 +84,14 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
@@ -161,14 +162,22 @@
             
   <div class="section" id="dette-publique">
 <h1>Dette publique<a class="headerlink" href="#dette-publique" title="Lien permanent vers ce titre">¶</a></h1>
-<p>[Faire les docstrings]</p>
-<p>La dette publique du gouvernement du Québec consiste en majorité d’emprunt sous forme d’obligations émises sur les marchés internationaux. Les comptes publics font état de l’évolution de la dette publique québécoise. D’une année à l’autre, la dette publique évolue pour différentes raisons. D’abord, la dette fluctue de par la valeur des obligations (en particulier risque de change) et l’échéance et ré-émission de nouvelles obligations. Elle augmente à cause de nouveaux besoins d’emprunts, par exemple pour financer des investissement en infrastructures et la dette des investissements par partenariat public-privé (PPP). Elle diminue dû à un fonds d’amortissement. Ce module de dette publique prend en compte ces différents éléments. Cependant, certains éléments sont supposés croître à un rythme égal à celui du PIB, comme les nouveaux emprunts, le fonds d’amortissement et la dette PPP. Ainsi, seul les nouveaux emprunts et le remboursement de la dette (soit provenant du Fonds des générations ou du solde budgétaire) font varier le ratio dette PIB.</p>
-<p>La dette brutte ajoute à la dette, la dette liée aux obligations non-financées des régimes de retraite du gouvernement. Elle diminue du montant du solde du Fonds des générations. Finalement, elle diminue des emprunts par anticipation.</p>
-<p>Le service de la dette est modélisé en utilisant le coût effectif de la dette rapporté dans les comptes publics. Nous prennons la moyenne 2008-2019, soit 3.9% (nominal).</p>
+<p>La dette publique du gouvernement du Québec consiste en majorité des emprunts sous forme d’obligations émises sur les marchés internationaux. Les comptes publics font état de l’évolution de la dette publique québécoise. D’une année à l’autre, la dette publique évolue pour différentes raisons. D’abord, la dette fluctue de par la valeur des obligations (en particulier risque de change) et l’échéance et réémission de nouvelles obligations. Elle augmente à cause de nouveaux besoins d’emprunts, par exemple pour financer des investissements en infrastructures et la dette des investissements par partenariat public-privé (PPP). Elle diminue dû à un fonds d’amortissement. Ce module de dette publique prend en compte ces différents éléments. Cependant, certains éléments sont censés croître à un rythme égal à celui du PIB, comme les nouveaux emprunts, le fonds d’amortissement et la dette PPP. Ainsi, seuls les nouveaux emprunts et le remboursement de la dette (soit provenant du Fonds des générations ou du solde budgétaire) font varier le ratio dette PIB.</p>
+<p>La dette brute ajoute à la dette, la dette liée aux obligations non-financées des régimes de retraite du gouvernement. Elle diminue du montant du solde du Fonds des générations. Finalement, elle diminue des emprunts par anticipation.</p>
+<p>Le service de la dette est modélisé en utilisant le coût effectif de la dette rapporté dans les comptes publics. Nous prenons la moyenne 2008-2019, soit 3.9% (nominal).</p>
 <dl class="class">
 <dt id="simfin.debt.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.debt.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">init_balance</em>, <em class="sig-param">base</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.debt.collector" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction permettant de colliger le déficit public dans la dette du gouvernement provincial.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_balance</strong> (<em>float</em>) – Montant de la dette publique du gouvernement provincial pour l’année d’initialisation du modèle.</p></li>
+<li><p><strong>base</strong> (<em>float</em>) – Collecte tous les items qui viennent abonder la dette publique.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 

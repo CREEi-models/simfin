@@ -4,37 +4,43 @@ Comptes publics
 Nomenclature
 ^^^^^^^^^^^^
 
-Nous avons colligé pour les années 2006-2019, les données des comptes publics pour les éléments suivants:
+Pour toutes les années de 2006 à 2019, nous avons colligé les données des comptes publics pour les éléments suivants:
 
-Revenus provenant de:
+Revenus provenant :
 
-- impôt et crédits remboursables des particuliers
-- impôt et crédits remboursables des entreprises
-- taxes à la consommation
-- FSS
-- entreprises du gouvernement
-- droits et permis
-- taxes scolaires
-- autres taxes
-- transfers fédéraux (péréquation, transferts en santé et autres transferts)
+- des impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html#id1>`_ présentés en bas de page);
+- des impôts et crédits remboursables des entreprises (10%);
+- des taxes à la consommation (22,9%);
+- des cotisations au fonds des services de santé (FSS; 6,9%);
+- des entreprises du gouvernement (6,1%);
+- des droits et permis (4,8%);
+- de l'impôt foncier scolaire (2%);
+- des autres taxes (12,6%).
 
-Dépenses provenant de:
+Revenus provenant des transfers fédéraux :
 
-- mission santé
-- mission éducation et culture
-- mission famille
-- mission économie et innovation
-- mission gouverne et justice
-- service de la dette
+- péréquation (50,7% de l'ensemble des transferts fédéraux en 2019);
+- transferts en santé (27,3%);
+- autres transferts (22%).
 
-Par ailleurs, nous modélisons le fonds des générations (prévu jusqu'en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette, nous modélisons les comptes additionels qui permettent de regarder la dette brutte (e.g. régimes de retraites).
+Dépenses provenant des missions :
 
-Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification:
+- santé et services sociaux (42,5% de l'ensemble des dépenses des missions en 2019);
+- éducation et culture (24,4%);
+- soutien aux familles (10,3%);
+- économie et environnement (15,1%);
+- gouverne et justice (7,7%);
 
-.. csv-table:: Classification des comptes publics 2016-2019
-   :widths: 10, 5, 5, 5, 5
-   :header: "Comptes (en millions)", "2016", "2017", "2018", "2019"
-   :file: historical_accounts.csv
+Les comptes publics intègrent également les dépenses provenant du service de la dette.
+
+Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.
+
+Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification (la barre déroulante en bas du tableau permet de naviguer entre les années):
+
+.. csv-table:: Classification des comptes publics 2015-2019
+   :widths: 8, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+   :file: historical_accounts_2.csv
 
 Outils
 ^^^^^^

@@ -85,6 +85,7 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
@@ -98,8 +99,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#impot-des-societes">Impôt des sociétés</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">impôt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">crédits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">impôt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">crédits</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#cotisations-au-fss">Cotisations au FSS</a></li>
@@ -110,10 +111,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#autres-taxes">Autres taxes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#transfers-federaux">Transfers fédéraux</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#transferts-federaux">Transferts fédéraux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#perequation">Péréquation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transfers-en-sante">Transfers en santé</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#autres-transfers">Autres transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autres-transferts">Autres transferts</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
@@ -186,161 +187,303 @@
             
   <div class="section" id="revenus">
 <h1>Revenus<a class="headerlink" href="#revenus" title="Lien permanent vers ce titre">¶</a></h1>
-<p>[Il reste à remplir les docstrings des fonctions et mettre les taux historiques ici-bas]</p>
-<p>SimFin fait la modélisation des revenus autonomes et des transfers fédéraux. En terme de modélisation des revenus autonomes, nous prenons en compte les impôts et crédits remboursables des particuliers, des sociétés, les entreprises du gouvernement, les taxes à la consommation, le fonds de la santé et des services sociaux (FSS), l’impôt foncier scolaire, les droits et permis et les autres taxes.</p>
+<p>SimFin modélise les revenus autonomes et les transferts fédéraux.</p>
 <div class="section" id="revenus-autonomes">
 <h2>Revenus autonomes<a class="headerlink" href="#revenus-autonomes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La fonction suivante permet de colliger différents revenus autonomes.</p>
+<p>Les revenus autonomes de la province du Québec sont constitués :</p>
+<ul class="simple">
+<li><p>de l’impôt des particuliers (34,7% des revenus autonomes en 2019 selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html">comptes publics</a>), subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
+<li><p>de l’impôt des sociétés (10%), également subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
+<li><p>des cotisations au fonds des services de santé (6,9%);</p></li>
+<li><p>des taxes à la consommation (22,9%);</p></li>
+<li><p>des droits et permis (4,8%);</p></li>
+<li><p>des revenus issus des entreprises du gouvernement (6,1%);</p></li>
+<li><p>de l’impôt foncier scolaire (2%);</p></li>
+<li><p>des autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l’ensemble des revenus autonomes en 2019).</p></li>
+</ul>
 <dl class="class">
 <dt id="simfin.revenue.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.collector" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui permet de colliger différents revenus autonomes.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="impot-des-particuliers">
 <h2>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="impot">
 <h3>impôt<a class="headerlink" href="#impot" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’impôt des particuliers est modélisé à l’aide de la structure démographique de la population et des équations estimées sur la BDSPS. Par la suite, il est calibré, à l’année de départ afin d’être aligné sur le montant indiqué aux comptes publics. Cet alignement est gardé constant dans le futur. L’impôt par âge croit par année en fonction de la croissance du PIB potentiel (dollars courants).</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>L’impôt des particuliers est modélisé à l’aide de la structure démographique de la population et des équations estimées sur la BDSPS sur le taux d’emploi et les revenus du travail annuels, auxquels on ajoute le revenu imposable résiduel ne provenant pas du travail (<a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>). Par la suite, il est calibré l’année de départ afin d’être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L’impôt par âge croît par année en fonction de la croissance des salaires.</p>
+<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L’ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#">Comptes publics</a>).</p>
 <dl class="class">
 <dt id="simfin.revenue.personal_taxes">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer l’impôt des particuliers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="credits">
 <h3>crédits<a class="headerlink" href="#credits" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La comptabilisation des comptes publics imputent au revenus la dépense fiscale associée aux crédits d’impôt remboursables car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Nous modélisation l’utilisation de ces crédits à l’aide de la structure de population par âge ainsi que des équations estimés sur la BDSPSM.</p>
-<p>Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.</p>
+<p>La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d’impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l’aide de la structure de population par âge ainsi que des équations estimées sur la BDSPSM (voir les <a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>).</p>
+<p>Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l’inflation et de la croissance des salaires réels.</p>
+<p>Au cours des 5 dernières années, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.personal_credits">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des particuliers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
 <div class="section" id="impot-des-societes">
 <h2>Impôt des sociétés<a class="headerlink" href="#impot-des-societes" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="id1">
-<h3>impôt<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’impôt des sociétés est croit au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<div class="section" id="id3">
+<h3>impôt<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’impôt des sociétés croît au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_taxes">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer l’impôt des sociétés.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
-<div class="section" id="id2">
-<h3>crédits<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les crédits d’impôt remboursables des sociétés croient au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces dépenses fiscales ont cru au rythme de X% par année.</p>
+<div class="section" id="id4">
+<h3>crédits<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les crédits d’impôt remboursables des sociétés croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_credits">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des sociétés.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
 <div class="section" id="cotisations-au-fss">
 <h2>Cotisations au FSS<a class="headerlink" href="#cotisations-au-fss" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les cotisations au FSS, provenant largement des entreprises, croit au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.fss">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">fss</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">fss</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les cotisations au Fonds des services de santé (FSS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="taxes-a-la-consommation">
 <h2>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus provenant des taxes à la consommation sont affectées par la structure démographique et des équations modélisant les taxes à la consommation par âge et autres caractéristiques. Ces équations sont estimées sur la BDSPSM. Les revenus par âge croient au rythme du PIB potentiel per capita.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d’autres caractéristiques. Ces équations sont estimées sur la BDSPSM (voir les <a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>).</p>
+<p>Les taxes à la consommation croissent au rythme de l’inflation et de la croissance des salaires excluant l’amélioration liée au niveau d’éducation (on attribue à cette croissance seulement 44,7% de l’augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n’étant pas pris en compte).</p>
+<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.consumption">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">consumption</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">consumption</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les taxes à la consommation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="droits-et-permis">
 <h2>Droits et permis<a class="headerlink" href="#droits-et-permis" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus de droits et permis croient au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, les revenus de droits et permis croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.permits">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">permits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">permits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les revenus issus des droits et permis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="entreprises-du-gouvernement">
 <h2>Entreprises du gouvernement<a class="headerlink" href="#entreprises-du-gouvernement" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus provenant des entreprises du gouvernement au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.gov_enterprises">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les revenus provenant des entreprises du gouvernement provincial.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="impot-foncier-scolaire">
 <h2>Impôt foncier scolaire<a class="headerlink" href="#impot-foncier-scolaire" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus provenant des taxes scolaires croient au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).</p>
 <dl class="class">
 <dt>
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Classe permettant d’intégrer les revenus provenant des entreprises du gouvernement provincial.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="autres-taxes">
 <h2>Autres taxes<a class="headerlink" href="#autres-taxes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus provenant des autres taxes croient au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.other_taxes">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">other_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.other_taxes" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">other_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.other_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer toutes les autres taxes proviciales.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
-<div class="section" id="transfers-federaux">
-<h1>Transfers fédéraux<a class="headerlink" href="#transfers-federaux" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Trois transfers fédéraux sont modélisés: les paiements de péréquation, du transfert en santé et la somme des autres transfers (en éducation, etc).</p>
-<p>La fonction collector permet de colliger ces revenus</p>
+<div class="section" id="transferts-federaux">
+<h1>Transferts fédéraux<a class="headerlink" href="#transferts-federaux" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Trois transferts fédéraux sont modélisés: les paiements de péréquation (50,7% de l’ensemble des transferts fédéraux en 2019 selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html">comptes publics</a>), du transfert en santé (27,3% des transferts fédéraux) et la somme des autres transfers (22% des transferts fédéraux).</p>
 <dl class="class">
 <dt id="simfin.federal.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.collector" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui permet de colliger les transferts issus du gouvernement fédéral.</p>
+</dd></dl>
 
 <div class="section" id="perequation">
 <h2>Péréquation<a class="headerlink" href="#perequation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ces transferts sont supposés croître au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.equalization">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">equalization</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">equalization</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les revenus issus de la péréquation et de la formule de financement des territoires (FFT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="transfers-en-sante">
 <h2>Transfers en santé<a class="headerlink" href="#transfers-en-sante" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ces transferts sont supposés croître au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.</p>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.health_transfer">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">health_transfer</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">health_transfer</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer le transfert canadien en matière de santé (TCS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
-<div class="section" id="autres-transfers">
-<h2>Autres transfers<a class="headerlink" href="#autres-transfers" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ces transferts sont supposés croître au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transfers ont cru au rythme de X% par année.</p>
+<div class="section" id="autres-transferts">
+<h2>Autres transferts<a class="headerlink" href="#autres-transferts" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Au cours des 5 dernières années, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.other_transfers">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">other_transfers</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">other_transfers</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer les autres transferts fédéraux.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

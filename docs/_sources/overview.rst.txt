@@ -1,33 +1,29 @@
 En un clin d'oeil
 -----------------
 
-SimFin permet de faire des projections des finances publiques québécoises. Le calculateur utilise les projections démographiques provenant du simulateur démographique `SimGen <https://creei-models.github.io/simgen>`_. De plus, il utilise des données de la BDSPSM de Statistiques Canada, de l'Institut Canadien d'information en santé et des comptes économiques produits par l'Institut de la Statistique du Québec comme inputs. SimFin est basé sur la classification des revenus et dépenses contenu dans les rapports des Comptes publics du gouvernement du Québec.  
+SimFin est un modèle de microsimulation qui permet de réaliser des projections de finances publiques québécoises. Le calculateur utilise les intrants issus de plusieurs sources statistiques. Les projections démographiques proviennent du simulateur démographique `SimGen <https://creei-models.github.io/simgen>`_. Il utilise également des données issues de la `BDSPSM <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_ de Statistique Canada, de `l'Institut canadien d'information sur la santé <https://www.cihi.ca/fr>`_ et des comptes économiques produits par `l'Institut de la Statistique du Québec <https://www.stat.gouv.qc.ca/>`_. SimFin est basé sur la classification des revenus et dépenses contenue dans les rapports des `Comptes publics du gouvernement du Québec <https://www.quebec.ca/gouv/ministere/finances/publications/#c42163>`_.
 
 Installation
 ^^^^^^^^^^^^
 
-SimFin est écrit en python. Nous utilisons la distribution `Anaconda <https://www.anaconda.com/products/individual>`_ de Python pour nos calculs. Le code source réside sur `github <https://github.com/creei-models/simfin>`_. On peut installer directement en utilisant l'installateur pip:
+SimFin est écrit en Python. Nous utilisons la distribution `Anaconda <https://www.anaconda.com/products/individual>`_ de Python pour nos calculs. Le code source réside sur `github <https://github.com/creei-models/simfin>`_. Il est possible d'installer directement SimFin en utilisant l'installateur pip:
 
-.. code:: 
+.. code::
 
-   pip install git+https://github.com/creei-models/simfin 
+   pip install git+https://github.com/creei-models/simfin
 
-SimFin contient les données démographiques du scénario de référence de SimGen. Pour inclure des 
-données alternatives, voir la documentation de la fonction load_demo. 
+SimFin contient les données démographiques du scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Pour inclure des données démographiques alternatives, voir la documentation de la fonction load_demo.
 
 Utilisation
 ^^^^^^^^^^^
 
-SimFin peut être lancé de la façon suivante: 
+SimFin peut être lancé de la façon suivante:
 
-.. code-block:: python 
+.. code-block:: python
 
    import simfin
    mysim = simfin.simulator(2017,2060)
-   mysim.simulate() 
+   mysim.simulate()
    print(mysim.summary)
 
-L'objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation. 
-
-
-
+L'objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation, par défaut fixée de 2018 à 2060.

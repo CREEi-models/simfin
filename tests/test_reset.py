@@ -7,7 +7,13 @@ import warnings
 import simfin
 warnings.filterwarnings('ignore')
 x = simfin.simulator(2019,2021)
-x.simulate()
-x.reset()
-x.simulate()
-x.summary.loc[:,[2019]]
+def change_inflation(inf):
+    x.macro.infl = inf
+    print(type(inf))
+infl = list(np.linspace(0,3,10))
+@x.replication(rep=10,param={change_inflation:infl})
+def my_simulation():
+    x.simulate()
+my_simulation()
+
+

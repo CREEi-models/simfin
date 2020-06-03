@@ -85,13 +85,14 @@
               <p class="caption"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="revenue.html#transfers-federaux">Transfers fédéraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Réserve de stabilisation</a></li>
@@ -162,12 +163,20 @@
             
   <div class="section" id="reserve-de-stabilisation">
 <h1>Réserve de stabilisation<a class="headerlink" href="#reserve-de-stabilisation" title="Lien permanent vers ce titre">¶</a></h1>
-<p>[Faire les docstrings de collector]</p>
-<p>La réserve de stabilisation se voit dédiée le solde budgétaire positifs. La réserve permet d’éponger les déficits (après versement planifié au Fonds des générations). Afin de projecter la réserve de stablisation, nous avons supposé que la réserve ne peut dépasser 15% des dépenses totales du gouvernement. En fait, la réserve est là pour éponger des déficits de court terme et on pourrait imaginer que le gouvernement ne voudra accumuler des sommes trop importantes dans la réserve. Il apparait avantageux pour le gouvernement de rembourser la dette, qui a un coût effectif avoisinant les 3.5% par année, plutôt que de laisser l’argent dormir dans cette réserve. Ainsi, les surplus au délà de 15% des dépenses totales sont affectés à la dette. Un solde budgétaire négatif alors que la réserve est à zéro implique de nouveaux emprunts au niveau de la dette.</p>
+<p>La réserve de stabilisation se voit dédiée le solde budgétaire positifs. La réserve permet d’éponger les déficits (après versement planifié au Fonds des générations). Afin de projeter la réserve de stabilisation, nous avons supposé que la réserve ne peut dépasser 15% des dépenses totales du gouvernement. En fait, la réserve est là pour éponger des déficits de court terme et on pourrait imaginer que le gouvernement ne voudra accumuler des sommes trop importantes dans la réserve. Il apparait avantageux pour le gouvernement de rembourser la dette, qui a un coût effectif avoisinant les 3.5% par année, plutôt que de laisser l’argent dormir dans cette réserve. Ainsi, les surplus au délà de 15% des dépenses totales sont affectés à la dette. Un solde budgétaire négatif alors que la réserve est à zéro implique de nouveaux emprunts au niveau de la dette.</p>
 <dl class="class">
 <dt id="simfin.reserve.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.reserve.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">init_balance</em>, <em class="sig-param">max_rate=0.15</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.reserve.collector" title="Lien permanent vers cette définition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fonction permettant de colliger les revenus qui abondent la réserve de stabilisation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_balance</strong> (<em>float</em>) – Montant du stock sur la réserve de stabilisation l’année d’initialisation du modèle.</p></li>
+<li><p><strong>max_rate</strong> (<em>float</em>) – Part maximale de la réserve de stabilisation dans les dépenses totales du gouvernement. Au dessus de max_rate, les surplus générés sont affectés à la dette.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 

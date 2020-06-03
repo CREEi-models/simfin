@@ -6,9 +6,9 @@ Home-page: https://creei-models.github.io/simfin
 Author: Équipe CREEi
 Author-email: pierre-carl.michaud@hec.ca
 License: UNKNOWN
-Description: # Modèle de microsimulation SimFin
+Description: # ModÃ¨le de microsimulation SimFin
         
-        Ce package contient le modèle de microsimulation des finances publiques SimFin développé par la chaire [CREEi](http://www.creei.ca). La [documentation](https://creei-models.github.io/simfin) du modèle devrait être consulté concernant l'installation et l'utilisation du modèle.
+        Ce package contient le modÃ¨le de microsimulation des finances publiques SimFin dÃ©veloppÃ© par la chaire [CREEi](http://www.creei.ca). La [documentation](https://creei-models.github.io/simfin) du modÃ¨le devrait Ãªtre consultÃ© concernant l'installation et l'utilisation du modÃ¨le.
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3

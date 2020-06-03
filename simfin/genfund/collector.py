@@ -5,6 +5,14 @@ import pandas as pd
 module_dir = os.path.dirname(os.path.dirname(__file__))
 
 class collector:
+    '''
+    Fonction permettant de colliger les revenus qui abondent le Fonds des générations.
+
+    Parameters
+    ----------
+    init_balance: float
+        Montant du stock du Fonds des générations l'année d'initialisation du modèle.
+    '''
     def __init__(self,init_balance):
         self.balance = init_balance
         self.init_balance = init_balance
