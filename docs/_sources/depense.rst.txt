@@ -1,8 +1,6 @@
 Dépenses
 --------
 
-[Il reste à voir la modélisation qui dépend de la BDSPSM et de SimGen]
-
 Les dépenses sont organisées par mission. Cinq missions sont prises en comptes:
 
 - santé et services sociaux  (42,5% de l'ensemble des dépenses des missions en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_);
@@ -31,9 +29,20 @@ L'historique des dépenses de la mission "Santé et services sociaux" présente 
 Éducation et culture
 ^^^^^^^^^^^^^^^^^^^^
 
-Les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite. La croissance des dépenses par élève est modélisée suivant les hypothèses de `St-Maurice al. (2018) <https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf>`_, soit une croissance réelle par tête égale à 1%.
+L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année au cours des 5 dernières années (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
-L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année au cours des 5 dernières années (en valeur nominale).
+Dans SimFin, les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite.
+
+La croissance structurelle des dépenses réelles d'éducation après 2019 est égale à 2,0% par an pour chaque élève du primaire et du secondaire (tous les individus en formation jusque 17 ans dans SimFin) et elle est égale à 0,3% par an pour chaque étudiant du postsecondaire (tous les individus en formation de 18 à 34 ans dans SimFin).
+
+Afin de déterminer ces deux taux, nous calculons tout d'abord le taux de croissance des dépenses d'éducation par tête d'une année sur l'autre entre 2002-2003 et 2016-2017 à partir des tableaux de dépenses agrégées `37-10-0066-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710006601>`_ et `37-10-0027-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701>`_ de Statistique Canada et des tableaux d'effectifs `37-10-0019-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710001901>`_ et `37-10-0018-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710001801>`_ de Statistique Canada.
+
+Ensuite, nous appliquons la formule suivante pour obtenir le taux de croissance structurelle s :
+
+.. math:: s_{primaire/secondaire} = [(1+TC_{02-03|03-04})*[...]*(1+TC_{15-16|16-17})]^{(1/N)}-1
+.. math:: s_{postsecondaire} = [(1+TC_{02-03|03-04})*[...]*(1+TC_{15-16|16-17})]^{(1/N)}-1
+
+Nous excluons les taux de croissance annuels entre 2005-2006 et 2006-2007 et entre 2006-2007 et 2007-2008 en raison d'une réforme comptable que le Québec a mis en place (`Clavet et al. 2016 <https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf>`_). De plus, nous excluons l'année 2010-2011 pour le postsecondaire en raison d'une autre réforme comptable (voir les détails du tableau `37-10-0027-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701>`_). Par conséquent, N=12 pour le primaire/secondaire et N=11 pour le postsecondaire.
 
 .. autoclass:: education
 
@@ -59,7 +68,7 @@ L'historique des dépenses de la mission "Gouverne et Justice" présente une aug
 Soutien aux familles
 ^^^^^^^^^^^^^^^^^^^^
 
-Ces dépenses sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_) pour les garderies et pour certains crédits remboursables (imputés aux portefeuilles de la mission soutien aux familles).
+Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) les crédits d'impôts remboursables pour le soutien aux enfants du Québec et les frais de garde d’enfants pour le Québec qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
 
 L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année au cours des 5 dernières années (en valeur nominale).
 
