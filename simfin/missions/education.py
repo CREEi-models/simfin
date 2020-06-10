@@ -29,8 +29,12 @@ class education(account):
             # self.price_hs = 0.015
             # self.price_college = (0.77/100+1.64/100)/2
             # self.price_hs = 0.027
-            self.price_college = 1.0/100.0
-            self.price_hs = 1.0/100.0
+            # self.price_college = 0.015
+            # self.price_hs = 0.02
+            #self.price_college = 1.0/100.0
+            #self.price_hs = 1.0/100.0
+            self.price_hs = 2.0/100.0
+            self.price_college = 0.3/100.0
         else :
             self.price_college = 0.0
             self.price_hs = 0.0
