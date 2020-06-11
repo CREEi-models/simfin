@@ -22,14 +22,14 @@ Les dépenses de santé et de services sociaux sont calculées à partir du fich
 
 Une calibration est faite pour l'année de départ afin que le total des dépenses provenant des données de l'ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d'alignement est maintenu fixe pour la projection.
 
-L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année au cours des 5 dernières années (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année entre 2015 et 2019 (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 .. autoclass:: health
 
 Éducation et culture
 ^^^^^^^^^^^^^^^^^^^^
 
-L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année au cours des 5 dernières années (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année entre 2015 et 2019 (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 Dans SimFin, les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite.
 
@@ -51,7 +51,7 @@ Nous excluons les taux de croissance annuels entre 2005-2006 et 2006-2007 et ent
 
 Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
 
-L'historique des dépenses de la mission "Économie et environnement" présente une augmentation au rythme de 6,48% par année au cours des 5 dernières années (en valeur nominale).
+L'historique des dépenses de la mission "Économie et environnement" présente une augmentation au rythme de 6,48% par année entre 2015 et 2019 (en valeur nominale).
 
 .. autoclass:: economy
 
@@ -61,7 +61,7 @@ Gouverne et Justice
 
 Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
 
-L'historique des dépenses de la mission "Gouverne et Justice" présente une augmentation au rythme de 2,79% par année au cours des 5 dernières années (en valeur nominale).
+L'historique des dépenses de la mission "Gouverne et Justice" présente une augmentation au rythme de 2,79% par année entre 2015 et 2019 (en valeur nominale).
 
 .. autoclass:: justice
 
@@ -70,6 +70,6 @@ Soutien aux familles
 
 Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) les crédits d'impôts remboursables pour le soutien aux enfants du Québec et les frais de garde d’enfants pour le Québec qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
 
-L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année au cours des 5 dernières années (en valeur nominale).
+L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année entre 2015 et 2019 (en valeur nominale).
 
 .. autoclass:: family

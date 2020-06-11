@@ -185,7 +185,7 @@
 <p>Notre modélisation du PIB potentiel est similaire à celle adoptée par <a class="reference external" href="https://www.desjardins.com/ressources/pdf/pv200309-f.pdf">Desjardins Études Économiques</a>, c’est-à-dire que nous utilisons une fonction de production de type Cobb-Douglas:</p>
 <div class="math notranslate nohighlight">
 \[Y_t = A_t K_t^{\alpha_K} L_t^{\alpha_L}\]</div>
-<p>A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et L les heures travaillées. En prenant le log et première différence, et en imposant des rendements d’échelle constant, on obtient</p>
+<p><span class="math notranslate nohighlight">\(A\)</span> est la productivité, <span class="math notranslate nohighlight">\(K\)</span> le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et <span class="math notranslate nohighlight">\(L\)</span> les heures travaillées. En prenant le log et première différence, et en imposant des rendements d’échelle constant, on obtient</p>
 <div class="math notranslate nohighlight">
 \[\Delta Y_t = \Delta a + (1-\alpha_L) \Delta K_t + \alpha_L \Delta L_t\]</div>
 <p>Afin d’estimer cette équation, nous utilisons les données des comptes publics sur la période 1981-2018. Les estimations suivantes sont obtenues :</p>
@@ -211,7 +211,7 @@
 <p>Si on suppose par ailleurs que le taux d’intérêt est fixe, on a :</p>
 <div class="math notranslate nohighlight">
 \[K_{t}=\frac{1}{\alpha}\Delta A_{t}+\Delta L_{t}\]</div>
-<p>Entre 1981 et 2019, la valeur prédite pour le delta de K basée sur cette formule est égale à 1,93%, ce qui est très proche de sa vraie valeur qui est égale à 2,05%.</p>
+<p>Entre 1981 et 2019, la valeur prédite pour <span class="math notranslate nohighlight">\(\Delta K_{t}\)</span> basée sur cette formule est égale à 1,93%, ce qui est très proche de sa vraie valeur qui est égale à 2,05%.</p>
 </div>
 <div class="section" id="salaires">
 <h3>Salaires<a class="headerlink" href="#salaires" title="Lien permanent vers ce titre">¶</a></h3>
@@ -240,31 +240,34 @@
 <li><p>la croissance du capital:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[g_K = 1/\alpha \times g_A + g_L\]</div>
+\[g_K = 1/\alpha g_A + g_L\]</div>
 <ul class="simple">
 <li><p>la croissance des salaires:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[g_w = 1/\alpha \times g_A\]</div>
+\[g_w = 1/\alpha g_A\]</div>
 <ul class="simple">
 <li><p>la croissance du PIB :</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[g_Y = g_w + g_L\]</div>
-<p>À partir d’une hypothèse sur la croissance gA de la productivité totale des facteurs, nous pouvons donc inférer la croissance du capital, des salaires et du PIB.</p>
-<p>La croissance du travail gL est quant à elle calculée en utilisant nos profils par âge et les évolutions démographiques. Ici la croissance du travail n’est pas seulement le croissance des heures travaillées mais prend en compte aussi l’augmentation de la productivité des heures travaillées liée notamment à une amélioration du niveau d’éducation de la population active.</p>
-<p>Plus précisément gL correspond à la croissance de la variable suivante :</p>
+<ul class="simple">
+<li><p>la croissance de la consommation :</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[hat{L}=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{edu,age,mar,mal,nk}emp_{edu,age,mar,mal,nk}\]</div>
+\[g_c = 1/\alpha g_A\]</div>
+<p>À partir d’une hypothèse sur la croissance <span class="math notranslate nohighlight">\(g_A\)</span> de la productivité totale des facteurs, nous pouvons donc inférer la croissance du capital, des salaires, du PIB et de la consommation.</p>
+<p>La croissance du travail <span class="math notranslate nohighlight">\(g_L\)</span> est quant à elle calculée en utilisant nos profils par âge et les évolutions démographiques. Ici la croissance du travail n’est pas seulement le croissance des heures travaillées mais prend en compte aussi l’augmentation de la productivité des heures travaillées liée notamment à une amélioration du niveau d’éducation de la population active.</p>
+<p>Plus précisément <span class="math notranslate nohighlight">\(g_L\)</span> correspond à la croissance de la variable suivante :</p>
 <div class="math notranslate nohighlight">
-\[hours \_c{}_{edu,age,mar,mal,nk}prod_{edu,age,mar,mal,nk}\]</div>
-<p>Où « prod » est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation « edu », d’âge « age », de statut marital « mar », de genre « mal » et ayant « nk » enfants. Pour une combinaison de ces cinq caractéristiques, « N » représente la taille de la population, « emp » la population en emploi et « hours_c » le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d’emploi en fonction de l’âge et du niveau d’éducation.</p>
-<p>Sauf exception, les variables calculées à partir de l’évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires gw. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.</p>
+\[L=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{e,a,m,g,k}emp_{e,a,m,g,k} hours \_c{}_{e,a,m,g,k}prod_{e,a,m,g,k}\]</div>
+<p>Où <span class="math notranslate nohighlight">\(prod\)</span> est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation <span class="math notranslate nohighlight">\(e\)</span>, d’âge <span class="math notranslate nohighlight">\(a\)</span>, de statut marital <span class="math notranslate nohighlight">\(m\)</span>, de genre <span class="math notranslate nohighlight">\(g\)</span> et ayant <span class="math notranslate nohighlight">\(k\)</span> enfants. Pour une combinaison de ces cinq caractéristiques, <span class="math notranslate nohighlight">\(N\)</span> représente la taille de la population, <span class="math notranslate nohighlight">\(emp\)</span> la population en emploi et <span class="math notranslate nohighlight">\(hours_c\)</span> le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d’emploi en fonction de l’âge et du niveau d’éducation.</p>
+<p>Sauf exception, les variables calculées à partir de l’évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires <span class="math notranslate nohighlight">\(g_w\)</span>. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.</p>
 </div>
 </div>
 <div class="section" id="inflation">
 <h2>Inflation<a class="headerlink" href="#inflation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Durant les cinq derniers années (2015-2019), le taux d’inflation annuel moyen a été de 1,31% (calculé avec l’indice des prix à la consommation). Nous établissons l’hypothèse que ce taux d’inflation de 1,31% sera le taux de croissance du niveau général des prix pour chaque année de projection.</p>
+<p>Le taux d’inflation est fixé à 2% par an, ce qui correspond aux hypothèses retenues dans de multiples études, telles que celles de <a class="reference external" href="https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf">Clavet et al. 2016</a> et de <a class="reference external" href="https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf">St-Maurice et al. 2018</a>.</p>
 </div>
 </div>
 

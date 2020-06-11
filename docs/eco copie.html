@@ -36,9 +36,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Simulateur" href="simulateur.html" />
-    <link rel="prev" title="Projections démographiques" href="demo.html" /> 
+    <link rel="search" title="Recherche" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,23 +81,13 @@
             
             
               <p class="caption"><span class="caption-text">Menu:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">En un clin d’oeil</a></li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Synthèse des résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comptes.html">Comptes publics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Projections démographiques</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Profils économiques par âge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#taux-d-emploi">Taux d’emploi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#heures-travaillees">Heures travaillées</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#revenus-de-travail">Revenus de travail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#depenses-de-consommation-des-menages">Dépenses de consommation des ménages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail">Revenu imposable résiduel, ne provenant pas du travail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="eco.html">Profils économiques par âge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulateur.html">Simulateur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
@@ -158,7 +146,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/eco.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/eco copie.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -239,16 +227,16 @@
 </table>
 <div class="section" id="taux-d-emploi">
 <h2>Taux d’emploi<a class="headerlink" href="#taux-d-emploi" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La probabilité d’être en emploi “emp” est estimée à l’aide d’un modèle probit.</p>
+<p>La probabilité d’être en emploi « emp » est estimée à l’aide d’un modèle probit.</p>
 <p>Le modèle probit pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante :</p>
 <div class="math notranslate nohighlight">
-\[P(z = 1) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} age_{i}^3 + \beta_{4} age_{i}^4\]</div>
+\[z = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} age_{i}^3 + \beta_{4} age_{i}^4\]</div>
 <div class="math notranslate nohighlight">
 \[+ \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \epsilon\]</div>
 <p>Le modèle probit pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante :</p>
 <div class="math notranslate nohighlight">
-\[P(z = 1) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon\]</div>
-<p>La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_emp” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “emp” dans la légende).</p>
+\[z = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon\]</div>
+<p>La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_emp » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « emp » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/emp.png"><img alt="test" src="_images/emp.png" style="width: 498.0px; height: 279.0px;" /></a>
 </div>
@@ -262,7 +250,7 @@
 <p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon\]</div>
-<p>La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_hours_c” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “hours_c” dans la légende).</p>
+<p>La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_hours_c » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « hours_c » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/hours.png"><img alt="test" src="_images/hours.png" style="width: 551.0px; height: 279.0px;" /></a>
 </div>
@@ -286,7 +274,7 @@
 <p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
 <div class="math notranslate nohighlight">
 \[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
-<p>La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_earn_c” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “earn_c” dans la légende).</p>
+<p>La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_earn_c » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « earn_c » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/earn_c.png"><img alt="test" src="_images/earn_c.png" style="width: 531.0px; height: 279.0px;" /></a>
 </div>
@@ -294,7 +282,7 @@
 <div class="section" id="depenses-de-consommation-des-menages">
 <h2>Dépenses de consommation des ménages<a class="headerlink" href="#depenses-de-consommation-des-menages" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les dépenses de consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont identiques aux variables utilisées pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) correspondent aux variables utilisées pour les revenus du travail auxquelles sont ajoutées les variables <span class="math notranslate nohighlight">\(age^3\)</span> et <span class="math notranslate nohighlight">\(age^4\)</span>. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail.</p>
-<p>La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_cons” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “cons” dans la légende).</p>
+<p>La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_cons » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « cons » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/cons.png"><img alt="test" src="_images/cons.png" style="width: 527.0px; height: 279.0px;" /></a>
 </div>
@@ -310,7 +298,7 @@
 <p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon\]</div>
-<p>La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_taxinc” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “taxinc” dans la légende).</p>
+<p>La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_taxinc » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « taxinc » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/taxinc.png"><img alt="test" src="_images/taxinc.png" style="width: 531.0px; height: 279.0px;" /></a>
 </div>
@@ -318,7 +306,7 @@
 <div class="section" id="impot-des-particuliers">
 <h2>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l’impôt des particuliers. Les impôts des particuliers sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont <span class="math notranslate nohighlight">\(married\)</span> et <span class="math notranslate nohighlight">\(male\)</span>.</p>
-<p>La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_personal_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “personal_taxes” dans la légende).</p>
+<p>La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_personal_taxes » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « personal_taxes » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/personal_taxes.png"><img alt="test" src="_images/personal_taxes.png" style="width: 590.0px; height: 279.0px;" /></a>
 </div>
@@ -326,7 +314,7 @@
 <div class="section" id="taxes-a-la-consommation">
 <h2>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. La variable de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est <span class="math notranslate nohighlight">\(male\)</span>.</p>
-<p>La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_cons_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués “cons_taxes” dans la légende).</p>
+<p>La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_cons_taxes » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPSM (indiqués « cons_taxes » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/cons_taxes.png"><img alt="test" src="_images/cons_taxes.png" style="width: 575.0px; height: 279.0px;" /></a>
 </div>
@@ -344,7 +332,7 @@
 \[log(y_{i}) = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon\]</div>
 <div class="math notranslate nohighlight">
 \[log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon\]</div>
-<p>La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués “p_credit_famille” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em> / <em>True</em> -hommes-, <em>none</em> / <em>True</em> -hommes-, <em>des</em> / <em>True</em> -hommes-, <em>dec</em> / <em>True</em> -hommes-, <em>uni</em> / <em>True</em> -hommes-, <em>insch</em> / <em>False</em> -femmes-, <em>none</em> / <em>False</em> -femmes-, <em>des</em> / <em>False</em> -femmes-, <em>dec</em> / <em>False</em> -femmes- et <em>uni</em> / <em>False</em> -femmes-) calculés directement avec la BDSPSM (indiqués “credit_famille” dans la légende).</p>
+<p>La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPSM, indiqués « p_credit_famille » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em> / <em>True</em> -hommes-, <em>none</em> / <em>True</em> -hommes-, <em>des</em> / <em>True</em> -hommes-, <em>dec</em> / <em>True</em> -hommes-, <em>uni</em> / <em>True</em> -hommes-, <em>insch</em> / <em>False</em> -femmes-, <em>none</em> / <em>False</em> -femmes-, <em>des</em> / <em>False</em> -femmes-, <em>dec</em> / <em>False</em> -femmes- et <em>uni</em> / <em>False</em> -femmes-) calculés directement avec la BDSPSM (indiqués « credit_famille » dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/credit_famille.png"><img alt="test" src="_images/credit_famille.png" style="width: 688.0px; height: 357.0px;" /></a>
 </div>
@@ -356,15 +344,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="simulateur.html" class="btn btn-neutral float-right" title="Simulateur" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="demo.html" class="btn btn-neutral float-left" title="Projections démographiques" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

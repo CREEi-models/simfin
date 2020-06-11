@@ -8,16 +8,16 @@ SimFin modélise les revenus autonomes et les transferts fédéraux.
 Revenus autonomes
 ^^^^^^^^^^^^^^^^^
 
-Les revenus autonomes de la province du Québec sont constitués :
+Les revenus autonomes de la province du Québec sont constitués de :
 
-- de l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
-- de l'impôt des sociétés (10%), également subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
-- des cotisations au fonds des services de santé (6,9%);
-- des taxes à la consommation (22,9%);
-- des droits et permis (4,8%);
-- des revenus issus des entreprises du gouvernement (6,1%);
-- de l'impôt foncier scolaire (2%);
-- des autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l'ensemble des revenus autonomes en 2019).
+- l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- l'impôt des sociétés (10%), également subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- cotisations au fonds des services de santé (6,9%);
+- taxes à la consommation (22,9%);
+- droits et permis (4,8%);
+- revenus issus des entreprises du gouvernement (6,1%);
+- l'impôt foncier scolaire (2%);
+- et d'autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l'ensemble des revenus autonomes en 2019).
 
 .. autoclass:: collector
 
@@ -29,7 +29,7 @@ impôt
 
 L'impôt des particuliers est modélisé à l'aide de la structure démographique de la population et des équations estimées sur la BDSPS sur le taux d'emploi et les revenus du travail annuels, auxquels on ajoute le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
 
-Au cours des 5 dernières années, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 .. autoclass:: personal_taxes
 
@@ -40,7 +40,7 @@ La comptabilisation des comptes publics impute aux revenus la dépense fiscale a
 
 Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l'inflation et de la croissance des salaires réels.
 
-Au cours des 5 dernières années, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).
+Entre 2015 et 2019, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).
 
 .. autoclass:: personal_credits
 
@@ -52,7 +52,7 @@ impôt
 
 L'impôt des sociétés croît au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
 
 .. autoclass:: corporate_taxes
 
@@ -61,7 +61,7 @@ crédits
 
 Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
+Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
 
 .. autoclass:: corporate_credits
 
@@ -70,7 +70,7 @@ Cotisations au FSS
 
 Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).
 
 .. autoclass:: fss
 
@@ -81,7 +81,7 @@ Les revenus provenant des taxes à la consommation sont affectés par la structu
 
 Les taxes à la consommation croissent au rythme de l'inflation et de la croissance des salaires excluant l'amélioration liée au niveau d'éducation (on attribue à cette croissance seulement 44,7% de l'augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n'étant pas pris en compte).
 
-Au cours des 5 dernières années, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
 
 .. autoclass:: consumption
 
@@ -90,7 +90,7 @@ Droits et permis
 
 Dans Simfin, les revenus de droits et permis croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).
 
 .. autoclass:: permits
 
@@ -99,7 +99,7 @@ Entreprises du gouvernement
 
 Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).
 
 .. autoclass:: gov_enterprises
 
@@ -108,7 +108,7 @@ Impôt foncier scolaire
 
 Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
 
 .. autoclass:: gov_enterprises
 
@@ -117,7 +117,7 @@ Autres taxes
 
 Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).
+Entre 2015 et 2019, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).
 
 .. autoclass:: other_taxes
 
@@ -135,7 +135,7 @@ Péréquation
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).
+Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).
 
 .. autoclass:: equalization
 
@@ -144,7 +144,7 @@ Transfers en santé
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).
+Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).
 
 .. autoclass:: health_transfer
 
@@ -153,6 +153,6 @@ Autres transferts
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
 
-Au cours des 5 dernières années, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).
+Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).
 
 .. autoclass:: other_transfers

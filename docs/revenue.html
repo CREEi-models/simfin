@@ -190,16 +190,16 @@
 <p>SimFin modélise les revenus autonomes et les transferts fédéraux.</p>
 <div class="section" id="revenus-autonomes">
 <h2>Revenus autonomes<a class="headerlink" href="#revenus-autonomes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Les revenus autonomes de la province du Québec sont constitués :</p>
+<p>Les revenus autonomes de la province du Québec sont constitués de :</p>
 <ul class="simple">
-<li><p>de l’impôt des particuliers (34,7% des revenus autonomes en 2019 selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html">comptes publics</a>), subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
-<li><p>de l’impôt des sociétés (10%), également subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
-<li><p>des cotisations au fonds des services de santé (6,9%);</p></li>
-<li><p>des taxes à la consommation (22,9%);</p></li>
-<li><p>des droits et permis (4,8%);</p></li>
-<li><p>des revenus issus des entreprises du gouvernement (6,1%);</p></li>
-<li><p>de l’impôt foncier scolaire (2%);</p></li>
-<li><p>des autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l’ensemble des revenus autonomes en 2019).</p></li>
+<li><p>l’impôt des particuliers (34,7% des revenus autonomes en 2019 selon les <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html">comptes publics</a>), subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
+<li><p>l’impôt des sociétés (10%), également subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
+<li><p>cotisations au fonds des services de santé (6,9%);</p></li>
+<li><p>taxes à la consommation (22,9%);</p></li>
+<li><p>droits et permis (4,8%);</p></li>
+<li><p>revenus issus des entreprises du gouvernement (6,1%);</p></li>
+<li><p>l’impôt foncier scolaire (2%);</p></li>
+<li><p>et d’autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l’ensemble des revenus autonomes en 2019).</p></li>
 </ul>
 <dl class="class">
 <dt id="simfin.revenue.collector">
@@ -213,7 +213,7 @@
 <div class="section" id="impot">
 <h3>impôt<a class="headerlink" href="#impot" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L’impôt des particuliers est modélisé à l’aide de la structure démographique de la population et des équations estimées sur la BDSPS sur le taux d’emploi et les revenus du travail annuels, auxquels on ajoute le revenu imposable résiduel ne provenant pas du travail (<a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>). Par la suite, il est calibré l’année de départ afin d’être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L’impôt par âge croît par année en fonction de la croissance des salaires.</p>
-<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L’ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#">Comptes publics</a>).</p>
+<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L’ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#">Comptes publics</a>).</p>
 <dl class="class">
 <dt id="simfin.revenue.personal_taxes">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien permanent vers cette définition">¶</a></dt>
@@ -234,7 +234,7 @@
 <h3>crédits<a class="headerlink" href="#credits" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d’impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l’aide de la structure de population par âge ainsi que des équations estimées sur la BDSPSM (voir les <a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>).</p>
 <p>Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l’inflation et de la croissance des salaires réels.</p>
-<p>Au cours des 5 dernières années, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.personal_credits">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
@@ -257,7 +257,7 @@
 <div class="section" id="id3">
 <h3>impôt<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
 <p>L’impôt des sociétés croît au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_taxes">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
@@ -277,7 +277,7 @@
 <div class="section" id="id4">
 <h3>crédits<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les crédits d’impôt remboursables des sociétés croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_credits">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
@@ -298,7 +298,7 @@
 <div class="section" id="cotisations-au-fss">
 <h2>Cotisations au FSS<a class="headerlink" href="#cotisations-au-fss" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.fss">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">fss</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien permanent vers cette définition">¶</a></dt>
@@ -319,7 +319,7 @@
 <h2>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d’autres caractéristiques. Ces équations sont estimées sur la BDSPSM (voir les <a class="reference external" href="https://creei-models.github.io/simfin/eco.html">Profils économiques par âge</a>).</p>
 <p>Les taxes à la consommation croissent au rythme de l’inflation et de la croissance des salaires excluant l’amélioration liée au niveau d’éducation (on attribue à cette croissance seulement 44,7% de l’augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n’étant pas pris en compte).</p>
-<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.consumption">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">consumption</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien permanent vers cette définition">¶</a></dt>
@@ -339,7 +339,7 @@
 <div class="section" id="droits-et-permis">
 <h2>Droits et permis<a class="headerlink" href="#droits-et-permis" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, les revenus de droits et permis croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.permits">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">permits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien permanent vers cette définition">¶</a></dt>
@@ -359,7 +359,7 @@
 <div class="section" id="entreprises-du-gouvernement">
 <h2>Entreprises du gouvernement<a class="headerlink" href="#entreprises-du-gouvernement" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.gov_enterprises">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien permanent vers cette définition">¶</a></dt>
@@ -379,7 +379,7 @@
 <div class="section" id="impot-foncier-scolaire">
 <h2>Impôt foncier scolaire<a class="headerlink" href="#impot-foncier-scolaire" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).</p>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span></dt>
@@ -399,7 +399,7 @@
 <div class="section" id="autres-taxes">
 <h2>Autres taxes<a class="headerlink" href="#autres-taxes" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.other_taxes">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">other_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.other_taxes" title="Lien permanent vers cette définition">¶</a></dt>
@@ -429,7 +429,7 @@
 <div class="section" id="perequation">
 <h2>Péréquation<a class="headerlink" href="#perequation" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.equalization">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">equalization</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
@@ -449,7 +449,7 @@
 <div class="section" id="transfers-en-sante">
 <h2>Transfers en santé<a class="headerlink" href="#transfers-en-sante" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.health_transfer">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">health_transfer</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
@@ -469,7 +469,7 @@
 <div class="section" id="autres-transferts">
 <h2>Autres transferts<a class="headerlink" href="#autres-transferts" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
-<p>Au cours des 5 dernières années, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).</p>
+<p>Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.other_transfers">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">other_transfers</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>

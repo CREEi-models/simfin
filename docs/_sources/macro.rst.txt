@@ -15,7 +15,7 @@ Notre modélisation du PIB potentiel est similaire à celle adoptée par `Desjar
 
    Y_t = A_t K_t^{\alpha_K} L_t^{\alpha_L}
 
-A est la productivité, K le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et L les heures travaillées. En prenant le log et première différence, et en imposant des rendements d'échelle constant, on obtient
+:math:`A` est la productivité, :math:`K` le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et :math:`L` les heures travaillées. En prenant le log et première différence, et en imposant des rendements d'échelle constant, on obtient
 
 .. math::
 
@@ -36,8 +36,6 @@ Par ailleurs, la croissance de la productivité qui est utilisée pour simuler l
 Croissance des variables macroéconomiques pour une petite économie ouverte
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-
 Capital
 ########
 
@@ -57,7 +55,7 @@ Si on suppose par ailleurs que le taux d'intérêt est fixe, on a :
 
 .. math:: K_{t}=\frac{1}{\alpha}\Delta A_{t}+\Delta L_{t}
 
-Entre 1981 et 2019, la valeur prédite pour le delta de K basée sur cette formule est égale à 1,93%, ce qui est très proche de sa vraie valeur qui est égale à 2,05%.
+Entre 1981 et 2019, la valeur prédite pour :math:`\Delta K_{t}` basée sur cette formule est égale à 1,93%, ce qui est très proche de sa vraie valeur qui est égale à 2,05%.
 
 Salaires
 ########
@@ -92,30 +90,33 @@ En supposant que le taux d'intérêt est fixe et en se basant sur les résultats
 
 - la croissance du capital:
 
-.. math:: g_K = 1/\alpha \times g_A + g_L
+.. math:: g_K = 1/\alpha g_A + g_L
 
 - la croissance des salaires:
 
-.. math:: g_w = 1/\alpha \times g_A
+.. math:: g_w = 1/\alpha g_A
 
 - la croissance du PIB :
 
 .. math:: g_Y = g_w + g_L
 
-À partir d'une hypothèse sur la croissance gA de la productivité totale des facteurs, nous pouvons donc inférer la croissance du capital, des salaires et du PIB.
+- la croissance de la consommation :
 
-La croissance du travail gL est quant à elle calculée en utilisant nos profils par âge et les évolutions démographiques. Ici la croissance du travail n'est pas seulement le croissance des heures travaillées mais prend en compte aussi l'augmentation de la productivité des heures travaillées liée notamment à une amélioration du niveau d'éducation de la population active.
+.. math:: g_c = 1/\alpha g_A
 
-Plus précisément gL correspond à la croissance de la variable suivante :
+À partir d'une hypothèse sur la croissance :math:`g_A` de la productivité totale des facteurs, nous pouvons donc inférer la croissance du capital, des salaires, du PIB et de la consommation.
 
-.. math:: hat{L}=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{edu,age,mar,mal,nk}emp_{edu,age,mar,mal,nk}
-.. math:: hours \_c{}_{edu,age,mar,mal,nk}prod_{edu,age,mar,mal,nk}
+La croissance du travail :math:`g_L` est quant à elle calculée en utilisant nos profils par âge et les évolutions démographiques. Ici la croissance du travail n'est pas seulement le croissance des heures travaillées mais prend en compte aussi l'augmentation de la productivité des heures travaillées liée notamment à une amélioration du niveau d'éducation de la population active.
 
-Où « prod » est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation « edu », d’âge « age », de statut marital « mar », de genre « mal » et ayant « nk » enfants. Pour une combinaison de ces cinq caractéristiques, « N » représente la taille de la population, « emp » la population en emploi et « hours_c » le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d'emploi en fonction de l'âge et du niveau d'éducation.
+Plus précisément :math:`g_L` correspond à la croissance de la variable suivante :
 
-Sauf exception, les variables calculées à partir de l'évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires gw. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.
+.. math:: L=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{e,a,m,g,k}emp_{e,a,m,g,k} hours \_c{}_{e,a,m,g,k}prod_{e,a,m,g,k}
+
+Où :math:`prod` est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation :math:`e`, d’âge :math:`a`, de statut marital :math:`m`, de genre :math:`g` et ayant :math:`k` enfants. Pour une combinaison de ces cinq caractéristiques, :math:`N` représente la taille de la population, :math:`emp` la population en emploi et :math:`hours_c` le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d'emploi en fonction de l'âge et du niveau d'éducation.
+
+Sauf exception, les variables calculées à partir de l'évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires :math:`g_w`. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.
 
 Inflation
 ^^^^^^^^^
 
-Durant les cinq derniers années (2015-2019), le taux d'inflation annuel moyen a été de 1,31% (calculé avec l'indice des prix à la consommation). Nous établissons l'hypothèse que ce taux d'inflation de 1,31% sera le taux de croissance du niveau général des prix pour chaque année de projection.
+Le taux d'inflation est fixé à 2% par an, ce qui correspond aux hypothèses retenues dans de multiples études, telles que celles de `Clavet et al. 2016 <https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf>`_ et de `St-Maurice et al. 2018 <https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf>`_.

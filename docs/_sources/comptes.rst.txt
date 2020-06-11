@@ -6,16 +6,16 @@ Nomenclature
 
 Pour toutes les années de 2006 à 2019, nous avons colligé les données des comptes publics pour les éléments suivants:
 
-Revenus provenant :
+Revenus provenant des :
 
-- des impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html#id1>`_ présentés en bas de page);
-- des impôts et crédits remboursables des entreprises (10%);
-- des taxes à la consommation (22,9%);
-- des cotisations au fonds des services de santé (FSS; 6,9%);
-- des entreprises du gouvernement (6,1%);
-- des droits et permis (4,8%);
-- de l'impôt foncier scolaire (2%);
-- des autres taxes (12,6%).
+- impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les comptes publics présentés en bas de page);
+- impôts et crédits remboursables des entreprises (10%);
+- taxes à la consommation (22,9%);
+- cotisations au fonds des services de santé (FSS; 6,9%);
+- entreprises du gouvernement (6,1%);
+- droits et permis (4,8%);
+- impôts fonciers scolaires (2%);
+- autres taxes (12,6%).
 
 Revenus provenant des transfers fédéraux :
 
@@ -29,7 +29,7 @@ Dépenses provenant des missions :
 - éducation et culture (24,4%);
 - soutien aux familles (10,3%);
 - économie et environnement (15,1%);
-- gouverne et justice (7,7%);
+- gouverne et justice (7,7%).
 
 Les comptes publics intègrent également les dépenses provenant du service de la dette.
 

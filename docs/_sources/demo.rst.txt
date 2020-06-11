@@ -6,7 +6,7 @@ Projections démographiques
 Scénario de référence de SimGen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Par défaut, le scénario de projection démographique correspond au scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Ce scénario concorde avec le scénario de référence de l'Institut de la Statistique du Québec, comme montré dans la première figure, qui compare les projections du modèle `SimGen <https://creei-models.github.io/simgen>`_ et de l'ISQ.
+Par défaut, le scénario de projection démographique correspond au scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Ce scénario concorde avec le scénario de référence de l'Institut de la Statistique du Québec, comme montré dans la première figure, qui compare les projections du modèle `SimGen <https://creei-models.github.io/simgen>`_ et de `l'ISQ <https://www.stat.gouv.qc.ca/statistiques/population-demographie/perspectives/perspectives-2016-2066.pdf>`_.
 
 .. figure:: figure/pop_total.png
     :alt: test
@@ -15,14 +15,14 @@ Par défaut, le scénario de projection démographique correspond au scénario d
 
 `SimGen <https://creei-models.github.io/simgen>`_ inclut des projections de population en fonction de plusieurs caractéristiques: l'âge, le sexe, le statut matrimonial (en couple ou célibataire), le nombre d'enfants, le fait d'être ou non en études, le plus haut niveau de diplôme obtenu.
 
-La deuxième figure présente les résultats de projections par niveau d'éducation (plus haut niveau de diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans et ayant terminé ses études. L'évolution du niveau d'éducation est déterminante pour les simulations réalisées avec SimFin, car il influence les revenus et les dépenses d'éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes de 25 à 64 ans ayant un niveau d'études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 35,0% en 2040, la part des personnes avec un niveau d'études secondaires ou inférieur devrait diminuer de 38,3% à 25,8% sur la même période. Dans le même temps la part des personnes avec un diplôme d'études collégiales augmenterait faiblement, soit de 36,3% à 39,2%.
+La deuxième figure présente les résultats de projections par niveau d'éducation (plus haut niveau de diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans et ayant terminé ses études. L'évolution du niveau d'éducation est déterminante pour les simulations réalisées avec SimFin, car il influence les revenus et les dépenses d'éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes de 25 à 64 ans ayant un niveau d'études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 34,9% en 2040, la part des personnes avec un niveau d'études secondaires ou inférieur devrait diminuer de 38,3% à 26,0% sur la même période. Dans le même temps la part des personnes avec un diplôme d'études collégiales augmenterait faiblement, soit de 36,3% à 39,1%.
 
 .. figure:: figure/educ.png
     :alt: test
     :scale: 100%
     :align: center
 
-La troisième figure présente la répartition de la population par classes d'âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2020 à 49,9% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 25,0% sur la même période. Le ratio de dépendance démographique qui divise le nombre de personnes âgées de 65 et plus par la population âgée de 25 à 64 ans devrait augmenter significativement d'ici 20 ans. Alors que ce ratio serait de 0,34 en 2020, il devrait atteindre 0,50 en 2040.
+La troisième figure présente la répartition de la population par classes d'âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2017 à 49,3% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 26,0% sur la même période. Le ratio de dépendance démographique qui divise le nombre de personnes âgées de 65 et plus par la population âgée de 25 à 64 ans devrait augmenter significativement d'ici 20 ans. Alors que ce ratio serait de 0,36 en 2020, il devrait atteindre 0,53 en 2040.
 
 .. figure:: figure/agegrp.png
     :alt: test
