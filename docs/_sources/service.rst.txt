@@ -8,7 +8,7 @@ Le service de la dette est composé :
 
 Le ratio des intérêts sur les dettes nets en 2019 (7 431 millions de dollars) sur la dette avant gain de change reportés en 2018 (206 176 millions de dollars en valeur constante de 2019) nette des emprunts réalisés par anticipation en 2018 (9 951 millions de dollars en valeur constante de 2019) est égal à 0,0379. Ce taux de 3,79% est utilisé dans les projections de SimFin pour calculer le montant des intérêts sur les dettes, nets des revenus de placement des fonds d’amortissement afférents à des emprunts.
 
-La seconde composante du service de la dette est présenté dans l'onglet "Régimes de retraite" portant sur les régimes de retraite des employés du secteur public et du secteur parapublic.
+La seconde composante du service de la dette est présenté dans l'onglet `Régimes de retraite <https://creei-models.github.io/simfin/retraite.html>`_.
 
 .. csv-table:: Service de la dette 2015-2019
    :widths: 8, 3, 3, 3, 3, 3
