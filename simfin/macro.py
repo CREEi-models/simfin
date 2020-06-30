@@ -7,11 +7,14 @@ module_dir = os.path.dirname(os.path.dirname(__file__))
 class macro:
     def __init__(self,start_yr):
         self.rates = pd.read_pickle(module_dir+'/simfin/params/rates.pkl')
-        self.infl = self.rates.loc['inflation','tcam_last5']
+        self.infl = 2/100#self.rates.loc['inflation','tcam_last5']
         self.g_pars = pd.read_pickle(module_dir+'/simfin/params/growth_params.pkl')
         self.data = pd.read_pickle(module_dir+'/simfin/params/base_aggregates.pkl')
         self.start_yr = start_yr
-        self.Y = self.data['nom_Y']
+        #self.Y = self.data['nom_Y']
+        #self.Y = 453572
+        gdp = pd.read_excel(module_dir+'/simfin/params/historical_accounts.xlsx',sheet_name='Inputs')
+        self.Y = gdp.at[34,2020]
         self.L = self.data['L']*1e3
         self.N = self.data['N']
         self.E_w = 0 # Sur quel agrégat.
@@ -55,22 +58,18 @@ class macro:
     def set_align_cons(self,pop,eco):
         C = (pop.multiply(eco['cons'],fill_value=0.0).sum())
         align_c_hh = self.C_hh/C
-        print('alignment factor for consommation : ',align_c_hh)
+        #print('alignment factor for consommation : ',align_c_hh)
         eco['cons'] = eco['cons']*align_c_hh
         return
-
-
     def emp(self,pop,eco):
         L = pop.multiply(eco['emp']*eco['hours_c']*self.eff_hours,fill_value=0.0).sum() * self.align
         self.gr_L = np.log(L) - np.log(self.L)
         self.L = L
         return
-
     def work_earnings(self,pop,eco):
         E_w = pop.multiply(eco['emp']*eco['earn_c'],fill_value=0.0).sum()
         self.E_w = E_w
         return
-
     def cons(self,pop,eco):
         C_hh = (pop.multiply(eco['cons'],fill_value=0.0).sum())
         self.gr_C_hh = np.log(C_hh) - np.log(self.C_hh)

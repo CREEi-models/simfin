@@ -102,6 +102,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retraite.html">Régimes de retraite et autres avantages sociaux futurs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
 </ul>
@@ -181,7 +182,7 @@
 <p>De plus la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions.</p>
 <dl class="class">
 <dt id="simfin.missions.collector">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.collector" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Fonction qui permet de colliger différentes dépenses publiques provinciales.</p>
 </dd></dl>
 
@@ -192,7 +193,7 @@
 <p>L’historique des dépenses de la mission « Santé et services sociaux » présente une augmentation au rythme de 3,07% par année entre 2015 et 2019 (en valeur nominale. L’ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/comptes.html#">Comptes publics</a>).</p>
 <dl class="class">
 <dt id="simfin.missions.health">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">health</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.health" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">health</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.health" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Santé et services sociaux.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -220,7 +221,7 @@
 <p>Nous excluons les taux de croissance annuels entre 2005-2006 et 2006-2007 et entre 2006-2007 et 2007-2008 en raison d’une réforme comptable que le Québec a mis en place (<a class="reference external" href="https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf">Clavet et al. 2016</a>). De plus, nous excluons l’année 2010-2011 pour le postsecondaire en raison d’une autre réforme comptable (voir les détails du tableau <a class="reference external" href="https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701">37-10-0027-01</a>). Par conséquent, N=12 pour le primaire/secondaire et N=11 pour le postsecondaire.</p>
 <dl class="class">
 <dt id="simfin.missions.education">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">education</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.education" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">education</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=True</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.education" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Éducation et culture.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -240,7 +241,7 @@
 <p>L’historique des dépenses de la mission « Économie et environnement » présente une augmentation au rythme de 6,48% par année entre 2015 et 2019 (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.economy">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">economy</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.economy" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">economy</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.economy" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Économie et environnement.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -260,7 +261,7 @@
 <p>L’historique des dépenses de la mission « Gouverne et Justice » présente une augmentation au rythme de 2,79% par année entre 2015 et 2019 (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.justice">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">justice</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.justice" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">justice</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.justice" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Gouverne et Justice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -280,7 +281,7 @@
 <p>L’historique des dépenses de la mission « Soutien aux familles » présente une augmentation au rythme de 1,14% par année entre 2015 et 2019 (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.missions.family">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">family</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.family" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.missions.</code><code class="sig-name descname">family</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.family" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission de Soutien aux familles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>

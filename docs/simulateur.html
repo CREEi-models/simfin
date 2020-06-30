@@ -94,7 +94,9 @@
 <li class="toctree-l1"><a class="reference internal" href="revenue.html">Revenus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="revenue.html#transferts-federaux">Transferts fédéraux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="depense.html">Dépenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">Service de la dette</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generations.html">Fonds des générations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retraite.html">Régimes de retraite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
 </ul>
@@ -166,7 +168,7 @@
 <p>Le simulateur est l’organe principal du module SimFin. Il initialise et contrôle la simulation.</p>
 <span class="target" id="module-simfin"></span><dl class="class">
 <dt id="simfin.simulator">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.</code><code class="sig-name descname">simulator</code><span class="sig-paren">(</span><em class="sig-param">start_report</em>, <em class="sig-param">stop_yr</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.</code><code class="sig-name descname">simulator</code><span class="sig-paren">(</span><em class="sig-param">start_report</em>, <em class="sig-param">stop_yr</em>, <em class="sig-param">melt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe principale pour contrôler le simulateur.</p>
 <p>Cette classe permet d’initialiser les paramètres et réaliser des simulations.</p>
 <dl class="field-list simple">
@@ -245,6 +247,7 @@
 <code class="sig-name descname">load_accounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_accounts" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Fonction permettant de charger l’historique des comptes publics.</p>
 <p>L’historique des comptes publics a été comptabilisé pour la période 2006-2019. Cette fonction charge les valeurs des comptes publics et prépare le rapport sommaire (summary report) pour les résultats.</p>
+<p>NB: debt = dette avant gains de change - emprunts réalisés par anticipation</p>
 </dd></dl>
 
 <dl class="method">

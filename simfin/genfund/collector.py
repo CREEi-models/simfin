@@ -25,11 +25,12 @@ class collector:
         return 
     def returns(self):
         return self.rate * self.balance
-    def make_contrib(self,year,returns):
+    def make_contrib(self,year,returns): # RETURNS NEED TO BE REMOVED -> goes into revenus divers
         if year<=self.last_yr:
             contrib = self.strategy.loc[year,'contrib']
         else :
-            contrib = 0.0
+            contrib = 0.0 
+        self.contrib = contrib
         if returns==None:
             self.contrib = contrib + self.returns()
         else :
@@ -37,11 +38,14 @@ class collector:
         return 
     def grow(self,macro,repay=0.0,returns=None):
         self.make_contrib(macro.year,returns)
+        balance_old = self.balance
         self.balance = self.balance + self.contrib
-        if macro.year>=self.last_yr:
+        if macro.year>self.last_yr:
             repay += self.balance
         self.balance -= repay
-        return repay
+        self.balance_change= self.balance - balance_old
+        self.repay = repay
+        return 
     def reset(self):
         self.balance = self.init_balance
         return  

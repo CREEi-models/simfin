@@ -13,7 +13,7 @@ class family(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=False):
+    def __init__(self,value,igdp=True,ipop=False,iprice=False,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
@@ -31,7 +31,7 @@ class family(account):
 
         self.pop_04 = pop.loc[0:4].sum()
         self.start_pop_04 = self.pop_04
-    def grow(self,macro,pop,eco):
+    def grow(self,macro,pop,eco,others=None):
         """
         Fait croître la consommation par personne au rythme de l'inflation +
         1/alpha_L * la croissance de la TFP (A) (croissance des salaires).

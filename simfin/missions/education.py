@@ -16,7 +16,7 @@ class education(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=False,ipop=True,iprice=True):
+    def __init__(self,value,igdp=False,ipop=True,iprice=True,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
@@ -45,9 +45,9 @@ class education(account):
         work = work.groupby('age').sum()
         value = work.multiply(self.pcap,fill_value=0.0).sum()*1e-6
         self.align = self.value/value
-        print('alignment factor for education : ', self.align)
+        #print('alignment factor for education : ', self.align)
         return
-    def grow(self,macro,pop,eco):
+    def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl
         if self.iprice:
             self.grow_pcap()

@@ -19,10 +19,10 @@ class consumption(account):
         self.igdp = False
         value  = (pop.multiply(eco['cons']*eco['cons_taxes'],fill_value=0.0).sum())
         self.align = self.value/value
-        print('alignment factor for consommation tax : ', self.align)
+        #print('alignment factor for consommation tax : ', self.align)
         return
 
-    def grow(self,macro,pop,eco):
+    def grow(self,macro,pop,eco,others=None):
         self.value = (pop.multiply(eco['cons']*eco['cons_taxes'],fill_value=0.0).sum())*self.align
         return
     pass

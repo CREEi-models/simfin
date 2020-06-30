@@ -23,10 +23,10 @@ class personal_taxes(account):
         earnings = pop.multiply(eco['emp']*eco['earn_c']+eco['taxinc'],fill_value=0.0)
         value  = earnings.multiply(eco['personal_taxes'],fill_value=0.0).sum()
         self.align = self.value/value
-        print('alignment factor for personal tax : ', self.align)
+        #print('alignment factor for personal tax : ', self.align)
         return
 
-    def grow(self,macro,pop,eco):
+    def grow(self,macro,pop,eco,others):
         #work_earnings = pop.multiply(eco['emp']*eco['earn_c'],fill_value=0.0).sum()
         #non_work_earnings = pop.multiply(eco['taxinc'],fill_value=0.0).sum()
         #print('non_work/earnings :', non_work_earnings/(work_earnings+non_work_earnings) )

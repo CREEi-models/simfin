@@ -16,7 +16,7 @@ class health(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=False,ipop=True,iprice=True):
+    def __init__(self,value,igdp=False,ipop=True,iprice=True,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
@@ -32,9 +32,9 @@ class health(account):
         total = pop.groupby(['age','male']).sum()
         value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.align = self.value/value
-        print('alignment factor for health : ', self.align)
+        #print('alignment factor for health : ', self.align)
         return
-    def grow(self,macro,pop,eco):
+    def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl
         if self.iprice:
             tau = (min(macro.year,macro.start_yr+10) - macro.start_yr)/10.0

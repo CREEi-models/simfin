@@ -1,0 +1,29 @@
+Régimes de retraite
+------------------------------------------------------
+
+Le passif des régimes de retraite et des autres avantages sociaux futurs correspond aux régimes de retraite des employés du secteur public et du secteur parapublic. Entre 2015 et 2019, le passif est passé de 28 041 millions de dollars à 18 581 millions de dollars. Cette diminution s'explique essentiellement par une augmentation rapide du Fonds d’amortissement des régimes de retraite (FARR), dont le taux de croissance annuel moyen est égal à 10,1% entre 2015 à 2019. La contrepartie de ces actifs, les obligations relatives aux prestations acquises, ont quant-à elles augmenté de seulement 4,8% en moyenne entre 2015 et 2019.
+
+.. csv-table:: Passif des régimes de retraite et des autres avantages sociaux futurs
+   :widths: 8, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+   :file: passif_retraite.csv
+
+SimFin intègre une estimation de l'évolution des composantes du Passif des régimes de retraite et des autres avantages sociaux futurs à partir du tableau "Passif des régimes de retraite et des autres avantages sociaux futurs" et du tableau "Évolution des obligations relatives aux prestations acquises des régimes de retraite". Plusieurs hypothèses sont appliquées pour ces estimations :
+
+- Les intérêts des actifs liés aux régimes de retraite (FARR et Fonds particuliers des régimes de retraite) croient selon un rendement annuel de 6,35% suivant le `budget 2019-2020 <http://www.budget.finances.gouv.qc.ca/budget/2019-2020/fr/documents/PlanBudgetaire_1920.pdf>`_. De plus, un dépôt de 1 500 millions de dollars est prévu au FARR en 2020 (`budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_).
+- Les intérêts sur les obligations relatives aux prestations acquises des régimes de retraite et des autres avantages sociaux futurs croient également au rythme de 6,35%.
+- Le coût des prestations acquises et les prestations versées croient selon une croissance linéaire calculée à partir des évolutions annuelles entre 2009 et 2019.
+- Après 2019, les compensations et les variations des obligations à l'égard de certains crédits de rente sont égales à la moyenne de leur valeur (en dollars réels) entre 2009 et 2019.
+- Les gains (pertes) actuariels non amortis après 2019 sont égaux à la moyenne de l'indicateur (en dollars réels) entre 2009 et 2019, soit 5 258 millions d'euros.
+
+.. csv-table:: Obligations relatives aux prestations acquises des régimes de retraite
+   :widths: 8, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+   :file: obligations.csv
+
+Les projecctions réalisées avec les hypothèses susmentionnées aboutissent à des résulats équivalents aux estimations du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_, comme présenté dans le tableau ci-contre. Après 2025, on pose l'hypothèse que le passif des régimes de retraite et des autres avantages sociaux futurs est égal à 0, tel que les actifs compensent parfaitement les obligations correspondantes.
+
+.. csv-table:: Estimation du passif net des régimes de retraite et autres avantages sociaux futurs & comparaison avec les projections du Budget 2020-2021
+   :widths: 8, 3, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2020", "2021", "2022", "2023", "2024", "2025"
+   :file: passif_net.csv

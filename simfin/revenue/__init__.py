@@ -7,5 +7,5 @@ from .permits import permits
 from .personal_taxes import personal_taxes 
 from .personal_credits import personal_credits 
 from .property_taxes import property_taxes 
-from .other_taxes import other_taxes
+from .miscellaneous_income import miscellaneous_income
 from .collector import collector

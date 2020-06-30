@@ -23,7 +23,9 @@ SimFin est un modèle de microsimulation qui permet de réaliser des projections
    simulateur.rst
    revenue.rst
    depense.rst
+   service.rst
    generations.rst
+   retraite.rst
    reserve.rst
    dette.rst
 

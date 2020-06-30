@@ -14,42 +14,23 @@ class collector:
         Montant de la dette publique du gouvernement provincial pour l'année d'initialisation du modèle.
     base: float
         Collecte tous les items qui viennent abonder la dette publique.
+
+    NB: dette ici = dette avant gains de change - emprunts réalisés par anticipation
    '''
-    def __init__(self,init_balance,base):
+    def __init__(self,init_balance):
         self.balance = init_balance
         self.init_balance = init_balance
         self.account_names = []
-        for attr, value in base.items():
-            self.account_names.append(attr)
-            setattr(self,attr,account(value,igdp=True))
-        self.new_borrow = 0.0
-        self.repay = 0.0
         rates = pd.read_excel(module_dir+'/params/historical_accounts.xlsx',sheet_name='Returns')
-        self.rate = rates.set_index('year').mean()['debt_interest']
+        self.rate = 0.0379
         return
-    def service(self):
+    def debt_interest(self):
         return self.rate * self.balance
-    def borrowing(self,amount):
-        self.new_borrow = amount
-        return
-    def repaying(self,amount):
-        self.repay = amount
-        return
-    def grow(self,macro,pop,eco):
-        for acc_name in self.account_names:
-            acc = getattr(self, acc_name)
-            if macro.year > macro.start_yr:
-                acc.grow(macro,pop,eco)
-            setattr(self,acc_name,acc)
-        self.balance = (self.balance + self.debt_borrow.value + self.new_borrow
-                        - self.repay - self.debt_depr_fund.value + self.debt_ppp.value)
+    def grow(self,macro,delta_placements,delta_others,delta_fixed_assets,budget_balance,delta_pension,repay_genfund):
+        if macro.year > macro.start_yr:
+            self.balance += delta_placements+delta_others+delta_fixed_assets-delta_pension-budget_balance\
+            -repay_genfund
         return
     def reset(self):
-        for acc_name in self.account_names:
-            acc = getattr(self,acc_name)
-            acc.reset()
-            setattr(self,acc_name,acc)
-        self.new_borrow = 0.0
-        self.repay = 0.0
         self.balance = self.init_balance
         return

@@ -13,7 +13,7 @@ class economy(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=False):
+    def __init__(self,value,igdp=True,ipop=False,iprice=False,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
