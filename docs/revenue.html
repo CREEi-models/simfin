@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#droits-et-permis">Droits et permis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entreprises-du-gouvernement">Entreprises du gouvernement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#impot-foncier-scolaire">Impôt foncier scolaire</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#autres-taxes">Autres taxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#revenus-divers">Revenus divers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#transferts-federaux">Transferts fédéraux</a><ul>
@@ -201,7 +201,7 @@
 <li><p>droits et permis (4,8%);</p></li>
 <li><p>revenus issus des entreprises du gouvernement (6,1%);</p></li>
 <li><p>l’impôt foncier scolaire (2%);</p></li>
-<li><p>et d’autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l’ensemble des revenus autonomes en 2019).</p></li>
+<li><p>et les revenus divers (12,6% de l’ensemble des revenus autonomes en 2019).</p></li>
 </ul>
 <dl class="class">
 <dt id="simfin.revenue.collector">
@@ -398,10 +398,26 @@
 </dd></dl>
 
 </div>
-<div class="section" id="autres-taxes">
-<h2>Autres taxes<a class="headerlink" href="#autres-taxes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.</p>
-<p>Entre 2015 et 2019, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).</p>
+<div class="section" id="revenus-divers">
+<h2>Revenus divers<a class="headerlink" href="#revenus-divers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les revenus divers incluent les revenus placement du Fonds des générations (12,1% des revenus divers en 2019) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services (45,5% des revenus divers), des contributions des usagers (15,4% des revenus divers), des intérêts sur les débiteurs et les prêts (8,6% des revenus divers), des amendes, confiscations et recouverements (7% des revenus divers) et des donations de tiers (6% des revenus divers).</p>
+<p>La modélisation des revenus placement du Fonds des générations est présentée dans un <a class="reference external" href="https://creei-models.github.io/simfin/generations.html">onglet dédié au Fonds des générations</a>. Le résidu des revenus divers croît au rythme du PIB potentiel.</p>
+<p>Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).</p>
+<dl class="class">
+<dt id="simfin.revenue.miscellaneous_income">
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">miscellaneous_income</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.miscellaneous_income" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Classe permettant d’intégrer toutes les revenus divers (dont une partie sont les revenus de placement du FDG)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="transferts-federaux">

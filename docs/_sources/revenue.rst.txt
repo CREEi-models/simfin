@@ -17,7 +17,7 @@ Les revenus autonomes de la province du Québec sont constitués de :
 - droits et permis (4,8%);
 - revenus issus des entreprises du gouvernement (6,1%);
 - l'impôt foncier scolaire (2%);
-- et d'autres taxes (résidu comprenant toutes les autres taxes provinciales, soit 12,6% de l'ensemble des revenus autonomes en 2019).
+- et les revenus divers (12,6% de l'ensemble des revenus autonomes en 2019).
 
 .. autoclass:: collector
 
@@ -112,14 +112,16 @@ Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en v
 
 .. autoclass:: gov_enterprises
 
-Autres taxes
-^^^^^^^^^^^^
+Revenus divers
+^^^^^^^^^^^^^^
 
-Dans Simfin, les revenus provenant des autres taxes croissent au rythme du PIB potentiel.
+Les revenus divers incluent les revenus placement du Fonds des générations (12,1% des revenus divers en 2019) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services (45,5% des revenus divers), des contributions des usagers (15,4% des revenus divers), des intérêts sur les débiteurs et les prêts (8,6% des revenus divers), des amendes, confiscations et recouverements (7% des revenus divers) et des donations de tiers (6% des revenus divers).
 
-Entre 2015 et 2019, ces revenus ont crû au rythme de 5,51% par année (en valeur nominale).
+La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/generations.html>`_. Le résidu des revenus divers croît au rythme du PIB potentiel.
 
-.. autoclass:: other_taxes
+Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).
+
+.. autoclass:: miscellaneous_income
 
 Transferts fédéraux
 -------------------
