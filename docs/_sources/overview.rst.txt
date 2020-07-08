@@ -22,8 +22,8 @@ SimFin peut être lancé de la façon suivante:
 .. code-block:: python
 
    import simfin
-   mysim = simfin.simulator(2017,2060)
+   mysim = simfin.simulator(2020,2060)
    mysim.simulate()
    print(mysim.summary)
 
-L'objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation, par défaut fixée de 2018 à 2060.
+L'objet summary est une base Pandas qui contient tous les aggrégats sur la durée de la simulation, par défaut fixée de 2020 à 2060.

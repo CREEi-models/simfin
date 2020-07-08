@@ -1,3 +1,3 @@
-from .macro import macro
+from .macro import macro, covid
 from .simulator import simulator
 from .tools import account, accounts

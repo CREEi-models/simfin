@@ -21,7 +21,7 @@ class simulator:
     """
     def __init__(self,start_report,stop_yr,melt=None):
         if start_report>2020 :
-            raise ValueError('Les statistiques doivent commencer entre 2006 et 2019')
+            raise ValueError('Les statistiques doivent commencer entre 2006 et 2020')
         else:
             self.start_report = start_report
         self.start_yr = 2020
@@ -52,7 +52,7 @@ class simulator:
         """
         Fonction permettant de charger l'historique des comptes publics.
 
-        L'historique des comptes publics a été comptabilisé pour la période 2006-2019. Cette fonction charge les valeurs des comptes publics et prépare le rapport sommaire (summary report) pour les résultats.
+        L'historique des comptes publics a été comptabilisé pour la période 2006-2020. Cette fonction charge les valeurs des comptes publics et prépare le rapport sommaire (summary report) pour les résultats.
 
         NB: debt = dette avant gains de change - emprunts réalisés par anticipation
 
@@ -210,7 +210,6 @@ class simulator:
         self.pension_debt     = pension.collector(init_liabilities,init_assets,init_actuarial_changes,
                                                   init_new_liabilities,init_paid_liabilities)
         return
-
     def init_placements(self):
 
         """Fonction initialisation la dette des pensions.
@@ -220,7 +219,6 @@ class simulator:
         init_balance = self.history.loc['placements and other assets/debts',self.start_yr]
         self.placements_and_others = placements.collector(init_balance)
         return
-
     def init_fixed_assets(self):
 
         """Fonction initialisation la dette des pensions.
@@ -286,6 +284,10 @@ class simulator:
         budget_balance = annual_surplus - self.summary.loc['fund contribution',self.year]
         self.summary.loc['budget balance',self.year] = budget_balance
 
+        # Reserve
+        if self.year > self.history.columns[-1]:
+            self.reserve.grow(annual_surplus)
+
         # DEBT
         if self.year <= self.history.columns[-1]:
             self.summary.loc['debt',self.year] = self.history.loc['debt_balance_end',self.year]
@@ -316,6 +318,7 @@ class simulator:
             self.summary.loc['gdp growth',self.year] = self.macro.gr_Y + self.macro.infl
             self.summary.loc['pop growth',self.year] = self.macro.gr_N
             self.summary.loc['emp growth',self.year] = self.macro.gr_L
+            self.summary.loc['reserve',self.year] = self.reserve.balance
             self.summary.loc['pension debt',self.year] = self.pension_debt.balance
             self.summary.loc['stock placements/others',self.year] = self.placements_and_others.balance
             self.summary.loc['flow placements',self.year] = self.placements_and_others.net_placements

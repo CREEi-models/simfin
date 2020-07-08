@@ -1,7 +1,7 @@
 Réserve de stabilisation
 ------------------------
 
-La réserve de stabilisation se voit dédiée le solde budgétaire positifs. La réserve permet d'éponger les déficits (après versement planifié au Fonds des générations). Afin de projeter la réserve de stabilisation, nous avons supposé que la réserve ne peut dépasser 15% des dépenses totales du gouvernement. En fait, la réserve est là pour éponger des déficits de court terme et on pourrait imaginer que le gouvernement ne voudra accumuler des sommes trop importantes dans la réserve. Il apparait avantageux pour le gouvernement de rembourser la dette, qui a un coût effectif avoisinant les 3.9% par année, plutôt que de laisser l'argent dormir dans cette réserve. Ainsi, les surplus au délà de 15% des dépenses totales sont affectés à la dette. Un solde budgétaire négatif alors que la réserve est à zéro implique de nouveaux emprunts au niveau de la dette.
+Dans SimFin, la réserve de stabilisation est une résultante du solde budgétaire, elle n'a pas d'effets sur les décisions du gouvernement du Québec en termes de dépenses et de revenus.
 
 .. currentmodule:: simfin.reserve
 

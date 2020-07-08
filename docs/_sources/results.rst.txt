@@ -1,10 +1,7 @@
 Synthèse des résultats
 --------------------------------------------------------------------------------
 
-La trajectoire des finances publiques avant la COVID-19
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Dans notre scénario de référence, une majorité des postes de revenus suivent la croissance du PIB nominal. Par ailleurs, la croissance des revenus provenant de l’impôt des particuliers fléchit légèrement sur la période. Ainsi, nous obtenons une croissance totale des revenus du gouvernement de 2.6% par an sur la période 2020-2040.
+Dans notre scénario de référence (pré-COVID), une majorité des postes de revenus suivent la croissance du PIB nominal. Par ailleurs, la croissance des revenus provenant de l’impôt des particuliers fléchit légèrement sur la période. Ainsi, nous obtenons une croissance totale des revenus du gouvernement de 2.6% par an sur la période 2020-2040.
 
 .. figure:: figure/rev.png
     :alt: test
@@ -28,11 +25,6 @@ Ces deux tendances (revenus et dépenses) ont pour conséquence de mener inévit
 Selon nos calculs, qui utilisent la valeur comptable du Fonds des générations, celui-ci passe de 2% du PIB en 2019 à près de 6% en 2025 (solde de 28.7 G). En 2025, nous supposons que la valeur du Fonds est affectée à la dette. Par ailleurs, la réserve de stabilisation demeure relativement pleine jusqu’à 2028 alors que le Québec renoue avec les déficits. La réserve est épuisée en 2035.
 
 .. figure:: figure/fonds.png
-        :alt: test
-        :scale: 100%
-        :align: center
-
-Les effets de la crise de la COVID-19 sur les finances publiques
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Un scénario COVID-19 intègrant les nouveaux budgets provinciaux 2020-2021 (disponibles courant juin 2020) et les nouvelles projections démographiques et économiques sera bientôt disponible.
+    :alt: test
+    :scale: 70%
+    :align: center

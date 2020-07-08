@@ -4,7 +4,8 @@ Comptes publics
 Nomenclature
 ^^^^^^^^^^^^
 
-Pour toutes les années de 2006 à 2019, nous avons colligé les données des comptes publics pour les éléments suivants:
+Pour toutes les années de 2006 à 2020, nous avons colligé les données des comptes publics pour les éléments suivants (les éléments des comptes pour l'année 2020 correspondent aux données du `Plan budgétaire du Québec <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_ publié en mars 2020, corrigées avec le `Portrait de la situation
+économique et financière <http://www.budget.finances.gouv.qc.ca/budget/portrait_juin2020/fr/documents/Portrait_financier_QC_Juin2020.pdf>`_ publié en juin 2020, faisant suite à l'émergence de la crise de la COVID-19) :
 
 Revenus provenant des :
 
@@ -35,7 +36,7 @@ Les comptes publics intègrent également les dépenses provenant du service de 
 
 Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.
 
-Pour les 5 dernières années, le tableau suivant montre les résultats provenant de cette classification (la barre déroulante en bas du tableau permet de naviguer entre les années):
+Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):
 
 .. csv-table:: Classification des comptes publics 2015-2019
    :widths: 8, 3, 3, 3, 3, 3

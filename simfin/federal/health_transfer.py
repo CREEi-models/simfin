@@ -14,4 +14,17 @@ class health_transfer(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
+    
+    def grow(self,macro,pop,eco,others=None):
+        rate = 1.0 + macro.infl
+        if self.igdp:
+            rate += macro.gr_Y
+        if self.ipop:
+            rate += macro.gr_N
+        if rate < 3/100:
+            rate = 3/100
+        self.value *= rate
+        return
+    
+    
     pass

@@ -110,9 +110,9 @@ La croissance du travail :math:`g_L` est quant à elle calculée en utilisant no
 
 Plus précisément :math:`g_L` correspond à la croissance de la variable suivante :
 
-.. math:: L=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{e,a,m,g,k}emp_{e,a,m,g,k} hours \_c{}_{e,a,m,g,k}prod_{e,a,m,g,k}
+.. math:: L=\sum_{edu}\sum_{age}\sum_{mar}\sum_{mal}\sum_{nk} N_{e,a,m,g,k}l_{e,a,m,g,k} h{}_{e,a,m,g,k} \epsilon_{e,a,m,g,k}
 
-Où :math:`prod` est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation :math:`e`, d’âge :math:`a`, de statut marital :math:`m`, de genre :math:`g` et ayant :math:`k` enfants. Pour une combinaison de ces cinq caractéristiques, :math:`N` représente la taille de la population, :math:`emp` la population en emploi et :math:`hours_c` le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d'emploi en fonction de l'âge et du niveau d'éducation.
+Où :math:`\epsilon` est la productivité, mesurée par le salaire relatif, d’une personne de niveau d’éducation :math:`e`, d’âge :math:`a`, de statut marital :math:`m`, de genre :math:`g` et ayant :math:`k` enfants. Pour une combinaison de ces cinq caractéristiques, :math:`N` représente la taille de la population, :math:`l` la population en emploi et :math:`h` le nombre d’heures conditionnelles au fait de travailler. De fait la croissance du travail dans notre modèle prend en compte les différentiels de productivité et d'emploi en fonction de l'âge et du niveau d'éducation.
 
 Sauf exception, les variables calculées à partir de l'évolution démographique et des profils que nous estimons dans la BDSPS croissent en termes réels du fait des évolutions démographiques, ce à quoi nous rajoutons la croissance des salaires :math:`g_w`. Cela assure que si la taille de la population augmente mais sans changement de la composition de la population, le ratio de la variable sur le PIB restera constante. En ratio du PIB, les évolutions que nous observons pour ces variables proviennent donc seulement des changements de composition démographique.
 

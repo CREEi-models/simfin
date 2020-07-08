@@ -13,7 +13,7 @@ class miscellaneous_income(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=False,others=None):
+    def __init__(self,value,igdp=True,ipop=False,iprice=True,others=None):
         self.value = value
         if others !=None:
             self.gfundinc_init   = others['gfund_inc_init']

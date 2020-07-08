@@ -164,9 +164,28 @@
             
   <div class="section" id="dette-publique">
 <h1>Dette publique<a class="headerlink" href="#dette-publique" title="Lien permanent vers ce titre">¶</a></h1>
-<p>La dette publique du gouvernement du Québec consiste en majorité des emprunts sous forme d’obligations émises sur les marchés internationaux. Les comptes publics font état de l’évolution de la dette publique québécoise. D’une année à l’autre, la dette publique évolue pour différentes raisons. D’abord, la dette fluctue de par la valeur des obligations (en particulier risque de change) et l’échéance et réémission de nouvelles obligations. Elle augmente à cause de nouveaux besoins d’emprunts, par exemple pour financer des investissements en infrastructures et la dette des investissements par partenariat public-privé (PPP). Elle diminue dû à un fonds d’amortissement. Ce module de dette publique prend en compte ces différents éléments. Cependant, certains éléments sont censés croître à un rythme égal à celui du PIB, comme les nouveaux emprunts, le fonds d’amortissement et la dette PPP. Ainsi, seuls les nouveaux emprunts et le remboursement de la dette (soit provenant du Fonds des générations ou du solde budgétaire) font varier le ratio dette PIB.</p>
-<p>La dette brute ajoute à la dette, la dette liée aux obligations non-financées des régimes de retraite du gouvernement. Elle diminue du montant du solde du Fonds des générations. Finalement, elle diminue des emprunts par anticipation.</p>
-<p>Le service de la dette est modélisé en utilisant le coût effectif de la dette rapporté dans les comptes publics. Nous prenons la moyenne 2008-2019, soit 3.9% (nominal).</p>
+<p>Pour modéliser la dette brute, nous partons de l’identité suivante :</p>
+<div class="math notranslate nohighlight">
+\[DB_t = D_t + R_t - FDG_t\]</div>
+<p>Où <span class="math notranslate nohighlight">\(D_t\)</span> représente la dette après gains et pertes de changes reportés (comme nous négligeons ici les variations de change qui ont un impact limité sur la dette) moins la dette du fonds pour financer les entreprises du gouvernement qui représente un montant faible. Par la suite, nous appellerons cette variable simplement « dette ». Elle représente essentiellement la dette émise sur les marchés nette du fonds d’amortissement afférant à des emprunts.
+Les dynamiques du <a class="reference external" href="https://creei-models.github.io/simfin/generations.html">fonds des générations</a>, notées <span class="math notranslate nohighlight">\(FDG_t\)</span>, et de la <a class="reference external" href="https://creei-models.github.io/simfin/retraite.html">dette des régimes de retraite et autres avantages sociaux futurs</a>, notées <span class="math notranslate nohighlight">\(R_t\)</span>, sont modélisées par ailleurs.</p>
+<p>Nous nous intéressons ici aux dynamiques de la dette et de la dette brute.</p>
+<p>On a :</p>
+<div class="math notranslate nohighlight">
+\[\Delta DB_t = \Delta D_t + \Delta R_t - \Delta FDG_t\]</div>
+<p>Nous avons par ailleurs (voir tableau G.4 du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=35">budget 2020-2021</a>) :</p>
+<div class="math notranslate nohighlight">
+\[\Delta DB_t = \Delta PPA_t + \Delta I_t+ \Delta A_t - \Delta SB_t - contrib\_FDG_t\]</div>
+<p>Avec <span class="math notranslate nohighlight">\(PPA\)</span> correspondant aux placements, prêts et avances, <span class="math notranslate nohighlight">\(I\)</span> aux immobilisations nettes, <span class="math notranslate nohighlight">\(A\)</span> aux autres facteurs, <span class="math notranslate nohighlight">\(SB\)</span> au solde budgétaire, <span class="math notranslate nohighlight">\(contrib\_FDG\)</span> aux versements au Fonds des générations.</p>
+<p>En combinant ces deux dernières équations nous obtenons l’équation utilisée dans SimFin pour la dynamique de la dette émise :</p>
+<div class="math notranslate nohighlight">
+\[\Delta D_t = \Delta PPA_t + \Delta I_t + \Delta A_t - \Delta SB_t + (\Delta FDG_t - contrib\_FDG_t) - \Delta R_t\]</div>
+<p>Que nous pouvons également écrire comme :</p>
+<div class="math notranslate nohighlight">
+\[\Delta D_t = \Delta PPA_t + \Delta I_t + \Delta A_t - \Delta Surplus\_annuel_t + \Delta FDG_t - \Delta R_t\]</div>
+<p>Cette dernière équation montre que le surplus annuel, qui est la différence entre les revenus et les dépenses du gouvernement avant versements au FDG, diminue naturellement le montant de la dette émise. Nous voyons aussi que les investissements financiers autres que FDG et non financiers (variations des trois premiers termes de la partie de droite) augmentent la dette émise. Il en est de même pour les versements au FDG. Enfin, cette équation nous montre que des contributions par exemple au fonds d’amortissement des régimes de retraite tendent à augmenter la dette.</p>
+<p>Les composantes <span class="math notranslate nohighlight">\(\Delta PPA_t\)</span>, <span class="math notranslate nohighlight">\(\Delta I_t\)</span> et <span class="math notranslate nohighlight">\(\Delta A_t\)</span> se voient attribuer leur part dans le PIB à partir du tableau G.4 du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=35">budget 2020-2021</a>. Jusque 2025 la part dans le PIB est directement calculée à partir du tableau G.4. Après 2025, nous attribuons la moyenne de leur part dans le PIB entre 2011 et 2025.</p>
+<p>La dette brute est ensuite simplement calculée en utilisant l’équation 1.</p>
 <dl class="class">
 <dt id="simfin.debt.collector">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.debt.</code><code class="sig-name descname">collector</code><span class="sig-paren">(</span><em class="sig-param">init_balance</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.debt.collector" title="Lien permanent vers cette définition">¶</a></dt>
