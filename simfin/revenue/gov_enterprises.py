@@ -1,4 +1,4 @@
-from simfin.tools import account 
+from simfin.tools import account
 
 class gov_enterprises(account):
     '''

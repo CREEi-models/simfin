@@ -59,7 +59,8 @@ class family(account):
         #other
         rate = 1.0 + macro.infl
         if self.igdp:
-            rate += macro.gr_Y
+            if macro.gr_Y>=0.0:
+                rate += macro.gr_Y
         if self.ipop:
             rate += macro.gr_N
         self.value_other *= rate

@@ -1,4 +1,4 @@
-from simfin.tools import account 
+from simfin.tools import account
 
 class corporate_taxes(account):
     '''
@@ -13,4 +13,14 @@ class corporate_taxes(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    pass
+    def __init__(self,value,igdp=False,ipop=False,iprice=False,others=None):
+        self.value = value
+        self.start_value = value
+        self.igdp = igdp
+        self.iprice = iprice
+        self.ipop = ipop
+        return
+    def grow(self,macro,pop,eco,others=None):
+        rate = 1.0 + macro.gr_Y * 1.2447
+        self.value *= rate
+        return

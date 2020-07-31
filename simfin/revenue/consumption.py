@@ -3,7 +3,7 @@ from simfin.tools import account
 
 class consumption(account):
     '''
-    Classe permettant d'intégrer les taxes à la consommation. 
+    Classe permettant d'intégrer les taxes à la consommation.
 
     Parameters
     ----------

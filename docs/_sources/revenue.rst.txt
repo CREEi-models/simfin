@@ -110,7 +110,7 @@ Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PI
 
 Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
 
-.. autoclass:: gov_enterprises
+.. autoclass:: property_taxes
 
 Revenus divers
 ^^^^^^^^^^^^^^

@@ -20,3 +20,13 @@ class economy(account):
         self.iprice = iprice
         self.ipop = ipop
         return
+    def grow(self,macro,pop,eco,others=None):
+        rate = 1.0 + macro.infl
+        if self.igdp:
+            if macro.gr_Y>=0.0:
+                rate += macro.gr_Y
+        if self.ipop:
+            rate += macro.gr_N
+        self.value *= rate
+        #print('Croissance de la mission économie : ',rate)
+        return

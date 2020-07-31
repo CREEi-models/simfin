@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 module_dir = os.path.dirname(os.path.dirname(__file__))
 from itertools import product
-import pickle 
+import pickle
 
 class macro:
     def __init__(self,start_yr):
@@ -40,7 +40,9 @@ class macro:
         self.gr_Y = 0.0
         self.year = self.start_yr
         self.set_align_emp(pop,eco)
-
+    def set_shocks(self,shocks):
+        self.shocks = shocks
+        return
     def set_rate_real_K(self,rate=None):
         if rate!=None:
             self.gr_K = rate
@@ -61,8 +63,9 @@ class macro:
         #print('alignment factor for consommation : ',align_c_hh)
         eco['cons'] = eco['cons']*align_c_hh
         return
-    def emp(self,pop,eco):
-        L = pop.multiply(eco['emp']*eco['hours_c']*self.eff_hours,fill_value=0.0).sum() * self.align
+    def emp(self,pop,eco,year):
+        shocks = self.shocks['emp'].loc[:,year]*self.shocks['hours_c'].loc[:,year]
+        L = pop.multiply(eco['emp']*eco['hours_c']*shocks*self.eff_hours,fill_value=0.0).sum() * self.align
         self.gr_L = np.log(L) - np.log(self.L)
         self.L = L
         return
@@ -75,42 +78,44 @@ class macro:
         self.gr_C_hh = np.log(C_hh) - np.log(self.C_hh)
         self.C_hh = C_hh
         return
-    def grow_cons(self,eco):
+    def grow_cons(self,eco,year):
         """
         Fait croître la consommation par personne au rythme de l'inflation +
         1/alpha_L * la croissance de la TFP (A).
         """
+        shocks = self.shocks['cons'].loc[:,year]/self.shocks['cons'].loc[:,year-1]
         igra = True
         rate = 1.0+self.infl
         if igra == True:
             rate += 1/self.g_pars['alpha_L']*self.gr_A  # Part TFP non lié à l'éducation (50%)
-        eco['cons'] *=   rate
-    def grow_work_earnings(self,eco):
+        eco['cons'] = eco['cons']*shocks*rate
+    def grow_work_earnings(self,eco,year):
         """
         Fait croître les revenus de salaire par personne au rythme de l'inflation +
         1/alpha_L * la croissance de la TFP (A).
         """
+        index = eco.index
+        shocks = (self.shocks['emp'].loc[:,year]*self.shocks['earn_c'].loc[:,year]) / (self.shocks['emp'].loc[:,year-1]*self.shocks['earn_c'].loc[:,year-1])
         igra = True
         rate = 1.0+self.infl
         if igra == True:
             rate += 1/self.g_pars['alpha_L']* self.gr_A  # Part TFP non lié à l'éducation (50%)
-        eco['earn_c'] *=   rate
-
+        eco['earn_c'] = eco['earn_c']*shocks*rate
     def non_work_earnings(self,pop,eco): # B. Achou, pas sûr que cette fonction soit nécessaire
         E_wno = pop.multiply(eco['taxinc'],fill_value=0.0).sum()
         self.E_wno = E_wno
         return
-    def grow_non_work_earnings(self,eco): # B. Achou
+    def grow_non_work_earnings(self,eco,year): # B. Achou
         """
         Fait croître les revenues autres que salaire par personne au rythme de l'inflation +
         1/alpha_L *la croissance de la TFP (A).
         """
+        shocks = self.shocks['taxinc'].loc[:,year]/self.shocks['taxinc'].loc[:,year-1]
         igra = True
         rate = 1.0+self.infl
         if igra == True:
             rate += 1/self.g_pars['alpha_L']* self.gr_A  # Part TFP non lié à l'éducation (50%)
-        eco['taxinc'] *=   rate
-
+        eco['taxinc'] = eco['taxinc']*shocks*rate
     def pop(self,pop):
         N = pop.sum()
         self.gr_N = np.log(N) - np.log(self.N)
@@ -127,8 +132,8 @@ class macro:
         return
 
 
-class covid: 
-    def __init__(self,start_index,start_yr,start_lockdown,stop_yr,recovery_rate=0.25,
+class covid:
+    def __init__(self,start_index,start_yr,start_lockdown,stop_yr,recovery_rate_short=0.25,recovery_rate_long=0.25,recovery_rate_cons=0.25,
             second_wave=False,second_lockdown_time='2021Q4',lockdown_force=1.0):
         self.index = start_index
         self.start_yr = start_yr
@@ -137,6 +142,9 @@ class covid:
         self.second_wave = second_wave
         self.second_lockdown_time = second_lockdown_time
         self.lockdown_force = lockdown_force
+        self.recovery_rate_short = recovery_rate_short
+        self.recovery_rate_long = recovery_rate_long
+        self.recovery_rate_cons= recovery_rate_cons
         frame = pd.DataFrame(index=start_index)
         self.years = np.arange(start_yr,stop_yr)
         months = [1,4,7,10]
@@ -147,21 +155,27 @@ class covid:
         dates['day'] = 1
         self.datef = pd.to_datetime(dates).dt.to_period('Q')
         for d in self.datef:
-            frame[d] = 1.0 
+            frame[d] = 1.0
         self.outcomes = ['emp','hours_c','earn_c','taxinc','cons']
         self.load_params()
         shocks = []
         for o in self.outcomes:
             shocks.append(frame.copy())
-        self.shocks = dict(zip(self.outcomes,shocks))    
+        self.shocks = dict(zip(self.outcomes,shocks))
         for o in self.outcomes:
             self.predict(o)
-        self.recovery_rate = recovery_rate
+        # initialize additional spending & federal transfers matrix
+        accounts = ['health','educ','family','economy','justice','transfers','gov_enterprises']
+        self.plan = pd.DataFrame(index=accounts,columns=np.arange(start_yr,stop_yr))
+        for v in self.plan.columns:
+            self.plan[v] = self.plan[v].astype('float')
+        self.plan.loc[:,:] = 0.0
+        self.set_plan()
         return
     def load_params(self):
         self.par_shocks = pd.read_csv(module_dir+'/simfin/params/COVID_age_effects.csv',sep=',')
         self.par_shocks = self.par_shocks.set_index('var')
-        return 
+        return
     def predict(self,outcome):
         work = pd.DataFrame(index=self.index)
         work['age'] = work.index.get_level_values(0).to_list()
@@ -190,7 +204,14 @@ class covid:
             work['pr'] = 1.0 + work['mu']
             work.loc[work['age']<=24,'pr'] = work.loc[work['age']==25,'pr'].mean()
             work.loc[work['age']>=65,'pr'] = work.loc[work['age']==64,'pr'].mean()
-        self.shocks[outcome].loc[:,self.start_lockdown] = work['pr']
+        # find monthly recovery rate (for a trimester divide by 2 given effect of first month)
+        recovery_rate_monthly = self.recovery_rate_short/2
+        factor = 1 - (1-work['pr'])*(1.0 + np.exp(-recovery_rate_monthly) + np.exp(-recovery_rate_monthly*2))/3.0
+        factor_cons = 1 - (1-work['pr'])
+        if outcome=='cons':
+            self.shocks[outcome].loc[:,self.start_lockdown] = factor_cons
+        else :
+            self.shocks[outcome].loc[:,self.start_lockdown] = factor
         return
     def construct(self):
         lastq = self.start_lockdown
@@ -198,15 +219,35 @@ class covid:
         for q in self.datef:
             if q>pd.Period(self.start_lockdown):
                 time_since_lockdown +=1
+                time_since_lockdown_cons=0
+                if time_since_lockdown>=5:
+                    time_since_lockdown_cons +=1
                 for o in self.outcomes:
-                    self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate*time_since_lockdown)
-
+                    if o=='cons':
+                        self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate_long*(time_since_lockdown_cons))
+                    if o=='cons' and time_since_lockdown>0 and time_since_lockdown<4:
+                        self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
+                    if o!='cons':
+                        #print(o)
+                        self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate_long*time_since_lockdown)
+                #if self.second_wave:
+                #    if pd.Period(q)==pd.Period(self.second_lockdown_time):
+                #        time_since_lockdown = 0
+                #        for o in self.outcomes:
+                            #print(time_since_lockdown)
+                            #lockdown_shock = self.shocks[o].loc[:,self.start_lockdown]
+                            #self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate_long*time_since_lockdown)
+                            #if o=='cons' and time_since_lockdown>0 and time_since_lockdown<4:
+                            #    print('yeah!')
+                            #    self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)
+                            #else:
+                            #    self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate_long*time_since_lockdown)
                 if self.second_wave:
                     if pd.Period(q)==pd.Period(self.second_lockdown_time):
                         time_since_lockdown = 0
                         for o in self.outcomes:
                             lockdown_shock = self.shocks[o].loc[:,self.start_lockdown]
-                            self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate*time_since_lockdown)
+                            self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate_long*time_since_lockdown)
                 lastq = q
         return
     def aggregate(self,to_year=2060):
@@ -214,23 +255,27 @@ class covid:
         for o in self.outcomes:
             frame = pd.DataFrame(index=self.index)
             for t in self.years:
-                frame[t] = self.shocks[o].loc[:,[c for c in self.shocks[o].columns if c.year==t]].mean(axis=1)   
+                frame[t] = self.shocks[o].loc[:,[c for c in self.shocks[o].columns if c.year==t]].mean(axis=1)
             for t in range(self.stop_yr,to_year):
-                frame[t] = 1.0 
+                frame[t] = 1.0
             shock_aggregates.append(frame)
         self.shock_aggregates = dict(zip(self.outcomes,shock_aggregates))
         return
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
+    def set_plan(self,to_year=2060):
+        inject = pd.read_csv(module_dir+'/simfin/params/COVID_plan.csv',sep=',')
+        inject = inject.set_index('accounts')
+        plan = inject['amount'].to_dict()
+        if self.second_wave:
+            scale = 1 + self.lockdown_force
+        else :
+            scale = 1
+        self.plan.loc['health',2021] = plan['health']*scale
+        self.plan.loc['educ',2021] = plan['educ']*scale
+        self.plan.loc['family',2021] = plan['family']*scale
+        self.plan.loc['economy',2021] = plan['economy']*scale
+        self.plan.loc['justice',2021] = plan['justice']*scale
+        self.plan.loc['transfers',2021] = plan['transfers']*scale
+        self.plan.loc['gov_enterprises',2021] = plan['gov_enterprises']*scale
+        for t in range(self.stop_yr,to_year):
+            self.plan[t] = 0.0
+        return

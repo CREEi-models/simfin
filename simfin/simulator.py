@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from matplotlib import pyplot as plt
 from simfin import revenue, macro, federal, missions, debt, genfund, reserve, pension, placements, fixed_assets
 import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
@@ -43,10 +44,52 @@ class simulator:
         self.init_pension_debt()
         self.init_placements()
         self.init_fixed_assets()
-        return
+        # create fake aggregate effects
+        outcomes = ['emp','hours_c','earn_c','taxinc','cons']
+        shocks = []
+        for o in outcomes:
+            this = pd.DataFrame(index=self.pop.index,columns=np.arange(self.start_yr,self.stop_yr))
+            this.loc[:,:] = 1.0
+            shocks.append(this)
+        self.shocks = dict(zip(outcomes,shocks))
+        self.macro.set_shocks(self.shocks)
+        missions = ['health','educ','family','economy','justice','transfers','gov_enterprises']
+        self.plan = pd.DataFrame(index=missions,columns=np.arange(self.start_yr,self.stop_yr))
+        self.plan.loc[:,:] = 0.0
     def align_targets(self):
         self.macro.set_align_emp(self.pop[self.start_yr],self.eco)
         self.macro.set_align_cons(self.pop[self.start_yr],self.eco)
+        return
+    def set_shocks(self,shocks,iplot=False):
+        self.shocks = shocks
+        self.macro.set_shocks(self.shocks)
+        if iplot:
+            plt.figure()
+            plt.plot(self.shocks['emp'].columns,self.shocks['emp'].mean(),label='emploi')
+            plt.plot(self.shocks['hours_c'].columns,self.shocks['hours_c'].mean(),label='heures')
+            plt.plot(self.shocks['cons'].columns,self.shocks['cons'].mean(),label='conso')
+            plt.plot(self.shocks['earn_c'].columns,self.shocks['earn_c'].mean(),label='earn_c')
+            plt.plot(self.shocks['taxinc'].columns,self.shocks['taxinc'].mean(),label='taxinc')
+            plt.legend()
+            plt.title('scénario implémenté')
+            plt.xticks(rotation=90)
+            plt.show()
+        return
+    def set_missions_plan(self,plan,iplot=False):
+        self.plan = plan
+        if iplot:
+            plt.figure()
+            plt.plot(self.plan.columns,self.plan.loc['health'],label='santé')
+            plt.plot(self.plan.columns,self.plan.loc['educ'],label='éducation')
+            plt.plot(self.plan.columns,self.plan.loc['family'],label='famille')
+            plt.plot(self.plan.columns,self.plan.loc['economy'],label='économie')
+            plt.plot(self.plan.columns,self.plan.loc['justice'],label='justice')
+            plt.plot(self.plan.columns,self.plan.loc['transfers'],label='Transferts fédéraux')
+            plt.plot(self.plan.columns,self.plan.loc['gov_enterprises'],label='Revenus des entreprises du gouvernement')
+            plt.legend()
+            plt.title('plan de dépenses implémenté')
+            plt.xticks(rotation=90)
+            plt.show()
         return
     def load_accounts(self):
         """
@@ -61,7 +104,7 @@ class simulator:
         self.history = self.history.set_index('account')
         self.names = ['personal','corporate','consumption','miscellaneous income','permits','fss','government entreprises',
             'property taxes','autonomous','federal transfers',
-            'total revenue','mission health','mission education','mission family','other missions','mission spending',
+            'total revenue','mission health','mission education','mission family','economy','justice','mission spending',
             'debt service','debt service without pension interests','total spending','annual surplus','generation fund','fund contribution','fund payment','budget balance',
             'reserve','debt','gross debt','gdp','change gross debt no deficit','gross-debt-to-gdp','gdp growth','pop growth','emp growth','pension debt',
             'pension interests','stock placements/others','flow placements','flow others','stock fixed assets','flow fixed assets']
@@ -80,7 +123,9 @@ class simulator:
         else :
             self.pop = pd.read_pickle(module_dir+file_pop)
         #self.eco_first = pd.read_pickle(module_dir+'/simfin/params/economic_outcomes.pkl')
-        self.eco_first = pd.DataFrame(pd.read_pickle(module_dir+file_profiles+'emp.pkl'))
+        self.eco_first = pd.DataFrame(index=self.pop.index)
+
+        emp = pd.read_pickle(module_dir+file_profiles+'emp.pkl')
         earn_c = pd.read_pickle(module_dir+file_profiles+'earn_c.pkl')
         cons = pd.read_pickle(module_dir+file_profiles+'cons.pkl')
         hours_c = pd.read_pickle(module_dir+file_profiles+'hours_c.pkl')
@@ -88,10 +133,8 @@ class simulator:
         non_work_taxinc = pd.read_pickle(module_dir+file_profiles+'non_work_taxinc.pkl')
         personal_taxes = pd.read_pickle(module_dir+file_profiles+'personal_taxes.pkl')
         family_credits = pd.read_pickle(module_dir+file_profiles+'credit_famille.pkl')
-
-        #taxinc = pd.read_pickle(module_dir+'/simfin/params/personal_taxes.pkl')
-
-        self.eco_first = (self.eco_first.merge(earn_c/1e6,left_index=True, right_index=True,how='outer').
+        self.eco_first = (self.eco_first.merge(emp,left_index=True, right_index=True,how='outer').
+                          merge(earn_c/1e6,left_index=True, right_index=True,how='outer').
                           merge(cons/1e6,left_index=True, right_index=True,how='outer').
                           merge(hours_c,left_index=True, right_index=True,how='outer').
                           merge(cons_taxes,left_index=True, right_index=True,how='outer').
@@ -99,8 +142,8 @@ class simulator:
                           merge(personal_taxes,left_index=True, right_index=True,how='outer').
                           merge(family_credits,left_index=True, right_index=True,how='outer').
                           fillna(value=0))
-
         self.eco = self.eco_first.copy()
+
         work_earnings = self.pop[self.start_yr].multiply(self.eco['emp']*self.eco['earn_c'],fill_value=0.0).sum()
         non_work_earnings = self.pop[self.start_yr].multiply(self.eco['taxinc'],fill_value=0.0).sum()
         earnings = work_earnings + non_work_earnings
@@ -235,11 +278,11 @@ class simulator:
         Fonction qui permet de faire une transition, croissance économique et des comptes et fait la comptabilisation des comptes publics, mise-à-jour de la dette.
         """
         if self.year>self.start_yr:
-            self.macro.emp(self.pop[self.year],self.eco)
+            self.macro.emp(self.pop[self.year],self.eco,self.year)
             self.macro.pop(self.pop[self.year])
-            self.macro.grow_cons(self.eco)
-            self.macro.grow_work_earnings(self.eco)
-            self.macro.grow_non_work_earnings(self.eco) # B. Achou
+            self.macro.grow_cons(self.eco,self.year)
+            self.macro.grow_work_earnings(self.eco,self.year)
+            self.macro.grow_non_work_earnings(self.eco,self.year) # B. Achou
             self.macro.grow(self.year)
             self.others_dict_account['gfund_inc'] = self.genfund.returns()
             self.revenue.grow(self.macro,self.pop[self.year],self.eco,self.others_dict_account)
@@ -286,7 +329,7 @@ class simulator:
 
         # Reserve
         if self.year > self.history.columns[-1]:
-            self.reserve.grow(annual_surplus)
+            self.reserve.grow(budget_balance)
 
         # DEBT
         if self.year <= self.history.columns[-1]:
@@ -345,11 +388,10 @@ class simulator:
             self.summary.loc['miscellaneous income',self.year] = self.revenue.miscellaneous_income.value
             self.summary.loc['permits',self.year] = self.revenue.permits.value
             self.summary.loc['fss',self.year] = self.revenue.fss.value
-            self.summary.loc['government entreprises',self.year] = self.revenue.gov_enterprises.value
+            self.summary.loc['government entreprises',self.year] = self.revenue.gov_enterprises.value + self.plan.loc['gov_enterprises',self.year]
             self.summary.loc['property taxes',self.year] = self.revenue.property_taxes.value
-            self.summary.loc['autonomous',self.year] = self.revenue.sum()
-
-            self.summary.loc['federal transfers',self.year] = self.transfers.sum()
+            self.summary.loc['autonomous',self.year] = self.summary.loc['personal',self.year] + self.summary.loc['corporate',self.year] + self.summary.loc['consumption',self.year] + self.summary.loc['miscellaneous income',self.year] + self.summary.loc['permits',self.year] +self.summary.loc['fss',self.year] + self.summary.loc['government entreprises',self.year] + self.summary.loc['property taxes',self.year]
+            self.summary.loc['federal transfers',self.year] = self.transfers.sum() + self.plan.loc['transfers',self.year]
             self.summary.loc['total revenue',self.year] = self.summary.loc['autonomous',self.year] +\
                 self.summary.loc['federal transfers',self.year]
         else :
@@ -395,24 +437,26 @@ class simulator:
         Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.
         """
         if self.year > self.history.columns[-1]:
-            self.summary.loc['mission health',self.year] = self.missions.health.value
-            self.summary.loc['mission education',self.year] = self.missions.education.value
-            self.summary.loc['mission family',self.year] = self.missions.family.value
-            self.summary.loc['other missions',self.year] = self.missions.sum() - self.missions.health.value -\
-                self.missions.education.value - self.missions.family.value
-            self.summary.loc['mission spending',self.year] = self.missions.sum()
+            self.summary.loc['mission health',self.year] = self.missions.health.value + self.plan.loc['health',self.year]
+            self.summary.loc['mission education',self.year] = self.missions.education.value + self.plan.loc['educ',self.year]
+            self.summary.loc['mission family',self.year] = self.missions.family.value + self.plan.loc['family',self.year]
+            self.summary.loc['economy',self.year] = self.missions.economy.value + self.plan.loc['economy',self.year]
+            self.summary.loc['justice',self.year] = self.missions.justice.value  + self.plan.loc['justice',self.year]
+            self.summary.loc['mission spending',self.year] = self.summary.loc[['mission health','mission education','mission family','economy','justice'],self.year].sum()
             self.summary.loc['debt service',self.year] = self.debt.debt_interest()+self.pension_debt.interests
-            self.summary.loc['total spending',self.year] = self.missions.sum() + self.summary.loc['debt service',self.year]
+            self.summary.loc['total spending',self.year] = self.summary.loc['mission spending',self.year] + self.summary.loc['debt service',self.year]
             self.summary.loc['pension interests',self.year] = self.pension_debt.interests
             self.summary.loc['debt service without pension interests',self.year] = self.debt.debt_interest()
+
+
         else :
             self.summary.loc['mission health',self.year] = self.history.loc['health',self.year]
             self.summary.loc['mission education',self.year] = self.history.loc['education',self.year]
             self.summary.loc['mission family',self.year] = self.history.loc['family',self.year]
-            self.summary.loc['other missions',self.year] = (self.history.loc['economy',self.year] +\
-                self.history.loc['justice',self.year])
+            self.summary.loc['economy',self.year] = self.history.loc['economy',self.year]
+            self.summary.loc['justice',self.year] = self.history.loc['justice',self.year]
             self.summary.loc['mission spending',self.year] = (self.summary.loc['mission health',self.year] +\
-                self.summary.loc['mission education',self.year] + self.summary.loc['mission family',self.year] + self.summary.loc['other missions',self.year])
+                self.summary.loc['mission education',self.year] + self.summary.loc['mission family',self.year] + self.summary.loc['economy',self.year]+ self.summary.loc['justice',self.year])
             self.summary.loc['debt service',self.year] = self.history.loc['debt_service',self.year]
             self.summary.loc['total spending',self.year] = (self.summary.loc['mission spending',self.year] +\
                  self.summary.loc['debt service',self.year])
