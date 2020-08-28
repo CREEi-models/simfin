@@ -53,8 +53,8 @@ class simulator:
             shocks.append(this)
         self.shocks = dict(zip(outcomes,shocks))
         self.macro.set_shocks(self.shocks)
-        missions = ['health','educ','family','economy','justice','transfers','gov_enterprises']
-        self.plan = pd.DataFrame(index=missions,columns=np.arange(self.start_yr,self.stop_yr))
+        missions_income = ['health','educ','family','economy','justice','transfers','gov_enterprises','personal_taxes','corporate_taxes','property_taxes']
+        self.plan = pd.DataFrame(index=missions_income,columns=np.arange(self.start_yr,self.stop_yr))
         self.plan.loc[:,:] = 0.0
     def align_targets(self):
         self.macro.set_align_emp(self.pop[self.start_yr],self.eco)
@@ -86,6 +86,9 @@ class simulator:
             plt.plot(self.plan.columns,self.plan.loc['justice'],label='justice')
             plt.plot(self.plan.columns,self.plan.loc['transfers'],label='Transferts fédéraux')
             plt.plot(self.plan.columns,self.plan.loc['gov_enterprises'],label='Revenus des entreprises du gouvernement')
+            plt.plot(self.plan.columns,self.plan.loc['personal_taxes'],label='Impôt des particuliers')
+            plt.plot(self.plan.columns,self.plan.loc['corporate_taxes'],label='Impôt des sociétés')
+            plt.plot(self.plan.columns,self.plan.loc['property_taxes'],label='Impôt foncier scolaire')
             plt.legend()
             plt.title('plan de dépenses implémenté')
             plt.xticks(rotation=90)
@@ -106,7 +109,7 @@ class simulator:
             'property taxes','autonomous','federal transfers',
             'total revenue','mission health','mission education','mission family','economy','justice','mission spending',
             'debt service','debt service without pension interests','total spending','annual surplus','generation fund','fund contribution','fund payment','budget balance',
-            'reserve','debt','gross debt','gdp','change gross debt no deficit','gross-debt-to-gdp','gdp growth','pop growth','emp growth','pension debt',
+            'reserve','debt','gross debt','gdp','change gross debt no deficit','gross-debt-to-gdp','gdp growth','infl','pop','pop growth','emp','emp growth','pension debt',
             'pension interests','stock placements/others','flow placements','flow others','stock fixed assets','flow fixed assets']
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_report,self.stop_yr)])
         return
@@ -338,7 +341,10 @@ class simulator:
             self.summary.loc['gdp',self.year] = self.history.loc['gdp',self.year]
             self.summary.loc['gross-debt-to-gdp',self.year] = self.summary.loc['gross debt',self.year]/self.summary.loc['gdp',self.year]
             self.summary.loc['gdp growth',self.year] = self.history.loc['gdp_growth',self.year] + self.macro.infl
+            self.summary.loc['pop',self.year] = np.nan
             self.summary.loc['pop growth',self.year] = np.nan
+            self.summary.loc['infl',self.year] = np.nan
+            self.summary.loc['emp',self.year] = np.nan
             self.summary.loc['emp growth',self.year] = np.nan
             self.summary.loc['reserve',self.year] = self.history.loc['reserve_balance_end',self.year]
             self.summary.loc['pension debt',self.year] = self.history.loc['pension_balance',self.year]
@@ -359,7 +365,10 @@ class simulator:
             self.summary.loc['gdp',self.year] = self.macro.Y
             self.summary.loc['gross-debt-to-gdp',self.year] = self.summary.loc['gross debt',self.year]/self.macro.Y
             self.summary.loc['gdp growth',self.year] = self.macro.gr_Y + self.macro.infl
+            self.summary.loc['infl',self.year] = self.macro.infl
+            self.summary.loc['pop',self.year] = self.macro.N
             self.summary.loc['pop growth',self.year] = self.macro.gr_N
+            self.summary.loc['emp',self.year] = self.macro.L
             self.summary.loc['emp growth',self.year] = self.macro.gr_L
             self.summary.loc['reserve',self.year] = self.reserve.balance
             self.summary.loc['pension debt',self.year] = self.pension_debt.balance
@@ -380,16 +389,15 @@ class simulator:
         Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.
         """
         if self.year > self.history.columns[-1]:
-            self.summary.loc['personal',self.year] = (self.revenue.personal_taxes.value +
-                                                      self.revenue.personal_credits.value)
+            self.summary.loc['personal',self.year] = (self.revenue.personal_taxes.value + self.revenue.personal_credits.value - self.plan.loc['personal_taxes',self.year])
             self.summary.loc['corporate',self.year] = (self.revenue.corporate_taxes.value +\
-                self.revenue.corporate_credits.value)
+                self.revenue.corporate_credits.value - self.plan.loc['corporate_taxes',self.year])
             self.summary.loc['consumption',self.year] = self.revenue.consumption.value
             self.summary.loc['miscellaneous income',self.year] = self.revenue.miscellaneous_income.value
             self.summary.loc['permits',self.year] = self.revenue.permits.value
             self.summary.loc['fss',self.year] = self.revenue.fss.value
             self.summary.loc['government entreprises',self.year] = self.revenue.gov_enterprises.value + self.plan.loc['gov_enterprises',self.year]
-            self.summary.loc['property taxes',self.year] = self.revenue.property_taxes.value
+            self.summary.loc['property taxes',self.year] = self.revenue.property_taxes.value - self.plan.loc['property_taxes',self.year]
             self.summary.loc['autonomous',self.year] = self.summary.loc['personal',self.year] + self.summary.loc['corporate',self.year] + self.summary.loc['consumption',self.year] + self.summary.loc['miscellaneous income',self.year] + self.summary.loc['permits',self.year] +self.summary.loc['fss',self.year] + self.summary.loc['government entreprises',self.year] + self.summary.loc['property taxes',self.year]
             self.summary.loc['federal transfers',self.year] = self.transfers.sum() + self.plan.loc['transfers',self.year]
             self.summary.loc['total revenue',self.year] = self.summary.loc['autonomous',self.year] +\
@@ -443,12 +451,12 @@ class simulator:
             self.summary.loc['economy',self.year] = self.missions.economy.value + self.plan.loc['economy',self.year]
             self.summary.loc['justice',self.year] = self.missions.justice.value  + self.plan.loc['justice',self.year]
             self.summary.loc['mission spending',self.year] = self.summary.loc[['mission health','mission education','mission family','economy','justice'],self.year].sum()
-            self.summary.loc['debt service',self.year] = self.debt.debt_interest()+self.pension_debt.interests
+            init_gross_debt_ratio = self.summary.loc['gross-debt-to-gdp',self.start_yr]
+            gross_debt_ratio = self.summary.loc['gross-debt-to-gdp',self.year-1]
+            self.summary.loc['debt service',self.year] = self.debt.debt_interest(init_gross_debt_ratio,gross_debt_ratio)+self.pension_debt.interests
             self.summary.loc['total spending',self.year] = self.summary.loc['mission spending',self.year] + self.summary.loc['debt service',self.year]
             self.summary.loc['pension interests',self.year] = self.pension_debt.interests
-            self.summary.loc['debt service without pension interests',self.year] = self.debt.debt_interest()
-
-
+            self.summary.loc['debt service without pension interests',self.year] = self.debt.debt_interest(init_gross_debt_ratio,gross_debt_ratio)
         else :
             self.summary.loc['mission health',self.year] = self.history.loc['health',self.year]
             self.summary.loc['mission education',self.year] = self.history.loc['education',self.year]

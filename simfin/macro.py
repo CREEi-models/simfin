@@ -127,6 +127,7 @@ class macro:
     def grow(self,year):
         #self.gr_Y = self.gr_A + self.g_pars['alpha_K']*self.gr_K + self.g_pars['alpha_L']*self.gr_L
         self.gr_Y = 1/self.g_pars['alpha_L']*self.gr_A + self.gr_L
+        #print("Le taux de croissance est", self.gr_Y)
         self.gdp()
         self.year = year
         return
@@ -164,8 +165,8 @@ class covid:
         self.shocks = dict(zip(self.outcomes,shocks))
         for o in self.outcomes:
             self.predict(o)
-        # initialize additional spending & federal transfers matrix
-        accounts = ['health','educ','family','economy','justice','transfers','gov_enterprises']
+        # initialize additional spending & income
+        accounts = ['health','educ','family','economy','justice','transfers','gov_enterprises','personal_taxes','corporate_taxes','property_taxes']
         self.plan = pd.DataFrame(index=accounts,columns=np.arange(start_yr,stop_yr))
         for v in self.plan.columns:
             self.plan[v] = self.plan[v].astype('float')
@@ -276,6 +277,9 @@ class covid:
         self.plan.loc['justice',2021] = plan['justice']*scale
         self.plan.loc['transfers',2021] = plan['transfers']*scale
         self.plan.loc['gov_enterprises',2021] = plan['gov_enterprises']*scale
+        self.plan.loc['personal_taxes',2021] = plan['personal_taxes']*scale
+        self.plan.loc['corporate_taxes',2021] = plan['corporate_taxes']*scale
+        self.plan.loc['property_taxes',2021] = plan['property_taxes']*scale
         for t in range(self.stop_yr,to_year):
             self.plan[t] = 0.0
         return

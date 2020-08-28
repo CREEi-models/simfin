@@ -23,9 +23,12 @@ class collector:
         self.account_names = []
         rates = pd.read_excel(module_dir+'/params/historical_accounts.xlsx',sheet_name='Returns')
         self.rate = 0.0379
+        self.risk_premium = 0.00014592
         return
-    def debt_interest(self):
-        return self.rate * self.balance
+    def debt_interest(self,init_gross_debt_ratio,gross_debt_ratio):
+        rate = self.rate + self.risk_premium*(gross_debt_ratio - init_gross_debt_ratio)*100
+        #rate = self.rate
+        return rate * self.balance
     def grow(self,macro,delta_placements,delta_others,delta_fixed_assets,budget_balance,delta_pension,repay_genfund):
         if macro.year > macro.start_yr:
             self.balance += delta_placements+delta_others+delta_fixed_assets-delta_pension-budget_balance\
