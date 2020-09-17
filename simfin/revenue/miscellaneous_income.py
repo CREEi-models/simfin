@@ -37,6 +37,7 @@ class miscellaneous_income(account):
             rate += macro.gr_Y
         self.gfundinc   = others['gfund_inc']
         self.nogfundinc *= rate
+        #print(rate)
         self.value       = self.nogfundinc + self.gfundinc
         return
 

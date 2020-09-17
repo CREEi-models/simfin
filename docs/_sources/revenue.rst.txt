@@ -36,7 +36,7 @@ Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeu
 crédits
 =======
 
-La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
+La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
 
 Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l'inflation et de la croissance des salaires réels.
 
@@ -77,7 +77,7 @@ Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en v
 Taxes à la consommation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d'autres caractéristiques. Ces équations sont estimées sur la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
+Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d'autres caractéristiques. Ces équations sont estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
 
 Les taxes à la consommation croissent au rythme de l'inflation et de la croissance des salaires excluant l'amélioration liée au niveau d'éducation (on attribue à cette croissance seulement 44,7% de l'augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n'étant pas pris en compte).
 

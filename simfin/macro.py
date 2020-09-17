@@ -224,13 +224,35 @@ class covid:
                 if time_since_lockdown>=5:
                     time_since_lockdown_cons +=1
                 for o in self.outcomes:
-                    if o=='cons':
-                        self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate_long*(time_since_lockdown_cons))
-                    if o=='cons' and time_since_lockdown>0 and time_since_lockdown<4:
+                    if o=='cons' and time_since_lockdown==0:
                         self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
+                    #print(self.shocks['cons'].loc[:,'2020Q1'].mean())
+                    #if o=='cons' and (time_since_lockdown==1 or time_since_lockdown==2 or time_since_lockdown==3):
+                    #    self.shocks[o].loc[:,q] = 1-(0.014)
+                        #print(self.shocks[o].loc[:,q])
+                    if o=='cons' and time_since_lockdown>0:
+                        self.shocks[o].loc[:,q] = 1
+
+                    #if o=='cons' and time_since_lockdown==0:
+                    #    self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
+                    #if o=='cons' and (time_since_lockdown==1 or time_since_lockdown==2 or time_since_lockdown==3):
+                    #    self.shocks[o].loc[:,q] = 1-(0.02)
+                    #if o=='cons' and time_since_lockdown>3:
+                    #    self.shocks[o].loc[:,q] = 1
+
+                    #if o=='cons' and time_since_lockdown==0:
+                    #    self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
+                    #if o=='cons' and time_since_lockdown>0:
+                    #    self.shocks[o].loc[:,q] = 1
+
                     if o!='cons':
-                        #print(o)
                         self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate_long*time_since_lockdown)
+                #print(self.shocks['cons'].loc[0,'2022Q1'])
+                #print(self.shocks['cons'].loc[:,lastq])
+
+                #On enlève le chock après le premier trimestre de 2020-2021 sur la consommation (Q3 2020) : plus d'effet au second trimestre (https://thoughtleadership.rbc.com/covid-consumer-spending-tracker/)
+                #if time_since_lockdown>=1 and o=='cons':
+                #        self.shocks[o].loc[:,q] = 1
                 #if self.second_wave:
                 #    if pd.Period(q)==pd.Period(self.second_lockdown_time):
                 #        time_since_lockdown = 0
@@ -261,6 +283,7 @@ class covid:
                 frame[t] = 1.0
             shock_aggregates.append(frame)
         self.shock_aggregates = dict(zip(self.outcomes,shock_aggregates))
+        #print(self.shock_aggregates)
         return
     def set_plan(self,to_year=2060):
         inject = pd.read_csv(module_dir+'/simfin/params/COVID_plan.csv',sep=',')

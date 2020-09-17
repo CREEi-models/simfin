@@ -68,7 +68,7 @@ L'historique des dépenses de la mission "Gouverne et Justice" présente une aug
 Soutien aux familles
 ^^^^^^^^^^^^^^^^^^^^
 
-Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) les crédits d'impôts remboursables pour le soutien aux enfants du Québec et les frais de garde d’enfants pour le Québec qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPSM (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
+Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) les crédits d'impôts remboursables pour le soutien aux enfants du Québec et les frais de garde d’enfants pour le Québec qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
 
 L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année entre 2015 et 2019 (en valeur nominale).
 

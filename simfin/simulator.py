@@ -74,6 +74,8 @@ class simulator:
             plt.title('scénario implémenté')
             plt.xticks(rotation=90)
             plt.show()
+            #print('Le choc de consommation est de (en %) :')
+            #print((1-self.shocks['cons'].mean())*100)
         return
     def set_missions_plan(self,plan,iplot=False):
         self.plan = plan
@@ -109,7 +111,7 @@ class simulator:
             'property taxes','autonomous','federal transfers',
             'total revenue','mission health','mission education','mission family','economy','justice','mission spending',
             'debt service','debt service without pension interests','total spending','annual surplus','generation fund','fund contribution','fund payment','budget balance',
-            'reserve','debt','gross debt','gdp','change gross debt no deficit','gross-debt-to-gdp','gdp growth','infl','pop','pop growth','emp','emp growth','pension debt',
+            'reserve','debt','gross debt','gdp','change gross debt no deficit','gross-debt-to-gdp','nominal gdp growth','real gdp growth','infl','pop','pop growth','emp','emp growth','pension debt',
             'pension interests','stock placements/others','flow placements','flow others','stock fixed assets','flow fixed assets']
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_report,self.stop_yr)])
         return
@@ -340,10 +342,11 @@ class simulator:
             self.summary.loc['gross debt',self.year] = self.history.loc['gross_debt',self.year]
             self.summary.loc['gdp',self.year] = self.history.loc['gdp',self.year]
             self.summary.loc['gross-debt-to-gdp',self.year] = self.summary.loc['gross debt',self.year]/self.summary.loc['gdp',self.year]
-            self.summary.loc['gdp growth',self.year] = self.history.loc['gdp_growth',self.year] + self.macro.infl
+            self.summary.loc['nominal gdp growth',self.year] = self.history.loc['gdp_growth',self.year] + self.macro.infl
+            self.summary.loc['real gdp growth',self.year] = self.history.loc['gdp_growth',self.year]
+            self.summary.loc['infl',self.year] = np.nan
             self.summary.loc['pop',self.year] = np.nan
             self.summary.loc['pop growth',self.year] = np.nan
-            self.summary.loc['infl',self.year] = np.nan
             self.summary.loc['emp',self.year] = np.nan
             self.summary.loc['emp growth',self.year] = np.nan
             self.summary.loc['reserve',self.year] = self.history.loc['reserve_balance_end',self.year]
@@ -364,7 +367,8 @@ class simulator:
             #+ self.debt.debt_pension.value  - self.genfund.balance - self.debt.gross_debt_reduct.value
             self.summary.loc['gdp',self.year] = self.macro.Y
             self.summary.loc['gross-debt-to-gdp',self.year] = self.summary.loc['gross debt',self.year]/self.macro.Y
-            self.summary.loc['gdp growth',self.year] = self.macro.gr_Y + self.macro.infl
+            self.summary.loc['nominal gdp growth',self.year] = self.macro.gr_Y + self.macro.infl
+            self.summary.loc['real gdp growth',self.year] = self.macro.gr_Y
             self.summary.loc['infl',self.year] = self.macro.infl
             self.summary.loc['pop',self.year] = self.macro.N
             self.summary.loc['pop growth',self.year] = self.macro.gr_N
