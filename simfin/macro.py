@@ -12,19 +12,21 @@ class macro:
         self.g_pars = pd.read_pickle(module_dir+'/simfin/params/growth_params.pkl')
         self.data = pd.read_pickle(module_dir+'/simfin/params/base_aggregates.pkl')
         self.start_yr = start_yr
-        #self.Y = self.data['nom_Y']
-        #self.Y = 453572
         gdp = pd.read_excel(module_dir+'/simfin/params/historical_accounts.xlsx',sheet_name='Inputs')
-        self.Y = gdp.at[34,2020]
+        self.Yp = gdp.at[34,2020]
+        self.Y = self.Yp
         self.L = self.data['L']*1e3
+        self.Lp = self.L
         self.N = self.data['N']
         self.E_w = 0 # Sur quel agrégat.
         self.C_hh = self.data['C_hh']
         self.gr_K = self.g_pars['g_real_K']
         self.gr_A = self.g_pars['A']
         self.gr_L = 0.0
+        self.gr_Lp = 0.0
         self.gr_N = 0.0
         self.gr_Y = 0.0
+        self.gr_Yp = 0.0
         self.year = start_yr
         return
     def reset(self,pop,eco):
@@ -60,14 +62,16 @@ class macro:
     def set_align_cons(self,pop,eco):
         C = (pop.multiply(eco['cons'],fill_value=0.0).sum())
         align_c_hh = self.C_hh/C
-        #print('alignment factor for consommation : ',align_c_hh)
         eco['cons'] = eco['cons']*align_c_hh
         return
     def emp(self,pop,eco,year):
-        shocks = self.shocks['emp'].loc[:,year]*self.shocks['hours_c'].loc[:,year]
+        shocks = (self.shocks['emp'].loc[:,year]*self.shocks['hours_c'].loc[:,year])
         L = pop.multiply(eco['emp']*eco['hours_c']*shocks*self.eff_hours,fill_value=0.0).sum() * self.align
-        self.gr_L = np.log(L) - np.log(self.L)
+        self.gr_L = L/ self.L-1
         self.L = L
+        Lp = pop.multiply(eco['emp']*eco['hours_c']*self.eff_hours,fill_value=0.0).sum() * self.align
+        self.gr_Lp = Lp/ self.Lp-1
+        self.Lp = Lp
         return
     def work_earnings(self,pop,eco):
         E_w = pop.multiply(eco['emp']*eco['earn_c'],fill_value=0.0).sum()
@@ -88,7 +92,12 @@ class macro:
         rate = 1.0+self.infl
         if igra == True:
             rate += 1/self.g_pars['alpha_L']*self.gr_A  # Part TFP non lié à l'éducation (50%)
+        #print(year)
+        #print(self.gr_A)
         eco['cons'] = eco['cons']*shocks*rate
+        sum = eco['cons'].sum()
+        #print('Consommation en', year, ' :')
+        #print(sum)
     def grow_work_earnings(self,eco,year):
         """
         Fait croître les revenus de salaire par personne au rythme de l'inflation +
@@ -123,15 +132,16 @@ class macro:
         return
     def gdp(self):
         self.Y = self.Y * (1.0 + self.gr_Y + self.infl)
+        self.Yp = self.Yp * (1.0 + self.gr_Yp + self.infl)
         return
     def grow(self,year):
         #self.gr_Y = self.gr_A + self.g_pars['alpha_K']*self.gr_K + self.g_pars['alpha_L']*self.gr_L
         self.gr_Y = 1/self.g_pars['alpha_L']*self.gr_A + self.gr_L
-        #print("Le taux de croissance est", self.gr_Y)
+        self.gr_Yp = 1/self.g_pars['alpha_L']*self.gr_A + self.gr_Lp
+        #print(self.gr_Yp)
         self.gdp()
         self.year = year
         return
-
 
 class covid:
     def __init__(self,start_index,start_yr,start_lockdown,stop_yr,recovery_rate_short=0.25,recovery_rate_long=0.25,recovery_rate_cons=0.25,
@@ -163,6 +173,7 @@ class covid:
         for o in self.outcomes:
             shocks.append(frame.copy())
         self.shocks = dict(zip(self.outcomes,shocks))
+
         for o in self.outcomes:
             self.predict(o)
         # initialize additional spending & income
@@ -193,9 +204,16 @@ class covid:
         work['des'] = work['educ']=='des'
         work['dec'] = work['educ']=='dec'
         work['uni'] = work['educ']=='uni'
+        if outcome=='cons':
+            file_profiles = '/simfin/params/'
+            cons = pd.read_pickle(module_dir+file_profiles+'cons.pkl').to_frame()
+            cons.columns = ['cons']
+            work = work.merge(cons,left_index=True,right_index=True,how='left')
+        else :
+            work['cons'] = 0.0
         beta = self.par_shocks.loc[:,outcome]
         work['mu'] = beta['constant']
-        for c in beta.index.to_list()[:1]:
+        for c in beta.index.to_list()[:-1]:
             work['mu'] += beta[c]*work[c]
         if outcome=='emp':
             work['pr'] = np.exp(work['mu'])/(1+np.exp(work['mu']))
@@ -205,12 +223,13 @@ class covid:
             work['pr'] = 1.0 + work['mu']
             work.loc[work['age']<=24,'pr'] = work.loc[work['age']==25,'pr'].mean()
             work.loc[work['age']>=65,'pr'] = work.loc[work['age']==64,'pr'].mean()
-        # find monthly recovery rate (for a trimester divide by 2 given effect of first month)
         recovery_rate_monthly = self.recovery_rate_short/2
         factor = 1 - (1-work['pr'])*(1.0 + np.exp(-recovery_rate_monthly) + np.exp(-recovery_rate_monthly*2))/3.0
         factor_cons = 1 - (1-work['pr'])
         if outcome=='cons':
-            self.shocks[outcome].loc[:,self.start_lockdown] = factor_cons
+            self.shocks[outcome].loc[:,self.start_lockdown] = factor_cons-(1-factor_cons)*3.0#*callé sur la baisse des taes à la conso au trimestre 2 : 3.95#*callé sur la conso hors loyer imputé -20% : 2.72#*callé sur la conso -15,2%2.25
+            #print('Le facteur d ajustement pour 2021Q1 est égal à :')
+            #print(self.shocks['cons'].loc[:,self.start_lockdown].mean())
         else :
             self.shocks[outcome].loc[:,self.start_lockdown] = factor
         return
@@ -220,51 +239,12 @@ class covid:
         for q in self.datef:
             if q>pd.Period(self.start_lockdown):
                 time_since_lockdown +=1
-                time_since_lockdown_cons=0
-                if time_since_lockdown>=5:
-                    time_since_lockdown_cons +=1
                 for o in self.outcomes:
-                    if o=='cons' and time_since_lockdown==0:
-                        self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
-                    #print(self.shocks['cons'].loc[:,'2020Q1'].mean())
-                    #if o=='cons' and (time_since_lockdown==1 or time_since_lockdown==2 or time_since_lockdown==3):
-                    #    self.shocks[o].loc[:,q] = 1-(0.014)
-                        #print(self.shocks[o].loc[:,q])
-                    if o=='cons' and time_since_lockdown>0:
+                    if o=='cons':
                         self.shocks[o].loc[:,q] = 1
-
-                    #if o=='cons' and time_since_lockdown==0:
-                    #    self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
-                    #if o=='cons' and (time_since_lockdown==1 or time_since_lockdown==2 or time_since_lockdown==3):
-                    #    self.shocks[o].loc[:,q] = 1-(0.02)
-                    #if o=='cons' and time_since_lockdown>3:
-                    #    self.shocks[o].loc[:,q] = 1
-
-                    #if o=='cons' and time_since_lockdown==0:
-                    #    self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])
-                    #if o=='cons' and time_since_lockdown>0:
-                    #    self.shocks[o].loc[:,q] = 1
-
                     if o!='cons':
                         self.shocks[o].loc[:,q] = 1-(1-self.shocks[o].loc[:,lastq])*np.exp(-self.recovery_rate_long*time_since_lockdown)
-                #print(self.shocks['cons'].loc[0,'2022Q1'])
-                #print(self.shocks['cons'].loc[:,lastq])
 
-                #On enlève le chock après le premier trimestre de 2020-2021 sur la consommation (Q3 2020) : plus d'effet au second trimestre (https://thoughtleadership.rbc.com/covid-consumer-spending-tracker/)
-                #if time_since_lockdown>=1 and o=='cons':
-                #        self.shocks[o].loc[:,q] = 1
-                #if self.second_wave:
-                #    if pd.Period(q)==pd.Period(self.second_lockdown_time):
-                #        time_since_lockdown = 0
-                #        for o in self.outcomes:
-                            #print(time_since_lockdown)
-                            #lockdown_shock = self.shocks[o].loc[:,self.start_lockdown]
-                            #self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate_long*time_since_lockdown)
-                            #if o=='cons' and time_since_lockdown>0 and time_since_lockdown<4:
-                            #    print('yeah!')
-                            #    self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)
-                            #else:
-                            #    self.shocks[o].loc[:,q] = 1-self.lockdown_force*(1-lockdown_shock)*np.exp(-self.recovery_rate_long*time_since_lockdown)
                 if self.second_wave:
                     if pd.Period(q)==pd.Period(self.second_lockdown_time):
                         time_since_lockdown = 0
@@ -283,7 +263,6 @@ class covid:
                 frame[t] = 1.0
             shock_aggregates.append(frame)
         self.shock_aggregates = dict(zip(self.outcomes,shock_aggregates))
-        #print(self.shock_aggregates)
         return
     def set_plan(self,to_year=2060):
         inject = pd.read_csv(module_dir+'/simfin/params/COVID_plan.csv',sep=',')

@@ -18,7 +18,7 @@ class health_transfer(account):
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl
         if self.igdp:
-            rate += macro.gr_Y
+            rate += macro.gr_Yp
         if self.ipop:
             rate += macro.gr_N
         if rate < 1.03:

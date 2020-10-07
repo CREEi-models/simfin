@@ -74,8 +74,8 @@ class simulator:
             plt.title('scénario implémenté')
             plt.xticks(rotation=90)
             plt.show()
-            #print('Le choc de consommation est de (en %) :')
-            #print((1-self.shocks['cons'].mean())*100)
+            #print('Le facteur annualisé est égal à :')
+            #print(self.shocks['cons'].columns,self.shocks['cons'].mean())
         return
     def set_missions_plan(self,plan,iplot=False):
         self.plan = plan

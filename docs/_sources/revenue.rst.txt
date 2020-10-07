@@ -27,7 +27,7 @@ Impôt des particuliers
 impôt
 =====
 
-L'impôt des particuliers est modélisé à l'aide de la structure démographique de la population et des équations estimées sur la BDSPS sur le taux d'emploi et les revenus du travail annuels, auxquels on ajoute le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
+L’impôt des particuliers est modélisé à l’aide de la structure démographique issue de SimGen et des équations estimées avec la BDSPS sur le taux d’emploi et les revenus du travail annuels en fonction de plusieurs caractéristiques (âge, niveau de scolarité, statut matrimonial, nombre d’enfants et sexe). On y ajoute également le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
@@ -50,7 +50,7 @@ Impôt des sociétés
 impôt
 =====
 
-L'impôt des sociétés croît au rythme du PIB potentiel.
+L'impôt des sociétés croît au rythme du PIB, auquel on multiplie un facteur de 1,2447 par point de PIB, correspondant à l'élasticité de l'impôt des sociétés au PIB observée entre 1988 et 2018 au Québec.
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
 
@@ -59,7 +59,7 @@ Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en vale
 crédits
 =======
 
-Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB potentiel.
+Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB, auquel on multiplie un facteur de 1,2447 par point de PIB, correspondant à l'élasticité de l'impôt des sociétés au PIB observée entre 1988 et 2018 au Québec.
 
 Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
 
@@ -68,7 +68,7 @@ Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par a
 Cotisations au FSS
 ^^^^^^^^^^^^^^^^^^
 
-Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB potentiel.
+Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB.
 
 Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).
 
@@ -77,9 +77,7 @@ Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en v
 Taxes à la consommation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Les revenus provenant des taxes à la consommation sont affectés par la structure démographique et des équations modélisant les taxes à la consommation par âge et en fonction d'autres caractéristiques. Ces équations sont estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
-
-Les taxes à la consommation croissent au rythme de l'inflation et de la croissance des salaires excluant l'amélioration liée au niveau d'éducation (on attribue à cette croissance seulement 44,7% de l'augmentation des salaires, le résidu de 55,3%, lié à l’amélioration du niveau d’éducation, n'étant pas pris en compte).
+Les revenus provenant des taxes à la consommation sont affectés par la structure démographique de SimGen et les équations estimées avec la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_) en fonction de diverses caractéristiques (dont l’âge et le niveau de scolarité). Par ailleurs, Simfin prend en compte le fait que l’inflation et les salaires font croître la consommation et par là même les taxes à la consommation .
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
 
@@ -88,7 +86,7 @@ Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeu
 Droits et permis
 ^^^^^^^^^^^^^^^^
 
-Dans Simfin, les revenus de droits et permis croissent au rythme du PIB potentiel.
+Dans Simfin, les revenus de droits et permis croissent au rythme du PIB.
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).
 
@@ -97,7 +95,7 @@ Entre 2015 et 2019, ces revenus ont crû au rythme de 14,68% par année (en vale
 Entreprises du gouvernement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB potentiel.
+Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB.
 
 Entre 2015 et 2019, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).
 
@@ -106,7 +104,7 @@ Entre 2015 et 2019, ces revenus ont diminué au rythme de 2,61% par année (en v
 Impôt foncier scolaire
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB potentiel.
+Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB.
 
 Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
 
@@ -117,7 +115,7 @@ Revenus divers
 
 Les revenus divers incluent les revenus placement du Fonds des générations (12,1% des revenus divers en 2019) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services (45,5% des revenus divers), des contributions des usagers (15,4% des revenus divers), des intérêts sur les débiteurs et les prêts (8,6% des revenus divers), des amendes, confiscations et recouverements (7% des revenus divers) et des donations de tiers (6% des revenus divers).
 
-La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/generations.html>`_. Le résidu des revenus divers croît au rythme du PIB potentiel.
+La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/generations.html>`_. Le résidu des revenus divers croît au rythme du PIB.
 
 Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).
 
@@ -141,7 +139,7 @@ Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en va
 
 .. autoclass:: equalization
 
-Transfers en santé
+Transferts en santé
 ^^^^^^^^^^^^^^^^^^
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel.

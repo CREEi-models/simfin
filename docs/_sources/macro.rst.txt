@@ -27,7 +27,7 @@ Afin d'estimer cette équation, nous utilisons les données des comptes publics 
 
    \Delta Y_t = 0.0059 + 0.323 \Delta K_t + 0.676 \Delta L_t
 
-La productivité croît au rythme de 0,59% par année. La part du stock de capital dans le processus de production est d'environ 1/3 (32,3%) alors que celle du travail est légèrement supérieure à 2/3 (67,3%). Précisions que durant les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le facteur travail a augmenté à un rythme inférieur, de 1% par année. Sur les 10 dernières années, ceci aboutit à une croissance du PIB potentiel de 1,9%. Sans la contribution du travail (ce qui survient environ entre 2020 et 2030), la croissance du PIB potentiel projetée est de 1.24%. Ces estimations sont très similaires à ceux obtenus par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_.
+La productivité croît au rythme de 0,59% par année. La part du stock de capital dans le processus de production est d’environ 1/3 (32,3%) alors que celle du travail est légèrement supérieure à 2/3 (67,7%). Précisions que durant les 10 dernières années, le stock de capital a augmenté au rythme de 2% par année alors que le facteur travail a augmenté à un rythme inférieur, de 1% par année. Sur les 10 dernières années, ceci aboutit à une croissance du PIB potentiel de 1,9%. Sans la contribution du travail (qui devrait disparaître entre 2020 et 2030 environ), la croissance du PIB potentiel projetée est de 1,24%. Ces estimations sont très similaires à celles obtenues par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_.
 
 Dans SimFin, le taux de croissance du PIB potentiel prend en compte la combinaison de l’évolution de la population (taille, structure par âge, éducation…) qui provient de SimGen et de la distribution par âge de l’emploi et des heures travaillées que nous estimons (source `BD/MSPS <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_).
 
@@ -116,5 +116,4 @@ Sauf exception, les variables calculées à partir de l'évolution démographiqu
 
 Inflation
 ^^^^^^^^^
-
-Le taux d'inflation est fixé à 2% par an, ce qui correspond aux hypothèses retenues dans de multiples études, telles que celles de `Clavet et al. 2016 <https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf>`_ et de `St-Maurice et al. 2018 <https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf>`_.
+Le taux d'inflation est fixé à 2% par an, qui est la cible d’inflation officielle de la Banque du Canada à ce jour et qui correspond aussi aux hypothèses retenues dans de multiples études, telles que celles de `Clavet et al. 2016 <https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf>`_ et de `St-Maurice et al. 2018 <https://cffp.recherche.usherbrooke.ca/wp-content/uploads/2018/12/cr_2018-14_soutenabilite_budgetaire-1.pdf>`_.

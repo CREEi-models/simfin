@@ -23,8 +23,7 @@ class economy(account):
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl
         if self.igdp:
-            if macro.gr_Y>=0.0:
-                rate += macro.gr_Y
+            rate += macro.gr_Yp
         if self.ipop:
             rate += macro.gr_N
         self.value *= rate
