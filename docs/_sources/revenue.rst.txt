@@ -50,7 +50,7 @@ Impôt des sociétés
 impôt
 =====
 
-L'impôt des sociétés croît au rythme du PIB, auquel on multiplie un facteur de 1,2447 par point de PIB, correspondant à l'élasticité de l'impôt des sociétés au PIB observée entre 1988 et 2018 au Québec.
+L'impôt des sociétés croît au rythme du PIB.
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
 
@@ -59,7 +59,7 @@ Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en vale
 crédits
 =======
 
-Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB, auquel on multiplie un facteur de 1,2447 par point de PIB, correspondant à l'élasticité de l'impôt des sociétés au PIB observée entre 1988 et 2018 au Québec.
+Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB.
 
 Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
 

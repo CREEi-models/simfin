@@ -1,35 +1,35 @@
 Synthèse des résultats
 --------------------------------------------------------------------------------
 
-Dans notre scénario de référence (pré-COVID), les revenus passent de 25,6% du PIB à 26,2% du PIB en 2040. Cette croissance modérée repose notamment sur l'augmentation du poids de l'impôt des particuliers et des taxes à la consommation dans le PIB, qui passent respectivement de 7,3% et 4,8% en 2019 à 8,2% et 5,1% en 2040.
+Dans notre scénario de référence (pré-COVID 19), les revenus passent de 25,6% du PIB à 26,7% du PIB en 2040. Cette croissance modérée repose notamment sur l'augmentation du poids de l'impôt des particuliers et des taxes à la consommation dans le PIB, qui passent respectivement de 7,3% et 4,8% en 2019 à 8,2% et 5,1% en 2040.
 
 .. figure:: figure/rev.png
     :alt: test
     :scale: 100%
     :align: center
 
-Dans le même temps, notre projection de référence résulte en une forte hausse des dépenses totales, qui passent de 24,3% du PIB en 2019 à 29,8% du PIB en 2040. Cette hausse est essentiellement due aux dépenses de la mission santé, dont le poids dans le PIB passe de 9,5% en 2019 à 13,7% en 2040. Les autres missions restent relativement constantes en % du PIB. Le poids du service de la dette diminue jusque 2026, en partie dû à l’application du solde du Fonds des générations en 2025, mais il remonte par la suite jusque la fin de la période d'analyse.
+Dans le même temps, notre projection de référence résulte en une forte hausse des dépenses totales, qui passent de 24,3% du PIB en 2019 à 29,5% du PIB en 2040. Cette hausse est essentiellement due aux dépenses de la mission santé, dont le poids dans le PIB passe de 9,5% en 2019 à 13,7% en 2040. Les autres missions restent relativement constantes en % du PIB. Le poids du service de la dette diminue jusque 2026, en partie dû à l’application du solde du Fonds des générations en 2025, mais il remonte par la suite jusque la fin de la période d'analyse.
 
 .. figure:: figure/dep.png
     :alt: test
     :scale: 100%
     :align: center
 
-Ces deux tendances (revenus et dépenses) ont pour conséquence de mener inévitablement le Québec vers un solde budgétaire qui devient négatif dès 2022. Grâce au Fonds des générations, le surplus annuel ne devient négatif qu'en 2026. Le surplus annuel passe de 1,34% du PIB en 2020 à -3,6% du PIB en 2040.
+Ces deux tendances (revenus et dépenses) ont pour conséquence de mener inévitablement le Québec vers un solde budgétaire et un surplus annuel qui deviennent durablement négatifs en 2027. Le solde budgétaire converge vers le surplus annuel en 2026, année suivant la liquidation du Fonds des générations.
 
 .. figure:: figure/surplus.png
         :alt: test
         :scale: 100%
         :align: center
 
-Selon nos calculs, qui utilisent la valeur comptable du Fonds des générations, celui-ci passe de 2% du PIB en 2019 à près de 4,7% en 2025 (solde de 25 G). En 2025, nous supposons que la valeur du Fonds est affectée à la dette. Par ailleurs, la réserve de stabilisation est épuisée en 2030.
+Selon nos calculs, qui utilisent la valeur comptable du Fonds des générations, celui-ci passe de 2% du PIB en 2019 à 4,7% en 2025 (solde de 25 G). En 2025, nous supposons que la valeur du Fonds est affectée à la dette. Par ailleurs, la réserve de stabilisation est épuisée en 2032.
 
 .. figure:: figure/fonds.png
     :alt: test
     :scale: 100%
     :align: center
 
-Au final, l'augmentation du poids des dépenses dans le PIB étant plus marquée que l'augmentation de la part des revenus dans le PIB, le poids de la dette dans le PIB augmentera fortement entre 2024 (40,3% du PIB) et 2040 (64,3% du PIB).
+Au final, l'augmentation du poids des dépenses dans le PIB étant plus marquée que l'augmentation de la part des revenus dans le PIB, le poids de la dette dans le PIB augmentera fortement entre 2025 (39,7% du PIB) et 2040 (57,2% du PIB).
 
     .. figure:: figure/dette.png
         :alt: test

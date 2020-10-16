@@ -9,13 +9,13 @@ Les hypothèses de projections macroéconomiques de SimFin sont définies à par
 
 PIB potentiel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Notre modélisation du PIB potentiel est similaire à celle adoptée par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_, c'est-à-dire que nous utilisons une fonction de production de type Cobb-Douglas:
+Notre modélisation du PIB potentiel est similaire à celle adoptée par `Desjardins Études Économiques <https://www.desjardins.com/ressources/pdf/pv200309-f.pdf>`_, c'est-à-dire que nous utilisons une fonction de production de type Cobb-Douglas :
 
 .. math::
 
    Y_t = A_t K_t^{\alpha_K} L_t^{\alpha_L}
 
-:math:`A` est la productivité, :math:`K` le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et :math:`L` les heures travaillées. En prenant le log et première différence, et en imposant des rendements d'échelle constant, on obtient
+:math:`A` est la productivité, :math:`K` le stock de capital (résidentiel et non-résidentiel en dollars constants et dépréciation géométrique) et :math:`L` les heures travaillées. En prenant le log et la première différence, et en imposant des rendements d'échelle constants, on obtient :
 
 .. math::
 

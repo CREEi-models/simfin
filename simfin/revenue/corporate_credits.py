@@ -21,6 +21,6 @@ class corporate_credits(account):
         self.ipop = ipop
         return
     def grow(self,macro,pop,eco,others=None):
-        rate = 1.0 + macro.gr_Y * 1.2447
+        rate = 1.0 + macro.infl + macro.gr_Y 
         self.value *= rate
         return
