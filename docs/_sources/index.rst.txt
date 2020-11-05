@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+*Ce site va être modifié prochainement. Plusieurs changements sont à venir : la documentation va être mise à jour, l'accès au code va être amélioré, de nouveaux exemples de simulations seront disponibles. Pour toute question, merci de contacter Julien Navaux à julien.navaux@hec.ca.*
+
 Documentation SimFin
 ====================
 
