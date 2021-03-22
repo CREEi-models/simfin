@@ -22,8 +22,6 @@ class collector:
         self.year_last    = self.investment_pred.index.max()
         return
     def grow(self,year,gdp):
-        # fait croître la balance
-        # + génère les nouveaux investissements dans placements... et autres facteurs
         year_i = min(year,self.year_last)
         self.net_placements    = gdp* self.investment_pred.loc[year_i,'placements']
         self.net_other_factors = gdp* self.investment_pred.loc[year_i,'other factors']

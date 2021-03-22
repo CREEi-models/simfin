@@ -50,7 +50,7 @@ Impôt des sociétés
 impôt
 =====
 
-L'impôt des sociétés croît au rythme du PIB.
+L'impôt des sociétés croît au rythme du PIB nominal (PIB réel + inflation).
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
 

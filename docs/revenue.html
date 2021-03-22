@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="retraite.html">Régimes de retraite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reserve.html">Réserve de stabilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dette.html">Dette publique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Contacts et droits d’utilisation</a></li>
 </ul>
 
             
@@ -220,15 +221,6 @@
 <dt id="simfin.revenue.personal_taxes">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt des particuliers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -239,14 +231,13 @@
 <p>Entre 2015 et 2019, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.personal_credits">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">personal_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des particuliers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 </ul>
 </dd>
 </dl>
@@ -258,21 +249,12 @@
 <h2>Impôt des sociétés<a class="headerlink" href="#impot-des-societes" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="id3">
 <h3>impôt<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’impôt des sociétés croît au rythme du PIB.</p>
+<p>L’impôt des sociétés croît au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_taxes">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt des sociétés.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -282,17 +264,8 @@
 <p>Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.corporate_credits">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=False</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">corporate_credits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des sociétés.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -305,15 +278,6 @@
 <dt id="simfin.revenue.fss">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">fss</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les cotisations au Fonds des services de santé (FSS).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -325,15 +289,6 @@
 <dt id="simfin.revenue.consumption">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">consumption</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les taxes à la consommation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -345,15 +300,6 @@
 <dt id="simfin.revenue.permits">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">permits</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les revenus issus des droits et permis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -365,15 +311,6 @@
 <dt id="simfin.revenue.gov_enterprises">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">gov_enterprises</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les revenus provenant des entreprises du gouvernement provincial.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -385,15 +322,6 @@
 <dt id="simfin.revenue.property_taxes">
 <em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">property_taxes</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.property_taxes" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt foncier.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -404,13 +332,12 @@
 <p>Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.revenue.miscellaneous_income">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">miscellaneous_income</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.miscellaneous_income" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.revenue.</code><code class="sig-name descname">miscellaneous_income</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.miscellaneous_income" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer toutes les revenus divers (dont une partie sont les revenus de placement du FDG)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 </ul>
 </dd>
@@ -441,7 +368,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 </ul>
 </dd>
 </dl>
@@ -461,7 +387,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 </ul>
 </dd>
 </dl>
@@ -481,7 +406,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 </ul>
 </dd>
 </dl>

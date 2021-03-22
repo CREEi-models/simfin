@@ -127,7 +127,6 @@ class simulator:
             self.pop = pd.read_pickle(file_pop)
         else :
             self.pop = pd.read_pickle(module_dir+file_pop)
-        #self.eco_first = pd.read_pickle(module_dir+'/simfin/params/economic_outcomes.pkl')
         self.eco_first = pd.DataFrame(index=self.pop.index)
 
         emp = pd.read_pickle(module_dir+file_profiles+'emp.pkl')

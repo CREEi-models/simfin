@@ -15,6 +15,7 @@ data = {inf/10 : pd.read_csv('data/output_'+str(inf/10)+'.csv') for inf in range
 
 # Initialise the app
 app = dash.Dash(__name__)
+server = app.server
 def total(inf):
     output = data[inf]
     total2 = make_subplots(specs=[[{"secondary_y": True}]])

@@ -10,14 +10,11 @@ class family(account):
         Switch pour intégrer ou non la croissance du PIB.
     ipop: boolean
         Switch pour intégrer ou non la croissance de la population.
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=False,others=None):
+    def __init__(self,value,igdp=True,ipop=False,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
-        self.iprice = iprice
         self.ipop = ipop
         return
     def set_sub_account(self,macro,pop,eco):
@@ -40,10 +37,8 @@ class family(account):
 
         #credit
         rate = 1.0+macro.infl
-        #if igra == True:
-        #    rate += 1/macro.g_pars['alpha_L']*macro.gr_A
         eco['credit_famille'] *= rate
-        
+
         self.value_credit_family = (pop.multiply(eco['credit_famille']*(eco['emp']*eco['earn_c']+eco['taxinc']),fill_value=0.0).sum()) # modif Bertrand
 
         #kindergarden

@@ -10,7 +10,7 @@ Le tableau suivant compare les projections de SimFin avec les prévisions établ
 .. csv-table:: Évolution du solde comptable du fonds des générations (millions de dollars) en 2020 selon le plan budgétaire et selon SimFin
    :widths: 3, 3, 3
    :header: "Année", "Plan budgétaire (mars)", "SimFin"
-   :file: fdg.csv
+   :file: table/fdg.csv
 
 .. currentmodule:: simfin.genfund
 

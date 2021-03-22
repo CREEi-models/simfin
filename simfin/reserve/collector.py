@@ -14,8 +14,6 @@ class collector:
     ----------
     init_balance: float
         Montant du stock sur la réserve de stabilisation l'année d'initialisation du modèle.
-    max_rate: float
-        Part maximale de la réserve de stabilisation dans les dépenses totales du gouvernement. Au dessus de max_rate, les surplus générés sont affectés à la dette.
     '''
     def __init__(self,init_balance):
         self.balance = init_balance

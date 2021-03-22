@@ -11,28 +11,17 @@ class education(account):
     ----------
     igdp: boolean
         Switch pour intégrer ou non la croissance du PIB.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=False,ipop=True,iprice=True,others=None):
+    def __init__(self,value,igdp=False,iprice=True,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
         self.iprice = iprice
-        self.ipop = ipop
         self.pcap_start = pd.read_pickle(module_dir+'/params/educ_costs.pkl')
         self.pcap = self.pcap_start['pcap'].astype('float')
         if self.iprice:
-            # self.price_college = 0.015
-            # self.price_hs = 0.015
-            # self.price_college = (0.77/100+1.64/100)/2
-            # self.price_hs = 0.027
-            # self.price_college = 0.015
-            # self.price_hs = 0.02
-            #self.price_college = 1.0/100.0
-            #self.price_hs = 1.0/100.0
             self.price_hs = 2.0/100.0
             self.price_college = 0.3/100.0
         else :
@@ -45,7 +34,6 @@ class education(account):
         work = work.groupby('age').sum()
         value = work.multiply(self.pcap,fill_value=0.0).sum()*1e-6
         self.align = self.value/value
-        #print('alignment factor for education : ', self.align)
         return
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl

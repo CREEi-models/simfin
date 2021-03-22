@@ -11,17 +11,14 @@ class health(account):
     ----------
     igdp: boolean
         Switch pour intégrer ou non la croissance du PIB.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=False,ipop=True,iprice=True,others=None):
+    def __init__(self,value,igdp=False,iprice=True,others=None):
         self.value = value
         self.start_value = value
         self.igdp = igdp
         self.iprice = iprice
-        self.ipop = ipop
         self.pcap_start = pd.read_pickle(module_dir+'/params/health_cihi_pcap.pkl')
         self.pcap = self.pcap_start.copy()
         self.tcam = pd.read_pickle(module_dir+'/params/health_cihi_growth.pkl')
@@ -32,7 +29,6 @@ class health(account):
         total = pop.groupby(['age','male']).sum()
         value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.align = self.value/value
-        #print('alignment factor for health : ', self.align)
         return
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.infl
@@ -53,7 +49,7 @@ class health(account):
         total = self.tcam['Total']
         if self.iprice:
             for c in self.categories:
-                rates[c] = (1.0-tau)*rates[c] + tau*total
+                rates.loc[:,c] = (1.0-tau)*rates.loc[:,c] + tau*total
                 self.pcap[c] = self.pcap[c] * (1.0 + rates[c])
         self.pcap['Total'] = self.pcap[self.categories].sum(axis=1)
         return

@@ -16,4 +16,4 @@ La seconde composante du service de la dette est présenté dans l'onglet `Régi
 .. csv-table:: Service de la dette 2015-2019
    :widths: 8, 3, 3, 3, 3, 3
    :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
-   :file: service.csv
+   :file: table/service.csv

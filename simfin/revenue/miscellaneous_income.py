@@ -8,12 +8,10 @@ class miscellaneous_income(account):
     ----------
     igdp: boolean
         Switch pour intégrer ou non la croissance du PIB.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=True,others=None):
+    def __init__(self,value,igdp=True,iprice=True,others=None):
         self.value = value
         if others !=None:
             self.gfundinc_init   = others['gfund_inc_init']
@@ -26,7 +24,6 @@ class miscellaneous_income(account):
         self.nogfundinc      = self.value - self.gfundinc_init
         self.igdp = igdp
         self.iprice = iprice
-        self.ipop = ipop
         return
 
     def grow(self,macro,pop,eco,others):
@@ -37,7 +34,6 @@ class miscellaneous_income(account):
             rate += macro.gr_Y
         self.gfundinc   = others['gfund_inc']
         self.nogfundinc *= rate
-        #print(rate)
         self.value       = self.nogfundinc + self.gfundinc
         return
 
@@ -46,5 +42,3 @@ class miscellaneous_income(account):
         self.gfundinc    = self.gfundinc_init
         self.value       = self.nogfundinc + self.gfundinc
         return
-
-    #pass

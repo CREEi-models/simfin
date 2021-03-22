@@ -26,7 +26,7 @@ class collector:
         return
     def returns(self):
         return self.rate * self.balance
-    def make_contrib(self,year,returns): # RETURNS NEED TO BE REMOVED -> goes into revenus divers
+    def make_contrib(self,year,returns):
         rate=self.rate_fdg
         if year<=self.last_yr:
             contrib = self.strategy.loc[year,'contrib']

@@ -6,7 +6,7 @@ Le passif des régimes de retraite et des autres avantages sociaux futurs corres
 .. csv-table:: Passif des régimes de retraite et des autres avantages sociaux futurs
    :widths: 8, 3, 3, 3, 3, 3
    :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
-   :file: passif_retraite.csv
+   :file: table/passif_retraite.csv
 
 SimFin intègre une estimation de l'évolution des composantes du Passif des régimes de retraite et des autres avantages sociaux futurs à partir du tableau "Passif des régimes de retraite et des autres avantages sociaux futurs" et du tableau "Évolution des obligations relatives aux prestations acquises des régimes de retraite". Plusieurs hypothèses sont appliquées pour ces estimations :
 
@@ -19,11 +19,11 @@ SimFin intègre une estimation de l'évolution des composantes du Passif des ré
 .. csv-table:: Obligations relatives aux prestations acquises des régimes de retraite
    :widths: 8, 3, 3, 3, 3, 3
    :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
-   :file: obligations.csv
+   :file: table/obligations.csv
 
 Les projecctions réalisées avec les hypothèses susmentionnées aboutissent à des résulats équivalents aux estimations du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_, comme présenté dans le tableau ci-contre. Après 2025, on pose l'hypothèse que le passif des régimes de retraite et des autres avantages sociaux futurs est égal à 0, tel que les actifs compensent parfaitement les obligations correspondantes.
 
 .. csv-table:: Estimation du passif net des régimes de retraite et autres avantages sociaux futurs & comparaison avec les projections du Budget 2020-2021
    :widths: 8, 3, 3, 3, 3, 3, 3
    :header: "Comptes (en millions)", "2020", "2021", "2022", "2023", "2024", "2025"
-   :file: passif_net.csv
+   :file: table/passif_net.csv
