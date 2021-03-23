@@ -357,16 +357,17 @@
 
 <div class="section" id="perequation">
 <h2>Péréquation<a class="headerlink" href="#perequation" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).</p>
 <p>Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.equalization">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">equalization</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">equalization</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les revenus issus de la péréquation et de la formule de financement des territoires (FFT).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
 </ul>
 </dd>
@@ -376,16 +377,17 @@
 </div>
 <div class="section" id="transferts-en-sante">
 <h2>Transferts en santé<a class="headerlink" href="#transferts-en-sante" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).</p>
 <p>Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.health_transfer">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">health_transfer</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">health_transfer</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer le transfert canadien en matière de santé (TCS).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
 </ul>
 </dd>
@@ -395,16 +397,17 @@
 </div>
 <div class="section" id="autres-transferts">
 <h2>Autres transferts<a class="headerlink" href="#autres-transferts" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel.</p>
+<p>Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).</p>
 <p>Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).</p>
 <dl class="class">
 <dt id="simfin.federal.other_transfers">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">other_transfers</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">simfin.federal.</code><code class="sig-name descname">other_transfers</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">iprice=True</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Classe permettant d’intégrer les autres transferts fédéraux.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
+<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
+<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
 </ul>
 </dd>

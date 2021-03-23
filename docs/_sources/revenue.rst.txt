@@ -133,16 +133,16 @@ Trois transferts fédéraux sont modélisés: les paiements de péréquation (50
 Péréquation
 ^^^^^^^^^^^
 
-Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
 Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).
 
 .. autoclass:: equalization
 
 Transferts en santé
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
-Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
 Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).
 
@@ -151,7 +151,7 @@ Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en val
 Autres transferts
 ^^^^^^^^^^^^^^^^^
 
-Dans Simfin, ces transferts croissent au rythme du PIB potentiel.
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
 Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).
 
