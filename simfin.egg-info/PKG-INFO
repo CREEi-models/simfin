@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: simfin
-Version: 0.0.1
+Version: 0.0.4
 Summary: Modele de microsimulation des finances publiques SimFin
 Home-page: https://creei-models.github.io/simfin
 Author: Équipe CREEi
-Author-email: pierre-carl.michaud@hec.ca
+Author-email: julien.navaux@hec.ca
 License: UNKNOWN
 Description: # Modèle de microsimulation SimFin
         
