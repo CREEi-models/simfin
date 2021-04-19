@@ -1,0 +1,357 @@
+Modélisation des comptes
+------------------------
+
+Simulateur
+^^^^^^^^^^
+
+Le simulateur est l'organe principal du module SimFin. Il initialise et contrôle la simulation.
+
+.. automodule:: simfin
+
+.. currentmodule:: simfin
+
+.. autoclass:: simulator
+   :members: load_accounts, load_params, init_revenue, init_transfers, init_missions, init_debt, init_gfund, init_reserve, init_debt, collect_revenue, collect_spending, next, simulate
+
+Revenus
+^^^^^^^^
+
+SimFin modélise les revenus autonomes et les transferts fédéraux.
+
+.. currentmodule:: simfin.revenue
+
+Revenus autonomes
+=================
+
+Les revenus autonomes de la province du Québec sont constitués de :
+
+- l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- l'impôt des sociétés (10%), également subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- cotisations au fonds des services de santé (6,9%);
+- taxes à la consommation (22,9%);
+- droits et permis (4,8%);
+- revenus issus des entreprises du gouvernement (6,1%);
+- l'impôt foncier scolaire (2%);
+- et les revenus divers (12,6% de l'ensemble des revenus autonomes en 2019).
+
+.. autoclass:: collector
+
+Impôt des particuliers
+======================
+
+L’impôt des particuliers est modélisé à l’aide de la structure démographique issue de SimGen et des équations estimées avec la BDSPS sur le taux d’emploi et les revenus du travail annuels en fonction de plusieurs caractéristiques (âge, niveau de scolarité, statut matrimonial, nombre d’enfants et sexe). On y ajoute également le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
+
+Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+
+.. autoclass:: personal_taxes
+
+La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
+
+Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l'inflation et de la croissance des salaires réels.
+
+Entre 2015 et 2019, ces dépenses fiscales ont crû au rythme de 2,82% par année (en valeur nominale).
+
+.. autoclass:: personal_credits
+
+Impôt des sociétés
+==================
+
+L'impôt des sociétés croît au rythme du PIB nominal (PIB réel + inflation).
+
+Entre 2015 et 2019, ces revenus ont crû au rythme de 17,17% par année (en valeur nominale).
+
+.. autoclass:: corporate_taxes
+
+Les crédits d'impôt remboursables des sociétés croissent au rythme du PIB.
+
+Entre 2015 et 2019, ces dépenses fiscales ont diminué au rythme de 2,11% par année (en valeur nominale).
+
+.. autoclass:: corporate_credits
+
+Cotisations au FSS
+==================
+
+Dans Simfin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB.
+
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en valeur nominale).
+
+.. autoclass:: fss
+
+Taxes à la consommation
+=======================
+
+Les revenus provenant des taxes à la consommation sont affectés par la structure démographique de SimGen et les équations estimées avec la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_) en fonction de diverses caractéristiques (dont l’âge et le niveau de scolarité). Par ailleurs, Simfin prend en compte le fait que l’inflation et les salaires font croître la consommation et par là même les taxes à la consommation .
+
+Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
+
+.. autoclass:: consumption
+
+Droits et permis
+================
+
+Dans Simfin, les revenus de droits et permis croissent au rythme du PIB.
+
+Entre 2015 et 2019, ces revenus ont crû au rythme de 14,68% par année (en valeur nominale).
+
+.. autoclass:: permits
+
+Entreprises du gouvernement
+===========================
+
+Dans Simfin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB.
+
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 2,61% par année (en valeur nominale).
+
+.. autoclass:: gov_enterprises
+
+Impôt foncier scolaire
+======================
+
+Dans Simfin, les revenus provenant des taxes scolaires croissent au rythme du PIB.
+
+Entre 2015 et 2019, ces revenus ont diminué au rythme de 1,32% par année (en valeur nominale).
+
+.. autoclass:: property_taxes
+
+Revenus divers
+==============
+
+Les revenus divers incluent les revenus placement du Fonds des générations (12,1% des revenus divers en 2019) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services (45,5% des revenus divers), des contributions des usagers (15,4% des revenus divers), des intérêts sur les débiteurs et les prêts (8,6% des revenus divers), des amendes, confiscations et recouverements (7% des revenus divers) et des donations de tiers (6% des revenus divers).
+
+La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/generations.html>`_. Le résidu des revenus divers croît au rythme du PIB.
+
+Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).
+
+.. autoclass:: miscellaneous_income
+
+Transferts fédéraux
+^^^^^^^^^^^^^^^^^^
+
+.. currentmodule:: simfin.federal
+
+Trois transferts fédéraux sont modélisés: les paiements de péréquation (50,7% de l'ensemble des transferts fédéraux en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), du transfert en santé (27,3% des transferts fédéraux) et la somme des autres transfers (22% des transferts fédéraux).
+
+.. autoclass:: collector
+
+Péréquation
+===========
+
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
+
+Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en valeur nominale).
+
+.. autoclass:: equalization
+
+Transferts en santé
+===================
+
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
+
+Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en valeur nominale).
+
+.. autoclass:: health_transfer
+
+Autres transferts
+=================
+
+Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
+
+Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en valeur nominale).
+
+.. autoclass:: other_transfers
+
+Dépenses
+^^^^^^^
+
+Les dépenses sont organisées par mission. Cinq missions sont prises en comptes:
+
+- santé et services sociaux  (42,5% de l'ensemble des dépenses des missions en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_);
+- éducation et culture (24,4%);
+- gouverne et justice (7,7%);
+- économie et environnement (15,1%);
+- soutien aux familles (10,3%).
+
+De plus la dette est modélisée mais documenté avec le module de la dette. La fonction collector collige toutes les dépenses provenant des différentes missions.
+
+.. currentmodule:: simfin.missions
+
+.. autoclass:: collector
+
+Santé et services sociaux
+=========================
+
+Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données de `l'Institut canadien d'information en santé entre 1998 et 2019 <https://www.cihi.ca/fr>`_ (fichier `"Open Data 2019" <http://www.cihi.ca/sites/default/files/document/open_data-2019-en.xlsx>`_) sur les dépenses per capita pour les médecins, hospitalisations, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et sexe sont calculées à partir de ces données ainsi que les taux de croissance, en dollars réels par âge et sexe pour chacune des catégories, mais aussi pour l'ensemble des catégories (dépenses totales de santé). Dans SimFin, la croissance en dollar réel des dépenses per capita suit les taux observés par âge, sexe pour chacune des catégories pour converger à l'horizon 2030 sur les taux par âge et sexe observés pour le total des dépenses per capita. Ceci garantit une certaine stabilité des dépenses per capita pour chacun des postes de l'ICIS à l'horizon 2030.
+
+Une calibration est faite pour l'année de départ afin que le total des dépenses provenant des données de l'ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d'alignement est maintenu fixe pour la projection.
+
+L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année entre 2015 et 2019 (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+
+.. autoclass:: health
+
+Éducation et culture
+====================
+
+L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année entre 2015 et 2019 (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+
+Dans SimFin, les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite.
+
+La croissance structurelle des dépenses réelles d'éducation après 2019 est égale à 2,0% par an pour chaque élève du primaire et du secondaire (tous les individus en formation jusque 17 ans dans SimFin) et elle est égale à 0,3% par an pour chaque étudiant du postsecondaire (tous les individus en formation de 18 à 34 ans dans SimFin).
+
+Afin de déterminer ces deux taux, nous calculons tout d'abord le taux de croissance des dépenses d'éducation par tête d'une année sur l'autre entre 2002-2003 et 2016-2017 à partir des tableaux de dépenses agrégées `37-10-0066-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710006601>`_ et `37-10-0027-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701>`_ de Statistique Canada et des tableaux d'effectifs `37-10-0019-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710001901>`_ et `37-10-0018-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710001801>`_ de Statistique Canada.
+
+Ensuite, nous appliquons la formule suivante pour obtenir le taux de croissance structurelle s :
+
+.. math:: s_{primaire/secondaire} = [(1+TC_{02-03|03-04})*[...]*(1+TC_{15-16|16-17})]^{(1/N)}-1
+.. math:: s_{postsecondaire} = [(1+TC_{02-03|03-04})*[...]*(1+TC_{15-16|16-17})]^{(1/N)}-1
+
+Nous excluons les taux de croissance annuels entre 2005-2006 et 2006-2007 et entre 2006-2007 et 2007-2008 en raison d'une réforme comptable que le Québec a mis en place (`Clavet et al. 2016 <https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf>`_). De plus, nous excluons l'année 2010-2011 pour le postsecondaire en raison d'une autre réforme comptable (voir les détails du tableau `37-10-0027-01 <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701>`_). Par conséquent, N=12 pour le primaire/secondaire et N=11 pour le postsecondaire.
+
+.. autoclass:: education
+
+Économie et environnement
+=========================
+
+Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
+
+L'historique des dépenses de la mission "Économie et environnement" présente une augmentation au rythme de 6,48% par année entre 2015 et 2019 (en valeur nominale).
+
+.. autoclass:: economy
+
+
+Gouverne et Justice
+===================
+
+Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.
+
+L'historique des dépenses de la mission "Gouverne et Justice" présente une augmentation au rythme de 2,79% par année entre 2015 et 2019 (en valeur nominale).
+
+.. autoclass:: justice
+
+Soutien aux familles
+====================
+
+Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) l’allocation famille et le crédit d’impôt pour les frais de garde d’enfants, qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
+
+L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année entre 2015 et 2019 (en valeur nominale).
+
+.. autoclass:: family
+
+Service de la dette
+^^^^^^^^^^^^^^^^^^^
+
+Le service de la dette est composé :
+
+- des intérêts sur les dettes, nets des revenus de placement des fonds d’amortissement afférents à des emprunts pour un montant de 7 431 millions de dollars en 2019.
+- des intérêts sur les obligations relatives aux prestations acquises des régimes de retraite et des autres avantages sociaux futurs, nets des revenus de placement du FARR, des fonds particuliers des régimes et des fonds des autres avantages sociaux futurs pour un montant de 8 722 millions de dollars en 2019.
+
+Le taux d'intérêt sur la dette net des revenus de placement est égal à 3,79% en 2019. Le taux est calculé en divisant les intérêts sur la dette nets des revenus de placement en 2019 (7 431 millions de dollars) par la dette avant gain de change reportés en 2018 (206 176 millions de dollars en valeur constante de 2019) nette des emprunts réalisés par anticipation en 2018 (9 951 millions de dollars en valeur constante de 2019).
+Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en y ajoutant une prime de risque.
+
+La prime de risque est calculée à partir de la part de la dette nette dans le PIB au Québec entre 1992 et 2018 (au niveau annuel) et à partir d’un indicateur de coût de la dette, qui mesure l’écart entre le taux d’intérêt des obligations à 10 ans pour le gouvernement du Québec et le taux d’intérêt des obligations à 10 ans pour le gouvernement fédéral (annualisé). L’indicateur sur les taux d’intérêt des obligations à 10 ans est régressé sur la part de la dette nette dans le PIB à partir d’un modèle de régression linéaire en moindres carrés ordinaire (MCO). Le résultat indique que l’augmentation d’un point de pourcentage de la part de la dette nette dans le PIB se traduit par une augmentation de la prime de risque de 0,015 point de pourcentage au Québec.
+
+La seconde composante du service de la dette est présenté dans l'onglet `Régimes de retraite <https://creei-models.github.io/simfin/retraite.html>`_.
+
+.. csv-table:: Service de la dette 2015-2019
+   :widths: 8, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+   :file: table/service.csv
+
+Fonds des générations
+^^^^^^^^^^^^^^^^^^^^^
+
+Le fonds des générations établit des cotisations provenant de revenus autonomes et de placement. Ces cotisations sont enregistrées au fonds, et déduites du solde budgétaire. Par ailleurs, le solde du fonds des générations est déduit de la dette publique afin de calculer la dette brute. Les revenus autonomes du Fonds sont prescrits par la loi et annoncés pour les années 2021 à 2025 au budget de 2020-2021. Ces revenus proviennent en majorité de la taxe sur les boissons alcoolisées, les revenus provenant de l'exploitation des ressources hydrauliques et minières. Les revenus de placements sont par ailleurs modélisés en utilisant la moyenne historique du taux de rendement effectif au Fonds, soit 4,47% (nominal). Ce même taux est supposé pour le futur. Par ailleurs, nous ne prenons pas l'incertitude sur ce taux de rendement dû aux fluctuations du marché.
+
+À l'échéance en 2025 de la loi sur l'équilibre budgétaire, nous faisons l'hypothèse que le solde comptable du fonds est appliquée à la dette et maintenue à zéro par la suite. Il est possible, dans le cadre de scénarios, de modifier cette hypothèse.
+
+Le tableau suivant compare les projections de SimFin avec les prévisions établies dans le plan budgétaire publié en mars 2020.
+
+.. csv-table:: Évolution du solde comptable du fonds des générations (millions de dollars) en 2020 selon le plan budgétaire et selon SimFin
+  :widths: 3, 3, 3
+  :header: "Année", "Plan budgétaire (mars)", "SimFin"
+  :file: table/fdg.csv
+
+.. currentmodule:: simfin.genfund
+
+.. autoclass:: collector
+  :members: returns, make_contrib, grow, reset
+
+Régimes de retraite
+^^^^^^^^^^^^^^^^^^^
+
+Le passif des régimes de retraite et des autres avantages sociaux futurs correspond aux régimes de retraite des employés du secteur public et du secteur parapublic. Entre 2015 et 2019, le passif est passé de 28 041 millions de dollars à 18 581 millions de dollars. Cette diminution s'explique essentiellement par une augmentation rapide du Fonds d’amortissement des régimes de retraite (FARR), dont le taux de croissance annuel moyen est égal à 10,1% entre 2015 à 2019. La contrepartie de ces actifs, les obligations relatives aux prestations acquises, ont quant-à elles augmenté de seulement 4,8% en moyenne entre 2015 et 2019.
+
+.. csv-table:: Passif des régimes de retraite et des autres avantages sociaux futurs
+  :widths: 8, 3, 3, 3, 3, 3
+  :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+  :file: table/passif_retraite.csv
+
+SimFin intègre une estimation de l'évolution des composantes du Passif des régimes de retraite et des autres avantages sociaux futurs à partir du tableau "Passif des régimes de retraite et des autres avantages sociaux futurs" et du tableau "Évolution des obligations relatives aux prestations acquises des régimes de retraite". Plusieurs hypothèses sont appliquées pour ces estimations :
+
+- Les intérêts des actifs liés aux régimes de retraite (FARR et Fonds particuliers des régimes de retraite) croient selon un rendement annuel de 6,35% suivant le `budget 2019-2020 <http://www.budget.finances.gouv.qc.ca/budget/2019-2020/fr/documents/PlanBudgetaire_1920.pdf>`_. De plus, un dépôt de 1 500 millions de dollars est prévu au FARR en 2020 (`budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_).
+- Les intérêts sur les obligations relatives aux prestations acquises des régimes de retraite et des autres avantages sociaux futurs croient également au rythme de 6,35%.
+- Le coût des prestations acquises et les prestations versées croient selon une croissance linéaire calculée à partir des évolutions annuelles entre 2009 et 2019.
+- Après 2019, les compensations et les variations des obligations à l'égard de certains crédits de rente sont égales à la moyenne de leur valeur (en dollars réels) entre 2009 et 2019.
+- Les gains (pertes) actuariels non amortis après 2019 sont égaux à la moyenne de l'indicateur (en dollars réels) entre 2009 et 2019, soit 5 258 millions d'euros.
+
+.. csv-table:: Obligations relatives aux prestations acquises des régimes de retraite
+  :widths: 8, 3, 3, 3, 3, 3
+  :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+  :file: table/obligations.csv
+
+Les projecctions réalisées avec les hypothèses susmentionnées aboutissent à des résulats équivalents aux estimations du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_, comme présenté dans le tableau ci-contre. Après 2025, on pose l'hypothèse que le passif des régimes de retraite et des autres avantages sociaux futurs est égal à 0, tel que les actifs compensent parfaitement les obligations correspondantes.
+
+.. csv-table:: Estimation du passif net des régimes de retraite et autres avantages sociaux futurs & comparaison avec les projections du Budget 2020-2021
+  :widths: 8, 3, 3, 3, 3, 3, 3
+  :header: "Comptes (en millions)", "2020", "2021", "2022", "2023", "2024", "2025"
+  :file: table/passif_net.csv
+
+Réserve de stabilisation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dans SimFin, la réserve de stabilisation est une résultante du solde budgétaire, elle n'a pas d'effets sur les décisions du gouvernement du Québec en termes de dépenses et de revenus.
+
+.. currentmodule:: simfin.reserve
+
+.. autoclass:: collector
+  :members: grow, reset
+
+Dette publique
+^^^^^^^^^^^^^^^
+
+Pour modéliser la dette brute, nous partons de l’identité suivante :
+
+.. math:: DB_t = D_t + R_t - FDG_t
+
+Où :math:`D_t` représente la dette après gains et pertes de changes reportés (comme nous négligeons ici les variations de change qui ont un impact limité sur la dette) moins la dette du fonds pour financer les entreprises du gouvernement qui représente un montant faible. Par la suite, nous appellerons cette variable simplement « dette ». Elle représente essentiellement la dette émise sur les marchés nette du fonds d’amortissement afférant à des emprunts.
+Les dynamiques du `fonds des générations <https://creei-models.github.io/simfin/generations.html>`_, notées :math:`FDG_t`, et de la `dette des régimes de retraite et autres avantages sociaux futurs <https://creei-models.github.io/simfin/retraite.html>`_, notées :math:`R_t`, sont modélisées par ailleurs.
+
+Nous nous intéressons ici aux dynamiques de la dette et de la dette brute.
+
+On a :
+
+.. math:: \Delta DB_t = \Delta D_t + \Delta R_t - \Delta FDG_t
+
+Nous avons par ailleurs (voir tableau G.4 du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=35>`_) :
+
+.. math:: \Delta DB_t = \Delta PPA_t + \Delta I_t+ \Delta A_t - \Delta SB_t - contrib\_FDG_t
+
+Avec :math:`PPA` correspondant aux placements, prêts et avances, :math:`I` aux immobilisations nettes, :math:`A` aux autres facteurs, :math:`SB` au solde budgétaire, :math:`contrib\_FDG` aux versements au Fonds des générations.
+
+En combinant ces deux dernières équations nous obtenons l’équation utilisée dans SimFin pour la dynamique de la dette émise :
+
+.. math:: \Delta D_t = \Delta PPA_t + \Delta I_t + \Delta A_t - \Delta SB_t + (\Delta FDG_t - contrib\_FDG_t) - \Delta R_t
+
+Que nous pouvons également écrire comme :
+
+.. math:: \Delta D_t = \Delta PPA_t + \Delta I_t + \Delta A_t - \Delta Surplus\_annuel_t + \Delta FDG_t - \Delta R_t
+
+Cette dernière équation montre que le surplus annuel, qui est la différence entre les revenus et les dépenses du gouvernement avant versements au FDG, diminue naturellement le montant de la dette émise. Nous voyons aussi que les investissements financiers autres que FDG et non financiers (variations des trois premiers termes de la partie de droite) augmentent la dette émise. Il en est de même pour les versements au FDG. Enfin, cette équation nous montre que des contributions par exemple au fonds d’amortissement des régimes de retraite tendent à augmenter la dette.
+
+Les composantes :math:`\Delta PPA_t`, :math:`\Delta I_t` et :math:`\Delta A_t` se voient attribuer leur part dans le PIB à partir du tableau G.4 du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=35>`_. Jusque 2025 la part dans le PIB est directement calculée à partir du tableau G.4. Après 2025, nous attribuons la moyenne de leur part dans le PIB entre 2011 et 2025.
+
+La dette brute est ensuite simplement calculée en utilisant l’équation 1.
+
+.. currentmodule:: simfin.debt
+
+.. autoclass:: collector
+   :members: service, borrowing, repaying, grow, reset

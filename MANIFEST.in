@@ -1,1 +1,1 @@
-recursive-include simfin/params/* 
+recursive-include simfin *.xlsx *.csv

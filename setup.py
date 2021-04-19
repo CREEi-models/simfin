@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="simfin", # Replace with your own username
-    version="0.0.4",
+    name="simfin-creei", # Replace with your own username
+    version="0.0.7",
     author="Équipe CREEi",
     author_email="julien.navaux@hec.ca",
     description="Modele de microsimulation des finances publiques SimFin",
