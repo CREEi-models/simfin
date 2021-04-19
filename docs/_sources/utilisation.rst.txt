@@ -1,0 +1,44 @@
+.. _using:
+
+***************
+Utilisation
+***************
+
+Étapes
+===========
+
+1) Lancement des simulations
+*********************************
+
+On détermine la dernière année de simulation : ::
+
+  end_yr = 2030
+
+On simule le modèle : ::
+
+  x = simfin.simulator(2020,end_yr+1)
+  x.simulate(end_yr+1-2020)
+
+2) Analyse des résultats
+*********************************
+
+L'ensemble des résultats du modèle sont localisés dans un Pandas DataFrame : ::
+
+  x.summary
+
+Exemples
+============
+
+Simulation de base
+*******************
+
+Cet exemple de notebook avec Google Colab permet de se familiariser avec l'utilisation de Simgen en produisant une simulation
+de base. Ensuite, ce notebook peut facilement être adapté à des besoins plus particuliers.
+
+Cliquez :download:`ici <https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft>`
+
+
+Modification hypothèses
+**************************
+
+Cliquez :download:`ici <https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft>`

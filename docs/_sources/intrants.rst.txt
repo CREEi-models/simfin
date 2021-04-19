@@ -1,6 +1,12 @@
 Intrants
 --------
 
+SimFin mobilise plusieurs intrants :
+
+1) Les `projections de population <https://creei-models.github.io/simfin/intrants.html#projections-demographiques>`_ par caractéristiques socio-démographiques sont celles issues du modèle `SimGen <https://creei-models.github.io/simgen/index.html>`_ de la chaire CREEI. Les caractéristiques socio-démographiques intègrent l'âge, le genre, le fait d'être ou non en études, le niveau d'éducation, le fait d'être en couple ou non et le nombre d'enfants.
+2) Les `profils économiques <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_ par âge et en fonction des caractéristiques socio-démographiques sont calculées à partir de la BDSPS.
+3) Les `comptes publics du Québec <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_ sont colligés entre 2006 et 2020. Ils sont utiles à plusieurs titres : 1) pour déterminer la croissance passée de chaque poste; 2) pour déterminer la valeur de départ du modèle pour chaque poste en 2020.
+
 Projections démographiques
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

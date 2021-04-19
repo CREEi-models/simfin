@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Modélisation des comptes" href="modelisation.html" />
+    <link rel="next" title="Documentation des fonctions" href="modelisation.html" />
     <link rel="prev" title="Environnement macroéconomique" href="macro.html" /> 
 </head>
 
@@ -111,7 +111,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Modélisation des comptes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Documentation des fonctions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credits.html">Contacts et droits d’utilisation</a></li>
 </ul>
 
@@ -179,6 +179,12 @@
             
   <div class="section" id="intrants">
 <h1>Intrants<a class="headerlink" href="#intrants" title="Lien permanent vers ce titre">¶</a></h1>
+<p>SimFin mobilise plusieurs intrants :</p>
+<ol class="arabic simple">
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#projections-demographiques">projections de population</a> par caractéristiques socio-démographiques sont celles issues du modèle <a class="reference external" href="https://creei-models.github.io/simgen/index.html">SimGen</a> de la chaire CREEI. Les caractéristiques socio-démographiques intègrent l’âge, le genre, le fait d’être ou non en études, le niveau d’éducation, le fait d’être en couple ou non et le nombre d’enfants.</p></li>
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">profils économiques</a> par âge et en fonction des caractéristiques socio-démographiques sont calculées à partir de la BDSPS.</p></li>
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics du Québec</a> sont colligés entre 2006 et 2020. Ils sont utiles à plusieurs titres : 1) pour déterminer la croissance passée de chaque poste; 2) pour déterminer la valeur de départ du modèle pour chaque poste en 2020.</p></li>
+</ol>
 <div class="section" id="projections-demographiques">
 <h2>Projections démographiques<a class="headerlink" href="#projections-demographiques" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="scenario-de-reference-de-simgen">
@@ -207,8 +213,8 @@
 <blockquote>
 <div><p>Nous utilisons la <a class="reference external" href="https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps">BDSPS</a> de Statistiques Canada (2017) afin de modéliser huit profils économiques listés ci-bas.</p>
 <p>Pour chaque profil économique, nous réalisons des régressions indépendantes pour chaque niveau d’éducation :</p>
-<table class="colwidths-given docutils align-default" id="id3">
-<caption><span class="caption-text">Niveaux d’éducation</span><a class="headerlink" href="#id3" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Niveaux d’éducation</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -237,8 +243,8 @@
 </tbody>
 </table>
 <p>Les variables de contrôle différent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivantes :</p>
-<table class="colwidths-given docutils align-default" id="id4">
-<caption><span class="caption-text">Variables de contrôle</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Variables de contrôle</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -417,8 +423,8 @@
 <p>Les comptes publics intègrent également les dépenses provenant du service de la dette.</p>
 <p>Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.</p>
 <p>Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):</p>
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">Classification des comptes publics 2015-2019</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Classification des comptes publics 2015-2019</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 35%" />
 <col style="width: 13%" />
@@ -924,7 +930,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="modelisation.html" class="btn btn-neutral float-right" title="Modélisation des comptes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="modelisation.html" class="btn btn-neutral float-right" title="Documentation des fonctions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="macro.html" class="btn btn-neutral float-left" title="Environnement macroéconomique" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
