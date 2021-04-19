@@ -98,7 +98,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#outils">Outils</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#profils-economiques-par-age">Profils économiques par âge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profils-economiques-par-age">Profils économiques par âge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#taux-d-emploi">Taux d’emploi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#heures-travaillees">Heures travaillées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#revenus-de-travail">Revenus de travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#depenses-de-consommation-des-menages">Dépenses de consommation des ménages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail">Revenu imposable résiduel, ne provenant pas du travail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modelisation.html">Modélisation des comptes</a></li>
@@ -790,6 +800,9 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
+<div class="section" id="taux-d-emploi">
+<h3>Taux d’emploi<a class="headerlink" href="#taux-d-emploi" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La probabilité d’être en emploi “emp” est estimée à l’aide d’un modèle probit.</p>
 <p>Le modèle probit pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante :</p>
 <div class="math notranslate nohighlight">
@@ -803,6 +816,9 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/emp.png"><img alt="test" src="_images/emp.png" style="width: 498.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="heures-travaillees">
+<h3>Heures travaillées<a class="headerlink" href="#heures-travaillees" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les heures travaillées (conditionnelles au fait de travailler) sont estimées à partir d’un modèle de régression linéaire.</p>
 <p>Le modèle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans :</p>
 <div class="math notranslate nohighlight">
@@ -814,6 +830,9 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/hours.png"><img alt="test" src="_images/hours.png" style="width: 551.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="revenus-de-travail">
+<h3>Revenus de travail<a class="headerlink" href="#revenus-de-travail" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les revenus du travail (conditionnels au fait de travailler) sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
 <p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 70 ans :</p>
 <div class="math notranslate nohighlight">
@@ -835,11 +854,17 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/earn_c.png"><img alt="test" src="_images/earn_c.png" style="width: 531.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="depenses-de-consommation-des-menages">
+<h3>Dépenses de consommation des ménages<a class="headerlink" href="#depenses-de-consommation-des-menages" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les dépenses de consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont identiques aux variables utilisées pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) correspondent aux variables utilisées pour les revenus du travail auxquelles sont ajoutées les variables <span class="math notranslate nohighlight">\(age^3\)</span> et <span class="math notranslate nohighlight">\(age^4\)</span>. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail.</p>
 <p>La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_cons” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “cons” dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/cons.png"><img alt="test" src="_images/cons.png" style="width: 527.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="revenu-imposable-residuel-ne-provenant-pas-du-travail">
+<h3>Revenu imposable résiduel, ne provenant pas du travail<a class="headerlink" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l’impôt sur le revenu auxquels sont déduits les revenus du travail. Ils sont estimés à partir d’une régression linéaire.</p>
 <p>Le modèle  pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 90 ans :</p>
 <div class="math notranslate nohighlight">
@@ -853,16 +878,25 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/taxinc.png"><img alt="test" src="_images/taxinc.png" style="width: 531.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="impot-des-particuliers">
+<h3>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l’impôt des particuliers. Les impôts des particuliers sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont <span class="math notranslate nohighlight">\(married\)</span> et <span class="math notranslate nohighlight">\(male\)</span>.</p>
 <p>La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_personal_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “personal_taxes” dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/personal_taxes.png"><img alt="test" src="_images/personal_taxes.png" style="width: 590.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="taxes-a-la-consommation">
+<h3>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. La variable de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est <span class="math notranslate nohighlight">\(male\)</span>.</p>
 <p>La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_cons_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “cons_taxes” dans la légende).</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/cons_taxes.png"><img alt="test" src="_images/cons_taxes.png" style="width: 575.0px; height: 279.0px;" /></a>
 </div>
+</div>
+<div class="section" id="credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">
+<h3>Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec<a class="headerlink" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les crédits remboursables intègrent le crédit d’impôt remboursable pour le soutien aux enfants du Québec et le crédit d’impôt remboursable pour frais de garde d’enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d’éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d’éducation (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) et en fonction du genre (<em>femme</em> et <em>homme</em>).</p>
 <p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés entre 18 et 85 ans :</p>
 <div class="math notranslate nohighlight">
@@ -878,7 +912,7 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/credit_famille.png"><img alt="test" src="_images/credit_famille.png" style="width: 688.0px; height: 357.0px;" /></a>
 </div>
-</div></blockquote>
+</div>
 </div>
 </div>
 
