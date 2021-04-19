@@ -1,0 +1,61 @@
+.. _premierpas:
+
+
+*************
+Installation
+*************
+
+.. _installing-docdir:
+
+
+Il est possible d'avoir accès à SimFin selon trois méthodes différentes, dépendamment
+de votre environnement informatique.
+
+1) Installation automatisée
+===========================
+
+Si vous avez accès à Python et à votre invité de commande, il est possible d'installer SimFin
+de manière automatisée en écrivant simplement cette commande dans l'invité de commande (terminal) : ::
+
+  pip install -i simfin-creei
+
+Par la suite, il est possible d'importer SimGen dans un notebook ou un script en tant que module. ::
+
+  import simfin
+
+2) Installation manuelle
+===========================
+
+Si vous avez accès au logiciel Python, mais que vous ne pouvez utiliser l'invité de commande,
+il est possible d'installer manuellement SimGen en suivant les étapes suivantes :
+
+#. Allez sur le site internet `Pypi <https://pypi.org/>`_ et faites une recherche du package "simfin-creei".
+#. Cliquez sur l'onglet "simfin-creei-x.x.x"
+#. Ensuite, cliquez sur "Download files" dans le menu à gauche et puis cliquez sur le nom du fichier "simfin-creei-x.x.x.tar.gz" pour télécharger le fichier compressé.
+#. Une fois le fichier téléchargé, décompressez le fichier "simfin-creei-x.x.x.tar.gz" une première fois.
+#. Ouvrez le dossier créé par l'extraction (ex. simfin-creei-x.x.x.tar), continuez ensuite en ouvrant le dossier "dist" et décompressez le fichier "simfin-creei-x.x.x.tar".
+#. Une fois le fichier décompressé, transférez le dossier "simfin-creei-x.x.x" dans le dossier où vous entreposez vos packages (Si vous n'en avez pas créez-en un à l'endroit qui vous convient le mieux).
+#. Enfin, ajoutez dans votre notebook ou votre script le sentier d'accès de votre dossier de packages et vous pourrez importer SimFin en tant que module.
+
+::
+
+  import sys
+  sys.path.append('.../packages')
+
+  import simfin
+
+
+3) Accès à distance
+===================
+
+Si vous ne possédez pas ou ne pouvez pas avoir accès au logiciel Python, il est possible d'utiliser
+SimFin par l'entremise de Google Colab. Après avoir ouvert un compte Google Colab et avoir créé un nouveau
+notebook, vous n'avez qu'à utiliser la commande suivante pour installer SimGen : ::
+
+  pip install -i simfin-creei
+
+Par la suite, il est possible d'importer SimFin dans un notebook ou un script en tant que module. ::
+
+  import simfin
+
+SimFin est fourni "tel quel", sous une `licence MIT <https://rsi-models.github.io/CPR/credits.html#licence>`_.

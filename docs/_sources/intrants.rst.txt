@@ -35,65 +35,6 @@ Scénario alternatifs
 
 Il est possible de modifier le scénario de référence établit par défaut dans SimFin. Pour ce faire, l'utilisateur doit modifier la référence au fichier de sortie dans la fonction load_params() de SimFin afin de proposer son propre scénario de projection.
 
-Comptes publics
-^^^^^^^^^^^^^^^
-
-Nomenclature
-============
-
-Pour toutes les années de 2006 à 2020, nous avons colligé les données des comptes publics pour les éléments suivants (les éléments des comptes pour l'année 2020 correspondent aux données du `Plan budgétaire du Québec <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_ publié en mars 2020, corrigées avec le `Portrait de la situation
-économique et financière <http://www.budget.finances.gouv.qc.ca/budget/portrait_juin2020/fr/documents/Portrait_financier_QC_Juin2020.pdf>`_ publié en juin 2020, faisant suite à l'émergence de la crise de la COVID-19) :
-
-Revenus provenant des :
-
-- impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les comptes publics présentés en bas de page);
-- impôts et crédits remboursables des entreprises (10%);
-- taxes à la consommation (22,9%);
-- cotisations au fonds des services de santé (FSS; 6,9%);
-- entreprises du gouvernement (6,1%);
-- droits et permis (4,8%);
-- impôts fonciers scolaires (2%);
-- autres taxes (12,6%).
-
-Revenus provenant des transfers fédéraux :
-
-- péréquation (50,7% de l'ensemble des transferts fédéraux en 2019);
-- transferts en santé (27,3%);
-- autres transferts (22%).
-
-Dépenses provenant des missions :
-
-- santé et services sociaux (42,5% de l'ensemble des dépenses des missions en 2019);
-- éducation et culture (24,4%);
-- soutien aux familles (10,3%);
-- économie et environnement (15,1%);
-- gouverne et justice (7,7%).
-
-Les comptes publics intègrent également les dépenses provenant du service de la dette.
-
-Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.
-
-Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):
-
-.. csv-table:: Classification des comptes publics 2015-2019
-   :widths: 8, 3, 3, 3, 3, 3
-   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
-   :file: table/historical_accounts.csv
-
-Outils
-======
-
-Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit.
-
-.. currentmodule:: simfin.tools
-
-.. autoclass:: account
-   :members: grow, reset
-
-
-.. autoclass:: accounts
-   :members: sum, grow, reset
-
 Profils économiques par âge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -288,3 +229,62 @@ La figure 8 compare les résultats des régressions (coefficients des régressio
   :alt: test
   :scale: 100%
   :align: center
+
+Comptes publics
+^^^^^^^^^^^^^^^
+
+Nomenclature
+============
+
+Pour toutes les années de 2006 à 2020, nous avons colligé les données des comptes publics pour les éléments suivants (les éléments des comptes pour l'année 2020 correspondent aux données du `Plan budgétaire du Québec <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_ publié en mars 2020, corrigées avec le `Portrait de la situation
+économique et financière <http://www.budget.finances.gouv.qc.ca/budget/portrait_juin2020/fr/documents/Portrait_financier_QC_Juin2020.pdf>`_ publié en juin 2020, faisant suite à l'émergence de la crise de la COVID-19) :
+
+Revenus provenant des :
+
+- impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les comptes publics présentés en bas de page);
+- impôts et crédits remboursables des entreprises (10%);
+- taxes à la consommation (22,9%);
+- cotisations au fonds des services de santé (FSS; 6,9%);
+- entreprises du gouvernement (6,1%);
+- droits et permis (4,8%);
+- impôts fonciers scolaires (2%);
+- autres taxes (12,6%).
+
+Revenus provenant des transfers fédéraux :
+
+- péréquation (50,7% de l'ensemble des transferts fédéraux en 2019);
+- transferts en santé (27,3%);
+- autres transferts (22%).
+
+Dépenses provenant des missions :
+
+- santé et services sociaux (42,5% de l'ensemble des dépenses des missions en 2019);
+- éducation et culture (24,4%);
+- soutien aux familles (10,3%);
+- économie et environnement (15,1%);
+- gouverne et justice (7,7%).
+
+Les comptes publics intègrent également les dépenses provenant du service de la dette.
+
+Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.
+
+Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):
+
+.. csv-table:: Classification des comptes publics 2015-2019
+   :widths: 8, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+   :file: table/historical_accounts.csv
+
+Outils
+======
+
+Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit.
+
+.. currentmodule:: simfin.tools
+
+.. autoclass:: account
+   :members: grow, reset
+
+
+.. autoclass:: accounts
+   :members: sum, grow, reset

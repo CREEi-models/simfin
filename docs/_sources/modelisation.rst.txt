@@ -39,13 +39,13 @@ Les revenus autonomes de la province du Québec sont constitués de :
 Impôt des particuliers
 ======================
 
-L’impôt des particuliers est modélisé à l’aide de la structure démographique issue de SimGen et des équations estimées avec la BDSPS sur le taux d’emploi et les revenus du travail annuels en fonction de plusieurs caractéristiques (âge, niveau de scolarité, statut matrimonial, nombre d’enfants et sexe). On y ajoute également le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
+L’impôt des particuliers est modélisé à l’aide de la structure démographique issue de SimGen et des équations estimées avec la BDSPS sur le taux d’emploi et les revenus du travail annuels en fonction de plusieurs caractéristiques (âge, niveau de scolarité, statut matrimonial, nombre d’enfants et sexe). On y ajoute également le revenu imposable résiduel ne provenant pas du travail (`Profils économiques par âge <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_). Par la suite, il est calibré l'année de départ afin d'être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L'impôt par âge croît par année en fonction de la croissance des salaires.
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 3,77% par année (en valeur nominale. L'ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
 
 .. autoclass:: personal_taxes
 
-La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_).
+La comptabilisation des comptes publics impute aux revenus la dépense fiscale associée aux crédits d'impôt remboursables, car ceux-ci sont aussi imputés aux dépenses des différentes missions du gouvernement. Les crédits personnels sont modélisés seulement pour la partie liée aux frais de garde, à l'aide de la structure de population par âge ainsi que des équations estimées sur la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_).
 
 Dans Simfin, les dépenses structurelles pour les crédits personnels augmentent au rythme de l'inflation et de la croissance des salaires réels.
 
@@ -80,7 +80,7 @@ Entre 2015 et 2019, ces revenus ont diminué au rythme de 0,15% par année (en v
 Taxes à la consommation
 =======================
 
-Les revenus provenant des taxes à la consommation sont affectés par la structure démographique de SimGen et les équations estimées avec la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_) en fonction de diverses caractéristiques (dont l’âge et le niveau de scolarité). Par ailleurs, Simfin prend en compte le fait que l’inflation et les salaires font croître la consommation et par là même les taxes à la consommation .
+Les revenus provenant des taxes à la consommation sont affectés par la structure démographique de SimGen et les équations estimées avec la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_) en fonction de diverses caractéristiques (dont l’âge et le niveau de scolarité). Par ailleurs, Simfin prend en compte le fait que l’inflation et les salaires font croître la consommation et par là même les taxes à la consommation .
 
 Entre 2015 et 2019, ces revenus ont crû au rythme de 4,43% par année (en valeur nominale).
 
@@ -118,23 +118,22 @@ Revenus divers
 
 Les revenus divers incluent les revenus placement du Fonds des générations (12,1% des revenus divers en 2019) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services (45,5% des revenus divers), des contributions des usagers (15,4% des revenus divers), des intérêts sur les débiteurs et les prêts (8,6% des revenus divers), des amendes, confiscations et recouverements (7% des revenus divers) et des donations de tiers (6% des revenus divers).
 
-La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/generations.html>`_. Le résidu des revenus divers croît au rythme du PIB.
+La modélisation des revenus placement du Fonds des générations est présentée dans un `onglet dédié au Fonds des générations <https://creei-models.github.io/simfin/modelisation.html#fonds-des-generations>`_. Le résidu des revenus divers croît au rythme du PIB.
 
 Entre 2015 et 2019, les revenus divers hors revenus de placement du FDG ont crû au rythme de 3,1% par année (en valeur nominale).
 
 .. autoclass:: miscellaneous_income
 
 Transferts fédéraux
-^^^^^^^^^^^^^^^^^^
+===================
 
 .. currentmodule:: simfin.federal
 
-Trois transferts fédéraux sont modélisés: les paiements de péréquation (50,7% de l'ensemble des transferts fédéraux en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), du transfert en santé (27,3% des transferts fédéraux) et la somme des autres transfers (22% des transferts fédéraux).
+Trois transferts fédéraux sont modélisés: les paiements de péréquation (50,7% de l'ensemble des transferts fédéraux en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_), du transfert en santé (27,3% des transferts fédéraux) et la somme des autres transfers (22% des transferts fédéraux).
 
 .. autoclass:: collector
 
-Péréquation
-===========
+**Péréquation**
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
@@ -142,8 +141,7 @@ Entre 2015 et 2019, ces transferts ont crû au rythme de 6,02% par année (en va
 
 .. autoclass:: equalization
 
-Transferts en santé
-===================
+**Transferts en santé**
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
@@ -151,8 +149,7 @@ Entre 2015 et 2019, ces transfers ont crû au rythme de 4,53% par année (en val
 
 .. autoclass:: health_transfer
 
-Autres transferts
-=================
+**Autres transferts**
 
 Dans Simfin, ces transferts croissent au rythme du PIB potentiel (nominal).
 
@@ -161,11 +158,11 @@ Entre 2015 et 2019, ces transfers ont crû au rythme de 6,36% par année (en val
 .. autoclass:: other_transfers
 
 Dépenses
-^^^^^^^
+^^^^^^^^
 
 Les dépenses sont organisées par mission. Cinq missions sont prises en comptes:
 
-- santé et services sociaux  (42,5% de l'ensemble des dépenses des missions en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_);
+- santé et services sociaux  (42,5% de l'ensemble des dépenses des missions en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_);
 - éducation et culture (24,4%);
 - gouverne et justice (7,7%);
 - économie et environnement (15,1%);
@@ -184,14 +181,14 @@ Les dépenses de santé et de services sociaux sont calculées à partir du fich
 
 Une calibration est faite pour l'année de départ afin que le total des dépenses provenant des données de l'ICIS appliquée à la structure démographique de SimGen donne les dépenses totales observées aux comptes publics. Le facteur d'alignement est maintenu fixe pour la projection.
 
-L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année entre 2015 et 2019 (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+L'historique des dépenses de la mission "Santé et services sociaux" présente une augmentation au rythme de 3,07% par année entre 2015 et 2019 (en valeur nominale. L'ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_).
 
 .. autoclass:: health
 
 Éducation et culture
 ====================
 
-L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année entre 2015 et 2019 (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/comptes.html#>`_).
+L'historique des dépenses de la mission "Éducation et culture" présente une augmentation au rythme de 3,39% par année entre 2015 et 2019 (en valeur nominale; calculs à partir du tableau de la section `Comptes publics  <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_).
 
 Dans SimFin, les dépenses d'éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiants provenant des rapports de gestion du ministère de l'Éducation. La part des dépenses de la culture est maintenue constante à l'intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d'abord les dépenses provenant de la structure démographique SimGen et des coûts par étudiants afin d'obtenir le montant réalisé aux comptes publics. Le facteur d'alignement est maintenu fixe par la suite.
 
@@ -230,7 +227,7 @@ L'historique des dépenses de la mission "Gouverne et Justice" présente une aug
 Soutien aux familles
 ====================
 
-Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) l’allocation famille et le crédit d’impôt pour les frais de garde d’enfants, qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/eco.html>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
+Les dépenses de soutien aux familles se subdivisent entre trois composantes 1) l’allocation famille et le crédit d’impôt pour les frais de garde d’enfants, qui sont fonction de la structure démographique et des équations provenant d'estimation de la BDSPS (voir les `Profils économiques par âge <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_). Ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la famille pour les centres de la petite enfance, les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d'enfants âgés de 0 à 4 ans et des salaires; 3) un résidu qui croît au même rythme que le PIB potentiel.
 
 L'historique des dépenses de la mission "Soutien aux familles" présente une augmentation au rythme de 1,14% par année entre 2015 et 2019 (en valeur nominale).
 
@@ -249,7 +246,7 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 
 La prime de risque est calculée à partir de la part de la dette nette dans le PIB au Québec entre 1992 et 2018 (au niveau annuel) et à partir d’un indicateur de coût de la dette, qui mesure l’écart entre le taux d’intérêt des obligations à 10 ans pour le gouvernement du Québec et le taux d’intérêt des obligations à 10 ans pour le gouvernement fédéral (annualisé). L’indicateur sur les taux d’intérêt des obligations à 10 ans est régressé sur la part de la dette nette dans le PIB à partir d’un modèle de régression linéaire en moindres carrés ordinaire (MCO). Le résultat indique que l’augmentation d’un point de pourcentage de la part de la dette nette dans le PIB se traduit par une augmentation de la prime de risque de 0,015 point de pourcentage au Québec.
 
-La seconde composante du service de la dette est présenté dans l'onglet `Régimes de retraite <https://creei-models.github.io/simfin/retraite.html>`_.
+La seconde composante du service de la dette est présenté dans l'onglet `Régimes de retraite <https://creei-models.github.io/simfin/modelisation.html#id14>`_.
 
 .. csv-table:: Service de la dette 2015-2019
    :widths: 8, 3, 3, 3, 3, 3
@@ -323,7 +320,7 @@ Pour modéliser la dette brute, nous partons de l’identité suivante :
 .. math:: DB_t = D_t + R_t - FDG_t
 
 Où :math:`D_t` représente la dette après gains et pertes de changes reportés (comme nous négligeons ici les variations de change qui ont un impact limité sur la dette) moins la dette du fonds pour financer les entreprises du gouvernement qui représente un montant faible. Par la suite, nous appellerons cette variable simplement « dette ». Elle représente essentiellement la dette émise sur les marchés nette du fonds d’amortissement afférant à des emprunts.
-Les dynamiques du `fonds des générations <https://creei-models.github.io/simfin/generations.html>`_, notées :math:`FDG_t`, et de la `dette des régimes de retraite et autres avantages sociaux futurs <https://creei-models.github.io/simfin/retraite.html>`_, notées :math:`R_t`, sont modélisées par ailleurs.
+Les dynamiques du `fonds des générations <https://creei-models.github.io/simfin/modelisation.html#fonds-des-generations>`_, notées :math:`FDG_t`, et de la `dette des régimes de retraite et autres avantages sociaux futurs <https://creei-models.github.io/simfin/modelisation.html#id14>`_, notées :math:`R_t`, sont modélisées par ailleurs.
 
 Nous nous intéressons ici aux dynamiques de la dette et de la dette brute.
 
