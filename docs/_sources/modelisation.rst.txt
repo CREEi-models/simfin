@@ -25,7 +25,7 @@ Revenus autonomes
 
 Les revenus autonomes de la province du Québec sont constitués de :
 
-- l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/comptes.html>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
+- l'impôt des particuliers (34,7% des revenus autonomes en 2019 selon les `comptes publics <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_), subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
 - l'impôt des sociétés (10%), également subdivisé entre l'impôt à proprement parler et les crédits d'impôt remboursables;
 - cotisations au fonds des services de santé (6,9%);
 - taxes à la consommation (22,9%);
