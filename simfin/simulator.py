@@ -57,8 +57,10 @@ class simulator:
         self.plan = pd.DataFrame(index=missions_income,columns=np.arange(self.start_yr,self.stop_yr))
         self.plan.loc[:,:] = 0.0
     def align_targets(self):
-        self.macro.set_align_emp(self.pop[str(self.start_yr)],self.eco)
-        self.macro.set_align_cons(self.pop[str(self.start_yr)],self.eco)
+        #self.macro.set_align_emp(self.pop[str(self.start_yr)],self.eco)
+        #self.macro.set_align_cons(self.pop[str(self.start_yr)],self.eco)
+        self.macro.set_align_emp(self.pop[self.start_yr],self.eco)
+        self.macro.set_align_cons(self.pop[self.start_yr],self.eco)
         return
     def set_shocks(self,shocks,iplot=False):
         self.shocks = shocks
@@ -121,9 +123,16 @@ class simulator:
         Keyword Arguments:
             file_pop {str} -- [fichier SimGen] (défaut: {'module_dir+/simfin/params/simpop.pkl'})
         '''
-
-        self.pop = pd.read_csv(module_dir+file_pop)
+        #import time
+        #start = time.time()
+        #print("self.pop")
+        chunks = pd.read_csv(module_dir+file_pop, chunksize=100000)
+        self.pop = pd.concat(chunks)
+        #end = time.time()
+        #print(end - start)
+        #self.pop = pd.read_csv(module_dir+file_pop)
         self.pop = self.pop.set_index(['age', 'educ','insch','male','nkids','married','chsld'])
+        self.pop.columns =[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062]
         self.eco_first = pd.DataFrame(index=self.pop.index)
 
         emp = pd.read_csv(module_dir+file_profiles+'emp.csv', sep = ';')
@@ -155,8 +164,10 @@ class simulator:
                           fillna(value=0))
         self.eco = self.eco_first.copy()
 
-        work_earnings = self.pop[str(self.start_yr)].multiply(self.eco['emp']*self.eco['earn_c'],fill_value=0.0).sum()
-        non_work_earnings = self.pop[str(self.start_yr)].multiply(self.eco['taxinc'],fill_value=0.0).sum()
+        #work_earnings = self.pop[str(self.start_yr)].multiply(self.eco['emp']*self.eco['earn_c'],fill_value=0.0).sum()
+        #non_work_earnings = self.pop[str(self.start_yr)].multiply(self.eco['taxinc'],fill_value=0.0).sum()
+        work_earnings = self.pop[self.start_yr].multiply(self.eco['emp']*self.eco['earn_c'],fill_value=0.0).sum()
+        non_work_earnings = self.pop[self.start_yr].multiply(self.eco['taxinc'],fill_value=0.0).sum()
         earnings = work_earnings + non_work_earnings
         return
     def weighted_average(self,df,data_col,weight_col,by_col):
@@ -170,7 +181,8 @@ class simulator:
     def melt(self,var):
         stratas = self.eco.index.names
         stratas = [s for s in stratas if s!=var]
-        work = self.eco.merge(self.pop[str(self.year)],left_index=True,right_index=True)
+        #work = self.eco.merge(self.pop[str(self.year)],left_index=True,right_index=True)
+        work = self.eco.merge(self.pop[self.year],left_index=True,right_index=True)
         result = self.weighted_average(work,'emp',self.start_yr,stratas).to_frame()
         result.columns = ['emp']
         for c in ['earn_c','cons','hours_c','cons_taxes','taxinc','personal_taxes','credit_famille']:
@@ -188,9 +200,9 @@ class simulator:
         revenue_accounts = self.history.loc[:'miscellaneous_income',self.start_yr]
         self.others_dict_account = {'gfund_inc_init': self.history.loc['gfund_returns',self.start_yr]}
         self.revenue = revenue.collector(revenue_accounts,revenue,self.others_dict_account)
-        self.revenue.consumption.set_align(self.pop[str(self.start_yr)],self.eco)
-        self.revenue.personal_taxes.set_align(self.pop[str(self.start_yr)],self.eco)
-        self.revenue.personal_credits.set_align_family_credit(self.pop[str(self.start_yr)],self.eco)
+        self.revenue.consumption.set_align(self.pop[self.start_yr],self.eco)
+        self.revenue.personal_taxes.set_align(self.pop[self.start_yr],self.eco)
+        self.revenue.personal_credits.set_align_family_credit(self.pop[self.start_yr],self.eco)
         return
     def init_transfers(self):
         """Fonction initialisation des transfers fédéraux
@@ -209,9 +221,9 @@ class simulator:
         names = ['economy','education','family','health','justice']
         mission_accounts = self.history.loc[names,self.start_yr]
         self.missions = missions.collector(mission_accounts,missions)
-        self.missions.health.set_align(self.pop[str(self.start_yr)])
-        self.missions.education.set_align(self.pop[str(self.start_yr)])
-        self.missions.family.set_sub_account(self.macro,self.pop[str(self.start_yr)],self.eco)
+        self.missions.health.set_align(self.pop[self.start_yr])
+        self.missions.education.set_align(self.pop[self.start_yr])
+        self.missions.family.set_sub_account(self.macro,self.pop[self.start_yr],self.eco)
         return
     def init_debt(self):
         """Fonction initialisation des comptes de la dette publique.
@@ -287,16 +299,21 @@ class simulator:
         Fonction qui permet de faire une transition, croissance économique et des comptes et fait la comptabilisation des comptes publics, mise-à-jour de la dette.
         """
         if self.year>self.start_yr:
-            self.macro.emp(self.pop[str(self.year)],self.eco,self.year)
-            self.macro.pop(self.pop[str(self.year)])
+            self.macro.emp(self.pop[self.year],self.eco,self.year)
+            self.macro.pop(self.pop[self.year])
+            #self.macro.emp(self.pop[str(self.year)],self.eco,self.year)
+            #self.macro.pop(self.pop[str(self.year)])
             self.macro.grow_cons(self.eco,self.year)
             self.macro.grow_work_earnings(self.eco,self.year)
             self.macro.grow_non_work_earnings(self.eco,self.year) # B. Achou
             self.macro.grow(self.year)
             self.others_dict_account['gfund_inc'] = self.genfund.returns()
-            self.revenue.grow(self.macro,self.pop[str(self.year)],self.eco,self.others_dict_account)
-            self.transfers.grow(self.macro,self.pop[str(self.year)],self.eco)
-            self.missions.grow(self.macro,self.pop[str(self.year)],self.eco)
+            self.revenue.grow(self.macro,self.pop[self.year],self.eco,self.others_dict_account)
+            self.transfers.grow(self.macro,self.pop[self.year],self.eco)
+            self.missions.grow(self.macro,self.pop[self.year],self.eco)
+            #self.revenue.grow(self.macro,self.pop[str(self.year)],self.eco,self.others_dict_account)
+            #self.transfers.grow(self.macro,self.pop[str(self.year)],self.eco)
+            #self.missions.grow(self.macro,self.pop[str(self.year)],self.eco)
             self.pension_debt.compute_interests()
 
         # revenue
