@@ -65,7 +65,7 @@ class macro:
         eco['cons'] = eco['cons']*align_c_hh
         return
     def emp(self,pop,eco,year):
-        shocks = (self.shocks['emp'].loc[:,str(year)]*self.shocks['hours_c'].loc[:,str(year)])
+        shocks = (self.shocks['emp'].loc[:,year]*self.shocks['hours_c'].loc[:,year])
         L = pop.multiply(eco['emp']*eco['hours_c']*shocks*self.eff_hours,fill_value=0.0).sum() * self.align
         self.gr_L = L/ self.L-1
         self.L = L
@@ -87,7 +87,7 @@ class macro:
         Fait croître la consommation par personne au rythme de l'inflation +
         1/alpha_L * la croissance de la TFP (A).
         """
-        shocks = self.shocks['cons'].loc[:,str(year)]/self.shocks['cons'].loc[:,str(year-1)]
+        shocks = self.shocks['cons'].loc[:,year]/self.shocks['cons'].loc[:,year-1]
         igra = True
         rate = 1.0+self.infl
         if igra == True:
@@ -100,7 +100,7 @@ class macro:
         1/alpha_L * la croissance de la TFP (A).
         """
         index = eco.index
-        shocks = (self.shocks['emp'].loc[:,str(year)]*self.shocks['earn_c'].loc[:,str(year)]) / (self.shocks['emp'].loc[:,str(year-1)]*self.shocks['earn_c'].loc[:,str(year-1)])
+        shocks = (self.shocks['emp'].loc[:,year]*self.shocks['earn_c'].loc[:,year]) / (self.shocks['emp'].loc[:,year-1]*self.shocks['earn_c'].loc[:,year-1])
         igra = True
         rate = 1.0+self.infl
         if igra == True:
@@ -115,7 +115,7 @@ class macro:
         Fait croître les revenues autres que salaire par personne au rythme de l'inflation +
         1/alpha_L *la croissance de la TFP (A).
         """
-        shocks = self.shocks['taxinc'].loc[:,str(year)]/self.shocks['taxinc'].loc[:,str(year-1)]
+        shocks = self.shocks['taxinc'].loc[:,year]/self.shocks['taxinc'].loc[:,year-1]
         igra = True
         rate = 1.0+self.infl
         if igra == True:
