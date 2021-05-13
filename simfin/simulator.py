@@ -5,7 +5,7 @@ from simfin import revenue, macro, federal, missions, debt, genfund, reserve, pe
 import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
-
+import time
 
 class simulator:
     """
@@ -57,8 +57,6 @@ class simulator:
         self.plan = pd.DataFrame(index=missions_income,columns=np.arange(self.start_yr,self.stop_yr))
         self.plan.loc[:,:] = 0.0
     def align_targets(self):
-        #self.macro.set_align_emp(self.pop[str(self.start_yr)],self.eco)
-        #self.macro.set_align_cons(self.pop[str(self.start_yr)],self.eco)
         self.macro.set_align_emp(self.pop[self.start_yr],self.eco)
         self.macro.set_align_cons(self.pop[self.start_yr],self.eco)
         return
@@ -123,16 +121,13 @@ class simulator:
         Keyword Arguments:
             file_pop {str} -- [fichier SimGen] (défaut: {'module_dir+/simfin/params/simpop.pkl'})
         '''
-        #import time
-        #start = time.time()
-        #print("self.pop")
-        chunks = pd.read_csv(module_dir+file_pop, chunksize=100000)
-        self.pop = pd.concat(chunks)
-        #end = time.time()
-        #print(end - start)
-        #self.pop = pd.read_csv(module_dir+file_pop)
+        #scds_load_params = time.clock()
+        self.pop = pd.read_csv(module_dir+file_pop)
         self.pop = self.pop.set_index(['age', 'educ','insch','male','nkids','married','chsld'])
-        self.pop.columns =[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062]
+        last_year = int(self.pop.columns[-1])
+        #print(self.pop)
+        #print(last_year)
+        self.pop.columns = [*range(2017, last_year+1, 1)]
         self.eco_first = pd.DataFrame(index=self.pop.index)
 
         emp = pd.read_csv(module_dir+file_profiles+'emp.csv', sep = ';')
@@ -169,6 +164,7 @@ class simulator:
         work_earnings = self.pop[self.start_yr].multiply(self.eco['emp']*self.eco['earn_c'],fill_value=0.0).sum()
         non_work_earnings = self.pop[self.start_yr].multiply(self.eco['taxinc'],fill_value=0.0).sum()
         earnings = work_earnings + non_work_earnings
+        #print("load_params =", scds_load_params)
         return
     def weighted_average(self,df,data_col,weight_col,by_col):
         df['_data_times_weight'] = df[data_col]*df[weight_col]
@@ -298,11 +294,11 @@ class simulator:
 
         Fonction qui permet de faire une transition, croissance économique et des comptes et fait la comptabilisation des comptes publics, mise-à-jour de la dette.
         """
+        #scds_next = 0.0
+        #scds_next = time.clock()
         if self.year>self.start_yr:
             self.macro.emp(self.pop[self.year],self.eco,self.year)
             self.macro.pop(self.pop[self.year])
-            #self.macro.emp(self.pop[str(self.year)],self.eco,self.year)
-            #self.macro.pop(self.pop[str(self.year)])
             self.macro.grow_cons(self.eco,self.year)
             self.macro.grow_work_earnings(self.eco,self.year)
             self.macro.grow_non_work_earnings(self.eco,self.year) # B. Achou
@@ -311,9 +307,6 @@ class simulator:
             self.revenue.grow(self.macro,self.pop[self.year],self.eco,self.others_dict_account)
             self.transfers.grow(self.macro,self.pop[self.year],self.eco)
             self.missions.grow(self.macro,self.pop[self.year],self.eco)
-            #self.revenue.grow(self.macro,self.pop[str(self.year)],self.eco,self.others_dict_account)
-            #self.transfers.grow(self.macro,self.pop[str(self.year)],self.eco)
-            #self.missions.grow(self.macro,self.pop[str(self.year)],self.eco)
             self.pension_debt.compute_interests()
 
         # revenue
@@ -407,12 +400,14 @@ class simulator:
 
 
         self.year +=1
+        #print("next(" + str(self.year) + ")", scds_next)
         return
     def collect_revenue(self):
         """Fonction qui comptabilise les comptes de revenues
 
         Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.
         """
+        scds_collect_revenue = time.clock()
         if self.year > self.history.columns[-1]:
             self.summary.loc['personal',self.year] = (self.revenue.personal_taxes.value + self.revenue.personal_credits.value - self.plan.loc['personal_taxes',self.year])
             self.summary.loc['corporate',self.year] = (self.revenue.corporate_taxes.value +\
@@ -443,11 +438,6 @@ class simulator:
             self.summary.loc['government entreprises',self.year] = self.history.loc['gov_enterprises',self.year]
             self.summary.loc['property taxes',self.year] = self.history.loc['property_taxes',self.year]
 
-                        # self.history.loc['permits',self.year] +
-                        #                                  self.history.loc['fss',self.year] +
-                        #                                  self.history.loc['gov_enterprises',self.year] +
-                        #                                  self.history.loc['property_taxes',self.year])
-
             self.summary.loc['autonomous',self.year] = (self.summary.loc['personal',self.year] +
                                                         self.summary.loc['corporate',self.year] +
                                                         self.summary.loc['consumption',self.year] +
@@ -463,6 +453,7 @@ class simulator:
 
             self.summary.loc['total revenue',self.year] = (self.summary.loc['autonomous',self.year] +
                                                           self.summary.loc['federal transfers',self.year])
+        #print("collect_revenue " + str(self.year), scds_collect_revenue)
         return
     def collect_spending(self):
         """Fonction qui comptabilise les comptes de dépenses
@@ -516,7 +507,6 @@ class simulator:
         self.missions.reset()
         self.debt.reset()
         self.genfund.reset()
-        #self.macro.reset(self.pop[str(self.start_yr)],self.eco_first)
         self.macro.reset(self.pop[self.start_yr],self.eco_first)
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_yr,self.stop_yr)])
         self.year = self.start_yr
