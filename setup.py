@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="simfin-creei", # Replace with your own username
-    version="0.0.7",
+    version="0.0.8",
     author="Équipe CREEi",
     author_email="julien.navaux@hec.ca",
-    description="Modele de microsimulation des finances publiques SimFin",
+    description="Modèle de microsimulation des finances publiques SimFin",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://creei-models.github.io/simfin",
