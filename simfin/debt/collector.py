@@ -18,8 +18,7 @@ class collector:
         self.balance = init_balance
         self.init_balance = init_balance
         self.account_names = []
-        rates = pd.read_excel(module_dir+'/params/historical_accounts.xlsx',sheet_name='Returns')
-        self.rate = 0.0379
+        self.rate = 0.0355
         self.risk_premium = 0.00014592
         return
     def debt_interest(self,init_gross_debt_ratio,gross_debt_ratio):

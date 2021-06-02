@@ -48,7 +48,6 @@ class family(account):
 
         if igra == True:
             rate += 1/macro.g_pars.loc['alpha_L',1]*macro.gr_A
-            #rate += 1/macro.g_pars['alpha_L']*macro.gr_A
         self.value_kg *= rate
         self.pop_04 = pop_04
 
