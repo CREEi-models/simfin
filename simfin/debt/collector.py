@@ -12,7 +12,6 @@ class collector:
     ----------
     init_balance: float
         Montant de la dette publique du gouvernement provincial pour l'année d'initialisation du modèle.
-    NB: la dette correspond ici à la dette avant gains de change moins les emprunts réalisés par anticipation
    '''
     def __init__(self,init_balance):
         self.balance = init_balance

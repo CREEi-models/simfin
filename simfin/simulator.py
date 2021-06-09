@@ -157,7 +157,7 @@ class simulator:
     def init_transfers(self):
         """Fonction d'initialisation des transfers fédéraux
 
-        Fonction qui crée les comptes de transfers fédéraux et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de transfers fédéraux et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         names = ['equalization','health_transfer','other_transfers']
         transfer_accounts = self.history.loc[names,self.start_yr]
@@ -166,7 +166,7 @@ class simulator:
     def init_missions(self):
         """Fonction d'initialisation des dépenses de missions
 
-        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de missions et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         names = ['economy','education','family','health','justice']
         mission_accounts = self.history.loc[names,self.start_yr]
@@ -178,7 +178,7 @@ class simulator:
     def init_debt(self):
         """Fonction d'initialisation des comptes de la dette publique.
 
-        Fonction qui crée les comptes de dettes et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de dettes et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         balance_start = self.history.loc['debt_balance_end',self.start_yr] # start with end as grow only launched at start_yr+1
         self.debt = debt.collector(balance_start)
@@ -186,7 +186,7 @@ class simulator:
     def init_gfund(self):
         """Fonction d'initialisation du fonds des générations.
 
-        Fonction qui crée les comptes du fonds des générations et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes du fonds des générations et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         balance_start = self.history.loc['gfund_balance_end',self.start_yr]
         self.genfund = genfund.collector(balance_start)
@@ -195,7 +195,7 @@ class simulator:
     def init_reserve(self):
         """Fonction d'initialisation de la réserve de stabilisation.
 
-        Fonction qui crée les comptes de la réserve de stabilisation et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de la réserve de stabilisation et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         balance_end = self.history.loc['reserve_balance_end',self.start_yr]
         self.reserve = reserve.collector(balance_end)
@@ -204,7 +204,7 @@ class simulator:
     def init_pension_debt(self):
         """Fonction d'initialisation la dette des pensions.
 
-        Fonction qui crée les comptes de la dette des pensions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de la dette des pensions et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         self.pension_data = pd.read_excel(module_dir+'/simfin/params/historical_accounts.xlsx',sheet_name='pension_balance')
         self.pension_data = self.pension_data.set_index('vars')
@@ -225,7 +225,7 @@ class simulator:
 
         """Fonction d'initialisation des placemenets.
 
-        Fonction qui crée les comptes de placements et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes de placements et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         init_balance = self.history.loc['placements and other assets/debts',self.start_yr]
         self.placements_and_others = placements.collector(init_balance)
@@ -234,7 +234,7 @@ class simulator:
 
         """Fonction d'initialisation des immobilisations.
 
-        Fonction qui crée les comptes d'immobilisations et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        Fonction qui crée les comptes d'immobilisations et les initialise avec la valeur de départ provenant de l'historique des comptes publics.
         """
         init_balance = self.history.loc['fixed assets',self.start_yr]
         self.fixed_assets = fixed_assets.collector(init_balance)
@@ -243,7 +243,7 @@ class simulator:
     def next(self):
         """Fonction de transition.
 
-        Fonction qui permet de faire une transition, croissance économique et des comptes et fait la comptabilisation des comptes publics, mise-à-jour de la dette.
+        Fonction qui permet de faire la transition d'une année à l'autre, qui fait la comptabilisation des comptes publics et qui met à jour la dette.
         """
         if self.year>self.start_yr:
             self.macro.emp(self.pop[self.year],self.eco,self.year)
@@ -340,9 +340,9 @@ class simulator:
         self.year +=1
         return
     def collect_revenue(self):
-        """Fonction qui comptabilise les comptes de revenues
+        """Fonction qui comptabilise les comptes de revenus
 
-        Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.
+        La valeur est celle des comptes publics pour les années passées alors que pour les autres années la valeur est celle projetée.
         """
         covid=pd.read_excel(module_dir+'/simfin/params/COVID_plan.xlsx')
         covid = covid.set_index('account')
@@ -401,7 +401,7 @@ class simulator:
     def collect_spending(self):
         """Fonction qui comptabilise les comptes de dépenses
 
-        Pour les années avec historique, la valeur est celle réalisée alors que pour les autres années, la valeur est celle projetée.
+        La valeur est celle des comptes publics pour les années passées alors que pour les autres années la valeur est celle projetée.
         """
         covid=pd.read_excel(module_dir+'/simfin/params/COVID_plan.xlsx')
         covid = covid.set_index('account')

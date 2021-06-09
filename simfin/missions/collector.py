@@ -3,6 +3,6 @@ from simfin.tools import accounts
 
 class collector(accounts):
     '''
-    Fonction qui permet de colliger différentes dépenses publiques provinciales.
+    Fonction qui permet de colliger les dépenses des missions.
     '''
     pass
