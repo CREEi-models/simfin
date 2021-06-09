@@ -1,44 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Intrants &mdash; Documentation SimFin </title>
   
 
   
-  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Documentation des fonctions" href="modelisation.html" />
-    <link rel="prev" title="Environnement macroéconomique" href="macro.html" /> 
+    <link rel="next" title="Simulation &amp; fonctions" href="modelisation.html" />
+    <link rel="prev" title="Effets de la COVID-19" href="covid.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +70,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilisation.html">Utilisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="covid.html">Effets de la COVID-19</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Intrants</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#projections-demographiques">Projections démographiques</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#scenario-de-reference-de-simgen">Scénario de référence de SimGen</a></li>
@@ -101,23 +107,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail">Revenu imposable résiduel, ne provenant pas du travail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">Crédits remboursables: soutien aux enfants du Québec et frais de garde d’enfants pour le Québec</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#comptes-publics">Comptes publics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#nomenclature">Nomenclature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#outils">Outils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comptes-publics">Comptes publics</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Documentation des fonctions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">Contacts et droits d’utilisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Simulation &amp; fonctions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Résultats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Nous joindre</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -152,19 +156,21 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Intrants</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/intrants.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/intrants.rst.txt" rel="nofollow"> Afficher la source de la page</a>
           
         
       </li>
@@ -179,42 +185,42 @@
             
   <div class="section" id="intrants">
 <h1>Intrants<a class="headerlink" href="#intrants" title="Lien permanent vers ce titre">¶</a></h1>
-<p>SimFin mobilise plusieurs intrants :</p>
+<p>SimFin mobilise plusieurs intrants:</p>
 <ol class="arabic simple">
-<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#projections-demographiques">projections de population</a> par caractéristiques socio-démographiques sont celles issues du modèle <a class="reference external" href="https://creei-models.github.io/simgen/index.html">SimGen</a> de la chaire CREEI. Les caractéristiques socio-démographiques intègrent l’âge, le genre, le fait d’être ou non en études, le niveau d’éducation, le fait d’être en couple ou non et le nombre d’enfants.</p></li>
-<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">profils économiques</a> par âge et en fonction des caractéristiques socio-démographiques sont calculées à partir de la BDSPS.</p></li>
-<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics du Québec</a> sont colligés entre 2006 et 2020. Ils sont utiles à plusieurs titres : 1) pour déterminer la croissance passée de chaque poste; 2) pour déterminer la valeur de départ du modèle pour chaque poste en 2020.</p></li>
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#projections-demographiques">projections de population</a> par caractéristiques socio-démographiques sont celles issues du modèle <a class="reference external" href="https://creei-models.github.io/simgen/index.html">SimGen</a> de la CREEi. Les caractéristiques socio-démographiques intègrent l’âge, le genre, le fait d’être ou non aux études, le niveau de scolarité, le fait d’être en couple ou non et le nombre d’enfants.</p></li>
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">profils économiques</a> par âge et en fonction des caractéristiques socio-démographiques sont calculés à partir de la BDSPS.</p></li>
+<li><p>Les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics du Québec</a> sont colligés entre 2006 (année fiscale 2005-2006) et 2021 (année fiscale 2020-2021). Les comptes publics pour l’année 2021 n’étant pas encore publiés, nous avons utilisé les informations issues du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf">budget 2021-2022</a> pour colliger les comptes de cette année-là. les comptes publics sont utiles pour déterminer: a) la croissance passée de chaque poste; b) la valeur de départ du modèle pour chaque poste en 2021 (année fiscale 2020-2021).</p></li>
 </ol>
 <div class="section" id="projections-demographiques">
 <h2>Projections démographiques<a class="headerlink" href="#projections-demographiques" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="scenario-de-reference-de-simgen">
 <h3>Scénario de référence de SimGen<a class="headerlink" href="#scenario-de-reference-de-simgen" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Par défaut, le scénario de projection démographique correspond au scénario de référence de <a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a>. Ce scénario concorde avec le scénario de référence de l’Institut de la Statistique du Québec, comme montré dans la première figure, qui compare les projections du modèle <a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a> et de <a class="reference external" href="https://www.stat.gouv.qc.ca/statistiques/population-demographie/perspectives/perspectives-2016-2066.pdf">l’ISQ</a>.</p>
+<p>Par défaut, le scénario de projection démographique correspond au scénario de référence de <a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a>. Ce scénario concorde avec le scénario de référence de l’Institut de la statistique du Québec (ISQ), comme montré dans la première figure, qui compare les projections du modèle <a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a> et de <a class="reference external" href="https://statistique.quebec.ca/fr/fichier/perspectives-demographiques-du-quebec-et-des-regions-2016-2066-edition-2019.pdf">l’ISQ</a>.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/pop_total.png"><img alt="test" src="_images/pop_total.png" style="width: 592.0px; height: 319.0px;" /></a>
+<a class="reference internal image-reference" href="_images/pop_total.png"><img alt="test" src="_images/pop_total.png" style="width: 615.0px; height: 348.0px;" /></a>
 </div>
-<p><a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a> inclut des projections de population en fonction de plusieurs caractéristiques: l’âge, le sexe, le statut matrimonial (en couple ou célibataire), le nombre d’enfants, le fait d’être ou non en études, le plus haut niveau de diplôme obtenu.</p>
-<p>La deuxième figure présente les résultats de projections par niveau de scolarité (plus haut niveau de diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans et ayant terminé ses études. L’évolution du niveau de scolarité est déterminante pour les simulations réalisées avec SimFin, car il influence les revenus et les dépenses d’éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes de 25 à 64 ans ayant un niveau d’études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 34,9% en 2040, la part des personnes avec un niveau d’études secondaires ou inférieur devrait diminuer de 38,3% à 26,0% sur la même période. Dans le même temps la part des personnes avec un diplôme d’études collégiales augmenterait faiblement, soit de 36,3% à 39,1%.</p>
+<p><a class="reference external" href="https://creei-models.github.io/simgen">SimGen</a> inclut des projections de population en fonction de plusieurs caractéristiques: l’âge, le sexe, l’état matrimonial (en couple ou célibataire), le nombre d’enfants, le fait d’être ou non aux études, le plus haut diplôme obtenu.</p>
+<p>La deuxième figure présente les résultats de projections par niveau de scolarité (plus haut diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans. L’évolution du niveau de scolarité est déterminante pour les simulations réalisées avec SimFin, car elle influence les revenus et les dépenses d’éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes âgées de 25 à 64 ans ayant un niveau d’études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 35,5% en 2040, la part des personnes avec un niveau d’études secondaires ou inférieur devrait diminuer de 38,3% à 25,8% sur la même période. Dans le même temps la part des personnes avec un diplôme d’études collégiales augmenterait faiblement, soit de 36,3% à 38,7%.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/educ.png"><img alt="test" src="_images/educ.png" style="width: 601.0px; height: 319.0px;" /></a>
+<a class="reference internal image-reference" href="_images/educ.png"><img alt="test" src="_images/educ.png" style="width: 606.0px; height: 348.0px;" /></a>
 </div>
-<p>La troisième figure présente la répartition de la population par classes d’âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2017 à 49,3% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 26,0% sur la même période. Le ratio de dépendance démographique qui divise le nombre de personnes âgées de 65 et plus par la population âgée de 25 à 64 ans devrait augmenter significativement d’ici 20 ans. Alors que ce ratio serait de 0,36 en 2020, il devrait atteindre 0,53 en 2040.</p>
+<p>La troisième figure présente la répartition de la population par groupes d’âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2017 à 51,3% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 26,2% sur la même période.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/agegrp.png"><img alt="test" src="_images/agegrp.png" style="width: 601.0px; height: 319.0px;" /></a>
+<a class="reference internal image-reference" href="_images/agegrp.png"><img alt="test" src="_images/agegrp.png" style="width: 606.0px; height: 348.0px;" /></a>
 </div>
 </div>
 <div class="section" id="scenario-alternatifs">
 <h3>Scénario alternatifs<a class="headerlink" href="#scenario-alternatifs" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Il est possible de modifier le scénario de référence établit par défaut dans SimFin. Pour ce faire, l’utilisateur doit modifier la référence au fichier de sortie dans la fonction load_params() de SimFin afin de proposer son propre scénario de projection.</p>
+<p>Il est possible de modifier le scénario de référence utilisé par défaut dans SimFin. Pour ce faire, l’utilisateur doit modifier la référence au fichier de sortie dans la fonction load_params() de SimFin afin de proposer son propre scénario de projection.</p>
 </div>
 </div>
 <div class="section" id="profils-economiques-par-age">
 <h2>Profils économiques par âge<a class="headerlink" href="#profils-economiques-par-age" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous utilisons la <a class="reference external" href="https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps">BDSPS</a> de Statistique Canada (2017) afin de modéliser huit profils économiques listés ci-après (taux d’emploi, heures travaillées etc.).</p>
+<p>Pour chaque profil économique (qui constitue la variable dépendante), nous réalisons des régressions indépendantes pour chaque niveau de scolarité:</p>
 <blockquote>
-<div><p>Nous utilisons la <a class="reference external" href="https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps">BDSPS</a> de Statistiques Canada (2017) afin de modéliser huit profils économiques listés ci-bas.</p>
-<p>Pour chaque profil économique, nous réalisons des régressions indépendantes pour chaque niveau d’éducation :</p>
-<table class="colwidths-given docutils align-default" id="id4">
-<caption><span class="caption-text">Niveaux d’éducation</span><a class="headerlink" href="#id4" title="Lien permanent vers ce tableau">¶</a></caption>
+<div><table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Niveaux de scolarité</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -226,25 +232,27 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><em>insch</em></p></td>
-<td><p>en études.</p></td>
+<td><p>Études en cours.</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>none</em></p></td>
-<td><p>inférieur à un diplôme d’études secondaires.</p></td>
+<td><p>Ne détient pas de diplôme d’études secondaires.</p></td>
 </tr>
 <tr class="row-even"><td><p><em>des</em></p></td>
-<td><p>diplôme d’études secondaires ou études partielles à l’université ou au collège communautaire.</p></td>
+<td><p>Détient un diplôme d’études secondaires.</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>dec</em></p></td>
-<td><p>diplôme d’études d’un collège communautaire.</p></td>
+<td><p>Détient un diplôme d’études collégiales.</p></td>
 </tr>
 <tr class="row-even"><td><p><em>uni</em></p></td>
-<td><p>supérieur ou égal à un diplôme de baccalauréat.</p></td>
+<td><p>Détient un diplôme universitaire supérieur ou égal au baccalauréat.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Les variables de contrôle différent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivantes :</p>
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">Variables de contrôle</span><a class="headerlink" href="#id5" title="Lien permanent vers ce tableau">¶</a></caption>
+</div></blockquote>
+<p>Les variables de contrôle diffèrent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivants:</p>
+<blockquote>
+<div><table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">Variables de contrôle</span><a class="headerlink" href="#id7" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -256,182 +264,188 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><em>age</em></p></td>
-<td><p>âge de l’individu.</p></td>
+<td><p>Âge de l’individu.</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>male</em></p></td>
-<td><p>variable indicatrice égale à 1 si l’individu est un homme, 0 sinon.</p></td>
+<td><p>Variable indicatrice égale à 1 si l’individu est un homme, 0 sinon.</p></td>
 </tr>
 <tr class="row-even"><td><p><em>married</em></p></td>
-<td><p>variable indicatrice égale à 1 si l’individu est en couple, 0 s’il est célibataire.</p></td>
+<td><p>Variable indicatrice égale à 1 si l’individu est en couple, 0 s’il est célibataire.</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>kid1, kid2, kid3</em></p></td>
-<td><p>variable indicatrice égale à 1 si l’individu a 1,2 ou 3 enfants et plus, 0 sinon.</p></td>
+<td><p>Variables indicatrices égales à 1 si l’individu a respectivement 1, 2 ou 3 enfants et plus, 0 sinon.</p></td>
 </tr>
 <tr class="row-even"><td><p><em>nkids</em></p></td>
-<td><p>nombre d’enfants de l’individu de 0 à 3 et plus.</p></td>
+<td><p>Nombre d’enfants de l’individu, de 0 à 3 et plus.</p></td>
 </tr>
 <tr class="row-odd"><td><p><em>age55p</em></p></td>
-<td><p>égal à l’âge de l’individu si il (elle) est âgé(e) de plus de 55 ans, 0 sinon.</p></td>
+<td><p>Égal à l’âge de l’individu s’il est âgé de plus de 55 ans, 0 sinon.</p></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <div class="section" id="taux-d-emploi">
 <h3>Taux d’emploi<a class="headerlink" href="#taux-d-emploi" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La probabilité d’être en emploi “emp” est estimée à l’aide d’un modèle probit.</p>
-<p>Le modèle probit pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante :</p>
+<p>La probabilité d’être en emploi est estimée à l’aide d’un modèle probit.</p>
+<p>Le modèle probit pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé pour la population âgée entre 18 et 70 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante:</p>
 <div class="math notranslate nohighlight">
 \[P(z = 1) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} age_{i}^3 + \beta_{4} age_{i}^4\]</div>
 <div class="math notranslate nohighlight">
 \[+ \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \epsilon\]</div>
-<p>Le modèle probit pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante :</p>
+<p>Le modèle probit pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé pour les individus de 18 à 35 ans. L’incidence des variables de contrôle sur la probabilité <span class="math notranslate nohighlight">\(z\)</span> d’être en emploi est donnée par l’équation suivante:</p>
 <div class="math notranslate nohighlight">
 \[P(z = 1) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon\]</div>
-<p>La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_emp” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “emp” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/emp.png"><img alt="test" src="_images/emp.png" style="width: 498.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/emp.png"><img alt="test" src="_images/emp.png" style="width: 501.0px; height: 279.0px;" /></a>
 </div>
 </div>
 <div class="section" id="heures-travaillees">
 <h3>Heures travaillées<a class="headerlink" href="#heures-travaillees" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les heures travaillées (conditionnelles au fait de travailler) sont estimées à partir d’un modèle de régression linéaire.</p>
-<p>Le modèle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 70 ans :</p>
+<p>Les heures travaillées (conditionnellement au fait de travailler) sont estimées à partir d’un modèle de régression linéaire.</p>
+<p>Le modèle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé pour la population âgée entre 18 et 70 ans:</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon\]</div>
-<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
+<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé pour les individus de 18 à 35 ans:</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon\]</div>
-<p>La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_hours_c” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “hours_c” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/hours.png"><img alt="test" src="_images/hours.png" style="width: 551.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/hours.png"><img alt="test" src="_images/hours.png" style="width: 511.0px; height: 294.0px;" /></a>
 </div>
 </div>
 <div class="section" id="revenus-de-travail">
 <h3>Revenus de travail<a class="headerlink" href="#revenus-de-travail" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les revenus du travail (conditionnels au fait de travailler) sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré.</p>
-<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés entre 18 et 70 ans :</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont estimés pour la population âgée entre 18 et 70 ans:</p>
 <div class="math notranslate nohighlight">
 \[log(y_{i}) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i} + \epsilon\]</div>
 <div class="math notranslate nohighlight">
 \[log(y_{i})^2 = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i} + \epsilon\]</div>
-<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés entre 18 et 35 ans :</p>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont estimés pour les individus de 18 à 35 ans:</p>
 <div class="math notranslate nohighlight">
 \[log(y_{i}) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i} + \epsilon\]</div>
 <div class="math notranslate nohighlight">
 \[log(y_{i})^2 = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i} + \epsilon\]</div>
-<p>Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :</p>
+<p>Les estimations de la première équation nous permettent de calculer l’espérance conditionnelle (<span class="math notranslate nohighlight">\(\mu\)</span>) de <span class="math notranslate nohighlight">\(log(y)\)</span>. La variance conditionnelle (<span class="math notranslate nohighlight">\(\sigma^2\)</span>) de <span class="math notranslate nohighlight">\(log(y)\)</span> est calculée en utilisant la formule suivante:</p>
 <div class="math notranslate nohighlight">
 \[Var(log(y)) = E(log(y)^2) - E(log(y))^2.\]</div>
-<p>En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :</p>
+<p>En faisant l’hypothèse que la variable <span class="math notranslate nohighlight">\(y\)</span> est log-normale, nous obtenons une prédiction de l’espérance de <span class="math notranslate nohighlight">\(y\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[E(y) = exp(\mu+(\sigma^2)/2)\]</div>
-<p>La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_earn_c” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “earn_c” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/earn_c.png"><img alt="test" src="_images/earn_c.png" style="width: 531.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/earn_c.png"><img alt="test" src="_images/earn_c.png" style="width: 523.0px; height: 279.0px;" /></a>
 </div>
 </div>
 <div class="section" id="depenses-de-consommation-des-menages">
 <h3>Dépenses de consommation des ménages<a class="headerlink" href="#depenses-de-consommation-des-menages" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les dépenses de consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont identiques aux variables utilisées pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) correspondent aux variables utilisées pour les revenus du travail auxquelles sont ajoutées les variables <span class="math notranslate nohighlight">\(age^3\)</span> et <span class="math notranslate nohighlight">\(age^4\)</span>. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail.</p>
-<p>La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_cons” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “cons” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/cons.png"><img alt="test" src="_images/cons.png" style="width: 527.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/cons.png"><img alt="test" src="_images/cons.png" style="width: 517.0px; height: 294.0px;" /></a>
 </div>
 </div>
 <div class="section" id="revenu-imposable-residuel-ne-provenant-pas-du-travail">
 <h3>Revenu imposable résiduel, ne provenant pas du travail<a class="headerlink" href="#revenu-imposable-residuel-ne-provenant-pas-du-travail" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l’impôt sur le revenu auxquels sont déduits les revenus du travail. Ils sont estimés à partir d’une régression linéaire.</p>
-<p>Le modèle  pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé entre 18 et 90 ans :</p>
+<p>Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l’impôt sur le revenu desquels sont déduits les revenus du travail. Ils sont estimés à partir d’une régression linéaire.</p>
+<p>Le modèle  pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) est estimé pour la population âgée entre 18 et 90 ans:</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} +\]</div>
 <div class="math notranslate nohighlight">
 \[\beta_{5} married_{i} + \beta_{6} age55p_{i} + \beta_{7} (age55p_{i})^2 + \epsilon\]</div>
-<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé entre 18 et 35 ans :</p>
+<p>Le modèle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est estimé pour les individus de 18 à 35 ans:</p>
 <div class="math notranslate nohighlight">
 \[y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon\]</div>
-<p>La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_taxinc” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “taxinc” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/taxinc.png"><img alt="test" src="_images/taxinc.png" style="width: 531.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/taxinc.png"><img alt="test" src="_images/taxinc.png" style="width: 517.0px; height: 294.0px;" /></a>
 </div>
 </div>
 <div class="section" id="impot-des-particuliers">
 <h3>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l’impôt des particuliers. Les impôts des particuliers sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont <span class="math notranslate nohighlight">\(married\)</span> et <span class="math notranslate nohighlight">\(male\)</span>.</p>
-<p>La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_personal_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “personal_taxes” dans la légende).</p>
+<p>L’impôt des particuliers est estimé en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l’impôt des particuliers. Les impôts des particuliers sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) sont <span class="math notranslate nohighlight">\(married\)</span> et <span class="math notranslate nohighlight">\(male\)</span>.</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/personal_taxes.png"><img alt="test" src="_images/personal_taxes.png" style="width: 590.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/personal_taxes.png"><img alt="test" src="_images/personal_taxes.png" style="width: 507.0px; height: 295.0px;" /></a>
 </div>
 </div>
 <div class="section" id="taxes-a-la-consommation">
 <h3>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d’une régression logarithmique et d’une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d’âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d’âge est de 70 ans et plus pour les revenus du travail. La variable de contrôle pour les individus n’ayant pas terminé leurs études (<em>insch</em>) est <span class="math notranslate nohighlight">\(male\)</span>.</p>
-<p>La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_cons_taxes” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (indiqués “cons_taxes” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/cons_taxes.png"><img alt="test" src="_images/cons_taxes.png" style="width: 575.0px; height: 279.0px;" /></a>
+<a class="reference internal image-reference" href="_images/cons_taxes.png"><img alt="test" src="_images/cons_taxes.png" style="width: 560.0px; height: 284.0px;" /></a>
 </div>
 </div>
 <div class="section" id="credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec">
-<h3>Crédits remboursables : soutien aux enfants du Québec et frais de garde d’enfants pour le Québec<a class="headerlink" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Les crédits remboursables intègrent le crédit d’impôt remboursable pour le soutien aux enfants du Québec et le crédit d’impôt remboursable pour frais de garde d’enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d’éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d’éducation (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) et en fonction du genre (<em>femme</em> et <em>homme</em>).</p>
-<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés entre 18 et 85 ans :</p>
+<h3>Crédits remboursables: soutien aux enfants du Québec et frais de garde d’enfants pour le Québec<a class="headerlink" href="#credits-remboursables-soutien-aux-enfants-du-quebec-et-frais-de-garde-d-enfants-pour-le-quebec" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les crédits remboursables intègrent le crédit d’impôt remboursable pour le soutien aux enfants du Québec et le crédit d’impôt remboursable pour frais de garde d’enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d’une régression logarithmique et d’une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d’éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d’éducation (<em>insch</em>, <em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>) et en fonction du genre (<em>femme</em> et <em>homme</em>).</p>
+<p>Les modèles pour les individus ayant terminé leurs études (<em>none</em>, <em>des</em>, <em>dec</em> et <em>uni</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés pour la population âgée entre 18 et 85 ans:</p>
 <div class="math notranslate nohighlight">
-\[log(y_{i}) = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i} + \epsilon\]</div>
+\[log(y_{i}) = \beta_{0} + \beta_{1} kid1_{i} * married_{i} + \beta_{2} kid2_{i} * married_{i}\]</div>
 <div class="math notranslate nohighlight">
-\[log(y_{i})^2 = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i} + \epsilon\]</div>
-<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés entre 18 et 35 ans :</p>
+\[+ \beta_{3} kid3_{i} * married_{i} + \beta_{4} married_{i} + \epsilon\]</div>
+<div class="math notranslate nohighlight">
+\[log(y_{i})^2 = \beta_{0} + \beta_{1} kid1_{i} * married_{i} + \beta_{2} kid2_{i} * married_{i}\]</div>
+<div class="math notranslate nohighlight">
+\[+ \beta_{3} kid3_{i} * married_{i} + \beta_{4} married_{i} + \epsilon\]</div>
+<p>Les modèles pour les individus n’ayant pas terminé leurs études (<em>insch</em>, pour les femmes d’un côté et pour les hommes de l’autre) sont estimés les individus de 18 à 35 ans:</p>
 <div class="math notranslate nohighlight">
 \[log(y_{i}) = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon\]</div>
 <div class="math notranslate nohighlight">
 \[log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon\]</div>
-<p>La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués “p_credit_famille” dans la légende) aux profils moyens par âge et par catégorie (<em>insch</em> / <em>True</em> -hommes-, <em>none</em> / <em>True</em> -hommes-, <em>des</em> / <em>True</em> -hommes-, <em>dec</em> / <em>True</em> -hommes-, <em>uni</em> / <em>True</em> -hommes-, <em>insch</em> / <em>False</em> -femmes-, <em>none</em> / <em>False</em> -femmes-, <em>des</em> / <em>False</em> -femmes-, <em>dec</em> / <em>False</em> -femmes- et <em>uni</em> / <em>False</em> -femmes-) calculés directement avec la BDSPS (indiqués “credit_famille” dans la légende).</p>
+<p>La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par « regression » dans la légende) aux profils moyens par âge et par catégorie (par niveau de scolarité et fréquentation scolaire, “educ”, et par genre: masculin si homme = True et féminin si homme = False) calculés directement avec la BDSPS (identifiés comme « raw data » dans la légende).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/credit_famille.png"><img alt="test" src="_images/credit_famille.png" style="width: 688.0px; height: 357.0px;" /></a>
+<a class="reference internal image-reference" href="_images/credit_famille.png"><img alt="test" src="_images/credit_famille.png" style="width: 633.0px; height: 379.0px;" /></a>
 </div>
 </div>
 </div>
 <div class="section" id="comptes-publics">
 <h2>Comptes publics<a class="headerlink" href="#comptes-publics" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="nomenclature">
-<h3>Nomenclature<a class="headerlink" href="#nomenclature" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Pour toutes les années de 2006 à 2020, nous avons colligé les données des comptes publics pour les éléments suivants (les éléments des comptes pour l’année 2020 correspondent aux données du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf">Plan budgétaire du Québec</a> publié en mars 2020, corrigées avec le <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/portrait_juin2020/fr/documents/Portrait_financier_QC_Juin2020.pdf">Portrait de la situation
-économique et financière</a> publié en juin 2020, faisant suite à l’émergence de la crise de la COVID-19) :</p>
-<p>Revenus provenant des :</p>
+<p>Pour toutes les années de 2006 à 2021, nous avons colligé les données des comptes publics pour les éléments suivants
+(les éléments des comptes pour l’année 2021 correspondent aux données du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf">budget 2021-2022</a>.
+Des ajustements aux comptes on été réalisés en 2021 pour prendre en compte les impacts de la COVID-19 sur les dépenses des missions et sur les transferts fédéraux. Voir l’onglet consacré aux <a class="reference external" href="https://creei-models.github.io/simfin/covid.html">effets de la COVID-19</a>).
+A noter également qu’en 2021 le changement d’application de la norme comptable sur les paiements de transfert et la provision pour risques économiques et autres mesures de soutien et de relance qui sont présentés dans le <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf">budget 2021-2022</a> n’ont pas été pris en compte.</p>
+<p>Revenus autonomes provenant des:</p>
 <ul class="simple">
-<li><p>impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les comptes publics présentés en bas de page);</p></li>
-<li><p>impôts et crédits remboursables des entreprises (10%);</p></li>
-<li><p>taxes à la consommation (22,9%);</p></li>
-<li><p>cotisations au fonds des services de santé (FSS; 6,9%);</p></li>
-<li><p>entreprises du gouvernement (6,1%);</p></li>
-<li><p>droits et permis (4,8%);</p></li>
-<li><p>impôts fonciers scolaires (2%);</p></li>
-<li><p>autres taxes (12,6%).</p></li>
+<li><p>impôts et crédits remboursables des particuliers (39,1% des revenus autonomes en 2021, selon les comptes publics présentés en bas de page);</p></li>
+<li><p>impôts et crédits remboursables des entreprises (8,9%);</p></li>
+<li><p>taxes à la consommation (22,6%);</p></li>
+<li><p>cotisations au Fonds des services de santé (FSS; 7,2%);</p></li>
+<li><p>entreprises du gouvernement (4,4%);</p></li>
+<li><p>droits et permis (4,9%);</p></li>
+<li><p>impôts fonciers scolaires (1,3%);</p></li>
+<li><p>autres revenus autonomes (11,7%).</p></li>
 </ul>
-<p>Revenus provenant des transfers fédéraux :</p>
+<p>Revenus provenant des transfers fédéraux:</p>
 <ul class="simple">
-<li><p>péréquation (50,7% de l’ensemble des transferts fédéraux en 2019);</p></li>
-<li><p>transferts en santé (27,3%);</p></li>
-<li><p>autres transferts (22%).</p></li>
+<li><p>péréquation (43,8% de l’ensemble des transferts fédéraux en 2021);</p></li>
+<li><p>transferts en santé (22,5%);</p></li>
+<li><p>autres transferts (33,8%).</p></li>
 </ul>
-<p>Dépenses provenant des missions :</p>
+<p>Dépenses pour les missions:</p>
 <ul class="simple">
-<li><p>santé et services sociaux (42,5% de l’ensemble des dépenses des missions en 2019);</p></li>
-<li><p>éducation et culture (24,4%);</p></li>
-<li><p>soutien aux familles (10,3%);</p></li>
-<li><p>économie et environnement (15,1%);</p></li>
-<li><p>gouverne et justice (7,7%).</p></li>
+<li><p>santé et services sociaux (43,2% de l’ensemble des dépenses de missions en 2021);</p></li>
+<li><p>éducation et culture (22,5%);</p></li>
+<li><p>soutien aux familles (9,3%);</p></li>
+<li><p>économie et environnement (15,4%);</p></li>
+<li><p>gouverne et justice (9,6%).</p></li>
 </ul>
-<p>Les comptes publics intègrent également les dépenses provenant du service de la dette.</p>
-<p>Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.</p>
-<p>Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):</p>
-<table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">Classification des comptes publics 2015-2019</span><a class="headerlink" href="#id6" title="Lien permanent vers ce tableau">¶</a></caption>
+<p>Les comptes publics intègrent également les dépenses au titre du service de la dette.</p>
+<p>Par ailleurs, nous modélisons le Fonds des générations (il est prévu que le Fonds soit liquidé en 2026 dans SimFin), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionnels qui permettent de prendre en compte la dette brute.</p>
+<p>Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2021 (la barre déroulante en bas du tableau permet de naviguer entre les années).</p>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">Classification des comptes publics 2015-2021</span><a class="headerlink" href="#id8" title="Lien permanent vers ce tableau">¶</a></caption>
 <colgroup>
-<col style="width: 35%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 28%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
@@ -440,232 +454,262 @@
 <th class="head"><p>2017</p></th>
 <th class="head"><p>2018</p></th>
 <th class="head"><p>2019</p></th>
+<th class="head"><p>2020</p></th>
+<th class="head"><p>2021</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Revenus</p></td>
+<tr class="row-even"><td><p>Revenus autonomes</p></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Revenus autonomes</p></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Impôt particulier</p></td>
+<tr class="row-odd"><td><p>Impôt des particuliers (Impôt net)</p></td>
+<td><p>23 460</p></td>
+<td><p>24 726</p></td>
+<td><p>25 290</p></td>
+<td><p>25 349</p></td>
+<td><p>27 206</p></td>
+<td><p>28 841</p></td>
+<td><p>30 037</p></td>
+</tr>
+<tr class="row-even"><td><p>Impôt des particuliers (Dépenses fiscales)</p></td>
+<td><p>4 087</p></td>
+<td><p>4 027</p></td>
+<td><p>3 941</p></td>
+<td><p>4 179</p></td>
+<td><p>4 567</p></td>
+<td><p>4 973</p></td>
+<td><p>5 179</p></td>
+</tr>
+<tr class="row-odd"><td><p>Impôt des sociétés (Impôt net)</p></td>
+<td><p>3 957</p></td>
+<td><p>5 040</p></td>
+<td><p>5 574</p></td>
+<td><p>6 358</p></td>
+<td><p>7 457</p></td>
+<td><p>6 605</p></td>
+<td><p>6 128</p></td>
+</tr>
+<tr class="row-even"><td><p>Impôt des sociétés (Dépenses fiscales)</p></td>
+<td><p>1 880</p></td>
+<td><p>1 976</p></td>
+<td><p>1 906</p></td>
+<td><p>1 784</p></td>
+<td><p>1 726</p></td>
+<td><p>2 002</p></td>
+<td><p>1 857</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cotisations au FSS</p></td>
+<td><p>6 397</p></td>
+<td><p>6 614</p></td>
+<td><p>5 969</p></td>
+<td><p>6 221</p></td>
+<td><p>6 359</p></td>
+<td><p>6 522</p></td>
+<td><p>6 455</p></td>
+</tr>
+<tr class="row-even"><td><p>Impôt foncier scolaire</p></td>
+<td><p>1 954</p></td>
+<td><p>2 090</p></td>
+<td><p>2 169</p></td>
+<td><p>2 243</p></td>
+<td><p>1 853</p></td>
+<td><p>1 539</p></td>
+<td><p>1 166</p></td>
+</tr>
+<tr class="row-odd"><td><p>Taxes à la consommation</p></td>
+<td><p>17 657</p></td>
+<td><p>18 517</p></td>
+<td><p>19 269</p></td>
+<td><p>20 329</p></td>
+<td><p>21 001</p></td>
+<td><p>21 348</p></td>
+<td><p>20 322</p></td>
+</tr>
+<tr class="row-even"><td><p>Droits et permis</p></td>
+<td><p>2 521</p></td>
+<td><p>3 828</p></td>
+<td><p>3 297</p></td>
+<td><p>3 965</p></td>
+<td><p>4 361</p></td>
+<td><p>4 535</p></td>
+<td><p>4 378</p></td>
+</tr>
+<tr class="row-odd"><td><p>Entreprises du gouvernement</p></td>
+<td><p>6 168</p></td>
+<td><p>5 013</p></td>
+<td><p>4 899</p></td>
+<td><p>5 093</p></td>
+<td><p>5 548</p></td>
+<td><p>4 419</p></td>
+<td><p>3 988</p></td>
+</tr>
+<tr class="row-even"><td><p>Revenus divers</p></td>
+<td><p>9 317</p></td>
+<td><p>9 391</p></td>
+<td><p>10 391</p></td>
+<td><p>10 398</p></td>
+<td><p>11 548</p></td>
+<td><p>10 962</p></td>
+<td><p>10 518</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total revenus autonomes</p></td>
+<td><p>77 398</p></td>
+<td><p>81 222</p></td>
+<td><p>82 705</p></td>
+<td><p>85 919</p></td>
+<td><p>91 626</p></td>
+<td><p>91 746</p></td>
+<td><p>90 028</p></td>
+</tr>
+<tr class="row-even"><td><p>Transferts fédéraux</p></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Impôt net</p></td>
-<td><p>23460</p></td>
-<td><p>24726</p></td>
-<td><p>25290</p></td>
-<td><p>25349</p></td>
-<td><p>27206</p></td>
-</tr>
-<tr class="row-even"><td><p>Dépenses fiscales</p></td>
-<td><p>4087</p></td>
-<td><p>4027</p></td>
-<td><p>3941</p></td>
-<td><p>4179</p></td>
-<td><p>4567</p></td>
-</tr>
-<tr class="row-odd"><td><p>Impôt société</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Impôt net</p></td>
-<td><p>3957</p></td>
-<td><p>5040</p></td>
-<td><p>5574</p></td>
-<td><p>6358</p></td>
-<td><p>7457</p></td>
-</tr>
-<tr class="row-odd"><td><p>Dépenses fiscales</p></td>
-<td><p>1880</p></td>
-<td><p>1976</p></td>
-<td><p>1906</p></td>
-<td><p>1784</p></td>
-<td><p>1726</p></td>
-</tr>
-<tr class="row-even"><td><p>Cotisation FSS</p></td>
-<td><p>6397</p></td>
-<td><p>6614</p></td>
-<td><p>5969</p></td>
-<td><p>6221</p></td>
-<td><p>6359</p></td>
-</tr>
-<tr class="row-odd"><td><p>Impôt foncier scolaire</p></td>
-<td><p>1954</p></td>
-<td><p>2090</p></td>
-<td><p>2169</p></td>
-<td><p>2243</p></td>
-<td><p>1853</p></td>
-</tr>
-<tr class="row-even"><td><p>Taxes à la consommation</p></td>
-<td><p>17657</p></td>
-<td><p>18517</p></td>
-<td><p>19269</p></td>
-<td><p>20329</p></td>
-<td><p>21001</p></td>
-</tr>
-<tr class="row-odd"><td><p>Droits et permis</p></td>
-<td><p>2521</p></td>
-<td><p>3828</p></td>
-<td><p>3297</p></td>
-<td><p>3965</p></td>
-<td><p>4361</p></td>
-</tr>
-<tr class="row-even"><td><p>Entreprises gouvernement</p></td>
-<td><p>6168</p></td>
-<td><p>5013</p></td>
-<td><p>4899</p></td>
-<td><p>5093</p></td>
-<td><p>5548</p></td>
-</tr>
-<tr class="row-odd"><td><p>Revenus divers</p></td>
-<td><p>9317</p></td>
-<td><p>9391</p></td>
-<td><p>10391</p></td>
-<td><p>10398</p></td>
-<td><p>11548</p></td>
-</tr>
-<tr class="row-even"><td><p>Total revenus autonomes</p></td>
-<td><p>77398</p></td>
-<td><p>81222</p></td>
-<td><p>82705</p></td>
-<td><p>85919</p></td>
-<td><p>91626</p></td>
-</tr>
-<tr class="row-odd"><td><p>Transferts fédéraux</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Péréquation</p></td>
-<td><p>9286</p></td>
-<td><p>9521</p></td>
-<td><p>10030</p></td>
-<td><p>11081</p></td>
-<td><p>11732</p></td>
-</tr>
-<tr class="row-odd"><td><p>Transfert santé</p></td>
-<td><p>5282</p></td>
-<td><p>5487</p></td>
-<td><p>5946</p></td>
-<td><p>6096</p></td>
-<td><p>6306</p></td>
-</tr>
-<tr class="row-even"><td><p>Autres</p></td>
-<td><p>3971</p></td>
-<td><p>3893</p></td>
-<td><p>4203</p></td>
-<td><p>5308</p></td>
-<td><p>5082</p></td>
-</tr>
-<tr class="row-odd"><td><p>Total transferts fédéraux</p></td>
-<td><p>18539</p></td>
-<td><p>18901</p></td>
-<td><p>20179</p></td>
-<td><p>22485</p></td>
-<td><p>23120</p></td>
-</tr>
-<tr class="row-even"><td><p>Total des revenus</p></td>
-<td><p>95937</p></td>
-<td><p>100123</p></td>
-<td><p>102884</p></td>
-<td><p>108404</p></td>
-<td><p>114746</p></td>
-</tr>
-<tr class="row-odd"><td><p>Dépenses</p></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Santé services sociaux</p></td>
-<td><p>36793</p></td>
-<td><p>37501</p></td>
-<td><p>38735</p></td>
-<td><p>40176</p></td>
-<td><p>41522</p></td>
+<tr class="row-odd"><td><p>Péréquation</p></td>
+<td><p>9 286</p></td>
+<td><p>9 521</p></td>
+<td><p>10 030</p></td>
+<td><p>11 081</p></td>
+<td><p>11 732</p></td>
+<td><p>13 124</p></td>
+<td><p>13 253</p></td>
 </tr>
-<tr class="row-odd"><td><p>Éducation et culture</p></td>
-<td><p>20905</p></td>
-<td><p>20997</p></td>
-<td><p>21646</p></td>
-<td><p>22780</p></td>
-<td><p>23887</p></td>
+<tr class="row-even"><td><p>Transferts en santé</p></td>
+<td><p>5 282</p></td>
+<td><p>5 487</p></td>
+<td><p>5 946</p></td>
+<td><p>6 096</p></td>
+<td><p>6 306</p></td>
+<td><p>6 617</p></td>
+<td><p>6 799</p></td>
 </tr>
-<tr class="row-even"><td><p>Économie et environnement</p></td>
-<td><p>11458</p></td>
-<td><p>11697</p></td>
-<td><p>12315</p></td>
-<td><p>14438</p></td>
-<td><p>14730</p></td>
+<tr class="row-odd"><td><p>Autres</p></td>
+<td><p>3 971</p></td>
+<td><p>3 893</p></td>
+<td><p>4 203</p></td>
+<td><p>5 308</p></td>
+<td><p>5 082</p></td>
+<td><p>5 487</p></td>
+<td><p>10 222</p></td>
 </tr>
-<tr class="row-odd"><td><p>Soutien familles</p></td>
-<td><p>9647</p></td>
-<td><p>9589</p></td>
-<td><p>9562</p></td>
-<td><p>9816</p></td>
-<td><p>10095</p></td>
+<tr class="row-even"><td><p>Total transferts fédéraux</p></td>
+<td><p>18 539</p></td>
+<td><p>18 901</p></td>
+<td><p>20 179</p></td>
+<td><p>22 485</p></td>
+<td><p>23 120</p></td>
+<td><p>25 228</p></td>
+<td><p>30 274</p></td>
 </tr>
-<tr class="row-even"><td><p>Gouverne et justice</p></td>
-<td><p>6728</p></td>
-<td><p>6686</p></td>
-<td><p>6737</p></td>
-<td><p>7039</p></td>
-<td><p>7510</p></td>
+<tr class="row-odd"><td><p>Total des revenus</p></td>
+<td><p>95 937</p></td>
+<td><p>100 123</p></td>
+<td><p>102 884</p></td>
+<td><p>108 404</p></td>
+<td><p>114 746</p></td>
+<td><p>116 974</p></td>
+<td><p>120 302</p></td>
 </tr>
-<tr class="row-odd"><td><p>Total dépenses des missions</p></td>
-<td><p>85531</p></td>
-<td><p>86470</p></td>
-<td><p>88995</p></td>
-<td><p>94249</p></td>
-<td><p>97744</p></td>
+<tr class="row-even"><td><p>Dépenses</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>Service de la dette</p></td>
-<td><p>10270</p></td>
-<td><p>10009</p></td>
-<td><p>9527</p></td>
-<td><p>9240</p></td>
-<td><p>8722</p></td>
+<tr class="row-odd"><td><p>Santé et services sociaux</p></td>
+<td><p>36 793</p></td>
+<td><p>37 501</p></td>
+<td><p>38 735</p></td>
+<td><p>40 176</p></td>
+<td><p>41 522</p></td>
+<td><p>43 699</p></td>
+<td><p>52 989</p></td>
 </tr>
-<tr class="row-odd"><td><p>Taux effectifs sur dette</p></td>
-<td><p>0.0373</p></td>
-<td><p>0.0363</p></td>
-<td><p>0.0353</p></td>
-<td><p>0.0354</p></td>
-<td><p>0.0358</p></td>
+<tr class="row-even"><td><p>Éducation et culture</p></td>
+<td><p>20 905</p></td>
+<td><p>20 997</p></td>
+<td><p>21 646</p></td>
+<td><p>22 780</p></td>
+<td><p>23 887</p></td>
+<td><p>25 267</p></td>
+<td><p>27 624</p></td>
+</tr>
+<tr class="row-odd"><td><p>Économie et environnement</p></td>
+<td><p>11 458</p></td>
+<td><p>11 697</p></td>
+<td><p>12 315</p></td>
+<td><p>14 438</p></td>
+<td><p>14 730</p></td>
+<td><p>17 293</p></td>
+<td><p>18 957</p></td>
+</tr>
+<tr class="row-even"><td><p>Soutien aux personnes et aux familles</p></td>
+<td><p>9 647</p></td>
+<td><p>9 589</p></td>
+<td><p>9 562</p></td>
+<td><p>9 816</p></td>
+<td><p>10 095</p></td>
+<td><p>10 926</p></td>
+<td><p>11 417</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gouverne et justice</p></td>
+<td><p>6 728</p></td>
+<td><p>6 686</p></td>
+<td><p>6 737</p></td>
+<td><p>7 039</p></td>
+<td><p>7 510</p></td>
+<td><p>9 503</p></td>
+<td><p>11 754</p></td>
+</tr>
+<tr class="row-even"><td><p>Dépenses des missions</p></td>
+<td><p>85 531</p></td>
+<td><p>86 470</p></td>
+<td><p>88 995</p></td>
+<td><p>94 249</p></td>
+<td><p>97 744</p></td>
+<td><p>106 688</p></td>
+<td><p>122 741</p></td>
+</tr>
+<tr class="row-odd"><td><p>Service de la dette</p></td>
+<td><p>10 270</p></td>
+<td><p>10 009</p></td>
+<td><p>9 527</p></td>
+<td><p>9 240</p></td>
+<td><p>8 722</p></td>
+<td><p>7 676</p></td>
+<td><p>7 665</p></td>
 </tr>
 <tr class="row-even"><td><p>Total des dépenses</p></td>
-<td><p>95801</p></td>
-<td><p>96479</p></td>
-<td><p>98522</p></td>
-<td><p>103489</p></td>
-<td><p>106466</p></td>
+<td><p>95 801</p></td>
+<td><p>96 479</p></td>
+<td><p>98 522</p></td>
+<td><p>103 489</p></td>
+<td><p>106 466</p></td>
+<td><p>114 364</p></td>
+<td><p>130 406</p></td>
 </tr>
 <tr class="row-odd"><td><p>Surplus Annuel</p></td>
 <td><p>136</p></td>
-<td><p>3644</p></td>
-<td><p>4362</p></td>
-<td><p>4915</p></td>
-<td><p>8280</p></td>
+<td><p>3 644</p></td>
+<td><p>4 362</p></td>
+<td><p>4 915</p></td>
+<td><p>8 280</p></td>
+<td><p>2 610</p></td>
+<td><p>-10 104</p></td>
 </tr>
 <tr class="row-even"><td><p>Fonds des génération</p></td>
 <td></td>
@@ -673,106 +717,120 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Solde au début</p></td>
-<td><p>5659</p></td>
-<td><p>6938</p></td>
-<td><p>8522</p></td>
-<td><p>10523</p></td>
-<td><p>12816</p></td>
+<td><p>5 659</p></td>
+<td><p>6 938</p></td>
+<td><p>8 522</p></td>
+<td><p>10 523</p></td>
+<td><p>12 816</p></td>
+<td><p>8 293</p></td>
+<td><p>8 899</p></td>
 </tr>
-<tr class="row-even"><td><p>Revenus autonomes</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-even"><td><p>Revenus du FDG</p></td>
+<td><p>1 279</p></td>
+<td><p>1 453</p></td>
+<td><p>2 001</p></td>
+<td><p>2 293</p></td>
+<td><p>3 477</p></td>
+<td><p>2 606</p></td>
+<td><p>3 014</p></td>
 </tr>
-<tr class="row-odd"><td><p>Revenus général</p></td>
-<td><p>964</p></td>
-<td><p>1155</p></td>
-<td><p>1579</p></td>
-<td><p>1881</p></td>
-<td><p>2083</p></td>
+<tr class="row-odd"><td><p>Solde avant remboursement</p></td>
+<td><p>6 938</p></td>
+<td><p>8 391</p></td>
+<td><p>10 523</p></td>
+<td><p>12 816</p></td>
+<td><p>16 293</p></td>
+<td><p>10 899</p></td>
+<td><p>3 014</p></td>
 </tr>
-<tr class="row-even"><td><p>Revenus placement</p></td>
-<td><p>315</p></td>
-<td><p>298</p></td>
-<td><p>422</p></td>
-<td><p>412</p></td>
-<td><p>1394</p></td>
-</tr>
-<tr class="row-odd"><td><p>Total revenus autonomes</p></td>
-<td><p>1279</p></td>
-<td><p>1453</p></td>
-<td><p>2001</p></td>
-<td><p>2293</p></td>
-<td><p>3477</p></td>
-</tr>
-<tr class="row-even"><td><p>Solde avant reboursement</p></td>
-<td><p>6938</p></td>
-<td><p>8391</p></td>
-<td><p>10523</p></td>
-<td><p>12816</p></td>
-<td><p>16293</p></td>
-</tr>
-<tr class="row-odd"><td><p>Somme utilisé reboursement dette</p></td>
+<tr class="row-even"><td><p>Retraits FDG</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
-<td><p>8000</p></td>
+<td><p>8 000</p></td>
+<td><p>2 000</p></td>
+<td><p>0</p></td>
 </tr>
-<tr class="row-even"><td><p>Solde à la fin</p></td>
-<td><p>6938</p></td>
-<td><p>8522</p></td>
-<td><p>10523</p></td>
-<td><p>12816</p></td>
-<td><p>8293</p></td>
+<tr class="row-odd"><td><p>Solde à la fin</p></td>
+<td><p>6 938</p></td>
+<td><p>8 522</p></td>
+<td><p>10 523</p></td>
+<td><p>12 816</p></td>
+<td><p>8 293</p></td>
+<td><p>8 899</p></td>
+<td><p>11 913</p></td>
 </tr>
-<tr class="row-odd"><td><p>Réserve stabilisation</p></td>
+<tr class="row-even"><td><p>Réserve de stabilisation</p></td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Réserve en début</p></td>
+<tr class="row-odd"><td><p>Réserve en début</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
-<td><p>2191</p></td>
-<td><p>4552</p></td>
-<td><p>7174</p></td>
+<td><p>2 191</p></td>
+<td><p>4 552</p></td>
+<td><p>7 174</p></td>
+<td><p>11 977</p></td>
+<td><p>11 981</p></td>
 </tr>
-<tr class="row-odd"><td><p>Utilisation de la réserve</p></td>
+<tr class="row-even"><td><p>Utilisation de la réserve</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>8 760</p></td>
 </tr>
-<tr class="row-even"><td><p>Solde budgétaire</p></td>
-<td><p>-1143</p></td>
-<td><p>2191</p></td>
-<td><p>2361</p></td>
-<td><p>2622</p></td>
-<td><p>4803</p></td>
+<tr class="row-odd"><td><p>Solde budgétaire avant utilisation de la réserve</p></td>
+<td><p>-1 143</p></td>
+<td><p>2 191</p></td>
+<td><p>2 361</p></td>
+<td><p>2 622</p></td>
+<td><p>4 803</p></td>
+<td><p>4</p></td>
+<td><p>-13 118</p></td>
+</tr>
+<tr class="row-even"><td><p>Solde budgétaire après utilisation de la réserve</p></td>
+<td><p>-1 143</p></td>
+<td><p>2 191</p></td>
+<td><p>2 361</p></td>
+<td><p>2 622</p></td>
+<td><p>4 803</p></td>
+<td><p>4</p></td>
+<td><p>-4 358</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ajout à la réserve</p></td>
 <td><p>0</p></td>
-<td><p>2191</p></td>
-<td><p>2361</p></td>
-<td><p>2622</p></td>
-<td><p>4803</p></td>
+<td><p>2 191</p></td>
+<td><p>2 361</p></td>
+<td><p>2 622</p></td>
+<td><p>4 803</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
 </tr>
 <tr class="row-even"><td><p>Réserve en fin de période</p></td>
 <td><p>0</p></td>
-<td><p>2191</p></td>
-<td><p>4552</p></td>
-<td><p>7174</p></td>
-<td><p>11977</p></td>
+<td><p>2 191</p></td>
+<td><p>4 552</p></td>
+<td><p>7 174</p></td>
+<td><p>11 977</p></td>
+<td><p>11 981</p></td>
+<td><p>3 221</p></td>
 </tr>
-<tr class="row-odd"><td><p>Dette</p></td>
+<tr class="row-odd"><td><p>Dette avant gain de change reportés</p></td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -780,109 +838,139 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Dette année précédente</p></td>
-<td><p>181032</p></td>
-<td><p>192750</p></td>
-<td><p>193945</p></td>
-<td><p>197556</p></td>
-<td><p>201949</p></td>
+<td><p>181 032</p></td>
+<td><p>192 750</p></td>
+<td><p>193 945</p></td>
+<td><p>197 556</p></td>
+<td><p>201 949</p></td>
+<td><p>195 188</p></td>
+<td><p>200 963</p></td>
 </tr>
-<tr class="row-odd"><td><p>Nouveaux emprunts</p></td>
-<td><p>23894</p></td>
-<td><p>16820</p></td>
-<td><p>21277</p></td>
-<td><p>24662</p></td>
-<td><p>22971</p></td>
+<tr class="row-odd"><td><p>plus Nouveaux emprunts</p></td>
+<td><p>23 894</p></td>
+<td><p>16 820</p></td>
+<td><p>21 277</p></td>
+<td><p>24 662</p></td>
+<td><p>22 971</p></td>
+<td><p>32 567</p></td>
+<td><p>49 226</p></td>
 </tr>
-<tr class="row-even"><td><p>Remboursement dette</p></td>
+<tr class="row-even"><td><p>moins Remboursement dette</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
-<td><p>8000</p></td>
+<td><p>8 000</p></td>
+<td><p>2 000</p></td>
+<td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dette après incidence instruments</p></td>
-<td><p>204926</p></td>
-<td><p>209570</p></td>
-<td><p>215222</p></td>
-<td><p>222218</p></td>
-<td><p>216920</p></td>
+<td><p>204 926</p></td>
+<td><p>209 570</p></td>
+<td><p>215 222</p></td>
+<td><p>222 218</p></td>
+<td><p>216 920</p></td>
+<td><p>225 755</p></td>
+<td><p>250 189</p></td>
 </tr>
 <tr class="row-even"><td><p>moins Fonds amortissement</p></td>
-<td><p>15980</p></td>
-<td><p>19852</p></td>
-<td><p>22019</p></td>
-<td><p>24428</p></td>
-<td><p>25831</p></td>
+<td><p>15 980</p></td>
+<td><p>19 852</p></td>
+<td><p>22 019</p></td>
+<td><p>24 428</p></td>
+<td><p>25 831</p></td>
+<td><p>29 019</p></td>
+<td><p>31 707</p></td>
 </tr>
 <tr class="row-odd"><td><p>plus Dette PPP</p></td>
-<td><p>3804</p></td>
-<td><p>4227</p></td>
-<td><p>4353</p></td>
-<td><p>4159</p></td>
-<td><p>4099</p></td>
+<td><p>3 804</p></td>
+<td><p>4 227</p></td>
+<td><p>4 353</p></td>
+<td><p>4 159</p></td>
+<td><p>4 099</p></td>
+<td><p>4 227</p></td>
+<td><p>4 394</p></td>
 </tr>
-<tr class="row-even"><td><p>Total dette</p></td>
-<td><p>192750</p></td>
-<td><p>193945</p></td>
-<td><p>197556</p></td>
-<td><p>201949</p></td>
-<td><p>195188</p></td>
+<tr class="row-even"><td><p>Dette avant gain de change reportés</p></td>
+<td><p>192 750</p></td>
+<td><p>193 945</p></td>
+<td><p>197 556</p></td>
+<td><p>201 949</p></td>
+<td><p>195 188</p></td>
+<td><p>200 963</p></td>
+<td><p>222 875</p></td>
 </tr>
-<tr class="row-odd"><td></td>
+<tr class="row-odd"><td><p>Dette directe consolidée</p></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Dette brute</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Dette avant gain de change reportés</p></td>
-<td><p>192750</p></td>
-<td><p>193945</p></td>
-<td><p>197556</p></td>
-<td><p>201949</p></td>
-<td><p>195188</p></td>
-</tr>
-<tr class="row-even"><td><p>plus</p></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Régime de retraite</p></td>
-<td><p>28172</p></td>
-<td><p>26745</p></td>
-<td><p>24647</p></td>
-<td><p>21903</p></td>
-<td><p>18362</p></td>
+<tr class="row-even"><td><p>Dette avant gain de change reportés</p></td>
+<td><p>192 750</p></td>
+<td><p>193 945</p></td>
+<td><p>197 556</p></td>
+<td><p>201 949</p></td>
+<td><p>195 188</p></td>
+<td><p>200 963</p></td>
+<td><p>222 875</p></td>
 </tr>
-<tr class="row-even"><td><p>moins</p></td>
+<tr class="row-odd"><td><p>moins emprunts réalisés par anticipation.</p></td>
+<td><p>10 027</p></td>
+<td><p>8 821</p></td>
+<td><p>8 190</p></td>
+<td><p>9 965</p></td>
+<td><p>6 159</p></td>
+<td><p>7 988</p></td>
+<td><p>4 292</p></td>
+</tr>
+<tr class="row-even"><td><p>Dette directe consolidée</p></td>
+<td><p>182 723</p></td>
+<td><p>185 124</p></td>
+<td><p>189 366</p></td>
+<td><p>191 984</p></td>
+<td><p>189 029</p></td>
+<td><p>192 975</p></td>
+<td><p>218 583</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dette brute</p></td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Fonds génération</p></td>
-<td><p>6938</p></td>
-<td><p>8522</p></td>
-<td><p>10523</p></td>
-<td><p>12816</p></td>
-<td><p>8293</p></td>
+<tr class="row-even"><td><p>Dette directe consolidée</p></td>
+<td><p>182 723</p></td>
+<td><p>185 124</p></td>
+<td><p>189 366</p></td>
+<td><p>191 984</p></td>
+<td><p>189 029</p></td>
+<td><p>192 975</p></td>
+<td><p>218 583</p></td>
 </tr>
-<tr class="row-even"><td><p>Autres</p></td>
-<td><p>10027</p></td>
-<td><p>8821</p></td>
-<td><p>8190</p></td>
-<td><p>9965</p></td>
-<td><p>6159</p></td>
+<tr class="row-odd"><td><p>plus Régime de retraite</p></td>
+<td><p>28 172</p></td>
+<td><p>26 745</p></td>
+<td><p>24 647</p></td>
+<td><p>21 903</p></td>
+<td><p>18 362</p></td>
+<td><p>14 716</p></td>
+<td><p>12 287</p></td>
+</tr>
+<tr class="row-even"><td><p>moins Fonds génération</p></td>
+<td><p>6 938</p></td>
+<td><p>8 522</p></td>
+<td><p>10 523</p></td>
+<td><p>12 816</p></td>
+<td><p>8 293</p></td>
+<td><p>8 899</p></td>
+<td><p>11 913</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dette brute en fin de période</p></td>
 <td><p>203 957</p></td>
@@ -890,35 +978,11 @@
 <td><p>203 490</p></td>
 <td><p>201 071</p></td>
 <td><p>199 098</p></td>
+<td><p>198 792</p></td>
+<td><p>218 957</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="outils">
-<h3>Outils<a class="headerlink" href="#outils" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit.</p>
-<dl class="class">
-<dt id="simfin.tools.account">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.tools.</code><code class="sig-name descname">account</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">igdp=True</em>, <em class="sig-param">ipop=False</em>, <em class="sig-param">iprice=False</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.tools.account" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Fonction permettant d’intégrer chaque composante des comptes publics.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
-<li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
-<li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="class">
-<dt id="simfin.tools.accounts">
-<em class="property">class </em><code class="sig-prename descclassname">simfin.tools.</code><code class="sig-name descname">accounts</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">group_name</em>, <em class="sig-param">others=None</em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.tools.accounts" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Fonction permettant de colliger les comptes publics.</p>
-</dd></dl>
-
-</div>
 </div>
 </div>
 
@@ -927,29 +991,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="modelisation.html" class="btn btn-neutral float-right" title="Documentation des fonctions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="macro.html" class="btn btn-neutral float-left" title="Environnement macroéconomique" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="modelisation.html" class="btn btn-neutral float-right" title="Simulation &amp; fonctions" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="covid.html" class="btn btn-neutral float-left" title="Effets de la COVID-19" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Équipe CREEi
+        &#169; Copyright 2021, Équipe CREEi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -957,7 +1021,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

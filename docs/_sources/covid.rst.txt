@@ -1,0 +1,71 @@
+.. _using:
+
+***************************
+Effets de la COVID-19
+***************************
+
+La première année de simulation de SimFin est l'année fiscale 2021-2022 (notée 2022 dans le modèle), qui débute en avril 2021 et qui se termine en mars 2022. Il est donc nécessaire de prendre en compte les effets:
+
+1) De la reprise économique en 2021 et lors des années suivantes;
+2) Des mesures de soutien et de relance liées à la COVID-19;
+3) Des transferts fédéraux liés à la COVID-19.
+
+1) La reprise économique
+=============================
+
+La reprise économique lors des années 2021, 2022 et 2023 est calibrée à partir des
+`perspectives économiques du gouvernement du Québec <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf#page=37>`_.
+Tout comme dans ces perspectives, le taux de croissance réel du PIB dans SimFin est égal à 4,2% en 2021, 4,0% en 2022 et 2,0% en 2023.
+
+2) Mesures de soutien et de relance liées à la COVID-19
+===========================================================
+
+La pandémie de COVID-19 a engendré d’importantes dépenses supplémentaires.
+En 2020-2021, le `plan budgétaire 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf#page=33>`_
+fait état de mesures de soutien et de relance COVID-19 pour un montant de 11 920 millions de dollars.
+La plan budgétaire ne précise pas quelle est la répartition de ces dépenses exceptionnelles entre les missions du gouvernement.
+En revanche, le document `Stratégie de gestion des dépenses <https://www.tresor.gouv.qc.ca/fileadmin/PDF/budget_depenses/21-22/1-Strategie_de_gestion_des_depenses_et_renseignements_supplementaires.pdf>`_ (page 63)
+présente la répartition de ces dépenses entre les portefeuilles du gouvernement. En utilisant la clef de répartition du tableau "Dépenses par portefeuille et mission en 2021-2022" (page 136), qui croise les dépenses par portefeuille et par mission,
+il est possible de répartir les mesures de soutien et de relance liées à la COVID-19 entre les missions du gouvernement du Québec:
+
+.. list-table:: Mesures de soutien et de relance liées à la COVID-19 en 2020-2021
+   :widths: 75 75
+   :header-rows: 1
+
+   * - Mission
+     - Montant (millions de $)
+   * - Santé et services sociaux
+     - 6 580
+   * - Éducation et culture
+     - 1 005
+   * - Économie et environnement
+     - 3 566
+   * - Soutien aux familles
+     - 171
+   * - Gouverne et justice
+     - 598
+   * - Total
+     - 11 920
+
+Dans SimFin, ces mesures de soutien et de relance sont ajoutées aux comptes du gouvernement seulement après avoir calculé la croissance des dépenses des missions d'une année à l'autre.
+Autrement dit, elles ne sont pas prises en compte dans l'assiette de simulation des dépenses des missions.
+Ainsi, les dépenses par missions hors COVID-19 simulées par SimFin passent de 110 821 millions de dollars en 2020-2021 à 116 741 millions de dollars en 2021-2022.
+Après la simulation, il faut ajouter les mesures de soutien et de relance, soit 11 920 millions de dollars en 2020-2021 et 4 284 millions de dollars en 2021-2022, pour obtenir les dépenses totales par mission.
+
+Il est à noter que les simulations réalisées avec SimFin ne prennent pas en compte de la "provision pour risques économiques et autres mesures de soutien et de relance"
+et du changement d’application de la norme comptable sur les paiements de transfert mis en oeuvre dans le
+`plan budgétaire 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf#page=408>`_.
+
+3) Transferts fédéraux liés à la COVID-19
+===========================================================
+
+Selon le `plan budgétaire 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf#page=416>`_ et
+en accord avec les analyses de la `Chaire de recherche en fiscalité et en finances publiques <https://cffp.recherche.usherbrooke.ca/limpact-de-la-conjoncture-economique-sur-le-solde-budgetaire-du-quebec/>`_,
+l’impact de la COVID-19 sur les revenus de transferts fédéraux représente 4 039 millions de dollars en 2020-2021. En 2021-2022, l'impact de la COVID-19 est estimé à 130 millions de dollars.
+Aucun impact relié à la COVID-19 n’est attendu pour 2022-2023.
+
+Dans SimFin, ces transferts exceptionnels sont ajoutés aux comptes du gouvernement seulement après avoir calculé la croissance des transferts fédéraux d'une année à l'autre.
+Autrement dit, ils ne sont pas pris en compte dans l'assiette de croissance des transferts fédéraux. Ainsi, en 2020-2021 les transferts fédéraux hors COVID-19 sont égaux à 26 235 millions de dollars.
+En appliquant une croissance de 6,7%, correspondant au taux de croissance du PIB potentiel (voir les hypothèses dans la
+`section dédiée aux transferts fédéraux <https://creei-models.github.io/simfin/modelisation.html#transferts-federaux>`_), on obtient une valeur de 27 992 millions de dollars de transferts fédéraux hors COVID-19
+en 2021-2022. Il faut ajouter les 130 millions de dollars de transferts fédéraux liés à la COVID-19 pour obtenir la valeur totale des transferts fédéraux en 2021-2022, soit 27 862 millions de dollars.

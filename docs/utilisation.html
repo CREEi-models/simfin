@@ -1,40 +1,44 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Utilisation &mdash; Documentation SimFin </title>
   
 
   
-  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Environnement macroéconomique" href="macro.html" />
@@ -66,7 +70,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -87,26 +92,25 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Utilisation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#etapes">Étapes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#lancement-des-simulations">1) Lancement des simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lancement-de-la-simulation">1) Lancement de la simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#analyse-des-resultats">2) Analyse des résultats</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#exemples">Exemples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#simulation-de-base">Simulation de base</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modification-hypotheses">Modification hypothèses</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#exemple">Exemple</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="macro.html">Environnement macroéconomique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="covid.html">Effets de la COVID-19</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intrants.html">Intrants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Documentation des fonctions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">Contacts et droits d’utilisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelisation.html">Simulation &amp; fonctions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Résultats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Nous joindre</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -141,19 +145,21 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Utilisation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/utilisation.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/utilisation.rst.txt" rel="nofollow"> Afficher la source de la page</a>
           
         
       </li>
@@ -167,41 +173,48 @@
            <div itemprop="articleBody">
             
   <div class="section" id="utilisation">
-<span id="using"></span><h1>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h1>
+<h1>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette section a pour objectif de guider les utilisateurs de SimFin dans l’utilisation de celui-ci.
+Les étapes d’utilisation sont présentées dans un premier temps et
+un exemple de notebook/script est ensuite proposé afin de servir de point de départ aux utilisateurs pour le lancement de simulations et l’analyse des résultats.</p>
 <div class="section" id="etapes">
 <h2>Étapes<a class="headerlink" href="#etapes" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="lancement-des-simulations">
-<h3>1) Lancement des simulations<a class="headerlink" href="#lancement-des-simulations" title="Lien permanent vers ce titre">¶</a></h3>
-<p>On détermine la dernière année de simulation :</p>
+<div class="section" id="lancement-de-la-simulation">
+<h3>1) Lancement de la simulation<a class="headerlink" href="#lancement-de-la-simulation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout d’abord, il est suggéré de définir l’année de fin de la simulation dans un objet comme suit:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">end_yr</span> <span class="o">=</span> <span class="mi">2030</span>
 </pre></div>
 </div>
-<p>On simule le modèle :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">simfin</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="n">end_yr</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">end_yr</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">2020</span><span class="p">)</span>
+<p>Il est ensuite possible de lancer la simulation à l’aide des deux commandes suivantes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">simfin</span><span class="o">.</span><span class="n">simulator</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="n">end_yr</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">end_yr</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">2021</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>La première commande crée un gabarit permettant notamment de stocker les résultats propres à la simulation
+et la deuxième commande lance la simulation à proprement dire.
+L’année de départ de la simulation est fixée à 2021 (année fiscale 2020-2021), puisque celle-ci correspond à l’année la plus récente pour laquelle les comptes publics sont disponibles.</p>
 </div>
 <div class="section" id="analyse-des-resultats">
 <h3>2) Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Lien permanent vers ce titre">¶</a></h3>
-<p>L’ensemble des résultats du modèle sont localisés dans un Pandas DataFrame :</p>
+<p>Une fois la simulation terminée, l’ensemble des résultats du modèle est stocké dans un tableau (Pandas dataframe).
+Il est possible d’afficher la version française de ce tableau à l’aide de la commande suivante:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">summary_fr</span>
+</pre></div>
+</div>
+<p>ou la version anglaise à l’aide de la commande suivante:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="exemples">
-<h2>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="simulation-de-base">
-<h3>Simulation de base<a class="headerlink" href="#simulation-de-base" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cet exemple de notebook avec Google Colab permet de se familiariser avec l’utilisation de Simgen en produisant une simulation
-de base. Ensuite, ce notebook peut facilement être adapté à des besoins plus particuliers.</p>
-<p>Cliquez <a class="reference download external" download="" href="https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft"><code class="xref download docutils literal notranslate"><span class="pre">ici</span></code></a></p>
-</div>
-<div class="section" id="modification-hypotheses">
-<h3>Modification hypothèses<a class="headerlink" href="#modification-hypotheses" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Cliquez <a class="reference download external" download="" href="https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft"><code class="xref download docutils literal notranslate"><span class="pre">ici</span></code></a></p>
-</div>
+<div class="section" id="exemple">
+<h2>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Cet exemple de notebook permet de se familiariser avec l’utilisation de SimFin en produisant une simulation de base.</p>
+<p><strong>Téléchargement du notebook:</strong></p>
+<p>Cliquez <a class="reference download external" download="" href="https://drive.google.com/file/d/16oXTY3f_kmbU7Mo_9ER6IeEiET1WXUk8/view?usp=sharing"><code class="xref download docutils literal notranslate"><span class="pre">ici</span></code></a>, puis cliquez sur télécharger.</p>
+<p><strong>Accès au notebook via Google Colab*:</strong></p>
+<p>Cliquez ici: <a class="reference external" href="https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft"><img alt="ImageLink3" src="https://colab.research.google.com/assets/colab-badge.png" /></a></p>
+<p>Il est à noter qu’il est nécessaire de posséder un compte Google pour utiliser Google Colab.</p>
 </div>
 </div>
 
@@ -210,29 +223,29 @@ de base. Ensuite, ce notebook peut facilement être adapté à des besoins plus 
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="macro.html" class="btn btn-neutral float-right" title="Environnement macroéconomique" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="macro.html" class="btn btn-neutral float-right" title="Environnement macroéconomique" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Équipe CREEi
+        &#169; Copyright 2021, Équipe CREEi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -240,7 +253,6 @@ de base. Ensuite, ce notebook peut facilement être adapté à des besoins plus 
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

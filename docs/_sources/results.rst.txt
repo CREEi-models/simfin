@@ -1,37 +1,40 @@
-Synthèse des résultats
---------------------------------------------------------------------------------
+.. _using:
 
-Dans notre scénario de référence (pré-COVID 19), les revenus passent de 25,6% du PIB à 26,7% du PIB en 2040. Cette croissance modérée repose notamment sur l'augmentation du poids de l'impôt des particuliers et des taxes à la consommation dans le PIB, qui passent respectivement de 7,3% et 4,8% en 2019 à 8,2% et 5,1% en 2040.
+***************************
+Résultats
+***************************
 
-.. figure:: figure/rev.png
+Cette page est une présentation concise des résultats des simulations de base réalisées à l'aide de SimFin.
+Il est possible d'obtenir une présentation détaillée des simulations et personnaliser celles-ci dans un notebook à télécharger :download:`ici <https://drive.google.com/file/d/16oXTY3f_kmbU7Mo_9ER6IeEiET1WXUk8/view?usp=sharing>` ou
+dans un notebook Google Colab, en cliquant sur l'icône suivant |ImageLink3|_ .
+
+.. |ImageLink3| image:: https://colab.research.google.com/assets/colab-badge.png
+.. _ImageLink3: https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft
+
+La première figure présente l'évolution des dépenses totales et des revenus totaux du gouvernement du Québec entre 2021 (année fiscale 2020-2021) et 2040 (année fiscale 2039-2040).
+Tandis que les revenus totaux passent de 120,3 milliards de dollars en 2021 à 253,8 milliards de dollars en 2040,
+les dépenses totales passent de 130,4 milliards de dollars à 265,6 milliards de dollars sur la même période.
+Les dépenses totales sont supérieures aux revenus totaux entre 2021 et 2023 en raison des effets négatifs de la COVID-19 sur les revenus autonomes et des mesures de soutien et de relance spécifiques à la COVID-19.
+De 2024 à 2029, les dépenses totales sont légèrement inférieures aux revenus totaux (surplus maximal de 991 millions de dollars en 2025),
+puis elles deviennent de nouveau supérieures aux revenus totaux, suivant un écart grandissant.
+
+.. figure:: figure/deprev.png
     :alt: test
     :scale: 100%
     :align: center
 
-Dans le même temps, notre projection de référence résulte en une forte hausse des dépenses totales, qui passent de 24,3% du PIB en 2019 à 29,5% du PIB en 2040. Cette hausse est essentiellement due aux dépenses de la mission santé, dont le poids dans le PIB passe de 9,5% en 2019 à 13,7% en 2040. Les autres missions restent relativement constantes en % du PIB. Le poids du service de la dette diminue jusque 2026, en partie dû à l’application du solde du Fonds des générations en 2025, mais il remonte par la suite jusque la fin de la période d'analyse.
-
-.. figure:: figure/dep.png
-    :alt: test
-    :scale: 100%
-    :align: center
-
-Ces deux tendances (revenus et dépenses) ont pour conséquence de mener inévitablement le Québec vers un solde budgétaire et un surplus annuel qui deviennent durablement négatifs en 2027. Le solde budgétaire converge vers le surplus annuel en 2026, année suivant la liquidation du Fonds des générations.
+Cette dynamique est bien représentée par la deuxième figure qui présente l'évolution du surplus annuel (revenus totaux moins dépenses totales) en pourcentage du PIB.
+Le déficit annuel passe de 2,28% du PIB en 2021 à un surplus de 0,18% du PIB en 2025. Ensuite, le surplus diminue, atteignant une valeur négative de 1,31% du PIB en 2040.
 
 .. figure:: figure/surplus.png
-        :alt: test
-        :scale: 100%
-        :align: center
-
-Selon nos calculs, qui utilisent la valeur comptable du Fonds des générations, celui-ci passe de 2% du PIB en 2019 à 4,7% en 2025 (solde de 25 G). En 2025, nous supposons que la valeur du Fonds est affectée à la dette. Par ailleurs, la réserve de stabilisation est épuisée en 2032.
-
-.. figure:: figure/fonds.png
     :alt: test
     :scale: 100%
     :align: center
 
-Au final, l'augmentation du poids des dépenses dans le PIB étant plus marquée que l'augmentation de la part des revenus dans le PIB, le poids de la dette dans le PIB augmentera fortement entre 2025 (39,7% du PIB) et 2040 (57,2% du PIB).
+La troisième figure présente la part de la dette brute dans le PIB. Son évolution suit une courbe en U entre 2021 et 2040.
+La part de la dette brute dans le PIB diminue de 49,5% en 2021 à 45,1% en 2030, puis elle commence sa remontée pour atteindre 50% en 2040.
 
-    .. figure:: figure/dette.png
-        :alt: test
-        :scale: 100%
-        :align: center
+.. figure:: figure/grossdebt.png
+    :alt: test
+    :scale: 100%
+    :align: center

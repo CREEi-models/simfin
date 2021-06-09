@@ -1,44 +1,56 @@
-.. _using:
-
 ***************
 Utilisation
 ***************
 
+Cette section a pour objectif de guider les utilisateurs de SimFin dans l’utilisation de celui-ci.
+Les étapes d’utilisation sont présentées dans un premier temps et
+un exemple de notebook/script est ensuite proposé afin de servir de point de départ aux utilisateurs pour le lancement de simulations et l’analyse des résultats.
+
 Étapes
 ===========
 
-1) Lancement des simulations
+1) Lancement de la simulation
 *********************************
 
-On détermine la dernière année de simulation : ::
+Tout d'abord, il est suggéré de définir l’année de fin de la simulation dans un objet comme suit: ::
 
   end_yr = 2030
 
-On simule le modèle : ::
+Il est ensuite possible de lancer la simulation à l'aide des deux commandes suivantes: ::
 
-  x = simfin.simulator(2020,end_yr+1)
-  x.simulate(end_yr+1-2020)
+  x = simfin.simulator(2021,end_yr+1)
+  x.simulate(end_yr+1-2021)
+
+La première commande crée un gabarit permettant notamment de stocker les résultats propres à la simulation
+et la deuxième commande lance la simulation à proprement dire.
+L'année de départ de la simulation est fixée à 2021 (année fiscale 2020-2021), puisque celle-ci correspond à l'année la plus récente pour laquelle les comptes publics sont disponibles.
 
 2) Analyse des résultats
 *********************************
 
-L'ensemble des résultats du modèle sont localisés dans un Pandas DataFrame : ::
+Une fois la simulation terminée, l'ensemble des résultats du modèle est stocké dans un tableau (Pandas dataframe).
+Il est possible d'afficher la version française de ce tableau à l'aide de la commande suivante: ::
+
+  x.summary_fr
+
+ou la version anglaise à l'aide de la commande suivante: ::
 
   x.summary
 
-Exemples
-============
+Exemple
+=======
 
-Simulation de base
-*******************
+Cet exemple de notebook permet de se familiariser avec l'utilisation de SimFin en produisant une simulation de base.
 
-Cet exemple de notebook avec Google Colab permet de se familiariser avec l'utilisation de Simgen en produisant une simulation
-de base. Ensuite, ce notebook peut facilement être adapté à des besoins plus particuliers.
+**Téléchargement du notebook:**
 
-Cliquez :download:`ici <https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft>`
+Cliquez :download:`ici <https://drive.google.com/file/d/16oXTY3f_kmbU7Mo_9ER6IeEiET1WXUk8/view?usp=sharing>`, puis cliquez sur télécharger.
 
+**Accès au notebook via Google Colab*:**
 
-Modification hypothèses
-**************************
+Cliquez ici: |ImageLink3|_
 
-Cliquez :download:`ici <https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft>`
+.. |ImageLink3| image:: https://colab.research.google.com/assets/colab-badge.png
+.. _ImageLink3: https://colab.research.google.com/drive/1mvo91Cu1wkQm8O13eM4ESlHSLKMrPEK8#scrollTo=X9Cqu-TB4Kft
+
+Il est à noter qu’il est nécessaire de posséder un compte Google pour utiliser Google Colab.

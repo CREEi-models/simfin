@@ -1,11 +1,11 @@
 Intrants
---------
+-----------
 
-SimFin mobilise plusieurs intrants :
+SimFin mobilise plusieurs intrants:
 
-1) Les `projections de population <https://creei-models.github.io/simfin/intrants.html#projections-demographiques>`_ par caractéristiques socio-démographiques sont celles issues du modèle `SimGen <https://creei-models.github.io/simgen/index.html>`_ de la chaire CREEI. Les caractéristiques socio-démographiques intègrent l'âge, le genre, le fait d'être ou non en études, le niveau d'éducation, le fait d'être en couple ou non et le nombre d'enfants.
-2) Les `profils économiques <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_ par âge et en fonction des caractéristiques socio-démographiques sont calculées à partir de la BDSPS.
-3) Les `comptes publics du Québec <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_ sont colligés entre 2006 et 2020. Ils sont utiles à plusieurs titres : 1) pour déterminer la croissance passée de chaque poste; 2) pour déterminer la valeur de départ du modèle pour chaque poste en 2020.
+1) Les `projections de population <https://creei-models.github.io/simfin/intrants.html#projections-demographiques>`_ par caractéristiques socio-démographiques sont celles issues du modèle `SimGen <https://creei-models.github.io/simgen/index.html>`_ de la CREEi. Les caractéristiques socio-démographiques intègrent l'âge, le genre, le fait d'être ou non aux études, le niveau de scolarité, le fait d'être en couple ou non et le nombre d'enfants.
+2) Les `profils économiques <https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age>`_ par âge et en fonction des caractéristiques socio-démographiques sont calculés à partir de la BDSPS.
+3) Les `comptes publics du Québec <https://creei-models.github.io/simfin/intrants.html#comptes-publics>`_ sont colligés entre 2006 (année fiscale 2005-2006) et 2021 (année fiscale 2020-2021). Les comptes publics pour l'année 2021 n'étant pas encore publiés, nous avons utilisé les informations issues du `budget 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf>`_ pour colliger les comptes de cette année-là. les comptes publics sont utiles pour déterminer: a) la croissance passée de chaque poste; b) la valeur de départ du modèle pour chaque poste en 2021 (année fiscale 2020-2021).
 
 Projections démographiques
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -13,23 +13,23 @@ Projections démographiques
 Scénario de référence de SimGen
 ===============================
 
-Par défaut, le scénario de projection démographique correspond au scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Ce scénario concorde avec le scénario de référence de l'Institut de la Statistique du Québec, comme montré dans la première figure, qui compare les projections du modèle `SimGen <https://creei-models.github.io/simgen>`_ et de `l'ISQ <https://www.stat.gouv.qc.ca/statistiques/population-demographie/perspectives/perspectives-2016-2066.pdf>`_.
+Par défaut, le scénario de projection démographique correspond au scénario de référence de `SimGen <https://creei-models.github.io/simgen>`_. Ce scénario concorde avec le scénario de référence de l'Institut de la statistique du Québec (ISQ), comme montré dans la première figure, qui compare les projections du modèle `SimGen <https://creei-models.github.io/simgen>`_ et de `l'ISQ <https://statistique.quebec.ca/fr/fichier/perspectives-demographiques-du-quebec-et-des-regions-2016-2066-edition-2019.pdf>`_.
 
 .. figure:: figure/pop_total.png
     :alt: test
     :scale: 100%
     :align: center
 
-`SimGen <https://creei-models.github.io/simgen>`_ inclut des projections de population en fonction de plusieurs caractéristiques: l'âge, le sexe, le statut matrimonial (en couple ou célibataire), le nombre d'enfants, le fait d'être ou non en études, le plus haut niveau de diplôme obtenu.
+`SimGen <https://creei-models.github.io/simgen>`_ inclut des projections de population en fonction de plusieurs caractéristiques: l'âge, le sexe, l'état matrimonial (en couple ou célibataire), le nombre d'enfants, le fait d'être ou non aux études, le plus haut diplôme obtenu.
 
-La deuxième figure présente les résultats de projections par niveau de scolarité (plus haut niveau de diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans et ayant terminé ses études. L'évolution du niveau de scolarité est déterminante pour les simulations réalisées avec SimFin, car il influence les revenus et les dépenses d'éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes de 25 à 64 ans ayant un niveau d'études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 34,9% en 2040, la part des personnes avec un niveau d'études secondaires ou inférieur devrait diminuer de 38,3% à 26,0% sur la même période. Dans le même temps la part des personnes avec un diplôme d'études collégiales augmenterait faiblement, soit de 36,3% à 39,1%.
+La deuxième figure présente les résultats de projections par niveau de scolarité (plus haut diplôme obtenu) entre 2017 et 2040 pour la population âgée de 25 à 64 ans. L'évolution du niveau de scolarité est déterminante pour les simulations réalisées avec SimFin, car elle influence les revenus et les dépenses d'éducation, qui sont eux-mêmes déterminants des niveaux de taxations. Alors que la part des personnes âgées de 25 à 64 ans ayant un niveau d'études universitaires (baccalauréat ou plus) devrait augmenter significativement, de 25,4% en 2017 à 35,5% en 2040, la part des personnes avec un niveau d'études secondaires ou inférieur devrait diminuer de 38,3% à 25,8% sur la même période. Dans le même temps la part des personnes avec un diplôme d'études collégiales augmenterait faiblement, soit de 36,3% à 38,7%.
 
 .. figure:: figure/educ.png
     :alt: test
     :scale: 100%
     :align: center
 
-La troisième figure présente la répartition de la population par classes d'âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2017 à 49,3% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 26,0% sur la même période. Le ratio de dépendance démographique qui divise le nombre de personnes âgées de 65 et plus par la population âgée de 25 à 64 ans devrait augmenter significativement d'ici 20 ans. Alors que ce ratio serait de 0,36 en 2020, il devrait atteindre 0,53 en 2040.
+La troisième figure présente la répartition de la population par groupes d'âge. Alors que la part de la population âgée entre 25 et 64 ans devrait diminuer de 54,6% en 2017 à 51,3% en 2040, la part de la population âgée de 65 ans et plus devrait augmenter de 18,4% à 26,2% sur la même période.
 
 .. figure:: figure/agegrp.png
     :alt: test
@@ -39,33 +39,33 @@ La troisième figure présente la répartition de la population par classes d'â
 Scénario alternatifs
 ====================
 
-Il est possible de modifier le scénario de référence établit par défaut dans SimFin. Pour ce faire, l'utilisateur doit modifier la référence au fichier de sortie dans la fonction load_params() de SimFin afin de proposer son propre scénario de projection.
+Il est possible de modifier le scénario de référence utilisé par défaut dans SimFin. Pour ce faire, l'utilisateur doit modifier la référence au fichier de sortie dans la fonction load_params() de SimFin afin de proposer son propre scénario de projection.
 
 Profils économiques par âge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Nous utilisons la `BDSPS <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_ de Statistiques Canada (2017) afin de modéliser huit profils économiques listés ci-bas.
+Nous utilisons la `BDSPS <https://www.statcan.gc.ca/fra/microsimulation/bdmsps/bdmsps>`_ de Statistique Canada (2017) afin de modéliser huit profils économiques listés ci-après (taux d'emploi, heures travaillées etc.).
 
-   Pour chaque profil économique, nous réalisons des régressions indépendantes pour chaque niveau d'éducation :
+Pour chaque profil économique (qui constitue la variable dépendante), nous réalisons des régressions indépendantes pour chaque niveau de scolarité:
 
-   .. list-table:: Niveaux d'éducation
+   .. list-table:: Niveaux de scolarité
       :widths: 75 75
       :header-rows: 1
 
       * - Variable
         - Description
       * - *insch*
-        - en études.
+        - Études en cours.
       * - *none*
-        - inférieur à un diplôme d'études secondaires.
+        - Ne détient pas de diplôme d'études secondaires.
       * - *des*
-        - diplôme d'études secondaires ou études partielles à l'université ou au collège communautaire.
+        - Détient un diplôme d'études secondaires.
       * - *dec*
-        - diplôme d'études d'un collège communautaire.
+        - Détient un diplôme d'études collégiales.
       * - *uni*
-        - supérieur ou égal à un diplôme de baccalauréat.
+        - Détient un diplôme universitaire supérieur ou égal au baccalauréat.
 
-   Les variables de contrôle différent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivantes :
+Les variables de contrôle diffèrent en fonction des régressions réalisées. Les intitulés des variables référencées dans la suite de la page sont les suivants:
 
    .. list-table:: Variables de contrôle
       :widths: 75 75
@@ -74,33 +74,33 @@ Profils économiques par âge
       * - Variable
         - Description
       * - *age*
-        - âge de l'individu.
+        - Âge de l'individu.
       * - *male*
-        - variable indicatrice égale à 1 si l'individu est un homme, 0 sinon.
+        - Variable indicatrice égale à 1 si l'individu est un homme, 0 sinon.
       * - *married*
-        - variable indicatrice égale à 1 si l'individu est en couple, 0 s'il est célibataire.
+        - Variable indicatrice égale à 1 si l'individu est en couple, 0 s'il est célibataire.
       * - *kid1, kid2, kid3*
-        - variable indicatrice égale à 1 si l'individu a 1,2 ou 3 enfants et plus, 0 sinon.
+        - Variables indicatrices égales à 1 si l'individu a respectivement 1, 2 ou 3 enfants et plus, 0 sinon.
       * - *nkids*
-        - nombre d'enfants de l'individu de 0 à 3 et plus.
+        - Nombre d'enfants de l'individu, de 0 à 3 et plus.
       * - *age55p*
-        - égal à l'âge de l'individu si il (elle) est âgé(e) de plus de 55 ans, 0 sinon.
+        - Égal à l'âge de l'individu s'il est âgé de plus de 55 ans, 0 sinon.
 
 Taux d'emploi
 =============
 
-La probabilité d'être en emploi 'emp' est estimée à l'aide d'un modèle probit.
+La probabilité d'être en emploi est estimée à l'aide d'un modèle probit.
 
-Le modèle probit pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 70 ans. L'incidence des variables de contrôle sur la probabilité :math:`z` d'être en emploi est donnée par l'équation suivante :
+Le modèle probit pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé pour la population âgée entre 18 et 70 ans. L'incidence des variables de contrôle sur la probabilité :math:`z` d'être en emploi est donnée par l'équation suivante:
 
 .. math:: P(z = 1) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} age_{i}^3 + \beta_{4} age_{i}^4
 .. math:: + \beta_{5} kid1_{i} + \beta_{6} kid2_{i} + \beta_{7} kid3_{i} + \beta_{8} married_{i} + \epsilon
 
-Le modèle probit pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans. L'incidence des variables de contrôle sur la probabilité :math:`z` d'être en emploi est donnée par l'équation suivante :
+Le modèle probit pour les individus n'ayant pas terminé leurs études (*insch*) est estimé pour les individus de 18 à 35 ans. L'incidence des variables de contrôle sur la probabilité :math:`z` d'être en emploi est donnée par l'équation suivante:
 
 .. math:: P(z = 1) = \beta_{0} + \beta_{1} age1_{i} + \beta_{2} age2_{i} + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon
 
-La figure 1 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_emp' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'emp' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/emp.png
   :alt: test
@@ -110,17 +110,17 @@ La figure 1 compare les résultats des régressions (coefficients des régressio
 Heures travaillées
 ==================
 
-Les heures travaillées (conditionnelles au fait de travailler) sont estimées à partir d'un modèle de régression linéaire.
+Les heures travaillées (conditionnellement au fait de travailler) sont estimées à partir d'un modèle de régression linéaire.
 
-Le modèle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 70 ans :
+Le modèle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé pour la population âgée entre 18 et 70 ans:
 
 .. math:: y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \epsilon
 
-Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans :
+Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé pour les individus de 18 à 35 ans:
 
 .. math:: y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon
 
-La figure 2 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_hours_c' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'hours_c' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/hours.png
   :alt: test
@@ -132,25 +132,25 @@ Revenus de travail
 
 Les revenus du travail (conditionnels au fait de travailler) sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré.
 
-Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés entre 18 et 70 ans :
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont estimés pour la population âgée entre 18 et 70 ans:
 
 .. math:: log(y_{i}) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i} + \epsilon
 .. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age_{i} + \beta_{2} age_{i}^2 + \beta_{3} kid1_{i} + \beta_{4} kid2_{i} + \beta_{5} kid3_{i} + \beta_{6} married_{i} + \beta_{7} male_{i} + \epsilon
 
-Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés entre 18 et 35 ans :
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*) sont estimés pour les individus de 18 à 35 ans:
 
 .. math:: log(y_{i}) = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i} + \epsilon
 .. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \beta_{6} male_{i} + \epsilon
 
-Les estimées de la première équation nous permettent de calculer l’espérance conditionnelle (mu) de log(y). La variance conditionnelle (sigma au carré) de log(y) est calculée en utilisant la formule suivante :
+Les estimations de la première équation nous permettent de calculer l’espérance conditionnelle (:math:`\mu`) de :math:`log(y)`. La variance conditionnelle (:math:`\sigma^2`) de :math:`log(y)` est calculée en utilisant la formule suivante:
 
 .. math:: Var(log(y)) = E(log(y)^2) - E(log(y))^2.
 
-En faisant l’hypothèse que la variable y est log-normale nous obtenons une prédiction de l’espérance de y :
+En faisant l’hypothèse que la variable :math:`y` est log-normale, nous obtenons une prédiction de l’espérance de :math:`y`:
 
 .. math:: E(y) = exp(\mu+(\sigma^2)/2)
 
-La figure 3 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_earn_c' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'earn_c' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/earn_c.png
   :alt: test
@@ -162,7 +162,7 @@ Dépenses de consommation des ménages
 
 Les dépenses de consommation sont estimées à partir d'une régression logarithmique et d'une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus n'ayant pas terminé leurs études (*insch*) sont identiques aux variables utilisées pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) correspondent aux variables utilisées pour les revenus du travail auxquelles sont ajoutées les variables :math:`age^3` et :math:`age^4`. De plus, la classe d'âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d'âge est de 70 ans et plus pour les revenus du travail.
 
-La figure 4 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_cons' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'cons' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/cons.png
   :alt: test
@@ -172,18 +172,18 @@ La figure 4 compare les résultats des régressions (coefficients des régressio
 Revenu imposable résiduel, ne provenant pas du travail
 ======================================================
 
-Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l'impôt sur le revenu auxquels sont déduits les revenus du travail. Ils sont estimés à partir d'une régression linéaire.
+Les revenus imposables résiduels correspondent aux revenus imposables aux fins de l'impôt sur le revenu desquels sont déduits les revenus du travail. Ils sont estimés à partir d'une régression linéaire.
 
-Le modèle  pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé entre 18 et 90 ans :
+Le modèle  pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) est estimé pour la population âgée entre 18 et 90 ans:
 
 .. math:: y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} +
 .. math:: \beta_{5} married_{i} + \beta_{6} age55p_{i} + \beta_{7} (age55p_{i})^2 + \epsilon
 
-Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé entre 18 et 35 ans :
+Le modèle pour les individus n'ayant pas terminé leurs études (*insch*) est estimé pour les individus de 18 à 35 ans:
 
 .. math:: y_{i} = \beta_{0} + \beta_{1} age_{i} + \beta_{2} kid1_{i} + \beta_{3} kid2_{i} + \beta_{4} kid3_{i} + \beta_{5} married_{i} + \epsilon
 
-La figure 5 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_taxinc' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'taxinc' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/taxinc.png
   :alt: test
@@ -193,9 +193,9 @@ La figure 5 compare les résultats des régressions (coefficients des régressio
 Impôt des particuliers
 ======================
 
-Les impôts des particuliers sont estimées en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l'impôt des particuliers. Les impôts des particuliers sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d'âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d'âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n'ayant pas terminé leurs études (*insch*) sont :math:`married` et :math:`male`.
+L'impôt des particuliers est estimé en proportion du revenu imposable. Pour calculer cet impôt il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite pour l'impôt des particuliers. Les impôts des particuliers sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d'âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d'âge est de 70 ans et plus pour les revenus du travail. Les variables de contrôle pour les individus n'ayant pas terminé leurs études (*insch*) sont :math:`married` et :math:`male`.
 
-La figure 6 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_personal_taxes' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'personal_taxes' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/personal_taxes.png
   :alt: test
@@ -207,29 +207,31 @@ Taxes à la consommation
 
 Les taxes à la consommation sont estimées en proportion de la consommation. Pour calculer ces taxes il faut donc multiplier la valeur prédite de la consommation par la valeur prédite des taxes à la consommation. Les taxes à la consommation sont estimées à partir d'une régression logarithmique et d'une régression logarithmique au carré, tel que présenté pour les revenus du travail. Les variables de contrôle pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*) sont identiques aux variables utilisées pour les revenus du travail. De plus, la classe d'âge supérieure est de 90 ans et plus pour les individus ayant terminé leurs études, alors que cette classe d'âge est de 70 ans et plus pour les revenus du travail. La variable de contrôle pour les individus n'ayant pas terminé leurs études (*insch*) est :math:`male`.
 
-La figure 7 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_cons_taxes' dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (indiqués 'cons_taxes' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (*insch*, *none*, *des*, *dec* et *uni*) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/cons_taxes.png
   :alt: test
   :scale: 100%
   :align: center
 
-Crédits remboursables : soutien aux enfants du Québec et frais de garde d'enfants pour le Québec
+Crédits remboursables: soutien aux enfants du Québec et frais de garde d'enfants pour le Québec
 ================================================================================================
 
-Les crédits remboursables intègrent le crédit d'impôt remboursable pour le soutien aux enfants du Québec et le crédit d'impôt remboursable pour frais de garde d'enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d'éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d'éducation (*none*, *des*, *dec* et *uni*) et en fonction du genre (*femme* et *homme*).
+Les crédits remboursables intègrent le crédit d'impôt remboursable pour le soutien aux enfants du Québec et le crédit d'impôt remboursable pour frais de garde d'enfants pour le Québec. Les crédits remboursables sont estimés en proportion du revenu imposable. Pour calculer les crédits remboursables il faut donc multiplier la valeur prédite du revenu imposable par la valeur prédite des crédits remboursables. Les crédits remboursables sont estimés à partir d'une régression logarithmique et d'une régression logarithmique au carré. En ajout des régressions effectuées en fonction de la dimension d'éducation, les crédits remboursables sont estimés également en fonction du genre. Au final, les régressions sont estimées pour les crédits remboursables en fonction des cinq dimensions d'éducation (*insch*, *none*, *des*, *dec* et *uni*) et en fonction du genre (*femme* et *homme*).
 
-Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés entre 18 et 85 ans :
+Les modèles pour les individus ayant terminé leurs études (*none*, *des*, *dec* et *uni*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés pour la population âgée entre 18 et 85 ans:
 
-.. math:: log(y_{i}) = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i} + \epsilon
-.. math:: log(y_{i})^2 = \beta_{0} + \beta_{3} kid1_{i} * married_{i} + \beta_{4} kid2_{i} * married_{i} + \beta_{5} kid3_{i} * married_{i} + \beta_{6} married_{i} + \epsilon
+.. math:: log(y_{i}) = \beta_{0} + \beta_{1} kid1_{i} * married_{i} + \beta_{2} kid2_{i} * married_{i}
+.. math:: + \beta_{3} kid3_{i} * married_{i} + \beta_{4} married_{i} + \epsilon
+.. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} kid1_{i} * married_{i} + \beta_{2} kid2_{i} * married_{i}
+.. math:: + \beta_{3} kid3_{i} * married_{i} + \beta_{4} married_{i} + \epsilon
 
-Les modèles pour les individus n'ayant pas terminé leurs études (*insch*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés entre 18 et 35 ans :
+Les modèles pour les individus n'ayant pas terminé leurs études (*insch*, pour les femmes d'un côté et pour les hommes de l'autre) sont estimés les individus de 18 à 35 ans:
 
 .. math:: log(y_{i}) = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon
 .. math:: log(y_{i})^2 = \beta_{0} + \beta_{1} male_{i} + \beta_{2} nkids_{i} + \beta_{3} married_{i} + \epsilon
 
-La figure 8 compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, indiqués 'p_credit_famille' dans la légende) aux profils moyens par âge et par catégorie (*insch* / *True* -hommes-, *none* / *True* -hommes-, *des* / *True* -hommes-, *dec* / *True* -hommes-, *uni* / *True* -hommes-, *insch* / *False* -femmes-, *none* / *False* -femmes-, *des* / *False* -femmes-, *dec* / *False* -femmes- et *uni* / *False* -femmes-) calculés directement avec la BDSPS (indiqués 'credit_famille' dans la légende).
+La figure ci-dessous compare les résultats des régressions (coefficients des régressions appliqués aux données de la BDSPS, identifiés par "regression" dans la légende) aux profils moyens par âge et par catégorie (par niveau de scolarité et fréquentation scolaire, 'educ', et par genre: masculin si homme = True et féminin si homme = False) calculés directement avec la BDSPS (identifiés comme "raw data" dans la légende).
 
 .. figure:: figure/credit_famille.png
   :alt: test
@@ -239,58 +241,43 @@ La figure 8 compare les résultats des régressions (coefficients des régressio
 Comptes publics
 ^^^^^^^^^^^^^^^
 
-Nomenclature
-============
+Pour toutes les années de 2006 à 2021, nous avons colligé les données des comptes publics pour les éléments suivants
+(les éléments des comptes pour l'année 2021 correspondent aux données du `budget 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf>`_.
+Des ajustements aux comptes on été réalisés en 2021 pour prendre en compte les impacts de la COVID-19 sur les dépenses des missions et sur les transferts fédéraux. Voir l'onglet consacré aux `effets de la COVID-19 <https://creei-models.github.io/simfin/covid.html>`_).
+A noter également qu'en 2021 le changement d’application de la norme comptable sur les paiements de transfert et la provision pour risques économiques et autres mesures de soutien et de relance qui sont présentés dans le `budget 2021-2022 <http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf>`_ n'ont pas été pris en compte.
 
-Pour toutes les années de 2006 à 2020, nous avons colligé les données des comptes publics pour les éléments suivants (les éléments des comptes pour l'année 2020 correspondent aux données du `Plan budgétaire du Québec <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf>`_ publié en mars 2020, corrigées avec le `Portrait de la situation
-économique et financière <http://www.budget.finances.gouv.qc.ca/budget/portrait_juin2020/fr/documents/Portrait_financier_QC_Juin2020.pdf>`_ publié en juin 2020, faisant suite à l'émergence de la crise de la COVID-19) :
+Revenus autonomes provenant des:
 
-Revenus provenant des :
+- impôts et crédits remboursables des particuliers (39,1% des revenus autonomes en 2021, selon les comptes publics présentés en bas de page);
+- impôts et crédits remboursables des entreprises (8,9%);
+- taxes à la consommation (22,6%);
+- cotisations au Fonds des services de santé (FSS; 7,2%);
+- entreprises du gouvernement (4,4%);
+- droits et permis (4,9%);
+- impôts fonciers scolaires (1,3%);
+- autres revenus autonomes (11,7%).
 
-- impôts et crédits remboursables des particuliers (34,7% des revenus autonomes en 2019, selon les comptes publics présentés en bas de page);
-- impôts et crédits remboursables des entreprises (10%);
-- taxes à la consommation (22,9%);
-- cotisations au fonds des services de santé (FSS; 6,9%);
-- entreprises du gouvernement (6,1%);
-- droits et permis (4,8%);
-- impôts fonciers scolaires (2%);
-- autres taxes (12,6%).
+Revenus provenant des transfers fédéraux:
 
-Revenus provenant des transfers fédéraux :
+- péréquation (43,8% de l'ensemble des transferts fédéraux en 2021);
+- transferts en santé (22,5%);
+- autres transferts (33,8%).
 
-- péréquation (50,7% de l'ensemble des transferts fédéraux en 2019);
-- transferts en santé (27,3%);
-- autres transferts (22%).
+Dépenses pour les missions:
 
-Dépenses provenant des missions :
+- santé et services sociaux (43,2% de l'ensemble des dépenses de missions en 2021);
+- éducation et culture (22,5%);
+- soutien aux familles (9,3%);
+- économie et environnement (15,4%);
+- gouverne et justice (9,6%).
 
-- santé et services sociaux (42,5% de l'ensemble des dépenses des missions en 2019);
-- éducation et culture (24,4%);
-- soutien aux familles (10,3%);
-- économie et environnement (15,1%);
-- gouverne et justice (7,7%).
+Les comptes publics intègrent également les dépenses au titre du service de la dette.
 
-Les comptes publics intègrent également les dépenses provenant du service de la dette.
+Par ailleurs, nous modélisons le Fonds des générations (il est prévu que le Fonds soit liquidé en 2026 dans SimFin), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionnels qui permettent de prendre en compte la dette brute.
 
-Par ailleurs, nous modélisons le fonds des générations (sa liquidation étant prévue en 2025), la réserve de stabilisation ainsi que la dette publique. Pour la dette publique, nous modélisons les comptes additionels qui permettent de prendre en compte la dette brute.
+Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2021 (la barre déroulante en bas du tableau permet de naviguer entre les années).
 
-Le tableau suivant montre les résultats provenant de cette classification entre 2015 et 2019 (la barre déroulante en bas du tableau permet de naviguer entre les années):
-
-.. csv-table:: Classification des comptes publics 2015-2019
-   :widths: 8, 3, 3, 3, 3, 3
-   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019"
+.. csv-table:: Classification des comptes publics 2015-2021
+   :widths: 8, 3, 3, 3, 3, 3, 3, 3
+   :header: "Comptes (en millions)", "2015", "2016", "2017", "2018", "2019", "2020", "2021"
    :file: table/historical_accounts.csv
-
-Outils
-======
-
-Deux classes servent de gabarit pour les comptes publics, soit les classes account et accounts. Tous les comptes publics utilisent ce gabarit.
-
-.. currentmodule:: simfin.tools
-
-.. autoclass:: account
-   :members: grow, reset
-
-
-.. autoclass:: accounts
-   :members: sum, grow, reset
