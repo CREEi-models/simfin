@@ -335,7 +335,7 @@ On a:
 
 .. math:: \Delta DB_t = \Delta D_t + \Delta R_t - \Delta FDG_t
 
-Nous avons par ailleurs (voir tableau G.4 du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=35>`_):
+Nous avons par ailleurs (voir tableau G.4 du `budget 2020-2021 <http://www.budget.finances.gouv.qc.ca/budget/2020-2021/fr/documents/PlanBudgetaire_2021.pdf#page=382>`_):
 
 .. math:: \Delta DB_t = \Delta PPA_t + \Delta I_t+ \Delta A_t - SB_t - contrib\_FDG_t
 
