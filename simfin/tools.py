@@ -1,3 +1,4 @@
+import pandas as pd
 
 class account:
     '''
@@ -12,19 +13,17 @@ class account:
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,iprice=False,others=None):
-        self.value = value
-        self.start_value = value
-        self.igdp = igdp
-        self.iprice = iprice
-        self.ipop = ipop
+    def __init__(self,start_value,e_trend=0.0,e_cycle=0.0):
+        self.start_value = start_value
+        self.value = self.start_value
+        self.e_trend = e_trend
+        self.e_cycle = e_cycle
         return
-    def grow(self,macro,pop,eco,others=None):
-        rate = 1.0 + macro.infl
-        if self.igdp:
-            rate += macro.gr_Y
-        if self.ipop:
-            rate += macro.gr_N
+    def grow(self,macro,pop,eco,tax):
+        rate = 1.0 + macro.inflrate + self.e_trend * (macro.gr_Yp -
+                    macro.inflrate) + self.e_cycle * (macro.gr_Y - macro.gr_Yp)
+        # add other components to growth here
+        # apply growth
         self.value *= rate
         return
     def reset(self):
@@ -37,17 +36,24 @@ class accounts:
     '''
     def __init__(self,base,group_name,others=None):
         self.account_names = []
-        for attr, value in base.items():
-            self.account_names.append(attr)
-            account_class = getattr(group_name,attr)
-            setattr(self,attr,account_class(value,others=others))
+        for i in base.index:
+            self.account_names.append(i)
+            account_class = getattr(group_name,i)
+            setattr(self,i,account_class(base.loc[i,'start_value'],base.loc[
+                i,'e_trend'],base.loc[i,'e_cycle']))
         return
     def sum(self):
         return sum([getattr(self, acc).value for acc in self.account_names])
-    def grow(self,macro,pop,eco,others=None):
+    def init_report(self,start_yr):
+        self.report = pd.DataFrame(index=self.account_names,columns=[start_yr])
+    def report_back(self,yr):
+        data = [getattr(self, acc).value for acc in self.account_names]
+        self.report[yr] = data
+        return
+    def grow(self,macro,pop,eco,tax):
         for acc_name in self.account_names:
             acc = getattr(self, acc_name)
-            acc.grow(macro,pop,eco,others)
+            acc.grow(macro,pop,eco,tax)
             setattr(self,acc_name,acc)
         return
     def reset(self):

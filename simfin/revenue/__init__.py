@@ -5,7 +5,8 @@ from .fss import fss
 from .gov_enterprises import gov_enterprises 
 from .permits import permits
 from .personal_taxes import personal_taxes 
-from .personal_credits import personal_credits 
+from .personal_credits_other import personal_credits_other
+from .personal_credits_family import personal_credits_family
 from .property_taxes import property_taxes 
 from .miscellaneous_income import miscellaneous_income
 from .collector import collector

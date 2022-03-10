@@ -11,17 +11,4 @@ class economy(account):
     ipop: boolean
         Switch pour intégrer ou non la croissance de la population.
     '''
-    def __init__(self,value,igdp=True,ipop=False,others=None):
-        self.value = value
-        self.start_value = value
-        self.igdp = igdp
-        self.ipop = ipop
-        return
-    def grow(self,macro,pop,eco,others=None):
-        rate = 1.0 + macro.infl
-        if self.igdp:
-            rate += macro.gr_Yp
-        if self.ipop:
-            rate += macro.gr_N
-        self.value *= rate
-        return
+    pass
