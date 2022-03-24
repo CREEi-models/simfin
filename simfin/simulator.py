@@ -5,7 +5,7 @@ import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
 import time
-from simfin import profiler, macro, revenue
+from simfin import profiler, macro, revenue, missions
 
 class simulator:
     """
@@ -32,6 +32,7 @@ class simulator:
         self.set_profiles()
         self.set_macro(stochastic)
         self.init_revenue()
+        self.init_missions()
         return 
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
@@ -65,15 +66,31 @@ class simulator:
                                                          self.start_yr-1]]
         current_revenue_accounts.columns = ['e_trend','e_cycle','start_value']
         self.revenue = revenue.collector(current_revenue_accounts,revenue)
-        self.profiles.tax = self.revenue.consumption.set_align(self.pop[
+        self.profiles.tax['cons_tax_rate'] = self.revenue.consumption.set_align(self.pop[
                                                              self.start_yr-1],
                                            self.profiles.eco,self.profiles.tax)
-        self.profiles.tax = self.revenue.personal_taxes.set_align(self.pop[
+        self.profiles.tax['personal_tax_rate'] = self.revenue.personal_taxes.set_align(self.pop[
                                                                       self.start_yr-1],
                                               self.profiles.eco,self.profiles.tax)
-        self.profiles.tax = self.revenue.personal_credits_family.set_align(
-            self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
+        self.profiles.tax['family_credits_rate'] = self.revenue.personal_credits_family.set_align(
+                                                    self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.revenue.init_report(self.start_yr)
+        return
+    def init_missions(self):
+        """Fonction d'initialisation des dépenses de missions
+
+        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+
+        """
+        self.hist_missions = pd.read_excel(
+            module_dir+'/simfin/missions/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_missions.set_index('account',inplace=True)
+        current_missions_accounts = self.hist_missions[['e_trend','e_cycle',
+                                                         self.start_yr-1]]
+        current_missions_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.missions = missions.collector(current_missions_accounts,missions)
+        self.missions.init_report(self.start_yr)
         return
     def next(self):
         self.profiles.update()
@@ -86,6 +103,7 @@ class simulator:
         while (self.year < self.stop_yr):
             self.next()
             self.revenue.report_back(self.year)
+            self.missions.report_back(self.year)
             self.year += 1
         return 
     def reset(self):
