@@ -33,20 +33,20 @@ class simulator:
         self.set_macro(stochastic)
         self.init_revenue()
         self.init_missions()
-        return 
+        return
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
-            self.pop = pop 
+            self.pop = pop
         else :
             self.pop = pd.read_csv(module_dir+file_pop,sep=';')
         self.pop = self.pop.set_index(['age', 'educ','insch','male','nkids','married'])
         self.pop = self.pop[[str(x) for x in range(self.start_yr-1,
                                                    self.stop_yr+1)]]
         self.pop.columns = [int(x) for x in self.pop.columns]
-        return 
+        return
     def set_profiles(self):
         self.profiles = profiler(self.pop.index)
-        return 
+        return
     def set_macro(self,stochastic):
         self.macro = macro(self.start_yr,self.stop_yr,stochastic)
         self.profiles.eco = self.macro.set_align(self.pop[self.start_yr-1],
@@ -66,13 +66,13 @@ class simulator:
                                                          self.start_yr-1]]
         current_revenue_accounts.columns = ['e_trend','e_cycle','start_value']
         self.revenue = revenue.collector(current_revenue_accounts,revenue)
-        self.profiles.tax['cons_tax_rate'] = self.revenue.consumption.set_align(self.pop[
+        self.profiles.tax = self.revenue.consumption.set_align(self.pop[
                                                              self.start_yr-1],
                                            self.profiles.eco,self.profiles.tax)
-        self.profiles.tax['personal_tax_rate'] = self.revenue.personal_taxes.set_align(self.pop[
+        self.profiles.tax = self.revenue.personal_taxes.set_align(self.pop[
                                                                       self.start_yr-1],
                                               self.profiles.eco,self.profiles.tax)
-        self.profiles.tax['family_credits_rate'] = self.revenue.personal_credits_family.set_align(
+        self.profiles.tax = self.revenue.personal_credits_family.set_align(
                                                     self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.revenue.init_report(self.start_yr)
         return
@@ -98,15 +98,16 @@ class simulator:
             self.macro.grow(self.year,self.pop[self.year],self.profiles.eco)
             self.revenue.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
-        return 
+            self.missions.grow(self.macro,self.pop[self.year],self.profiles.eco,
+                              self.profiles.tax)
+        return
     def simulate(self):
         while (self.year < self.stop_yr):
             self.next()
             self.revenue.report_back(self.year)
             self.missions.report_back(self.year)
             self.year += 1
-        return 
+        return
     def reset(self):
         self.year = self.start_yr
-        return 
-
+        return

@@ -36,7 +36,7 @@ class education(account):
         self.align = self.value/value
         return
     def grow(self,macro,pop,eco,others=None):
-        rate = 1.0 + macro.infl
+        rate = 1.0 + macro.inflrate
         if self.iprice:
             self.grow_pcap()
         if self.igdp:
