@@ -13,7 +13,7 @@ from simfin import shocks
 
 class macro:
     def __init__(self,start_yr, stop_yr,stochastic=True):
-        self.start_yr = start_yr 
+        self.start_yr = start_yr
         self.stop_yr = stop_yr
         self.stochastic = stochastic
         self.load_aggregates()
@@ -26,7 +26,7 @@ class macro:
         self.set_b10yr_spread()
         self.set_b30yr_spread()
         self.set_infl_rate()
-        return 
+        return
     def load_aggregates(self):
         self.hist_aggr_q = pd.read_excel(
             module_dir+'/simfin/params/macro_q.xlsx',sheet_name='data')
@@ -130,7 +130,7 @@ class macro:
         return
     def set_b1yr_rates(self,current_rate = 0.005,lt_rate=0.01, catch_yr = 2035):
         self.base_b1yr = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
-        self.base_b1yr[self.start_yr] = current_rate 
+        self.base_b1yr[self.start_yr] = current_rate
         slope = (lt_rate - current_rate)/(catch_yr - self.start_yr)
         for yr in range(self.start_yr+1,self.stop_yr):
                 if yr<=catch_yr:
@@ -178,7 +178,7 @@ class macro:
         return
     def set_sp500(self,current_rate = 0.08, lt_rate=0.07,catch_yr = 2025):
         self.base_sp500 = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
-        self.base_sp500[self.start_yr] = current_rate 
+        self.base_sp500[self.start_yr] = current_rate
         slope = (lt_rate - current_rate)/(catch_yr - self.start_yr)
         for yr in range(self.start_yr+1,self.stop_yr):
                 if yr<=catch_yr:
@@ -188,7 +188,7 @@ class macro:
         return
     def set_infl_rate(self,current_rate=0.04,lt_rate=0.02,catch_yr = 2027):
         self.base_inflrate = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
-        self.base_inflrate[self.start_yr] = current_rate 
+        self.base_inflrate[self.start_yr] = current_rate
         slope = (lt_rate - current_rate)/(catch_yr - self.start_yr)
         for yr in range(self.start_yr+1,self.stop_yr):
                 if yr<=catch_yr:
@@ -284,7 +284,7 @@ class macro:
         self.E = E
         # compute total hours worked
         self.H *= (1+self.gr_H)
-        # Employment 
+        # Employment
         self.E = pop.multiply(eco['emp'],fill_value=0.0).sum()
         # create new potentiel and actual GDP
         self.Yp *= (1.0 + self.gr_H_p + self.base_gr_YperH[yr] + self.inflrate)
@@ -296,7 +296,7 @@ class macro:
         self.gr_wage = self.gr_Y - self.gr_H
         # keep in table
         self.to_aggr(yr)
-        return 
+        return
     def to_aggr(self,yr):
         self.aggr.loc[yr,'Y'] = self.Y 
         self.aggr.loc[yr,'Yp'] = self.Yp
@@ -318,5 +318,4 @@ class macro:
         self.aggr.loc[yr,'gr_YperH_p'] = self.gr_YperH_p
         self.aggr.loc[yr,'gr_N'] = self.gr_N
         self.aggr.loc[yr,'gr_E'] = self.gr_E
-        return         
-    
+        return

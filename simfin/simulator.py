@@ -63,17 +63,17 @@ class simulator:
                                     sheet_name='input')
         self.hist_revenue.set_index('account',inplace=True)
         current_revenue_accounts = self.hist_revenue[['e_trend','e_cycle',
-                                                         self.start_yr-1]]
+                                              self.start_yr-1]]
         current_revenue_accounts.columns = ['e_trend','e_cycle','start_value']
         self.revenue = revenue.collector(current_revenue_accounts,revenue)
         self.profiles.tax = self.revenue.consumption.set_align(self.pop[
-                                                             self.start_yr-1],
-                                           self.profiles.eco,self.profiles.tax)
+                                              self.start_yr-1],
+                                              self.profiles.eco,self.profiles.tax)
         self.profiles.tax = self.revenue.personal_taxes.set_align(self.pop[
-                                                                      self.start_yr-1],
+                                              self.start_yr-1],
                                               self.profiles.eco,self.profiles.tax)
         self.profiles.tax = self.revenue.personal_credits_family.set_align(
-                                                    self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
+                                              self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.revenue.init_report(self.start_yr)
         return
     def init_missions(self):
@@ -86,11 +86,25 @@ class simulator:
             module_dir+'/simfin/missions/historical_accounts.xlsx',
                                     sheet_name='input')
         self.hist_missions.set_index('account',inplace=True)
-        current_missions_accounts = self.hist_missions[['e_trend','e_cycle',
-                                                         self.start_yr-1]]
+        current_missions_accounts = self.hist_missions[['e_trend','e_cycle',self.start_yr-1]]
         current_missions_accounts.columns = ['e_trend','e_cycle','start_value']
         self.missions = missions.collector(current_missions_accounts,missions)
+        self.missions.family_kg.set_sub_account(self.macro,self.pop[self.start_yr])
+
+        #self.profiles.tax = self.missions.health.set_align(
+        #                                                self.pop[self.start_yr-1])
+
+        self.profiles.tax = self.missions.family_credit.set_align(
+                                                self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.missions.init_report(self.start_yr)
+
+        #self.profiles.tax = self.missions.health.set_align(
+                #names = ['economy','education','family','health','justice']
+                #mission_accounts = self.history.loc[names,self.start_yr]
+                #self.missions = missions.collector(mission_accounts,missions)
+                #self.missions.health.set_align(self.pop[self.start_yr])
+                #self.missions.education.set_align(self.pop[self.start_yr])
+
         return
     def next(self):
         self.profiles.update()
