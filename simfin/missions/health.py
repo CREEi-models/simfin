@@ -35,16 +35,15 @@ class health(account):
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0 + macro.inflrate
         if self.iprice:
-            tau = (min(macro.year,macro.start_yr+10) - macro.start_yr)/10.0
+            tau = (min(macro.yr,macro.start_yr+10) - macro.start_yr)/10.0
             self.grow_pcap(tau)
-        if self.igdp:
-            rate += macro.gr_Y
+        #if self.igdp:
+    #        rate += self.gr_pop + self.e_trend * macro.gr_YperH_p + self.e_cycle * (macro.gr_Y - macro.gr_Yp)    
         total = pop.groupby(['age','male']).sum()
         self.value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.value *= self.align
         self.value *= rate
         self.align *= rate
-
         return
     def grow_pcap(self,tau):
         rates = self.tcam[self.categories]

@@ -15,6 +15,7 @@ class macro:
     def __init__(self,start_yr, stop_yr,stochastic=True):
         self.start_yr = start_yr
         self.stop_yr = stop_yr
+        self.yr = start_yr
         self.stochastic = stochastic
         self.load_aggregates()
         self.set_shocks()
@@ -297,6 +298,8 @@ class macro:
         self.gr_wage_p = self.gr_Yp - self.gr_H_p
         # keep in table
         self.to_aggr(yr)
+        # grow yr
+        self.yr = yr
         return
     def to_aggr(self,yr):
         self.aggr.loc[yr,'Y'] = self.Y

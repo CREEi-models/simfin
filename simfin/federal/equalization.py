@@ -23,12 +23,12 @@ class equalization(account):
     def grow(self,macro,pop,eco,others=None):
         rate = 1.0
         if self.iprice:
-            rate += macro.infl
+            rate += macro.inflrate
         if self.igdp:
-            rate += macro.gr_Yp
+            rate += self.e_trend * macro.gr_Yp + self.e_cycle * (macro.gr_Y-macro.gr_Yp) - macro.inflrate
         if self.ipop:
             rate += macro.gr_N
-        if rate < 1.03:
-            rate = 1.03
+        #if rate < 1.03:
+        #    rate = 1.03
         self.value *= rate
         return

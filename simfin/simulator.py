@@ -5,7 +5,7 @@ import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
 import time
-from simfin import profiler, macro, revenue, missions
+from simfin import profiler, macro, revenue, missions, federal
 
 class simulator:
     """
@@ -33,6 +33,7 @@ class simulator:
         self.set_macro(stochastic)
         self.init_revenue()
         self.init_missions()
+        self.init_federal()
         return
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
@@ -96,6 +97,21 @@ class simulator:
         self.missions.family_kg.set_sub_account(self.macro,self.pop[self.start_yr])
         self.missions.init_report(self.start_yr)
         return
+    def init_federal(self):
+        """Fonction d'initialisation des dépenses de missions
+
+        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+
+        """
+        self.hist_federal = pd.read_excel(
+            module_dir+'/simfin/federal/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_federal.set_index('account',inplace=True)
+        current_federal_accounts = self.hist_federal[['e_trend','e_cycle',self.start_yr-1]]
+        current_federal_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.federal = federal.collector(current_federal_accounts,federal)
+        self.federal.init_report(self.start_yr)
+        return
     def next(self):
         self.profiles.update()
         if self.year >= self.start_yr:
@@ -104,12 +120,15 @@ class simulator:
                               self.profiles.tax)
             self.missions.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
+            self.federal.grow(self.macro,self.pop[self.year],self.profiles.eco,
+                              self.profiles.tax)
         return
     def simulate(self):
         while (self.year < self.stop_yr):
             self.next()
             self.revenue.report_back(self.year)
             self.missions.report_back(self.year)
+            self.federal.report_back(self.year)
             self.year += 1
         return
     def reset(self):
