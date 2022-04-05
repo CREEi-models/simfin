@@ -10,7 +10,7 @@ class health(account):
     Parameters
     ----------
     igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB.
+        Switch pour intégrer ou non la croissance du PIB réel.
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
@@ -37,8 +37,8 @@ class health(account):
         if self.iprice:
             tau = (min(macro.yr,macro.start_yr+10) - macro.start_yr)/10.0
             self.grow_pcap(tau)
-        #if self.igdp:
-    #        rate += self.gr_pop + self.e_trend * macro.gr_YperH_p + self.e_cycle * (macro.gr_Y - macro.gr_Yp)    
+        if self.igdp:
+            rate += self.e_trend * macro.gr_Yp + self.e_cycle * (macro.gr_Y-macro.gr_Yp) - macro.inflrate
         total = pop.groupby(['age','male']).sum()
         self.value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.value *= self.align
