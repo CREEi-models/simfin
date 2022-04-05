@@ -294,16 +294,18 @@ class macro:
         self.gr_Yp = self.gr_H_p + self.base_gr_YperH[yr] + self.inflrate
         # wage growth
         self.gr_wage = self.gr_Y - self.gr_H
+        self.gr_wage_p = self.gr_Yp - self.gr_H_p
         # keep in table
         self.to_aggr(yr)
         return
     def to_aggr(self,yr):
-        self.aggr.loc[yr,'Y'] = self.Y 
+        self.aggr.loc[yr,'Y'] = self.Y
         self.aggr.loc[yr,'Yp'] = self.Yp
         self.aggr.loc[yr,'N'] = self.N
         self.aggr.loc[yr,'H'] = self.H
         self.aggr.loc[yr,'E'] = self.E
         self.aggr.loc[yr,'gr_wage'] = self.gr_wage
+        self.aggr.loc[yr,'gr_wage_p'] = self.gr_wage_p
         self.aggr.loc[yr,'infl'] = self.inflrate
         self.aggr.loc[yr,'YperH'] = self.Y/self.H
         self.aggr.loc[yr,'sp500'] = self.sp500
