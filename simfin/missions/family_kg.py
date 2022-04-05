@@ -11,26 +11,17 @@ class family_kg(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
-    def __init__(self,value,igdp=True,ipop=False,others=None):
-        self.value = value
-        self.start_value = value
-        self.igdp = igdp
-        self.ipop = ipop
-        return
-
     def set_sub_account(self,macro,pop):
         self.pop_04 = pop.loc[0:4].sum()
         self.start_pop_04 = self.pop_04
 
     def grow(self,macro,pop,eco,tax):
         """
-        Fait croître la consommation par personne au rythme de l'inflation +
-        1/alpha_L * la croissance de la TFP (A) (croissance des salaires).
+        Fait croître les dépenses des services de garde au rythme des salaires nominaux (salaires réels + inflation) + au rythme de de la croissance de la population des 0 à 4 ans.
         """
         pop_04 = pop.loc[0:4].sum()
         gr_pop = (pop_04-self.pop_04)/self.pop_04
         self.pop_04 = pop_04
-        #rate += 1/macro.g_pars.loc['alpha_L',1]*macro.gr_A
-        rate = 1.0 + macro.inflrate + gr_pop
+        rate = 1.0 + gr_pop + self.e_trend * macro.gr_wage_p + self.e_cycle * (macro.gr_wage-macro.gr_wage_p)
         self.value *= rate
         return

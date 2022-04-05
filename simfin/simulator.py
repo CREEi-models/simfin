@@ -89,22 +89,12 @@ class simulator:
         current_missions_accounts = self.hist_missions[['e_trend','e_cycle',self.start_yr-1]]
         current_missions_accounts.columns = ['e_trend','e_cycle','start_value']
         self.missions = missions.collector(current_missions_accounts,missions)
+        self.missions.health.set_align(self.pop[self.start_yr-1])
+        self.missions.education.set_align(self.pop[self.start_yr])
+        self.missions.family_credit.set_align(self.pop[self.start_yr],self.profiles.eco,self.profiles.tax)
+        self.profiles.tax = self.missions.family_credit.set_align(self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.missions.family_kg.set_sub_account(self.macro,self.pop[self.start_yr])
-
-        #self.profiles.tax = self.missions.health.set_align(
-        #                                                self.pop[self.start_yr-1])
-
-        self.profiles.tax = self.missions.family_credit.set_align(
-                                                self.pop[self.start_yr-1],self.profiles.eco,self.profiles.tax)
         self.missions.init_report(self.start_yr)
-
-        #self.profiles.tax = self.missions.health.set_align(
-                #names = ['economy','education','family','health','justice']
-                #mission_accounts = self.history.loc[names,self.start_yr]
-                #self.missions = missions.collector(mission_accounts,missions)
-                #self.missions.health.set_align(self.pop[self.start_yr])
-                #self.missions.education.set_align(self.pop[self.start_yr])
-
         return
     def next(self):
         self.profiles.update()

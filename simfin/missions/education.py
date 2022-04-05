@@ -46,7 +46,6 @@ class education(account):
         self.value = work.multiply(self.pcap,fill_value=0.0).sum()*1e-6
         self.align *= rate
         self.value *= self.align
-
         return
     def grow_pcap(self):
         self.pcap[self.pcap.index<=17] *= (1.0+self.price_hs)
