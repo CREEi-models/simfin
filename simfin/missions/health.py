@@ -37,8 +37,8 @@ class health(account):
         if self.iprice:
             tau = (min(macro.yr,macro.start_yr+10) - macro.start_yr)/10.0
             self.grow_pcap(tau)
-        if self.igdp:
-            rate += self.e_trend * macro.gr_Yp + self.e_cycle * (macro.gr_Y-macro.gr_Yp) - macro.inflrate
+        #if self.igdp:
+        #    rate += self.e_trend * macro.gr_Yp + self.e_cycle * (macro.gr_Y-macro.gr_Yp) - macro.inflrate
         total = pop.groupby(['age','male']).sum()
         self.value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.value *= self.align

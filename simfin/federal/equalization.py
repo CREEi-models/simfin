@@ -10,7 +10,7 @@ class equalization(account):
     iprice: boolean
         Switch pour intégrer ou non la croissance du niveau général des prix.
     igdp: boolean
-        Switch pour intégrer ou non la croissance potentielle du PIB réel.
+        Switch pour intégrer ou non la croissance du PIB réel.
     ipop: boolean
         Switch pour intégrer ou non la croissance de la population.
     '''
