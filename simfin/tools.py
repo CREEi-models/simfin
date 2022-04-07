@@ -3,15 +3,6 @@ import pandas as pd
 class account:
     '''
     Fonction permettant d'intégrer chaque composante des comptes publics.
-
-    Parameters
-    ----------
-    igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
     def __init__(self,start_value,e_trend=0.0,e_cycle=0.0):
         self.start_value = start_value
