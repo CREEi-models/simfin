@@ -21,10 +21,10 @@ class simulator:
         année de fin de la projection
     """
     def __init__(self,start_yr,stop_yr,stochastic=True):
-        if start_yr>2021 :
+        if start_yr>2022 :
             raise ValueError('La simulation doit commencer en 2021 ou avant...')
         else:
-            self.start_yr = 2021
+            self.start_yr = 2022
         self.stop_yr = stop_yr
         self.year = self.start_yr
         self.maxyrs = self.stop_yr - self.start_yr + 1
