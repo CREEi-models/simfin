@@ -4,15 +4,6 @@ from simfin.tools import account
 class equalization(account):
     '''
     Classe permettant d'intégrer les revenus issus de la péréquation et de la formule de financement des territoires (FFT).
-
-    Parameters
-    ----------
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
-    igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB réel.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
     '''
 
     def grow(self,macro,pop,eco,others=None):
@@ -23,6 +14,3 @@ class equalization(account):
             rate = 1.03
         self.value *= rate
         return
-
-
-    pass

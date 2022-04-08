@@ -3,15 +3,6 @@ from simfin.tools import account
 class other_transfers(account):
     '''
     Classe permettant d'intégrer les autres transferts fédéraux.
-
-    Parameters
-    ----------
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
-    igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB réel.
-    ipop: boolean
-        Switch pour intégrer ou non la croissance de la population.
     '''
 
     def grow(self,macro,pop,eco,others=None):
@@ -22,6 +13,3 @@ class other_transfers(account):
             rate = 1.03
         self.value *= rate
         return
-
-
-    pass

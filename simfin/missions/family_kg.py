@@ -3,13 +3,6 @@ from simfin.tools import account
 class family_kg(account):
     '''
     Classe permettant d’intégrer les dépenses des services de garde (mission de Soutien aux familles).
-
-    Parameters
-    ----------
-    igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB.
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
     def set_sub_account(self,macro,pop):
         self.pop_04 = pop.loc[0:4].sum()

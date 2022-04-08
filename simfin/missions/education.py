@@ -6,13 +6,6 @@ module_dir = os.path.dirname(os.path.dirname(__file__))
 class education(account):
     '''
     Classe permettant d’intégrer les dépenses de la mission Éducation et culture.
-
-    Parameters
-    ----------
-    igdp: boolean
-        Switch pour intégrer ou non la croissance du PIB.
-    iprice: boolean
-        Switch pour intégrer ou non la croissance du niveau général des prix.
     '''
     def __init__(self,value,e_trend=0.0,e_cycle=0.0):
         self.value = value
