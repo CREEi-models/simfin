@@ -65,12 +65,12 @@ class simulator:
             'property taxes','autonomous','covid transfers','federal transfers without covid','federal transfers',
             'total revenue','mission health','mission education','mission family','economy','justice','covid spending','mission spending',
             'debt service','total spending','annual surplus','fund contribution','budget balance',
-            'reserve','debt','generation fund','pension debt','gross debt','fund payment','stock placements/others','flow placements','flow others','stock fixed assets','flow fixed assets','gdp','infl','real gdp growth','pop','L','emp','emp2554','hours']
+            'reserve','debt','generation fund','pension debt','gross debt','fund payment','stock placements/others','flow placements','flow others','stock fixed assets','flow fixed assets','gdp','infl','real gdp growth','pop','L','employment','employment 25-54','employment 60-69', 'hours']
         self.noms = ['Impôt des particuliers','Impôt des sociétés','Taxes à la consommation','Revenus divers','Droits et permis','Cotisations au FSS','Entreprises du gouvernement',
             'Impôt foncier scolaire','Revenus autonomes','Transferts fédéraux COVID','Transferts fédéraux hors COVID','Transferts fédéraux',
             'Total des revenus','Santé et services sociaux','Éducation et culture','Soutien aux personnes et aux familles','Économie et environnement','Gouverne et justice','Dépenses COVID','Dépenses des missions',
             'Service de la dette','Total des dépenses','Surplus annuel','Contributions FDG','Solde budgétaire',
-            'Réserve de stabilisation','Dette directe consolidée','Solde FDG','Passif net des régimes de retraite','Dette brute','Retraits FDG','Placements, prêts, avances et autres','Flux placements','Flux autres','Immobilisations','Flux immobilisations','PIB','Inflation','Taux de croissance du PIB réel','Population','L','Emploi','Emploi 25-54','Heures travaillées']
+            'Réserve de stabilisation','Dette directe consolidée','Solde FDG','Passif net des régimes de retraite','Dette brute','Retraits FDG','Placements, prêts, avances et autres','Flux placements','Flux autres','Immobilisations','Flux immobilisations','PIB','Inflation','Taux de croissance du PIB réel','Population','L','Emploi','Emploi 25-54','Emploi 60-69', 'Heures travaillées']
         self.summary = pd.DataFrame(index=self.names,columns=[t for t in range(self.start_report,self.stop_yr)])
         self.summary_fr = pd.DataFrame(index=self.noms,columns=[t for t in range(self.start_report,self.stop_yr)])
         return
@@ -309,8 +309,9 @@ class simulator:
             self.summary.loc['real gdp growth',self.year] = round(self.history.loc['gdp_growth',self.year],4)
             self.summary.loc['infl',self.year] = np.nan
             self.summary.loc['pop',self.year] = int(self.macro.N)
-            self.summary.loc['emp',self.year] = self.macro.employment
-            self.summary.loc['emp2554',self.year] = self.macro.employment_25_54
+            self.summary.loc['employment',self.year] = self.macro.employment
+            self.summary.loc['employment 25-54',self.year] = self.macro.employment_25_54
+            self.summary.loc['employment 60-69',self.year] = self.macro.employment_60_69
             self.summary.loc['L',self.year] = self.macro.L
             self.summary.loc['hours',self.year] = self.macro.hours
             self.summary.loc['reserve',self.year] = self.history.loc['reserve_balance_end',self.year]
@@ -332,8 +333,9 @@ class simulator:
             self.summary.loc['real gdp growth',self.year] = round(self.macro.gr_Y,4)
             self.summary.loc['infl',self.year] = self.macro.infl
             self.summary.loc['pop',self.year] = int(self.macro.N)
-            self.summary.loc['emp',self.year] = self.macro.employment
-            self.summary.loc['emp2554',self.year] = self.macro.employment_25_54
+            self.summary.loc['employment',self.year] = self.macro.employment
+            self.summary.loc['employment 25-54',self.year] = self.macro.employment_25_54
+            self.summary.loc['employment 60-69',self.year] = self.macro.employment_60_69
             self.summary.loc['L',self.year] = self.macro.L
             self.summary.loc['hours',self.year] = self.macro.hours
             self.summary.loc['reserve',self.year] = self.reserve.balance

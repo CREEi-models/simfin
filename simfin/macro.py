@@ -57,6 +57,7 @@ class macro:
         self.align = self.L/L
         self.employment = pop.multiply(eco['emp'],fill_value=0.0).sum()
         self.employment_25_54 = pop.multiply(eco.query('age >= 25 and age <= 54')['emp'],fill_value=0.0).sum()
+        self.employment_60_69 = pop.multiply(eco.query('age >= 60 and age <= 69')['emp'],fill_value=0.0).sum()
         self.hours = pop.multiply(eco['hours_c'],fill_value=0.0).mean() * self.align
         return
     def set_align_cons(self,pop,eco):
@@ -70,6 +71,7 @@ class macro:
         self.L = L
         self.employment = pop.multiply(eco['emp'],fill_value=0.0).sum()
         self.employment_25_54 = pop.multiply(eco.query('age >= 25 and age <= 54')['emp'],fill_value=0.0).sum()
+        self.employment_60_69 = pop.multiply(eco.query('age >= 60 and age <= 69')['emp'],fill_value=0.0).sum()
         self.hours = pop.multiply(eco['hours_c'],fill_value=0.0).mean() * self.align
         Lp = pop.multiply(eco['emp']*eco['hours_c']*self.eff_hours,fill_value=0.0).sum() * self.align
         self.gr_Lp = Lp/ self.Lp-1
