@@ -7,7 +7,9 @@ class education(account):
     '''
     Classe permettant d’intégrer les dépenses de la mission Éducation et culture.
     '''
-    def __init__(self,value,e_trend=0.0,e_cycle=0.0):
+    def __init__(self,value,e_trend=0.0,e_cycle=0.0,start_yr=2022):
+        self.year=start_yr
+        self.future_value = pd.DataFrame()
         self.value = value
         self.start_value = value
         self.pcap_start = pd.read_csv(module_dir+'/params/educ_costs.csv', index_col=0, sep = ';')
@@ -28,8 +30,11 @@ class education(account):
         work = pop[pop.index.get_level_values(2)]
         work = work.groupby('age').sum()
         self.value = work.multiply(self.pcap,fill_value=0.0).sum()*1e-6
-        self.align *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
         self.value *= self.align
+        self.year+=1
         return
     def grow_pcap(self):
         self.pcap[self.pcap.index<=17] *= (1.0+self.price_hs)

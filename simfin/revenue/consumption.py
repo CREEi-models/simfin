@@ -29,5 +29,8 @@ class consumption(account):
         #        macro.gr_Yp - macro.inflrate - macro.gr_H_p), (macro.gr_Y -
         #                                                       macro.gr_Yp),
         #      gr_pop)
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
+        self.year+=1
         return

@@ -1,10 +1,6 @@
+from simfin.tools import accounts
 import numpy as np
-from simfin.tools import account
-import os
-import pandas as pd
-module_dir = os.path.dirname(os.path.dirname(__file__))
-
-class collector:
+class collector(accounts):
     '''
     Fonction permettant de colliger les revenus qui abondent le Fonds des générations.
 
@@ -13,6 +9,18 @@ class collector:
     init_balance: float
         Montant du stock du Fonds des générations l'année d'initialisation du modèle.
     '''
+
+    def __init__(self,base,group_name,others=None,start_yr=2022):
+        self.account_names = []
+
+        for i in base.index:
+            self.account_names.append(i)
+            account_class = getattr(group_name,i)
+            setattr(self,i,account_class(base.loc[i,'start_value'],base.loc[
+                i,'e_trend'],base.loc[i,'e_cycle'],start_yr)) 
+        return
+    
+    ''' 
     def __init__(self,init_balance):
         self.balance = init_balance
         self.init_balance = init_balance
@@ -51,3 +59,4 @@ class collector:
     def reset(self):
         self.balance = self.init_balance
         return
+    '''

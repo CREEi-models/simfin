@@ -11,5 +11,8 @@ class other_transfers(account):
         rate += self.e_trend * macro.gr_Yp + self.e_cycle * (macro.gr_Y-macro.gr_Yp) - macro.inflrate
         if rate < 1.03:
             rate = 1.03
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
+        self.year+=1
         return

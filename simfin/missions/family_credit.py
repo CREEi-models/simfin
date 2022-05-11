@@ -22,5 +22,8 @@ class family_credit(account):
         gr_pop = value/self.core-1.0
         self.core = value
         rate = 1.0 + gr_pop + self.e_trend * macro.gr_wage_p + self.e_cycle * (macro.gr_wage-macro.gr_wage_p)
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
+        self.year+=1
         return

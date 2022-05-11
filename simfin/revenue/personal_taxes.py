@@ -37,5 +37,8 @@ class personal_taxes(account):
         gr_cycle = share_earnings*gr_cycle_earn + (1.0-share_earnings)*gr_cycle_other
         rate = 1.0 + macro.inflrate + gr_pop + self.e_trend*gr_trend + \
                self.e_cycle*gr_cycle
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
+        self.year+=1
         return

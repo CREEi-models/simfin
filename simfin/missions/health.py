@@ -7,7 +7,9 @@ class health(account):
     '''
     Classe permettant d’intégrer les dépenses de la mission Santé et services sociaux.
     '''
-    def __init__(self,value,e_trend=0.0,e_cycle=0.0):
+    def __init__(self,value,e_trend=0.0,e_cycle=0.0,start_yr=2022):
+        self.year=start_yr
+        self.future_value = pd.DataFrame()
         self.value = value
         self.start_value = value
         self.pcap_start = pd.read_csv(module_dir+'/params/health_cihi_pcap.csv', sep = ';')
@@ -30,8 +32,11 @@ class health(account):
         total = pop.groupby(['age','male']).sum()
         self.value = total.multiply(self.pcap['Total'],fill_value=0.0).sum()*1e-6
         self.value *= self.align
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
         self.align *= rate
+        self.year+=1
         return
     def grow_pcap(self,tau):
         rates = self.tcam[self.categories]

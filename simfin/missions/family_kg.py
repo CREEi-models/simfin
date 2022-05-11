@@ -16,5 +16,8 @@ class family_kg(account):
         gr_pop = (pop_04-self.pop_04)/self.pop_04
         self.pop_04 = pop_04
         rate = 1.0 + gr_pop + self.e_trend * macro.gr_wage_p + self.e_cycle * (macro.gr_wage-macro.gr_wage_p)
-        self.value *= rate
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value *= rate
+        self.year+=1
         return

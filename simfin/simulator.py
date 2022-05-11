@@ -5,7 +5,7 @@ import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
 import time
-from simfin import profiler, macro, revenue, missions, federal
+from simfin import profiler, macro, revenue, missions, federal,genfund
 
 class simulator:
     """
@@ -34,6 +34,7 @@ class simulator:
         self.init_revenue()
         self.init_missions()
         self.init_federal()
+        self.init_genfund()
         return
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
@@ -66,7 +67,9 @@ class simulator:
         current_revenue_accounts = self.hist_revenue[['e_trend','e_cycle',
                                               self.start_yr-1]]
         current_revenue_accounts.columns = ['e_trend','e_cycle','start_value']
-        self.revenue = revenue.collector(current_revenue_accounts,revenue)
+        self.revenue = revenue.collector(current_revenue_accounts,revenue,self.start_yr)
+        if self.start_yr in self.hist_revenue:
+            self.revenue.set_future_value(self.hist_revenue,self.revenue,self.start_yr)
         self.profiles.tax = self.revenue.consumption.set_align(self.pop[
                                               self.start_yr-1],
                                               self.profiles.eco,self.profiles.tax)
@@ -89,7 +92,9 @@ class simulator:
         self.hist_missions.set_index('account',inplace=True)
         current_missions_accounts = self.hist_missions[['e_trend','e_cycle',self.start_yr-1]]
         current_missions_accounts.columns = ['e_trend','e_cycle','start_value']
-        self.missions = missions.collector(current_missions_accounts,missions)
+        self.missions = missions.collector(current_missions_accounts,missions,start_yr=self.start_yr)
+        if self.start_yr in self.hist_missions:
+            self.missions.set_future_value(self.hist_missions,self.missions,self.start_yr)
         self.missions.health.set_align(self.pop[self.start_yr-1])
         self.missions.education.set_align(self.pop[self.start_yr])
         self.missions.family_credit.set_align(self.pop[self.start_yr],self.profiles.eco,self.profiles.tax)
@@ -110,8 +115,28 @@ class simulator:
         current_federal_accounts = self.hist_federal[['e_trend','e_cycle',self.start_yr-1]]
         current_federal_accounts.columns = ['e_trend','e_cycle','start_value']
         self.federal = federal.collector(current_federal_accounts,federal)
+        if self.start_yr in self.hist_missions:
+            self.missions.set_future_value(self.hist_missions,self.missions,self.start_yr)
         self.federal.init_report(self.start_yr)
         return
+    
+    def init_genfund(self):
+        """Fonction d'initialisation des dépenses de missions
+        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        """
+        self.hist_genfund = pd.read_excel(
+            module_dir+'/simfin/genfund/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_genfund.set_index('account',inplace=True)
+        current_genfund_accounts = self.hist_genfund[['e_trend','e_cycle',self.start_yr-1]]
+        current_genfund_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.genfund = genfund.collector(current_genfund_accounts,genfund,self.start_yr)
+        
+        if self.start_yr in self.hist_genfund:
+            self.genfund.set_future_value(self.hist_genfund,self.genfund,self.start_yr)
+        
+        self.genfund.init_report(self.start_yr)
+
     def next(self):
         self.profiles.update()
         if self.year >= self.start_yr:
@@ -122,6 +147,8 @@ class simulator:
                               self.profiles.tax)
             self.federal.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
+            self.genfund.grow(self.macro,self.pop[self.year],self.profiles.eco,
+                              self.profiles.tax)
         return
     def simulate(self):
         while (self.year < self.stop_yr):
@@ -129,6 +156,7 @@ class simulator:
             self.revenue.report_back(self.year)
             self.missions.report_back(self.year)
             self.federal.report_back(self.year)
+            self.genfund.report_back(self.year)
             self.year += 1
         return
     def reset(self):

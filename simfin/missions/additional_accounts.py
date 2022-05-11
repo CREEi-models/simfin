@@ -10,4 +10,5 @@ class additional_accounts(account):
 
     def grow(self,macro,pop,eco,others=None):
         self.value = pd.read_csv(module_dir+'/params/additional_accounts.csv', index_col=0, sep = ';').loc['missions',str(macro.yr)]
+        self.year +=1
         return
