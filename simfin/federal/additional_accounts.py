@@ -5,10 +5,14 @@ module_dir = os.path.dirname(os.path.dirname(__file__))
 
 class additional_accounts(account):
     '''
-    Classe permettant d'intégrer les autres transferts fédéraux.
+    Classe permettant d'intégrer les transferts fédéraux additionnels (COVID-19).
     '''
 
-    def grow(self,macro,pop,eco,others=None):
-        self.value = pd.read_csv(module_dir+'/params/additional_accounts.csv', index_col=0, sep = ';').loc['federal',str(macro.yr)]
-        self.year=+1
+    def grow(self,macro,pop,eco,tax):
+        if self.year in self.future_value:
+            self.value = self.future_value[self.year]
+        else : self.value = 0
+        self.year+=1
         return
+
+    pass

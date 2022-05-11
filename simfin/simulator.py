@@ -114,12 +114,12 @@ class simulator:
         self.hist_federal.set_index('account',inplace=True)
         current_federal_accounts = self.hist_federal[['e_trend','e_cycle',self.start_yr-1]]
         current_federal_accounts.columns = ['e_trend','e_cycle','start_value']
-        self.federal = federal.collector(current_federal_accounts,federal)
-        if self.start_yr in self.hist_missions:
-            self.missions.set_future_value(self.hist_missions,self.missions,self.start_yr)
+        self.federal = federal.collector(current_federal_accounts,federal, start_yr=self.start_yr)
+        if self.start_yr in self.hist_federal:
+            self.federal.set_future_value(self.hist_federal,self.federal,self.start_yr)
         self.federal.init_report(self.start_yr)
         return
-    
+
     def init_genfund(self):
         """Fonction d'initialisation des dépenses de missions
         Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
@@ -131,10 +131,10 @@ class simulator:
         current_genfund_accounts = self.hist_genfund[['e_trend','e_cycle',self.start_yr-1]]
         current_genfund_accounts.columns = ['e_trend','e_cycle','start_value']
         self.genfund = genfund.collector(current_genfund_accounts,genfund,self.start_yr)
-        
+
         if self.start_yr in self.hist_genfund:
             self.genfund.set_future_value(self.hist_genfund,self.genfund,self.start_yr)
-        
+
         self.genfund.init_report(self.start_yr)
 
     def next(self):
