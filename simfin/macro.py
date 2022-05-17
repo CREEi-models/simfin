@@ -22,6 +22,9 @@ class macro:
         self.set_gr_YperH_rates()
         self.set_infl_rate()
         self.set_sp500()
+        self.set_fix_income()
+        self.set_real_assets()
+        self.set_shares()
         self.set_b1yr_rates()
         self.set_b5yr_spread()
         self.set_b10yr_spread()
@@ -40,6 +43,10 @@ class macro:
         self.Y = self.hist_aggr_yr.loc[self.start_yr-1,'Y']
         self.Yp = self.Y
         self.N = self.hist_aggr_yr.loc[self.start_yr-1,'N']
+        self.start_fix_income = self.hist_aggr_yr.loc[2005:2018,'fix_income'].mean()
+        self.start_real_assets = self.hist_aggr_yr.loc[2005:2018,'real_assets'].mean()
+        self.start_shares = self.hist_aggr_yr.loc[2005:2018,'return_shares'].mean()
+
         # workers in thousands (put back in numbers)
         self.E = self.hist_aggr_yr.loc[self.start_yr-1,'E']*1e3
         # use 2020 hours worked, sum over all 4 quarters
@@ -48,7 +55,7 @@ class macro:
                                  columns=['Y','Yp','H','E','N','infl',
                                           'YperH','sp500','b1yr','b5yr',
                                           'b10yr','b30yr','gr_wage','gr_Y',
-                                          'gr_H','gr_Yp','gr_YperH'])
+                                          'gr_H','gr_Yp','gr_YperH','r_fixinc','r_rassets','r_shares'])
         return
     def set_align(self,pop,eco):
         E = pop.multiply(eco['emp'],fill_value=0.0).sum()
@@ -187,6 +194,64 @@ class macro:
                 else :
                     self.base_sp500[yr] = lt_rate
         return
+    def set_real_assets(self, current_rate = None, lt_rate=None, catch_yr = None):
+        self.base_real_assets = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
+        if (current_rate is not None):
+            self.base_real_assets[self.start_yr] = current_rate
+        else :
+            self.base_real_assets[self.start_yr] = self.start_real_assets
+        if (lt_rate is not None and catch_yr is not None):
+            slope = (lt_rate - self.base_real_assets[self.start_yr])/(catch_yr - self.start_yr)
+        else : slope = 0
+        if slope!=0:
+            for yr in range(self.start_yr+1,self.stop_yr):
+                    if yr<=catch_yr:
+                        self.base_real_assets[yr] = self.base_real_assets[self.start_yr] + slope*(yr - self.start_yr)
+                    else :
+                        self.base_real_assets[yr] = lt_rate
+        else:
+            for yr in range(self.start_yr+1,self.stop_yr):  
+                self.base_real_assets[yr] =  self.base_real_assets[self.start_yr]
+        return         
+    def set_shares(self, current_rate = None, lt_rate=None, catch_yr = None):
+        self.base_shares = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
+        if (current_rate is not None):
+            self.base_shares[self.start_yr] = current_rate
+        else :
+            self.base_shares[self.start_yr] = self.start_shares
+        if (lt_rate is not None and catch_yr is not None):
+            slope = (lt_rate - self.base_shares[self.start_yr])/(catch_yr - self.start_yr)
+        else : slope = 0
+        if slope!=0:
+            for yr in range(self.start_yr+1,self.stop_yr):
+                    if yr<=catch_yr:
+                        self.base_shares[yr] = self.base_shares[self.start_yr] + slope*(yr - self.start_yr)
+                    else :
+                        self.base_shares[yr] = lt_rate
+        else:
+            for yr in range(self.start_yr+1,self.stop_yr):  
+                self.base_shares[yr] =  self.base_shares[self.start_yr]         
+        return    
+    def set_fix_income(self, current_rate = None, lt_rate=None, catch_yr = None):
+        self.base_fix_income = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
+        if (current_rate is not None):
+            self.base_fix_income[self.start_yr] = current_rate
+        else :
+            self.base_fix_income[self.start_yr] = self.start_fix_income
+        if (lt_rate is not None and catch_yr is not None):
+            slope = (lt_rate - self.base_fix_income[self.start_yr])/(catch_yr - self.start_yr)
+        else : slope = 0
+        if slope!=0:
+            for yr in range(self.start_yr+1,self.stop_yr):
+                    if yr<=catch_yr:
+                        self.base_fix_income[yr] = self.base_fix_income[self.start_yr] + slope*(yr - self.start_yr)
+                    else :
+                        self.base_fix_income[yr] = lt_rate
+        else:
+            for yr in range(self.start_yr+1,self.stop_yr):  
+                self.base_fix_income[yr] =  self.base_fix_income[self.start_yr]         
+        return
+
     def set_infl_rate(self,current_rate=0.04,lt_rate=0.02,catch_yr = 2027):
         self.base_inflrate = pd.Series(index=np.arange(self.start_yr,self.stop_yr))
         self.base_inflrate[self.start_yr] = current_rate
@@ -238,6 +303,33 @@ class macro:
             sp500_c = np.zeros(4)
         sp500 = np.product([(1.0+sp500_t + sp500_c[q]) for q in range(4)])
         self.sp500 = sp500-1
+        # Shares returns
+        shares_t = (1+self.base_shares[yr])**(1/4)-1
+        if self.stochastic:
+            shares_c = shocks.loc['sp500',:].to_numpy()
+        else :
+            shares_c = np.zeros(4)
+        shares = np.product([(1.0+shares_t + shares_c[q]) for q in range(4)])
+        self.return_shares = shares-1
+
+        # Reals assets returns
+        assets_t = (1+self.base_real_assets[yr])**(1/4)-1
+        if self.stochastic:
+            assets_c = shocks.loc['sp500',:].to_numpy()
+        else :
+            assets_c = np.zeros(4)
+        assets = np.product([(1.0+assets_t + assets_c[q]) for q in range(4)])
+        self.return_real_assets = assets-1
+        
+        # Fix income returns
+        fixinc_t = (1+self.base_fix_income[yr])**(1/4)-1
+        if self.stochastic:
+            fixinc_c = shocks.loc['b1yr',:].to_numpy()
+        else :
+            fixinc_c = np.zeros(4)
+        fixinc = np.product([(1.0+fixinc_t + fixinc_c[q]) for q in range(4)])
+        self.return_fix_incomes = fixinc-1
+
         # b1yr returns
         b1yr_t = self.base_b1yr[yr]
         if self.stochastic:
@@ -316,6 +408,9 @@ class macro:
         self.aggr.loc[yr,'b5yr'] = self.b5yr
         self.aggr.loc[yr,'b10yr'] = self.b10yr
         self.aggr.loc[yr,'b30yr'] = self.b30yr
+        self.aggr.loc[yr,'r_shares'] = self.return_shares
+        self.aggr.loc[yr,'r_rassets'] = self.return_real_assets
+        self.aggr.loc[yr,'r_fixinc'] = self.return_fix_incomes
         self.aggr.loc[yr,'gr_Y'] = self.gr_Y
         self.aggr.loc[yr,'gr_Yp'] = self.gr_Yp
         self.aggr.loc[yr,'gr_H'] = self.gr_H

@@ -1,5 +1,6 @@
 from simfin.tools import accounts
 import numpy as np
+import pandas as pd
 class collector(accounts):
     '''
     Fonction permettant de colliger les revenus qui abondent le Fonds des générations.
@@ -11,6 +12,8 @@ class collector(accounts):
     '''
 
     def __init__(self,base,group_name,others=None,start_yr=2022):
+        self.value = 12210
+        self.market_value = 16049
         self.account_names = []
 
         for i in base.index:
@@ -19,7 +22,32 @@ class collector(accounts):
             setattr(self,i,account_class(base.loc[i,'start_value'],base.loc[
                 i,'e_trend'],base.loc[i,'e_cycle'],start_yr)) 
         return
+    def grow(self,macro,pop,eco,tax):
+        for acc_name in self.account_names:
+            if acc_name != 'placements':
+                acc = getattr(self, acc_name)
+                acc.grow(macro,pop,eco,tax)
+                setattr(self,acc_name,acc)
+            else :
+                self.placements.grow(macro,self.value,self.market_value)
+        self.value += self.sum()
+        self.market_value += self.sum() - self.placements.value + self.placements.market_value
+        return
     
+    def draw(self,amount):
+        self.value -=amount
+        return
+    
+    def init_report(self,start_yr):
+        self.report = pd.DataFrame(index=[*self.account_names,"Valeur comptable","Valeur de marché"],columns=[start_yr])
+    
+    def report_back(self,yr):
+        data = [getattr(self, acc).value for acc in self.account_names]
+        data.append(self.value)
+        data.append(self.market_value)
+
+        self.report[yr] = data
+        return    
     ''' 
     def __init__(self,init_balance):
         self.balance = init_balance

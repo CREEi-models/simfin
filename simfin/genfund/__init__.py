@@ -4,4 +4,5 @@ from .hydro_additionnal import hydro_additionnal
 from .hydro_indexation import hydro_indexation
 from .miscellaneous import miscellaneous_income
 from .permits import permits
+from .placements import placements
 from .collector import collector
