@@ -5,7 +5,7 @@ import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
 import time
-from simfin import profiler, macro, revenue, missions, federal,genfund
+from simfin import profiler, macro, revenue, missions, federal, genfund, balance, reserve
 
 class simulator:
     """
@@ -35,6 +35,8 @@ class simulator:
         self.init_missions()
         self.init_federal()
         self.init_genfund()
+        self.init_balance()
+        self.init_reserve()
         return
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
@@ -137,6 +139,40 @@ class simulator:
 
         self.genfund.init_report(self.start_yr)
 
+    def init_balance(self):
+        """Fonction d'initialisation du surplus annuel et du solde budgétaire avant réserve de stabilisation
+        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        """
+        self.hist_balance = pd.read_excel(
+            module_dir+'/simfin/balance/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_balance.set_index('account',inplace=True)
+        current_balance_accounts = self.hist_balance[['e_trend','e_cycle',self.start_yr-1]]
+        current_balance_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.balance = balance.collector(current_balance_accounts,balance,self.start_yr)
+
+        if self.start_yr in self.hist_balance:
+            self.balance.set_future_value(self.hist_balance,self.balance,self.start_yr)
+
+        self.balance.init_report(self.start_yr)
+
+    def init_reserve(self):
+        """Fonction d'initialisation de la réserve de stabilisation et du solde budgétaire après réserve de stabilisation 
+        Fonction qui crée les comptes de missions et les initialise avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        """
+        self.hist_reserve = pd.read_excel(
+            module_dir+'/simfin/reserve/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_reserve.set_index('account',inplace=True)
+        current_reserve_accounts = self.hist_reserve[['e_trend','e_cycle',self.start_yr-1]]
+        current_reserve_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.reserve = reserve.collector(current_reserve_accounts,reserve,self.start_yr)
+
+        if self.start_yr in self.hist_reserve:
+            self.reserve.set_future_value(self.hist_reserve,self.reserve,self.start_yr)
+
+        self.reserve.init_report(self.start_yr)
+
     def next(self):
         self.profiles.update()
         if self.year >= self.start_yr:
@@ -149,6 +185,8 @@ class simulator:
                               self.profiles.tax)
             self.genfund.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
+            self.balance.grow(self.revenue.sum(),self.missions.sum(),self.federal.sum(), self.genfund.sum())
+            self.reserve.grow(getattr(self.balance.budget_balance,'value'),self.reserve.reserve_balance.value)
         return
     def simulate(self):
         while (self.year < self.stop_yr):
@@ -157,6 +195,8 @@ class simulator:
             self.missions.report_back(self.year)
             self.federal.report_back(self.year)
             self.genfund.report_back(self.year)
+            self.balance.report_back(self.year)
+            self.reserve.report_back(self.year)
             self.year += 1
         return
     def reset(self):
