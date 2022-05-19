@@ -183,6 +183,8 @@ class simulator:
                               self.profiles.tax)
             self.federal.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
+            self.genfund.grow(self.macro,self.pop[self.year],self.profiles.eco,
+                              self.profiles.tax)
             self.balance.grow(self.revenue.sum(),self.missions.sum(),self.federal.sum(), self.genfund.sum())
             self.reserve.grow(getattr(self.balance.budget_balance,'value'),self.reserve.reserve_balance.value)
         return
