@@ -9,11 +9,6 @@ module_dir = os.path.dirname(os.path.dirname(__file__))
 class collector(accounts):
     '''
     Fonction permettant de colliger la réserve de stabilisation et le solde après réserve de stabilisation.
-
-    Parameters
-    ----------
-    init_balance: float
-        Montant du stock sur la réserve de stabilisation l'année d'initialisation du modèle.
     '''
 
     def grow(self,balance,reserve):
