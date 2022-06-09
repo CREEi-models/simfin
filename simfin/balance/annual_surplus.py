@@ -8,7 +8,7 @@ class annual_surplus(account):
     Classe permettant de calculer le surplus annuel.
     ''' 
     
-    def grow(self,revenue,missions,federal,other=None):
-        self.value = revenue + federal - missions #- debt_interest
+    def grow(self,revenue,missions,federal,genfund,interest):
+        self.value = revenue + federal - missions - interest
         self.year+=1
         return 

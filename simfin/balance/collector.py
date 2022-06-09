@@ -9,9 +9,9 @@ class collector(accounts):
     Fonction permettant de colliger les surplus annuel, du solde budgétaire.
 
     '''
-    def grow(self,revenue,missions,federal,genfund):
+    def grow(self,revenue,missions,federal,genfund,interest):
         for acc_name in self.account_names:
             acc = getattr(self, acc_name)
-            acc.grow(revenue,missions,federal,genfund)
+            acc.grow(revenue,missions,federal,genfund,interest)
             setattr(self,acc_name,acc)
         return
