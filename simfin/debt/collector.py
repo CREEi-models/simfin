@@ -24,10 +24,10 @@ class collector(accounts):
         self.debt_structure.set_index(['term','remaining_yr','type'],inplace=True)
         return
     
-    def grow(self,balance,delta_placements,delta_others,delta_fixed_assets,delta_pension,delta_genfund,genfund_repay):
+    def grow(self,balance,immobilization,investments,others_factors,delta_pension,delta_genfund,genfund_repay):
         for acc_name in self.account_names:
             acc = getattr(self, acc_name)
-            acc.grow(balance,delta_placements,delta_others,delta_fixed_assets,delta_pension,delta_genfund,genfund_repay)
+            acc.grow(balance,immobilization,investments,others_factors,delta_pension,delta_genfund,genfund_repay)
             setattr(self,acc_name,acc)
         return
 
