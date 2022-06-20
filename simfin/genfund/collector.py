@@ -35,7 +35,9 @@ class collector(accounts):
         return
     
     def draw(self,amount):
+        self.market_value -=amount
         self.value -=amount
+        self.placements.capital_gain = (1-self.value/self.market_value)*amount
         return
     
     def init_report(self,start_yr):
