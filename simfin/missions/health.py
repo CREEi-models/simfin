@@ -41,6 +41,7 @@ class health(account):
     def grow_pcap(self,tau):
         rates = self.tcam[self.categories]
         total = self.tcam['Total']
+        self.pcap = self.pcap.copy()
         for c in self.categories:
             rates.loc[:,c] = (1.0-tau)*rates.loc[:,c] + tau*total
             self.pcap[c] = self.pcap[c] * (1.0 + rates[c])
