@@ -1,0 +1,6 @@
+variable,value
+fix_incomes_share,.4
+real_assets_share,.15
+shares_share,.45
+ratio_book_value_return,.45
+ratio_std_fix_assets_sp500,1.25

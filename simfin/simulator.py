@@ -136,7 +136,7 @@ class simulator:
         self.genfund = genfund.collector(current_genfund_accounts,genfund,self.start_yr)
 
         if self.start_yr in self.hist_genfund:
-            self.genfund.set_future_value(self.hist_genfund,self.genfund,self.start_yr)
+            self.genfund.set_future_value(self.hist_genfund.iloc[:-2,:],self.genfund,self.start_yr)
         self.genfund.placements.capital_gain=0
         self.genfund.init_report(self.start_yr)
         return

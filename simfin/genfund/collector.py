@@ -12,11 +12,10 @@ class collector(accounts):
     '''
 
     def __init__(self,base,group_name,others=None,start_yr=2022):
-        self.value = 12210
-        self.market_value = 16049
+        self.value = base.loc['book_value','start_value']
+        self.market_value = base.loc['market_value','start_value']
         self.account_names = []
-
-        for i in base.index:
+        for i in base.iloc[:-2,:].index:
             self.account_names.append(i)
             account_class = getattr(group_name,i)
             setattr(self,i,account_class(base.loc[i,'start_value'],base.loc[

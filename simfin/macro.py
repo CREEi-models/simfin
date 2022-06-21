@@ -47,6 +47,10 @@ class macro:
         self.start_real_assets = self.hist_aggr_yr.loc[2005:2018,'real_assets'].mean()
         self.start_shares = self.hist_aggr_yr.loc[2005:2018,'return_shares'].mean()
 
+        #Ratio of variance between real_asset and S&P500
+        params = pd.read_csv(module_dir+'/simfin/genfund/params.csv')
+        params = params.set_index(['variable']).transpose()
+        self.ratio_std_fix_assets_sp500 = params['ratio_std_fix_assets_sp500'].value
         # workers in thousands (put back in numbers)
         self.E = self.hist_aggr_yr.loc[self.start_yr-1,'E']*1e3
         # use 2020 hours worked, sum over all 4 quarters
@@ -315,7 +319,7 @@ class macro:
         # Reals assets returns
         assets_t = (1+self.base_real_assets[yr])**(1/4)-1
         if self.stochastic:
-            assets_c = shocks.loc['sp500',:].to_numpy()
+            assets_c = shocks.loc['sp500',:].to_numpy()*self.ratio_std_fix_assets_sp500
         else :
             assets_c = np.zeros(4)
         assets = np.product([(1.0+assets_t + assets_c[q]) for q in range(4)])
