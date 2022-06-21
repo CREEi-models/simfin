@@ -38,7 +38,7 @@ class collector(accounts):
         #print(self.interests_value)
         return 
 
-    def structure_update(self,macro,delta_direct_debt,year,share_1yr=0.1,share_5yr=0.1,share_10yr=0.70,share_30yr=0.1):
+    def structure_update(self,macro,delta_direct_debt,year,share_1yr=0.05,share_5yr=0.2,share_10yr=0.50,share_30yr=0.25):
         loan_need = delta_direct_debt + self.debt_structure[year-1].loc[5,1,'value'] + self.debt_structure[year-1].loc[10,1,'value'] + self.debt_structure[year-1].loc[30,1,'value']
 
         self.debt_structure[year] = self.debt_structure.groupby(['term','type'])[year-1].shift(-1)
