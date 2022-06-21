@@ -5,7 +5,7 @@ import os
 module_dir = os.path.dirname(os.path.dirname(__file__))
 import functools
 import time
-from simfin import profiler, macro, revenue, missions, federal, debt, genfund, balance, reserve
+from simfin import profiler, macro, revenue, missions, federal, debt, genfund, balance, reserve, nonbud_op
 
 class simulator:
     """
@@ -34,10 +34,11 @@ class simulator:
         self.init_revenue()
         self.init_missions()
         self.init_federal()
-        self.init_debt()
+        self.init_nonbud_op()
         self.init_genfund()
         self.init_balance()
         self.init_reserve()
+        self.init_debt()
         return
     def set_pop(self,pop=None,file_pop='/simfin/params/simpop.csv'):
         if pop!=None:
@@ -140,6 +141,24 @@ class simulator:
         self.genfund.placements.capital_gain=0
         self.genfund.init_report(self.start_yr)
         return
+    def init_nonbud_op(self):
+        """Fonction d'initialisation des opérations non-budgétaires
+        Fonction qui crée les comptes des opérations non-budgétaires avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
+        """
+        self.hist_nonbud_op = pd.read_excel(
+            module_dir+'/simfin/nonbud_op/historical_accounts.xlsx',
+                                    sheet_name='input')
+        self.hist_nonbud_op.set_index('account',inplace=True)
+
+        current_nonbud_op_accounts = self.hist_nonbud_op[['e_trend','e_cycle',self.start_yr-1]]
+        current_nonbud_op_accounts.columns = ['e_trend','e_cycle','start_value']
+        self.nonbud_op = nonbud_op.collector(current_nonbud_op_accounts,nonbud_op,self.start_yr)
+
+        if self.start_yr in self.hist_nonbud_op:
+            self.nonbud_op.set_future_value(self.hist_nonbud_op,self.nonbud_op,self.start_yr)
+
+        self.nonbud_op.init_report(self.start_yr)
+        return
     def init_debt(self):
         """Fonction d'initialisation de la dette
         Fonction qui crée les comptes de la dette avec valeur de départ provenant de l'historique des comptes publics pour l'année de départ.
@@ -204,23 +223,23 @@ class simulator:
                               self.profiles.tax)
             self.genfund.grow(self.macro,self.pop[self.year],self.profiles.eco,
                               self.profiles.tax)
+            #self.pension.grow()
 
             self.debt.interests(self.year)
             self.balance.grow(self.revenue.sum(),self.missions.sum(),self.federal.sum(), self.genfund.sum(),self.debt.interest_value)
             self.reserve.grow(getattr(self.balance.budget_balance,'value'),self.reserve.reserve_balance.value)
 
-            #self.placements.grow()
-            #self.fixed_assets.grow()
-            #self.pension.grow()
+            self.nonbud_op.grow(self.macro,self.pop[self.year],self.profiles.eco,
+                              self.profiles.tax)
 
             if self.year > self.start_yr:   
-                delta_genfund = self.genfund.value-self.genfund.report.loc['Valeur comptable',self.year-1]
-                delta_direct_debt = self.genfund.value-self.genfund.report.loc['Valeur comptable',self.year-1]
+                contrib_genfund = self.genfund.value-self.genfund.report.loc['Valeur comptable',self.year-1]
+                delta_direct_debt = self.debt.direct_debt.value-self.debt.report.loc['direct_debt',self.year-1]
             else:
-                delta_genfund = self.genfund.value - 12210
-                delta_direct_debt = self.hist_debt.loc['direct_debt',self.year-1]
+                contrib_genfund = self.genfund.value - 12210
+                delta_direct_debt = self.debt.direct_debt.value-self.hist_debt.loc['direct_debt',self.start_yr-1]
 
-            self.debt.grow(getattr(self.balance.budget_balance,'value'),0,0,0,0,delta_genfund,0)
+            self.debt.grow(self.balance.budget_balance.value,self.nonbud_op.immobilization.value,self.nonbud_op.investments.value,self.nonbud_op.others.value,0,contrib_genfund,0)
             self.debt.structure_update(self.macro,delta_direct_debt, self.year)
         return
     def simulate(self):
@@ -229,6 +248,7 @@ class simulator:
             self.revenue.report_back(self.year)
             self.missions.report_back(self.year)
             self.federal.report_back(self.year)
+            self.nonbud_op.report_back(self.year)
             self.debt.report_back(self.year)
             self.genfund.report_back(self.year)
             self.balance.report_back(self.year)
