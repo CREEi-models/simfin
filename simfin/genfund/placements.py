@@ -19,13 +19,23 @@ class placements(account):
         self.year = start_yr
         return
     def grow(self,macro,total_asset,market_value):
-        fix_incomes = self.params['fix_incomes_share'].value * total_asset
-        real_assets = self.params['real_assets_share'].value * total_asset
-        shares = self.params['shares_share'].value * total_asset
+        fix_incomes = self.params['fix_incomes_share'].value * market_value
+        real_assets = self.params['real_assets_share'].value * market_value
+        shares = self.params['shares_share'].value * market_value
         self.market_value = (fix_incomes*macro.return_fix_incomes + 
                       real_assets*macro.return_real_assets + 
                       shares*macro.return_shares)
-        self.value = self.market_value * self.params['ratio_book_value_return'].value + self.capital_gain
+        self.market_value_return_lag_2 = self.market_value_return_lag_1 
+        self.market_value_return_lag_1 = self.market_value_return
+        self.market_value_return = self.market_value/market_value
+
+
+        book_value_rate =(self.params['book_value_return_present'].value * self.market_value_return + 
+                          self.params['book_value_return_l1'].value * self.market_value_return_lag_1 +
+                          self.params['book_value_return_l2'].value * self.market_value_return_lag_2 +
+                          self.params['book_value_return_constant'].value)
+        
+        self.value = total_asset * book_value_rate + self.capital_gain
         self.capital_gain = 0
         pass
 

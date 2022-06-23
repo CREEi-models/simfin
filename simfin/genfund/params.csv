@@ -2,5 +2,8 @@ variable,value
 fix_incomes_share,.4
 real_assets_share,.15
 shares_share,.45
-ratio_book_value_return,.45
+book_value_return_present,.383
+book_value_return_l1,.2535795
+book_value_return_l2,.1237232
+book_value_return_constant,-.0175361
 ratio_std_fix_assets_sp500,1.25

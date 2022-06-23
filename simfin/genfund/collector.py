@@ -15,12 +15,13 @@ class collector(accounts):
         self.value = base.loc['book_value','start_value']
         self.market_value = base.loc['market_value','start_value']
         self.account_names = []
-        for i in base.iloc[:-2,:].index:
+        for i in base.iloc[:-4,:].index:
             self.account_names.append(i)
             account_class = getattr(group_name,i)
             setattr(self,i,account_class(base.loc[i,'start_value'],base.loc[
                 i,'e_trend'],base.loc[i,'e_cycle'],start_yr)) 
         return
+        
     def grow(self,macro,pop,eco,tax):
         for acc_name in self.account_names:
             if acc_name != 'placements':
