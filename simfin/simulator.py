@@ -137,8 +137,12 @@ class simulator:
         self.genfund = genfund.collector(current_genfund_accounts,genfund,self.start_yr)
 
         if self.start_yr in self.hist_genfund:
-            self.genfund.set_future_value(self.hist_genfund.iloc[:-2,:],self.genfund,self.start_yr)
+            self.genfund.set_future_value(self.hist_genfund.iloc[:-4,:],self.genfund,self.start_yr)
         self.genfund.placements.capital_gain=0
+        self.genfund.placements.market_value_return_lag_2 = self.hist_genfund.loc['market_value_return',self.start_yr-3]
+        self.genfund.placements.market_value_return_lag_1 = self.hist_genfund.loc['market_value_return',self.start_yr-2]
+        self.genfund.placements.market_value_return = self.hist_genfund.loc['market_value_return',self.start_yr-1]
+
         self.genfund.init_report(self.start_yr)
         return
     def init_nonbud_op(self):

@@ -13,7 +13,7 @@ class miscellaneous_income(account):
         # add other components to growth here
         # apply growth
         if self.year in self.future_value:
-            self.value = self.future_value[self.year]
+            self.value = self.future_value[self.year]+self.value*(self.e_cycle * (macro.gr_Y - macro.gr_Yp))
         else : self.value *= rate
         self.year+=1
         return     
