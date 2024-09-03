@@ -9,7 +9,7 @@ Bertrand Achou, Yann Décarie, Raquel Fonseca, Pierre-Carl Michaud et Julien Nav
 Personne-contact
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Julien Navaux <mailto:julien.navaux@hec.ca>`_
+`Nicholas-James Clavet <mailto:nicholas-james.clavet@hec.ca>`_
 
 Liste d’envoi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

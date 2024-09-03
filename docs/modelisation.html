@@ -1,95 +1,50 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Simulation &amp; fonctions &mdash; Documentation SimFin </title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d1a510d7"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=041d0952"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Résultats" href="results.html" />
     <link rel="prev" title="Intrants" href="intrants.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> SimFin
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            SimFin
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Menu:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Menu:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilisation.html">Utilisation</a></li>
@@ -97,116 +52,152 @@
 <li class="toctree-l1"><a class="reference internal" href="covid.html">Effets de la COVID-19</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intrants.html">Intrants</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation &amp; fonctions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#simulateur">Simulateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulateur">Simulateur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simfin.simulator"><code class="docutils literal notranslate"><span class="pre">simulator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.collect_revenue"><code class="docutils literal notranslate"><span class="pre">simulator.collect_revenue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.collect_spending"><code class="docutils literal notranslate"><span class="pre">simulator.collect_spending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_debt"><code class="docutils literal notranslate"><span class="pre">simulator.init_debt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_gfund"><code class="docutils literal notranslate"><span class="pre">simulator.init_gfund()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_missions"><code class="docutils literal notranslate"><span class="pre">simulator.init_missions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_reserve"><code class="docutils literal notranslate"><span class="pre">simulator.init_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_revenue"><code class="docutils literal notranslate"><span class="pre">simulator.init_revenue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.init_transfers"><code class="docutils literal notranslate"><span class="pre">simulator.init_transfers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.load_accounts"><code class="docutils literal notranslate"><span class="pre">simulator.load_accounts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.load_params"><code class="docutils literal notranslate"><span class="pre">simulator.load_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.next"><code class="docutils literal notranslate"><span class="pre">simulator.next()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.simulator.simulate"><code class="docutils literal notranslate"><span class="pre">simulator.simulate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#revenus">Revenus</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#revenus-autonomes">Revenus autonomes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#impot-des-societes">Impôt des sociétés</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cotisations-au-fss">Cotisations au FSS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#droits-et-permis">Droits et permis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#entreprises-du-gouvernement">Entreprises du gouvernement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#impot-foncier-scolaire">Impôt foncier scolaire</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#revenus-divers">Revenus divers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#transferts-federaux">Transferts fédéraux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#revenus-autonomes">Revenus autonomes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#impot-des-particuliers">Impôt des particuliers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.personal_taxes"><code class="docutils literal notranslate"><span class="pre">personal_taxes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.personal_credits"><code class="docutils literal notranslate"><span class="pre">personal_credits</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#impot-des-societes">Impôt des sociétés</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.corporate_taxes"><code class="docutils literal notranslate"><span class="pre">corporate_taxes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.corporate_credits"><code class="docutils literal notranslate"><span class="pre">corporate_credits</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cotisations-au-fss">Cotisations au FSS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.fss"><code class="docutils literal notranslate"><span class="pre">fss</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#taxes-a-la-consommation">Taxes à la consommation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.consumption"><code class="docutils literal notranslate"><span class="pre">consumption</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#droits-et-permis">Droits et permis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.permits"><code class="docutils literal notranslate"><span class="pre">permits</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#entreprises-du-gouvernement">Entreprises du gouvernement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.gov_enterprises"><code class="docutils literal notranslate"><span class="pre">gov_enterprises</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#impot-foncier-scolaire">Impôt foncier scolaire</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.property_taxes"><code class="docutils literal notranslate"><span class="pre">property_taxes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#revenus-divers">Revenus divers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.revenue.miscellaneous_income"><code class="docutils literal notranslate"><span class="pre">miscellaneous_income</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transferts-federaux">Transferts fédéraux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.federal.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.federal.equalization"><code class="docutils literal notranslate"><span class="pre">equalization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.federal.health_transfer"><code class="docutils literal notranslate"><span class="pre">health_transfer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.federal.other_transfers"><code class="docutils literal notranslate"><span class="pre">other_transfers</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#depenses">Dépenses</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sante-et-services-sociaux">Santé et services sociaux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#education-et-culture">Éducation et culture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#economie-et-environnement">Économie et environnement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gouverne-et-justice">Gouverne et justice</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#soutien-aux-familles">Soutien aux familles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simfin.missions.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sante-et-services-sociaux">Santé et services sociaux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.missions.health"><code class="docutils literal notranslate"><span class="pre">health</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#education-et-culture">Éducation et culture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.missions.education"><code class="docutils literal notranslate"><span class="pre">education</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#economie-et-environnement">Économie et environnement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.missions.economy"><code class="docutils literal notranslate"><span class="pre">economy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gouverne-et-justice">Gouverne et justice</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.missions.justice"><code class="docutils literal notranslate"><span class="pre">justice</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#soutien-aux-familles">Soutien aux familles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simfin.missions.family"><code class="docutils literal notranslate"><span class="pre">family</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#service-de-la-dette">Service de la dette</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fonds-des-generations">Fonds des générations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fonds-des-generations">Fonds des générations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simfin.genfund.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#id14">Régimes de retraite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reserve-de-stabilisation">Réserve de stabilisation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dette-publique">Dette publique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reserve-de-stabilisation">Réserve de stabilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simfin.reserve.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dette-publique">Dette publique</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simfin.debt.collector"><code class="docutils literal notranslate"><span class="pre">collector</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Résultats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credits.html">Nous joindre</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">SimFin</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Simulation &amp; fonctions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Simulation &amp; fonctions</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/modelisation.rst.txt" rel="nofollow"> Afficher la source de la page</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="simulation-fonctions">
-<h1>Simulation &amp; fonctions<a class="headerlink" href="#simulation-fonctions" title="Lien permanent vers ce titre">¶</a></h1>
-<div class="section" id="simulateur">
-<h2>Simulateur<a class="headerlink" href="#simulateur" title="Lien permanent vers ce titre">¶</a></h2>
+             
+  <section id="simulation-fonctions">
+<h1>Simulation &amp; fonctions<a class="headerlink" href="#simulation-fonctions" title="Lien vers cette rubrique"></a></h1>
+<section id="simulateur">
+<h2>Simulateur<a class="headerlink" href="#simulateur" title="Lien vers cette rubrique"></a></h2>
 <p>Le simulateur est l’organe principal du module SimFin. Il initialise et contrôle la simulation.</p>
-<span class="target" id="module-simfin"></span><dl class="py class">
+<dl class="py class" id="module-simfin">
 <dt class="sig sig-object py" id="simfin.simulator">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.</span></span><span class="sig-name descname"><span class="pre">simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_report</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_yr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">melt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.</span></span><span class="sig-name descname"><span class="pre">simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_report</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_yr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">melt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe principale pour contrôler le simulateur.</p>
 <p>Cette classe permet d’initialiser les paramètres et réaliser des simulations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start_yr</strong> (<em>int</em>) – année de départ de la projection</p></li>
 <li><p><strong>stop_yr</strong> (<em>int</em>) – année de fin de la projection</p></li>
@@ -215,63 +206,63 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.collect_revenue">
-<span class="sig-name descname"><span class="pre">collect_revenue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_revenue" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">collect_revenue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_revenue" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui comptabilise les comptes de revenus</p>
 <p>La valeur est celle des comptes publics pour les années passées alors que pour les autres années la valeur est celle projetée.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.collect_spending">
-<span class="sig-name descname"><span class="pre">collect_spending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_spending" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">collect_spending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.collect_spending" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui comptabilise les comptes de dépenses</p>
 <p>La valeur est celle des comptes publics pour les années passées alors que pour les autres années la valeur est celle projetée.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_debt">
-<span class="sig-name descname"><span class="pre">init_debt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_debt" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_debt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_debt" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation des comptes de la dette publique.</p>
 <p>Fonction qui crée les comptes de dettes et les initialise avec la valeur de départ provenant de l’historique des comptes publics.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_gfund">
-<span class="sig-name descname"><span class="pre">init_gfund</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_gfund" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_gfund</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_gfund" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation du fonds des générations.</p>
 <p>Fonction qui crée les comptes du fonds des générations et les initialise avec la valeur de départ provenant de l’historique des comptes publics.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_missions">
-<span class="sig-name descname"><span class="pre">init_missions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_missions" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_missions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_missions" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation des dépenses de missions</p>
 <p>Fonction qui crée les comptes de missions et les initialise avec la valeur de départ provenant de l’historique des comptes publics.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_reserve">
-<span class="sig-name descname"><span class="pre">init_reserve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_reserve" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_reserve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_reserve" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation de la réserve de stabilisation.</p>
 <p>Fonction qui crée les comptes de la réserve de stabilisation et les initialise avec la valeur de départ provenant de l’historique des comptes publics.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_revenue">
-<span class="sig-name descname"><span class="pre">init_revenue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_revenue" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_revenue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_revenue" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation des revenus</p>
 <p>Fonction qui crée les comptes de revenus et les initialise avec valeur de départ provenant de l’historique des comptes publics pour l’année de départ.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.init_transfers">
-<span class="sig-name descname"><span class="pre">init_transfers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_transfers" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">init_transfers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.init_transfers" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction d’initialisation des transfers fédéraux</p>
 <p>Fonction qui crée les comptes de transfers fédéraux et les initialise avec la valeur de départ provenant de l’historique des comptes publics.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.load_accounts">
-<span class="sig-name descname"><span class="pre">load_accounts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_accounts" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_accounts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_accounts" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction permettant de charger l’historique des comptes publics.</p>
 <p>L’historique des comptes publics a été comptabilisé pour la période 2006-2021. Cette fonction charge les valeurs des comptes publics et prépare le rapport sommaire (summary report) pour les résultats.</p>
 <p>NB: debt = dette avant gains de change - emprunts réalisés par anticipation</p>
@@ -279,41 +270,41 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.load_params">
-<span class="sig-name descname"><span class="pre">load_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/simfin/params/simpop.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_profiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/simfin/params/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_params" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/simfin/params/simpop.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_profiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/simfin/params/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.load_params" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui charge différents paramètres: a) la projection démographique, b) les statuts économiques par âge et c) les paramètres macroéconomiques.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Arguments de mots-clés</dt>
-<dd class="field-odd"><p><strong>{str} --</strong><strong> [</strong><strong>fichier SimGen</strong><strong>] </strong><strong>(</strong><strong>défaut</strong> (<em>file_pop</em>) – {“module_dir+/simfin/params/simpop.csv”})</p>
+<dt class="field-odd">Arguments de mots-clés<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>défaut</strong> (<em>file_pop {str} --</em><em> [</em><em>fichier SimGen</em><em>]</em>) – {“module_dir+/simfin/params/simpop.csv”})</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.next" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.next" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction de transition.</p>
 <p>Fonction qui permet de faire la transition d’une année à l’autre, qui fait la comptabilisation des comptes publics et qui met à jour la dette.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simfin.simulator.simulate">
-<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nyears</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.simulate" title="Lien permanent vers cette définition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nyears</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.simulator.simulate" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui exécute la projection</p>
 <dl class="field-list simple">
-<dt class="field-odd">Arguments de mots-clés</dt>
-<dd class="field-odd"><p><strong>{int} -- nombre d'année à exécuter</strong><strong> (</strong><strong>défaut</strong> (<em>nyears</em>) – toutes les années jusqu’à stop_yr)</p>
+<dt class="field-odd">Arguments de mots-clés<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>(</strong><strong>défaut</strong> (<em>nyears {int} -- nombre d'année à exécuter</em>) – toutes les années jusqu’à stop_yr)</p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="revenus">
-<h2>Revenus<a class="headerlink" href="#revenus" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+<section id="revenus">
+<h2>Revenus<a class="headerlink" href="#revenus" title="Lien vers cette rubrique"></a></h2>
 <p>SimFin modélise les revenus autonomes et les transferts fédéraux. L’ensemble des agrégats des revenus autonomes et des transferts fédéraux sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">Comptes publics</a>).</p>
-<div class="section" id="revenus-autonomes">
-<h3>Revenus autonomes<a class="headerlink" href="#revenus-autonomes" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="revenus-autonomes">
+<h3>Revenus autonomes<a class="headerlink" href="#revenus-autonomes" title="Lien vers cette rubrique"></a></h3>
 <p>Les revenus autonomes du Québec sont constitués de:</p>
 <ul class="simple">
 <li><p>l’impôt des particuliers (39,1% des revenus autonomes en 2021 selon les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics</a>), subdivisé entre l’impôt à proprement parler et les crédits d’impôt remboursables;</p></li>
@@ -327,18 +318,18 @@
 </ul>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui permet de colliger les revenus autonomes.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="impot-des-particuliers">
-<h3>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="impot-des-particuliers">
+<h3>Impôt des particuliers<a class="headerlink" href="#impot-des-particuliers" title="Lien vers cette rubrique"></a></h3>
 <p>L’impôt des particuliers est modélisé à l’aide de la structure démographique issue de SimGen et des équations estimées avec la BDSPS sur le taux d’emploi et les revenus du travail annuels en fonction de plusieurs caractéristiques (âge, niveau de scolarité, état matrimonial, nombre d’enfants et sexe). On y ajoute également le revenu imposable résiduel ne provenant pas du travail (<a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">Profils économiques par âge</a>). Par la suite, il est calibré à l’année de départ afin d’être aligné sur le montant correspondant aux comptes publics. Cet alignement est gardé constant dans le futur. L’impôt par âge croît annuellement en fonction de la croissance des salaires.</p>
 <p>Entre 2015 et 2021, ces revenus ont crû au rythme de 4,2% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.personal_taxes">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">personal_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">personal_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_taxes" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt des particuliers.</p>
 </dd></dl>
 
@@ -347,10 +338,10 @@
 <p>Entre 2015 et 2021, ces dépenses fiscales ont crû au rythme de 4,03% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.personal_credits">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">personal_credits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">personal_credits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.personal_credits" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des particuliers.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
@@ -359,14 +350,14 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="impot-des-societes">
-<h3>Impôt des sociétés<a class="headerlink" href="#impot-des-societes" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="impot-des-societes">
+<h3>Impôt des sociétés<a class="headerlink" href="#impot-des-societes" title="Lien vers cette rubrique"></a></h3>
 <p>L’impôt des sociétés croît au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, ces revenus ont crû au rythme de 7,56% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.corporate_taxes">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">corporate_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">corporate_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_taxes" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt des sociétés.</p>
 </dd></dl>
 
@@ -374,77 +365,77 @@
 <p>Entre 2015 et 2021, ces dépenses fiscales ont diminué au rythme de 0,2% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.corporate_credits">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">corporate_credits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">corporate_credits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.corporate_credits" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les crédits d’impôt remboursables des sociétés.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="cotisations-au-fss">
-<h3>Cotisations au FSS<a class="headerlink" href="#cotisations-au-fss" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="cotisations-au-fss">
+<h3>Cotisations au FSS<a class="headerlink" href="#cotisations-au-fss" title="Lien vers cette rubrique"></a></h3>
 <p>Dans SimFin, les cotisations au FSS, provenant largement des entreprises, croissent au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, ces revenus ont augmenté au rythme de 0,15% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.fss">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">fss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">fss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.fss" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les cotisations au Fonds des services de santé (FSS).</p>
 </dd></dl>
 
-</div>
-<div class="section" id="taxes-a-la-consommation">
-<h3>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="taxes-a-la-consommation">
+<h3>Taxes à la consommation<a class="headerlink" href="#taxes-a-la-consommation" title="Lien vers cette rubrique"></a></h3>
 <p>Les revenus provenant des taxes à la consommation sont affectés par la structure démographique de SimGen et les équations estimées avec la BDSPS (voir les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">Profils économiques par âge</a>) en fonction de diverses caractéristiques (dont l’âge et le niveau de scolarité). Par ailleurs, SimFin prend en compte le fait que l’inflation et les salaires font croître la consommation et par le fait même les taxes à la consommation.</p>
 <p>Entre 2015 et 2021, ces revenus ont crû au rythme de 2,37% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.consumption">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">consumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.consumption" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les taxes à la consommation.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="droits-et-permis">
-<h3>Droits et permis<a class="headerlink" href="#droits-et-permis" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="droits-et-permis">
+<h3>Droits et permis<a class="headerlink" href="#droits-et-permis" title="Lien vers cette rubrique"></a></h3>
 <p>Dans SimFin, les revenus de droits et permis croissent au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, ces revenus ont crû au rythme de 9,64% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.permits">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">permits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">permits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.permits" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les revenus issus des droits et permis.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="entreprises-du-gouvernement">
-<h3>Entreprises du gouvernement<a class="headerlink" href="#entreprises-du-gouvernement" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="entreprises-du-gouvernement">
+<h3>Entreprises du gouvernement<a class="headerlink" href="#entreprises-du-gouvernement" title="Lien vers cette rubrique"></a></h3>
 <p>Dans SimFin, les revenus provenant des entreprises du gouvernement croissent au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, ces revenus ont diminué au rythme de 7,01% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.gov_enterprises">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">gov_enterprises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">gov_enterprises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.gov_enterprises" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les revenus provenant des entreprises du gouvernement provincial.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="impot-foncier-scolaire">
-<h3>Impôt foncier scolaire<a class="headerlink" href="#impot-foncier-scolaire" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="impot-foncier-scolaire">
+<h3>Impôt foncier scolaire<a class="headerlink" href="#impot-foncier-scolaire" title="Lien vers cette rubrique"></a></h3>
 <p>Dans SimFin, les revenus provenant des taxes scolaires croissent au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, ces revenus ont diminué au rythme de 8,25% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.property_taxes">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">property_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.property_taxes" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">property_taxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.property_taxes" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer l’impôt foncier.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="revenus-divers">
-<h3>Revenus divers<a class="headerlink" href="#revenus-divers" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="revenus-divers">
+<h3>Revenus divers<a class="headerlink" href="#revenus-divers" title="Lien vers cette rubrique"></a></h3>
 <p>Les revenus divers incluent les revenus de placements du Fonds des générations (6,55% des revenus divers en 2021) et un ensemble hétéroclite de revenus, tels que les ventes de biens et services, les contributions des usagers, les intérêts sur les débiteurs et les prêts, les amendes, confiscations et recouvrements et les donations de tiers.</p>
 <p>La modélisation des revenus de placements du Fonds des générations est présentée dans un <a class="reference external" href="https://creei-models.github.io/simfin/modelisation.html#fonds-des-generations">onglet dédié au Fonds des générations</a>. Le résidu des revenus divers croît au rythme du PIB nominal (PIB réel + inflation).</p>
 <p>Entre 2015 et 2021, les revenus divers hors revenus de placements du FDG ont crû au rythme de 1,48% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.revenue.miscellaneous_income">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">miscellaneous_income</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.miscellaneous_income" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.revenue.</span></span><span class="sig-name descname"><span class="pre">miscellaneous_income</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.revenue.miscellaneous_income" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer toutes les revenus divers (dont une partie sont les revenus de placement du FDG)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
@@ -453,13 +444,13 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="transferts-federaux">
-<h3>Transferts fédéraux<a class="headerlink" href="#transferts-federaux" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="transferts-federaux">
+<h3>Transferts fédéraux<a class="headerlink" href="#transferts-federaux" title="Lien vers cette rubrique"></a></h3>
 <p>Trois transferts fédéraux sont modélisés: les paiements de péréquation (43,8% de l’ensemble des transferts fédéraux en 2020 selon les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics</a>), le transfert en santé (22,5% des transferts fédéraux) et la somme des autres transfers (33,8% des transferts fédéraux).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.federal.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui permet de colliger les transferts issus du gouvernement fédéral.</p>
 </dd></dl>
 
@@ -468,10 +459,10 @@
 <p>Entre 2015 et 2021, ce transfert a crû au rythme de 6,11% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.federal.equalization">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">equalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">equalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.equalization" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les revenus issus de la péréquation et de la formule de financement des territoires (FFT).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
@@ -486,10 +477,10 @@
 <p>Entre 2015 et 2021, ce transfert a crû au rythme de 4,3% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.federal.health_transfer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">health_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">health_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.health_transfer" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer le transfert canadien en matière de santé (TCS).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
@@ -504,10 +495,10 @@
 <p>Entre 2015 et 2021, ces transferts ont crû au rythme de 7,66% par année (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.federal.other_transfers">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">other_transfers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.federal.</span></span><span class="sig-name descname"><span class="pre">other_transfers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.federal.other_transfers" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les autres transferts fédéraux.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance potentielle du PIB réel.</p></li>
@@ -517,10 +508,10 @@
 </dl>
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="depenses">
-<h2>Dépenses<a class="headerlink" href="#depenses" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+</section>
+<section id="depenses">
+<h2>Dépenses<a class="headerlink" href="#depenses" title="Lien vers cette rubrique"></a></h2>
 <p>Les dépenses sont organisées par mission. Cinq missions sont prises en compte:</p>
 <ul class="simple">
 <li><p>santé et services sociaux  (43,2% de l’ensemble des dépenses des missions en 2020 selon les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">comptes publics</a>);</p></li>
@@ -533,21 +524,21 @@
 <p>L’ensemble des agrégats des dépenses par mission sont présentés dans le tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">Comptes publics</a>).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction qui permet de colliger les dépenses des missions.</p>
 </dd></dl>
 
-<div class="section" id="sante-et-services-sociaux">
-<h3>Santé et services sociaux<a class="headerlink" href="#sante-et-services-sociaux" title="Lien permanent vers ce titre">¶</a></h3>
+<section id="sante-et-services-sociaux">
+<h3>Santé et services sociaux<a class="headerlink" href="#sante-et-services-sociaux" title="Lien vers cette rubrique"></a></h3>
 <p>Les dépenses de santé et de services sociaux sont calculées à partir du fichier démographique provenant de SimGen et des données de <a class="reference external" href="https://www.cihi.ca/fr">l’Institut canadien d’information en santé entre 1998 et 2019</a> (fichier <a class="reference external" href="https://www.cihi.ca/fr">« données ouvertes »</a>) sur les dépenses per capita pour les médecins, hôpitaux, autres établissements (soins de longue durée), médicaments et autres professionnels. Les dépenses per capita par âge et par sexe sont calculées à partir de ces données ainsi que les taux de croissance, en dollars réels par âge et sexe pour chacune des catégories, mais aussi pour l’ensemble des catégories (dépenses totales de santé). Dans SimFin, la croissance en dollars réels des dépenses per capita suit les taux observés par âge et par sexe pour chacune des catégories, pour converger à l’horizon 2030 sur les taux par âge et sexe observés pour le total des dépenses per capita. Cela garantit une certaine stabilité des dépenses per capita pour chacun des postes de l’ICIS à l’horizon 2030.</p>
 <p>Une calibration est faite pour l’année de départ afin que le total des dépenses provenant des données de l’ICIS appliqué à la structure démographique de SimGen concorde avec les dépenses totales observées aux comptes publics. Le facteur d’alignement est maintenu fixe pour la période projection.</p>
 <p>L’historique des dépenses de la mission « Santé et services sociaux » présente une augmentation au rythme de 3,95% par année entre 2015 et 2021 (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.health">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">health</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.health" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">health</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.health" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Santé et services sociaux.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
@@ -556,9 +547,9 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="education-et-culture">
-<h3>Éducation et culture<a class="headerlink" href="#education-et-culture" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="education-et-culture">
+<h3>Éducation et culture<a class="headerlink" href="#education-et-culture" title="Lien vers cette rubrique"></a></h3>
 <p>L’historique des dépenses de la mission « Éducation et culture » présente une augmentation au rythme de 4,11% par année entre 2015 et 2021 (en valeur nominale; calculs à partir du tableau de la section <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#comptes-publics">Comptes publics</a>).</p>
 <p>Dans SimFin, les dépenses d’éducation sont calculées à partir du fichier démographique provenant de SimGen et des données des coûts par étudiant provenant des rapports de gestion du ministère de l’Éducation. La part des dépenses de la culture est maintenue constante à l’intérieur de la mission éducation et culture. Afin de projeter les dépenses en éducation, nous alignons d’abord les dépenses provenant de la structure démographique de SimGen et des coûts par étudiant afin d’obtenir le montant réalisé aux comptes publics. Le facteur d’alignement est maintenu fixe par la suite.</p>
 <p>La croissance structurelle des dépenses réelles d’éducation après 2021 est égale à 2,0% par an pour chaque élève du primaire et du secondaire (tous les individus en formation jusqu’à 17 ans dans SimFin) et elle est égale à 0,3% par an pour chaque étudiant du postsecondaire (tous les individus en formation de 18 à 34 ans dans SimFin).</p>
@@ -571,10 +562,10 @@
 <p>Nous excluons les taux de croissance annuels entre 2005-2006 et 2006-2007 et entre 2006-2007 et 2007-2008 en raison d’une réforme comptable que le Québec a mise en place (<a class="reference external" href="https://creei.ca/wp-content/uploads/2019/08/cahier_16-08_perspectives.pdf">Clavet et al. 2016</a>). De plus, nous excluons l’année 2010-2011 pour le postsecondaire en raison d’une autre réforme comptable (voir les détails du tableau <a class="reference external" href="https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710002701">37-10-0027-01</a>). Par conséquent, N=12 pour le primaire/secondaire et N=11 pour le postsecondaire.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.education">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">education</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.education" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">education</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.education" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Éducation et culture.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>iprice</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du niveau général des prix.</p></li>
@@ -583,17 +574,17 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="economie-et-environnement">
-<h3>Économie et environnement<a class="headerlink" href="#economie-et-environnement" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="economie-et-environnement">
+<h3>Économie et environnement<a class="headerlink" href="#economie-et-environnement" title="Lien vers cette rubrique"></a></h3>
 <p>Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.</p>
 <p>L’historique des dépenses de la mission « Économie et environnement » présente une augmentation au rythme de 5,04% par année entre 2015 et 2021 (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.economy">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">economy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.economy" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">economy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.economy" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Économie et environnement.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
@@ -602,17 +593,17 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="gouverne-et-justice">
-<h3>Gouverne et justice<a class="headerlink" href="#gouverne-et-justice" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="gouverne-et-justice">
+<h3>Gouverne et justice<a class="headerlink" href="#gouverne-et-justice" title="Lien vers cette rubrique"></a></h3>
 <p>Nous supposons que ces dépenses augmentent au même rythme que le PIB potentiel.</p>
 <p>L’historique des dépenses de la mission « Gouverne et justice » présente une augmentation au rythme de 8,79% par année entre 2015 et 2021 (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.justice">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">justice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.justice" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">justice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.justice" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission Gouverne et Justice.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
@@ -621,17 +612,17 @@
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="soutien-aux-familles">
-<h3>Soutien aux familles<a class="headerlink" href="#soutien-aux-familles" title="Lien permanent vers ce titre">¶</a></h3>
+</section>
+<section id="soutien-aux-familles">
+<h3>Soutien aux familles<a class="headerlink" href="#soutien-aux-familles" title="Lien vers cette rubrique"></a></h3>
 <p>Les dépenses de soutien aux familles se subdivisent entre trois composantes: 1) l’allocation famille et le crédit d’impôt pour les frais de garde d’enfants, qui sont fonction de la structure démographique et des équations provenant d’estimations sur la BDSPS (voir les <a class="reference external" href="https://creei-models.github.io/simfin/intrants.html#profils-economiques-par-age">Profils économiques par âge</a>) – ces dépenses croissent en fonction des salaires; 2) les dépenses du ministère de la Famille pour les centres de la petite enfance (CPE), les garderies et les services de garde en milieu familial, qui croissent en fonction du nombre d’enfants âgés de 0 à 4 ans et des salaires; et 3) un résidu qui croît au même rythme que le PIB potentiel.</p>
 <p>L’historique des dépenses de la mission « Soutien aux familles » présente une augmentation au rythme de 2,59% par année entre 2015 et 2021 (en valeur nominale).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.missions.family">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">family</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.family" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.missions.</span></span><span class="sig-name descname"><span class="pre">family</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">igdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.missions.family" title="Lien vers cette définition"></a></dt>
 <dd><p>Classe permettant d’intégrer les dépenses de la mission de Soutien aux familles.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>igdp</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance du PIB.</p></li>
 <li><p><strong>ipop</strong> (<em>boolean</em>) – Switch pour intégrer ou non la croissance de la population.</p></li>
@@ -640,10 +631,10 @@
 </dl>
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="service-de-la-dette">
-<h2>Service de la dette<a class="headerlink" href="#service-de-la-dette" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+</section>
+<section id="service-de-la-dette">
+<h2>Service de la dette<a class="headerlink" href="#service-de-la-dette" title="Lien vers cette rubrique"></a></h2>
 <p>(A noter : la décomposition du service de la dette dans cette section est présentée jusqu’en 2020, car elle n’est pas encore disponible pour l’année 2021)</p>
 <p>Le service de la dette est composé:</p>
 <ul class="simple">
@@ -654,16 +645,16 @@
 Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en y ajoutant une prime de risque.</p>
 <p>La prime de risque est calculée à partir de la part de la dette nette dans le PIB au Québec entre 1992 et 2018 (au niveau annuel) et à partir d’un indicateur de coût de la dette, qui mesure l’écart entre le taux d’intérêt des obligations à 10 ans pour le gouvernement du Québec et le taux d’intérêt des obligations à 10 ans pour le gouvernement fédéral (annualisé). L’indicateur sur les taux d’intérêt des obligations à 10 ans est régressé sur la part de la dette nette dans le PIB à partir d’un modèle de régression linéaire en moindres carrés ordinaire (MCO). Le résultat indique que l’augmentation d’un point de pourcentage de la part de la dette nette dans le PIB se traduit par une augmentation de la prime de risque de 0,015 point de pourcentage au Québec.</p>
 <p>La seconde composante du service de la dette est présentée dans l’onglet <a class="reference external" href="https://creei-models.github.io/simfin/modelisation.html#id14">Régimes de retraite</a>.</p>
-<table class="colwidths-given docutils align-default" id="id18">
-<caption><span class="caption-text">Service de la dette 2015-2020</span><a class="headerlink" href="#id18" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Service de la dette 2015-2020</span><a class="headerlink" href="#id18" title="Lien vers ce tableau"></a></caption>
 <colgroup>
-<col style="width: 31%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col style="width: 30.8%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
@@ -750,18 +741,18 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="fonds-des-generations">
-<h2>Fonds des générations<a class="headerlink" href="#fonds-des-generations" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+<section id="fonds-des-generations">
+<h2>Fonds des générations<a class="headerlink" href="#fonds-des-generations" title="Lien vers cette rubrique"></a></h2>
 <p>Le Fonds des générations établit des cotisations provenant de revenus autonomes et de placements. Ces cotisations sont enregistrées au Fonds, et déduites du solde budgétaire. Par ailleurs, le solde du Fonds des générations est déduit de la dette publique afin de calculer la dette brute. Les revenus autonomes du Fonds sont prescrits par la loi et annoncés pour les années 2022 à 2026 au <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf">budget 2021-2022</a>. Ces revenus proviennent en majorité de la taxe sur les boissons alcoolisées et de l’exploitation des ressources hydrauliques et minières. Les revenus de placements sont par ailleurs modélisés en utilisant la moyenne historique du taux de rendement effectif au Fonds, soit 4,85% (nominal). Ce même taux est supposé fixe dans le futur. Par ailleurs, nous ne prenons pas en considération l’incertitude reliée aux fluctuations de marché sur ce taux de rendement.</p>
 <p>En 2026, nous faisons l’hypothèse que le solde comptable du Fonds est appliqué à la dette et maintenu à zéro par la suite. Il est possible, dans le cadre de scénarios, de modifier cette hypothèse.</p>
 <p>Le tableau suivant compare les projections de SimFin avec les prévisions établies dans le plan budgétaire publié en mars 2021.</p>
-<table class="colwidths-given docutils align-default" id="id19">
-<caption><span class="caption-text">Évolution du solde comptable du Fonds des générations (millions de dollars) selon le plan budgétaire et selon SimFin</span><a class="headerlink" href="#id19" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Évolution du solde comptable du Fonds des générations (millions de dollars) selon le plan budgétaire et selon SimFin</span><a class="headerlink" href="#id19" title="Lien vers ce tableau"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Année</p></th>
@@ -798,31 +789,31 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.genfund.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.genfund.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.genfund.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.genfund.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.genfund.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction permettant de colliger les revenus qui abondent le Fonds des générations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>init_balance</strong> (<em>float</em>) – Montant du stock du Fonds des générations l’année d’initialisation du modèle.</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="id14">
-<h2>Régimes de retraite<a class="headerlink" href="#id14" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+<section id="id14">
+<h2>Régimes de retraite<a class="headerlink" href="#id14" title="Lien vers cette rubrique"></a></h2>
 <p>Le passif au titre des régimes de retraite et des autres avantages sociaux futurs correspond aux régimes de retraite et d’avantages sociaux des employés du secteur public et du secteur parapublic. Entre 2015 et 2021, le passif est passé de
 28 172 millions de dollars à 12 287 millions de dollars. Cette diminution s’explique essentiellement par une augmentation rapide du Fonds d’amortissement des régimes de retraite (FARR), dont le taux de croissance annuel moyen est égal à 9,9% entre 2015 à 2020. La contrepartie de ces actifs, c’est-à-dire les obligations relatives aux prestations acquises, ont quant à elles augmenté de seulement 4,5% en moyenne entre 2015 et 2020 (les détails du passif net pour l’année 2021 ne sont pas présentées dans le tableau ci-contre car elles ne sont pas encore disponibles).</p>
-<table class="colwidths-given docutils align-default" id="id20">
-<caption><span class="caption-text">Passif au titre des régimes de retraite et des autres avantages sociaux futurs</span><a class="headerlink" href="#id20" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Passif au titre des régimes de retraite et des autres avantages sociaux futurs</span><a class="headerlink" href="#id20" title="Lien vers ce tableau"></a></caption>
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
+<col style="width: 27.6%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
@@ -927,17 +918,17 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 <li><p>Après 2020, les compensations, les variations des obligations à l’égard de certains crédits de rente, les transferts de régimes, les modifications de régimes et les gains ou pertes actuarielles sont égales à la moyenne de leur valeur (en dollars réels) entre 2009 et 2020.</p></li>
 <li><p>Les gains ou pertes actuariels non amortis après 2020 sont égaux à la valeur en 2020 (en dollars constants), soit 4 440 millions de dollars.</p></li>
 </ul>
-<table class="colwidths-given docutils align-default" id="id21">
-<caption><span class="caption-text">Obligations relatives aux prestations acquises des régimes de retraite#</span><a class="headerlink" href="#id21" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Obligations relatives aux prestations acquises des régimes de retraite#</span><a class="headerlink" href="#id21" title="Lien vers ce tableau"></a></caption>
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
+<col style="width: 27.6%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
+<col style="width: 10.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
@@ -1072,16 +1063,16 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 </table>
 <p>#les données pour l’année 2021 ne sont pas encore disponibles dans les comptes publics. Dans le tableau, les données pour cette année-là correspondent à des estimations réalisées à partir des comptes publics par les auteurs.</p>
 <p>Les projections réalisées avec les hypothèses susmentionnées aboutissent à des résultats équivalents aux estimations du <a class="reference external" href="http://www.budget.finances.gouv.qc.ca/budget/2021-2022/fr/documents/PlanBudgetaire_2122.pdf">budget 2021-2022</a>, tel que présenté dans le tableau ci-dessous. Après 2025, on pose l’hypothèse que le passif des régimes de retraite et des autres avantages sociaux futurs est égal à 0, de manière telle que les actifs compensent parfaitement les obligations correspondantes.</p>
-<table class="colwidths-given docutils align-default" id="id22">
-<caption><span class="caption-text">Estimation du passif net des régimes de retraite et autres avantages sociaux futurs et comparaison avec les projections du Budget 2021-2022</span><a class="headerlink" href="#id22" title="Lien permanent vers ce tableau">¶</a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Estimation du passif net des régimes de retraite et autres avantages sociaux futurs et comparaison avec les projections du Budget 2021-2022</span><a class="headerlink" href="#id22" title="Lien vers ce tableau"></a></caption>
 <colgroup>
-<col style="width: 31%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col style="width: 30.8%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Comptes (en millions)</p></th>
@@ -1112,24 +1103,24 @@ Le taux obtenu est utilisé pour toutes les années de projection de SimFin, en 
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="reserve-de-stabilisation">
-<h2>Réserve de stabilisation<a class="headerlink" href="#reserve-de-stabilisation" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+<section id="reserve-de-stabilisation">
+<h2>Réserve de stabilisation<a class="headerlink" href="#reserve-de-stabilisation" title="Lien vers cette rubrique"></a></h2>
 <p>Dans SimFin, la réserve de stabilisation est une résultante du solde budgétaire; elle n’a pas d’effets sur les décisions du gouvernement du Québec en termes de dépenses et de revenus.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.reserve.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.reserve.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.reserve.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.reserve.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.reserve.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction permettant de colliger les revenus qui abondent la réserve de stabilisation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>init_balance</strong> (<em>float</em>) – Montant du stock sur la réserve de stabilisation l’année d’initialisation du modèle.</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="dette-publique">
-<h2>Dette publique<a class="headerlink" href="#dette-publique" title="Lien permanent vers ce titre">¶</a></h2>
+</section>
+<section id="dette-publique">
+<h2>Dette publique<a class="headerlink" href="#dette-publique" title="Lien vers cette rubrique"></a></h2>
 <p>Pour modéliser la dette brute, nous partons de l’identité suivante:</p>
 <div class="math notranslate nohighlight">
 \[DB_t = D_t + R_t - FDG_t\]</div>
@@ -1154,64 +1145,47 @@ Les dynamiques du <a class="reference external" href="https://creei-models.githu
 <p>La dette brute est ensuite simplement calculée en utilisant la première équation ci-dessus.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="simfin.debt.collector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">simfin.debt.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.debt.collector" title="Lien permanent vers cette définition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simfin.debt.</span></span><span class="sig-name descname"><span class="pre">collector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_balance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simfin.debt.collector" title="Lien vers cette définition"></a></dt>
 <dd><p>Fonction permettant de colliger le déficit public dans la dette du gouvernement provincial.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Paramètres</dt>
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>init_balance</strong> (<em>float</em>) – Montant de la dette publique du gouvernement provincial pour l’année d’initialisation du modèle.</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="results.html" class="btn btn-neutral float-right" title="Résultats" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
         <a href="intrants.html" class="btn btn-neutral float-left" title="Intrants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="results.html" class="btn btn-neutral float-right" title="Résultats" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Équipe CREEi.
-
-    </p>
+    <p>&#169; Droits d'auteur 2024, Équipe CREEi.</p>
   </div>
-    
-    
-    
-    Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
-    
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
-    
-    fourni par <a href="https://readthedocs.org">Read the Docs</a>. 
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
